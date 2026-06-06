@@ -223,7 +223,7 @@
   .yt-title{font-size:clamp(30px,4vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.12;color:#fff;}
   .yt-title .en{font-family:var(--en);color:#fff;}
   .yt-handle{font-family:var(--mono);font-size:13px;color:#9C9389;margin-top:14px;letter-spacing:.04em;}
-  .yt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:30px 24px;}
+  .yt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px 24px;}
   .yt-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
   .yt-player{position:relative;width:100%;max-width:1000px;margin:0 auto;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 26px 70px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.08);}
   .yt-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;}
@@ -437,6 +437,9 @@
     .hero-en{font-size:18px;}
     .yt{padding:72px 0;}
     .yt-player{border-radius:14px;}
+    .yt-grid{display:flex;overflow-x:auto;gap:14px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:10px;scroll-padding:0 18px;scrollbar-width:none;}
+    .yt-grid::-webkit-scrollbar{display:none;}
+    .yt-card{flex:0 0 80%;scroll-snap-align:start;}
     .tool-grid{grid-template-columns:1fr;}
     .quote blockquote{font-size:26px;}
     .form-card{padding:24px;}
@@ -572,8 +575,6 @@
       <a class="yt-card" href="https://www.youtube.com/watch?v=OsKyt1uHs7A" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/OsKyt1uHs7A/hqdefault.jpg" alt="" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">[2탄] 클로드 AI 블로그 자동화의 현실 (Claude) | 치명적 오류 해결법과 NotebookLM 딥리서치 세팅</div><div class="vc">▶ YouTube에서 보기</div></div></a>
       <a class="yt-card" href="https://www.youtube.com/watch?v=lQuFItoPlB0" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/lQuFItoPlB0/hqdefault.jpg" alt="" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">클로드 오푸스 4.8 드디어 떴다🚀 가격 그대로 성능만 미쳤음</div><div class="vc">▶ YouTube에서 보기</div></div></a>
       <a class="yt-card" href="https://www.youtube.com/watch?v=OjuzZ2HL88A" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/OjuzZ2HL88A/hqdefault.jpg" alt="" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">AI가 내 이미지를 읽기 시작했다? 대세는 'AI 가이드형 시각 검색' 대응법 | Bing AI</div><div class="vc">▶ YouTube에서 보기</div></div></a>
-      <a class="yt-card" href="https://www.youtube.com/watch?v=9uSAs08JKwA" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/9uSAs08JKwA/hqdefault.jpg" alt="" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">[1탄] 클로드 AI 블로그 자동화의 현실 | 100% 무인화가 위험한 이유와 필수 워크플로우</div><div class="vc">▶ YouTube에서 보기</div></div></a>
-      <a class="yt-card" href="https://www.youtube.com/watch?v=_apsvuYz-s0" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/_apsvuYz-s0/hqdefault.jpg" alt="" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">아이디어 하나로 2시간 만에 AI 앱 개발부터 수익화까지! (클로드 코드 + 노트북LM 완벽 가이드)</div><div class="vc">▶ YouTube에서 보기</div></div></a>
     </div>
     <div class="yt-foot reveal">
       <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener" class="btn btn-outline-light">채널 전체보기 → @mikukjubu</a>
@@ -790,7 +791,7 @@
       if(!res.ok) return;
       const xml = await res.text();
       const doc = new DOMParser().parseFromString(xml, 'text/xml');
-      const entries = [...doc.getElementsByTagName('entry')].slice(0, 6);
+      const entries = [...doc.getElementsByTagName('entry')].slice(0, 3);
       if(entries.length < 2) return;
       const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
       const cards = entries.map(e => {
