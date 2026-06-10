@@ -572,9 +572,9 @@
       </div>
     </div>
     <div class="yt-grid reveal" id="ytGrid">
+      <a class="yt-card" href="https://www.youtube.com/watch?v=EizgJIBgO4w" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/EizgJIBgO4w/hqdefault.jpg" alt="" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">미국 드롭쉬핑 & 틱톡샵 주간 트렌드 분석 | 잘 팔리는 제품 소싱 (파더스데이 준비!)</div><div class="vc">▶ YouTube에서 보기</div></div></a>
       <a class="yt-card" href="https://www.youtube.com/watch?v=OsKyt1uHs7A" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/OsKyt1uHs7A/hqdefault.jpg" alt="" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">[2탄] 클로드 AI 블로그 자동화의 현실 (Claude) | 치명적 오류 해결법과 NotebookLM 딥리서치 세팅</div><div class="vc">▶ YouTube에서 보기</div></div></a>
       <a class="yt-card" href="https://www.youtube.com/watch?v=lQuFItoPlB0" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/lQuFItoPlB0/hqdefault.jpg" alt="" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">클로드 오푸스 4.8 드디어 떴다🚀 가격 그대로 성능만 미쳤음</div><div class="vc">▶ YouTube에서 보기</div></div></a>
-      <a class="yt-card" href="https://www.youtube.com/watch?v=OjuzZ2HL88A" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/OjuzZ2HL88A/hqdefault.jpg" alt="" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">AI가 내 이미지를 읽기 시작했다? 대세는 'AI 가이드형 시각 검색' 대응법 | Bing AI</div><div class="vc">▶ YouTube에서 보기</div></div></a>
     </div>
     <div class="yt-foot reveal">
       <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener" class="btn btn-outline-light">채널 전체보기 → @mikukjubu</a>
@@ -782,27 +782,35 @@
   }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
 
-  // auto-refresh: pull latest videos from channel RSS (falls back to hardcoded cards if offline)
+  // auto-refresh: always show the latest 3 videos from channel RSS.
+  // Only replaces the grid when 3 valid videos are parsed; otherwise the hardcoded 3 stay.
   (async function(){
     try{
       const ch = 'UCssWRwTEAY-UY7X7lvFi80w';
       const feed = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + ch;
       const res = await fetch('https://api.allorigins.win/raw?url=' + encodeURIComponent(feed));
       if(!res.ok) return;
-      const xml = await res.text();
-      const doc = new DOMParser().parseFromString(xml, 'text/xml');
-      const entries = [...doc.getElementsByTagName('entry')].slice(0, 3);
-      if(entries.length < 2) return;
+      const doc = new DOMParser().parseFromString(await res.text(), 'text/xml');
       const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-      const cards = entries.map(e => {
-        const link = e.querySelector('link') ? e.querySelector('link').getAttribute('href') : '';
-        const m = link.match(/[?&]v=([^&]+)/);
-        const id = m ? m[1] : '';
-        const title = e.getElementsByTagName('title')[0] ? e.getElementsByTagName('title')[0].textContent : '';
-        if(!id) return '';
-        return '<a class="yt-card" href="https://www.youtube.com/watch?v=' + id + '" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/' + id + '/hqdefault.jpg" alt="" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">' + esc(title) + '</div><div class="vc">▶ YouTube에서 보기</div></div></a>';
-      }).join('');
-      if(cards) document.getElementById('ytGrid').innerHTML = cards;
+      const items = [];
+      for(const e of doc.getElementsByTagName('entry')){
+        let id = '';
+        const vid = e.getElementsByTagName('yt:videoId')[0] || e.getElementsByTagName('videoId')[0];
+        if(vid && vid.textContent) id = vid.textContent.trim();
+        if(!id){
+          const link = e.querySelector('link') ? e.querySelector('link').getAttribute('href') : '';
+          const m = (link || '').match(/[?&]v=([^&]+)/);
+          if(m) id = m[1];
+        }
+        const t = e.getElementsByTagName('title')[0];
+        if(id) items.push({ id: id, title: t ? t.textContent : '' });
+        if(items.length >= 3) break;
+      }
+      if(items.length >= 3){
+        document.getElementById('ytGrid').innerHTML = items.map(v =>
+          '<a class="yt-card" href="https://www.youtube.com/watch?v=' + v.id + '" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg" alt="" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">' + esc(v.title) + '</div><div class="vc">▶ YouTube에서 보기</div></div></a>'
+        ).join('');
+      }
     }catch(err){ /* keep hardcoded fallback */ }
   })();
 </script>
