@@ -406,6 +406,18 @@
   .tab-btn:hover{border-color:var(--ink);color:var(--ink);}
   .tab-btn.active{background:var(--ink);color:#fff;border-color:var(--ink);}
   .tab-btn.active .tb-en{opacity:.6;}
+  .sec-disclosure{margin-top:14px;font-size:13px;line-height:1.6;color:var(--ink-3,#9C9389);max-width:760px;}
+  .sec-disclosure a{color:var(--coral);text-decoration:none;font-weight:600;}
+  .ft-legal a{color:#9C9389;text-decoration:none;}
+  .ft-legal a:hover{color:#fff;}
+  .legal-page{max-width:760px;margin:0 auto;padding:120px 24px 90px;}
+  .legal-page h1{font-size:clamp(28px,5vw,40px);font-weight:800;letter-spacing:-.03em;margin-bottom:8px;}
+  .legal-page .updated{font-family:var(--mono);font-size:12px;color:#9C9389;margin-bottom:36px;}
+  .legal-page h2{font-size:19px;font-weight:700;margin:30px 0 10px;}
+  .legal-page p,.legal-page li{font-size:15.5px;line-height:1.8;color:var(--ink-2,#6B5D54);}
+  .legal-page ul{padding-left:20px;margin:8px 0;}
+  .legal-page a{color:var(--coral);text-decoration:none;font-weight:600;}
+  .legal-back{display:inline-flex;align-items:center;gap:7px;margin-top:40px;font-weight:700;color:var(--ink);text-decoration:none;}
   .tab-panel{display:none;}
   .tab-panel.active{display:block;animation:fadeUp .5s cubic-bezier(.2,.7,.3,1);}
   @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
@@ -654,6 +666,7 @@
       <span class="eyebrow">Tools I actually use</span>
       <h2 class="sec-title">추천 프로그램</h2>
       <p class="sec-sub">제가 직접 쓰면서 검증한 도구들입니다. 카테고리를 골라 살펴보세요.</p>
+      <p class="sec-disclosure">※ 아래 링크 중 일부는 제휴(affiliate) 링크로, 이를 통해 가입·구매하시면 추가 비용 없이 제게 소정의 수수료가 지급될 수 있습니다. 제가 실제로 써본 도구만 추천합니다. <a href="/disclosure.html">자세히 →</a></p>
     </div>
 
     <div class="tabs-bar reveal" role="tablist">
@@ -762,6 +775,7 @@
           <input type="hidden" name="_subject" value="미국주부 사이트 새 문의 도착" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://mikukjubu.com/thanks.html" />
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div class="field">
             <label for="cf-name">이름</label>
@@ -813,7 +827,7 @@
     </div>
     <div class="ft-bot">
       <span>© 2026 미국주부 · Mompreneur Diary. All rights reserved.</span>
-      <span>YOUTUBE @MIKUKJUBU</span>
+      <span class="ft-legal"><a href="/privacy.html">개인정보처리방침</a> · <a href="/disclosure.html">제휴 공시</a></span>
     </div>
   </div>
 </footer>

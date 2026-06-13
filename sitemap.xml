@@ -15,4 +15,16 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://mikukjubu.com/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/" />
   </url>
+  <url>
+    <loc>https://mikukjubu.com/disclosure.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/disclosure.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mikukjubu.com/en/disclosure.html" />
+  </url>
+  <url>
+    <loc>https://mikukjubu.com/privacy.html</loc>
+    <lastmod>2026-06-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mikukjubu.com/en/privacy.html" />
+  </url>
 </urlset>

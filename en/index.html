@@ -406,6 +406,10 @@
   .tab-btn:hover{border-color:var(--ink);color:var(--ink);}
   .tab-btn.active{background:var(--ink);color:#fff;border-color:var(--ink);}
   .tab-btn.active .tb-en{opacity:.6;}
+  .sec-disclosure{margin-top:14px;font-size:13px;line-height:1.6;color:var(--ink-3,#9C9389);max-width:760px;}
+  .sec-disclosure a{color:var(--coral);text-decoration:none;font-weight:600;}
+  .ft-legal a{color:#9C9389;text-decoration:none;}
+  .ft-legal a:hover{color:#fff;}
   .tab-panel{display:none;}
   .tab-panel.active{display:block;animation:fadeUp .5s cubic-bezier(.2,.7,.3,1);}
   @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
@@ -654,6 +658,7 @@
       <span class="eyebrow">Tools I actually use</span>
       <h2 class="sec-title">Recommended Tools</h2>
       <p class="sec-sub">Tools I use and have verified myself. Pick a category to explore.</p>
+      <p class="sec-disclosure">※ Some links below are affiliate links. If you sign up or buy through them, I may earn a small commission at no extra cost to you. I only recommend tools I actually use. <a href="/en/disclosure.html">Learn more →</a></p>
     </div>
 
     <div class="tabs-bar reveal" role="tablist">
@@ -762,6 +767,7 @@
           <input type="hidden" name="_subject" value="New inquiry from mikukjubu.com (EN)" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://mikukjubu.com/en/thanks.html" />
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div class="field">
             <label for="cf-name">Name</label>
@@ -813,7 +819,7 @@
     </div>
     <div class="ft-bot">
       <span>© 2026 Mikukjubu · Mompreneur Diary. All rights reserved.</span>
-      <span>YOUTUBE @MIKUKJUBU</span>
+      <span class="ft-legal"><a href="/en/privacy.html">Privacy Policy</a> · <a href="/en/disclosure.html">Affiliate Disclosure</a></span>
     </div>
   </div>
 </footer>
