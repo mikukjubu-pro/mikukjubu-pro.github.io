@@ -57,7 +57,7 @@
       "knowsAbout": ["Online Marketing", "Dropshipping", "E-commerce Selling", "Global E-commerce"]
     },
     {
-      "@type": "ProfessionalService",
+      "@type": "Service",
       "@id": "https://mikukjubu.com/#service",
       "name": "Mikukjubu 1:1 Online Consulting",
       "url": "https://mikukjubu.com/#contact",
@@ -641,9 +641,9 @@
       </div>
     </div>
     <div class="yt-grid reveal" id="ytGrid">
-      <a class="yt-card" href="https://www.youtube.com/watch?v=EizgJIBgO4w" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/EizgJIBgO4w/hqdefault.jpg" alt="" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">미국 드롭쉬핑 & 틱톡샵 주간 트렌드 분석 | 잘 팔리는 제품 소싱 (파더스데이 준비!)</div><div class="vc">▶ Watch on YouTube</div></div></a>
-      <a class="yt-card" href="https://www.youtube.com/watch?v=OsKyt1uHs7A" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/OsKyt1uHs7A/hqdefault.jpg" alt="" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">[2탄] 클로드 AI 블로그 자동화의 현실 (Claude) | 치명적 오류 해결법과 NotebookLM 딥리서치 세팅</div><div class="vc">▶ Watch on YouTube</div></div></a>
-      <a class="yt-card" href="https://www.youtube.com/watch?v=lQuFItoPlB0" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/lQuFItoPlB0/hqdefault.jpg" alt="" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">클로드 오푸스 4.8 드디어 떴다🚀 가격 그대로 성능만 미쳤음</div><div class="vc">▶ Watch on YouTube</div></div></a>
+      <a class="yt-card" href="https://www.youtube.com/watch?v=EizgJIBgO4w" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/EizgJIBgO4w/hqdefault.jpg" alt="YouTube thumbnail: US dropshipping &amp; TikTok Shop weekly trend analysis" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">미국 드롭쉬핑 & 틱톡샵 주간 트렌드 분석 | 잘 팔리는 제품 소싱 (파더스데이 준비!)</div><div class="vc">▶ Watch on YouTube</div></div></a>
+      <a class="yt-card" href="https://www.youtube.com/watch?v=OsKyt1uHs7A" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/OsKyt1uHs7A/hqdefault.jpg" alt="YouTube thumbnail: the reality of Claude AI blog automation" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">[2탄] 클로드 AI 블로그 자동화의 현실 (Claude) | 치명적 오류 해결법과 NotebookLM 딥리서치 세팅</div><div class="vc">▶ Watch on YouTube</div></div></a>
+      <a class="yt-card" href="https://www.youtube.com/watch?v=lQuFItoPlB0" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/lQuFItoPlB0/hqdefault.jpg" alt="YouTube thumbnail: Claude Opus 4.8 performance review" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">클로드 오푸스 4.8 드디어 떴다🚀 가격 그대로 성능만 미쳤음</div><div class="vc">▶ Watch on YouTube</div></div></a>
     </div>
     <div class="yt-foot reveal">
       <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener" class="btn btn-outline-light">View full channel → @mikukjubu</a>
@@ -879,7 +879,7 @@
       }
       if(items.length >= 3){
         document.getElementById('ytGrid').innerHTML = items.map(v =>
-          '<a class="yt-card" href="https://www.youtube.com/watch?v=' + v.id + '" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg" alt="" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">' + esc(v.title) + '</div><div class="vc">▶ Watch on YouTube</div></div></a>'
+          '<a class="yt-card" href="https://www.youtube.com/watch?v=' + v.id + '" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg" alt="YouTube thumbnail: ' + esc(v.title) + '" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">' + esc(v.title) + '</div><div class="vc">▶ Watch on YouTube</div></div></a>'
         ).join('');
       }
     }catch(err){ /* keep hardcoded fallback */ }
