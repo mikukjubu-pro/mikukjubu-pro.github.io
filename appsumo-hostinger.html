@@ -75,6 +75,16 @@
   .quote{background:#FCFAF7;border:1px dashed var(--line);border-radius:12px;padding:14px 18px;margin-top:14px;font-size:13.5px;color:var(--ink2);line-height:1.7;}
   .quote b{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);font-weight:500;margin-bottom:5px;}
 
+  .en{background:#FFFDF9;border:1px solid var(--line);border-left:4px solid var(--mustard);border-radius:0 12px 12px 0;padding:16px 20px;margin-top:18px;}
+  .en .lbl{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3);font-weight:500;margin-bottom:10px;}
+  .en .lbl::after{content:"";flex:1;height:1px;background:var(--line);}
+  .en p,.en li{font-size:14px;line-height:1.72;color:#5A4F47;}
+  .en p+p{margin-top:8px;}
+  .en ul{list-style:none;padding:0;margin:8px 0 0;}
+  .en ul li{position:relative;padding-left:17px;margin:3px 0;}
+  .en ul li::before{content:"—";position:absolute;left:0;color:var(--mustard);}
+  .en b{color:var(--ink);font-weight:700;}
+  .srcline{font-family:var(--mono);font-size:11.5px;color:var(--ink3);margin-top:14px;}
   .qa{border-bottom:1px solid var(--line);padding:15px 0;}
   .qa:last-child{border-bottom:none;}
   .qa p{font-size:14.5px;margin-top:3px;}
@@ -104,6 +114,7 @@
     <h1>앱수모 호스팅거 번들,<br>안에 뭐가 들었나</h1>
     <p class="updated">한글 정리 · 확인 시점 2026-08-28</p>
     <p class="lede">영문으로만 되어 있는 딜 페이지 내용을 전부 한글로 옮기고, 페이지에 안 적혀 있는 것들(1년 뒤 갱신 가격, ‘무제한’의 실제 한계선)까지 직접 확인해서 정리했습니다.</p>
+    <p class="lede" style="margin-top:12px;font-size:15px">항목마다 <strong>앱수모에 실제로 적혀 있는 영어 원문</strong>을 먼저 싣고, 그 아래에 한글 설명을 붙였습니다. 원문과 해석을 나란히 보실 수 있습니다.</p>
 
     <div class="notice">
       <b>미리 알려드립니다.</b> 이 글의 버튼 링크는 제휴 링크입니다. 이 링크로 가입·구매하셔도 <b>추가 비용은 전혀 없고</b>, 저에게 소정의 수수료가 지급될 수 있습니다. 그래서 좋은 점만 쓰지 않고, 사기 전에 알아야 할 부분도 그대로 적었습니다. → <a href="/disclosure.html">제휴 공시 보기</a>
@@ -117,7 +128,15 @@
     </div>
 
     <h2>먼저, 딱 한 줄 요약</h2>
-    <p>호스팅거 툴 <strong>3가지를 코드 하나로</strong> 1년간 쓰는 묶음 상품입니다. 세 개를 따로 살 수는 없고 묶음으로만 판매합니다. 가격은 정해진 수량이 팔릴 때마다 올라가고, 마지막 배치까지 다 팔리면 딜이 끝납니다.</p>
+
+    <div class="en">
+      <div class="lbl">AppSumo 원문</div>
+      <p>“Three Hostinger tools, one code. Host unlimited websites, run an AI agent that works while you sleep, and send email campaigns that AI builds for you. A full year of all three, $147 of value, starting at $24.”</p>
+      <p><b>“Released in limited batches. The price goes up each time one sells out.”</b></p>
+      <p><b>“Heads up: this bundle is non-refundable and available only to new Hostinger users.”</b></p>
+    </div>
+
+    <p style="margin-top:18px">호스팅거 툴 <strong>3가지를 코드 하나로</strong> 1년간 쓰는 묶음 상품입니다. 세 개를 따로 살 수는 없고 묶음으로만 판매합니다. 가격은 정해진 수량이 팔릴 때마다 올라가고, 마지막 배치까지 다 팔리면 딜이 끝납니다.</p>
 
     <div class="tblbox">
       <table>
@@ -133,6 +152,20 @@
     <p class="sub" style="margin-top:10px">$24는 환율에 따라 대략 3만 원대, 월로 나누면 월 3천 원이 안 됩니다. 보시는 시점에 가격이 올라가 있을 수 있습니다.</p>
 
     <h2>구성품 ① AI 자동화 앱</h2>
+
+    <div class="en">
+      <div class="lbl">AppSumo 원문 · AI Automation Apps ($72 value)</div>
+      <p><b>“Your 24/7 AI agent, live in about 60 seconds”</b></p>
+      <p>“Pick OpenClaw, Hermes Agent, or n8n and Hostinger runs it for you. No server to configure, no updates to install. Message it in Telegram or WhatsApp and it sorts your inbox, drafts replies, runs research, and keeps working while you are offline.”</p>
+      <ul>
+        <li>Launch OpenClaw, Hermes Agent, or n8n in about 60 seconds</li>
+        <li>Ready out of the box with zero server maintenance</li>
+        <li>Telegram and WhatsApp pairing built in</li>
+        <li>AI credits, web search, and agentic email included</li>
+        <li>Switch to a different app anytime on the same plan</li>
+      </ul>
+    </div>
+
     <div class="card">
       <div class="cardhd">
         <h3 style="margin:0">24시간 돌아가는 AI 에이전트, 약 60초 만에 가동</h3>
@@ -171,6 +204,20 @@
     </div>
 
     <h2>구성품 ② Unlimited 호스팅</h2>
+
+    <div class="en">
+      <div class="lbl">AppSumo 원문 · Unlimited plan ($45 value)</div>
+      <p><b>“Unlimited sites on fast NVMe hosting”</b></p>
+      <p>“Host as many websites as you want with 50 GB of NVMe storage, daily backups, a free domain for the year, and a CDN on every site. Build with WordPress, Node.js, the drag-and-drop builder, or vibe-code it with Hostinger's AI Builder.”</p>
+      <ul>
+        <li>Unlimited websites and unlimited mailboxes</li>
+        <li>50 GB NVMe storage with daily backups</li>
+        <li>Free domain for 1 year, free SSL, CDN included</li>
+        <li>WordPress, Node.js, and drag-and-drop builder</li>
+        <li>15 vibe coding credits with Hostinger's AI Builder</li>
+      </ul>
+    </div>
+
     <div class="card">
       <div class="cardhd">
         <h3 style="margin:0">사이트 무제한 + NVMe 50GB</h3>
@@ -210,6 +257,20 @@
     </div>
 
     <h2>구성품 ③ 이메일 마케팅 (Reach 500)</h2>
+
+    <div class="en">
+      <div class="lbl">AppSumo 원문 · Email marketing plan ($29.88 value)</div>
+      <p><b>“Campaigns AI writes, designs, and sends”</b></p>
+      <p>“Describe the email you want and Hostinger Reach writes the copy, builds the layout, and applies your branding. Smart Sending picks the send time, welcome flows and cart recovery run on their own, and deliverability records are set up for you.”</p>
+      <ul>
+        <li>AI writes, designs, and brands every campaign</li>
+        <li>Hostinger's Reach 500 Plan</li>
+        <li>Welcome flows, sequences, and cart recovery</li>
+        <li>Unlimited AI subject lines and spam checks</li>
+        <li>SPF, DKIM, DMARC, GDPR, and CAN-SPAM handled</li>
+      </ul>
+    </div>
+
     <div class="card">
       <div class="cardhd">
         <h3 style="margin:0">AI가 쓰고, 디자인하고, 보내는 캠페인</h3>
@@ -239,6 +300,27 @@
 
     <h2>사기 전에 꼭 확인할 것</h2>
 
+    <div class="en">
+      <div class="lbl">AppSumo 원문 · Deal terms and conditions</div>
+      <ul>
+        <li>1 year of access to Hostinger's Unlimited plan, Reach 500 plan and AI automation apps</li>
+        <li>Offer available only to new users of Hostinger</li>
+        <li>You must redeem your codes within 60 days of purchase</li>
+        <li>This is an annual deal, <b>no credit card entry or payment method is required</b> during code redemption for all tools.</li>
+      </ul>
+    </div>
+
+    <div class="en">
+      <div class="lbl">AppSumo 원문 · ⭐ Before you buy</div>
+      <ul>
+        <li>These tools are 1-year access only, not lifetime access.</li>
+        <li>This bundle is non-refundable.</li>
+        <li>Available to new users of Hostinger only.</li>
+        <li><b>Credit card entry will be required</b> during redemption.</li>
+        <li>Limit one bundle per person.</li>
+      </ul>
+    </div>
+
     <h3>1. 환불이 안 됩니다</h3>
     <p>앱수모는 보통 60일 환불이 되는데, <strong>이 번들은 명시적으로 예외</strong>입니다. 한 번 결제하면 되돌릴 수 없습니다.</p>
 
@@ -257,12 +339,14 @@
     <h3>5. 안내가 서로 어긋나는 부분이 있습니다</h3>
     <p>딜 페이지 안에서 카드 등록에 대한 설명이 두 군데 나오는데, 내용이 서로 반대입니다.</p>
     <div class="quote">
-      <b>약관 (Deal terms)</b>
-      “연간 딜이며, 모든 툴의 코드 등록 시 신용카드나 결제수단 입력이 <strong>필요하지 않음</strong>”
+      <b>약관 (Deal terms) — 원문 / 한글</b>
+      “This is an annual deal, <strong>no credit card entry or payment method is required</strong> during code redemption for all tools.”<br>
+      → 연간 딜이며, 모든 툴의 코드 등록 시 신용카드나 결제수단 입력이 <strong>필요하지 않음</strong>
     </div>
     <div class="quote">
-      <b>구매 전 확인 (Before you buy)</b>
-      “코드 등록 시 신용카드 입력이 <strong>필요함</strong>”
+      <b>구매 전 확인 (Before you buy) — 원문 / 한글</b>
+      “<strong>Credit card entry will be required</strong> during redemption.”<br>
+      → 코드 등록 시 신용카드 입력이 <strong>필요함</strong>
     </div>
     <p style="margin-top:12px">어느 쪽이 맞는지는 실제로 등록해봐야 알 수 있습니다. 자동 갱신 구조를 감안하면 <strong>카드 등록이 필요한 쪽으로 가정</strong>하고 준비하시는 편이 안전합니다.</p>
 
@@ -299,6 +383,7 @@
     <a href="/" class="back">← 미국주부 홈으로</a>
 
     <footer>
+      영어 원문은 앱수모 딜 페이지에 게시된 내용을 인용한 것이며, 저작권은 각 사에 있습니다. 원문 전체는 <a href="https://appsumo.8odi.net/mikukjubu-hostinger" target="_blank" rel="noopener sponsored">앱수모 딜 페이지</a>에서 확인하실 수 있습니다.<br><br>
       이 글의 숫자는 2026년 8월 28일에 앱수모 딜 페이지와 호스팅거 공식 가격 페이지에서 직접 확인한 값입니다. 가격·수량·구성은 이후 변경될 수 있으니 결제 전에 판매 페이지에서 다시 확인해 주세요.
     </footer>
   </main>
