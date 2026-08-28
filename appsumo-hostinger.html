@@ -22,75 +22,107 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
 <style>
   :root{--cream:#FAF7F2;--ink:#241F1B;--ink2:#6B5D54;--ink3:#9C9389;--coral:#FF5733;
-    --mustard:#D49E5C;--dark:#161311;--line:#EBE3D8;--card:#FFFFFF;
+    --mustard:#D49E5C;--dark:#161311;--line:#EBE3D8;--card:#FFFFFF;--mute:#CFC5B9;
     --kr:'Pretendard Variable',Pretendard,system-ui,sans-serif;--en:'Inter Tight',var(--kr);
     --mono:'JetBrains Mono',monospace;}
   *{margin:0;padding:0;box-sizing:border-box;}
-  body{background:var(--cream);color:var(--ink);font-family:var(--kr);-webkit-font-smoothing:antialiased;line-height:1.8;}
+  body{background:var(--cream);color:var(--ink);font-family:var(--kr);-webkit-font-smoothing:antialiased;line-height:1.75;}
   .logo{position:fixed;top:22px;left:24px;z-index:20;display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);background:var(--cream);padding:6px 10px 6px 6px;border-radius:12px;}
   .logo .mk{width:34px;height:34px;border-radius:9px;background:var(--coral);color:#fff;display:grid;place-items:center;font-family:var(--en);font-weight:800;font-size:17px;}
   .logo b{font-size:15px;letter-spacing:-.02em;}
-  .wrap{max-width:760px;margin:0 auto;padding:110px 24px 90px;}
+  .wrap{max-width:780px;margin:0 auto;padding:106px 24px 90px;}
   h1{font-size:clamp(28px,5.4vw,42px);font-weight:800;letter-spacing:-.035em;line-height:1.22;}
-  .kicker{font-size:15px;font-weight:700;color:var(--coral);letter-spacing:-.01em;line-height:1.2;margin-bottom:10px;}
-  .updated{font-size:12.5px;color:var(--ink3);margin:12px 0 0;letter-spacing:-.01em;}
+  .kicker{font-size:15px;font-weight:700;color:var(--coral);margin-bottom:10px;}
+  .updated{font-size:12.5px;color:var(--ink3);margin-top:12px;}
   .lede{font-size:16.5px;color:var(--ink2);margin-top:18px;}
-  h2{font-size:clamp(20px,3.4vw,25px);font-weight:800;letter-spacing:-.025em;margin:52px 0 6px;padding-top:26px;border-top:2px solid var(--ink);}
-  h3{font-size:17px;font-weight:700;margin:26px 0 6px;letter-spacing:-.015em;}
+  h2{font-size:clamp(20px,3.4vw,26px);font-weight:800;letter-spacing:-.025em;margin:54px 0 4px;padding-top:26px;border-top:2px solid var(--ink);}
+  h3{font-size:17px;font-weight:700;margin:28px 0 4px;letter-spacing:-.015em;}
   h4{font-size:14.5px;font-weight:700;margin:0;}
   p,li{font-size:15.5px;color:var(--ink2);}
-  .sub{font-size:14.5px;color:var(--ink3);margin-bottom:14px;}
+  .sub{font-size:14px;color:var(--ink3);margin-top:4px;}
   a{color:var(--coral);text-decoration:none;font-weight:600;}
   a:hover{text-decoration:underline;}
   a:focus-visible{outline:2px solid var(--coral);outline-offset:3px;border-radius:4px;}
+  summary:focus-visible{outline:2px solid var(--coral);outline-offset:-2px;}
   strong{color:var(--ink);font-weight:700;}
-  .mono{font-family:var(--mono);font-weight:600;color:var(--ink);}
+  .num{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink3);font-size:14px;}
 
-  .notice{background:#FFF3EF;border:1px solid #FFD5C8;border-radius:12px;padding:14px 18px;margin:26px 0 0;font-size:14px;color:var(--ink2);}
+  figure{margin-top:22px;}
+  figure img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--line);}
+  figcaption{font-size:12.5px;color:var(--ink3);margin-top:9px;}
+  figcaption b{color:var(--ink2);font-weight:600;}
+
+  .notice{background:#FFF3EF;border:1px solid #FFD5C8;border-radius:12px;padding:14px 18px;margin-top:26px;font-size:14px;color:var(--ink2);}
   .notice b{color:var(--ink);}
 
-  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:26px 0 0;}
-  .facts div{background:var(--card);padding:16px 18px;display:flex;flex-direction:column;gap:3px;}
-  .facts .k{font-size:11.5px;font-weight:600;letter-spacing:.02em;color:var(--ink3);}
-  .facts .v{font-size:23px;font-weight:800;color:var(--ink);line-height:1.25;letter-spacing:-.02em;}
-  .facts .s{font-size:12.5px;color:var(--ink2);line-height:1.5;}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:24px;}
+  .tiles div{background:var(--card);padding:16px 18px;display:flex;flex-direction:column;gap:3px;}
+  .tiles .k{font-size:11.5px;font-weight:600;color:var(--ink3);}
+  .tiles .v{font-size:23px;font-weight:800;color:var(--ink);line-height:1.25;letter-spacing:-.02em;}
+  .tiles .s{font-size:12.5px;color:var(--ink2);line-height:1.5;}
 
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-top:16px;}
-  .card ul{padding-left:0;list-style:none;margin-top:10px;}
-  .card ul li{position:relative;padding-left:22px;margin:6px 0;}
-  .card ul li::before{content:"✓";position:absolute;left:0;color:var(--mustard);font-weight:800;}
-  .worth{font-family:var(--mono);font-size:12.5px;font-weight:600;color:var(--coral);background:#FFEDE7;padding:3px 9px;border-radius:6px;white-space:nowrap;}
-  .cardhd{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;justify-content:space-between;}
+  .chart{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-top:18px;}
+  .chart .ct{font-size:14px;font-weight:700;color:var(--ink);}
+  .chart .cs{font-size:12.5px;color:var(--ink3);margin-bottom:16px;}
+  .row{display:grid;grid-template-columns:92px 1fr;gap:12px;align-items:center;margin-bottom:11px;}
+  .row:last-child{margin-bottom:0;}
+  .row .lab{font-size:13px;color:var(--ink2);text-align:right;line-height:1.3;}
+  .row.on .lab{color:var(--ink);font-weight:700;}
+  .track{display:flex;align-items:center;min-height:24px;}
+  .bar{height:22px;border-radius:0 4px 4px 0;background:var(--mute);min-width:3px;}
+  .row.on .bar{background:var(--coral);}
+  .val{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:12.5px;font-weight:600;color:var(--ink2);margin-left:9px;white-space:nowrap;}
+  .row.on .val{color:var(--ink);}
 
-  .tblbox{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card);margin-top:16px;}
-  table{border-collapse:collapse;width:100%;min-width:460px;}
-  th,td{text-align:left;padding:11px 15px;border-bottom:1px solid var(--line);font-size:14.5px;vertical-align:top;color:var(--ink2);}
-  thead th{font-size:12px;letter-spacing:0;color:var(--ink3);background:#FCFAF7;font-weight:600;white-space:nowrap;}
-  tbody tr:last-child td{border-bottom:none;}
-  td strong{color:var(--ink);}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(116px,1fr));gap:10px;margin-top:20px;}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px;display:flex;flex-direction:column;gap:2px;}
+  .step .p{font-family:var(--mono);font-size:21px;font-weight:600;color:var(--ink3);}
+  .step .q{font-size:12.5px;color:var(--ink3);}
+  .step .st{font-size:11.5px;font-weight:700;color:var(--ink3);margin-top:3px;}
+  .step.done{opacity:.5;}
+  .step.done .p{text-decoration:line-through;}
+  .step.now{border-color:var(--coral);border-width:2px;background:#FFF6F3;}
+  .step.now .p,.step.now .st{color:var(--coral);}
 
-  .flag{background:#FFF6F4;border-left:4px solid var(--coral);border-radius:0 12px 12px 0;padding:18px 20px;margin-top:18px;}
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;}
+  .pane{border-radius:12px;padding:16px 18px;border:1px solid var(--line);background:var(--card);}
+  .pane .src{font-size:11.5px;font-weight:600;color:var(--ink3);margin-bottom:8px;}
+  .pane .enq{font-size:13.5px;color:#5A4F47;line-height:1.6;}
+  .pane .ko{font-size:13.5px;color:var(--ink2);margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);}
+  .pane.a{border-left:4px solid var(--mustard);}
+  .pane.b{border-left:4px solid var(--coral);}
+  .pane b{color:var(--ink);}
+
+  .flag{background:#FFF6F4;border-left:4px solid var(--coral);border-radius:0 12px 12px 0;padding:18px 20px;margin-top:20px;}
   .flag h4{margin-bottom:6px;}
   .flag p{font-size:14.5px;}
-  .quote{background:#FCFAF7;border:1px dashed var(--line);border-radius:12px;padding:14px 18px;margin-top:14px;font-size:13.5px;color:var(--ink2);line-height:1.7;}
-  .quote b{display:block;font-size:11.5px;letter-spacing:.01em;color:var(--ink3);font-weight:600;margin-bottom:6px;}
 
-  .en{background:#FFFDF9;border:1px solid var(--line);border-left:4px solid var(--mustard);border-radius:0 12px 12px 0;padding:16px 20px;margin-top:18px;}
-  .en .lbl{display:flex;align-items:center;gap:9px;font-size:11.5px;font-weight:600;letter-spacing:.01em;color:var(--ink3);margin-bottom:10px;}
-  .en .lbl::after{content:"";flex:1;height:1px;background:var(--line);}
-  .en p,.en li{font-size:14px;line-height:1.72;color:#5A4F47;}
-  .en p+p{margin-top:8px;}
-  .en ul{list-style:none;padding:0;margin:8px 0 0;}
-  .en ul li{position:relative;padding-left:17px;margin:3px 0;}
-  .en ul li::before{content:"—";position:absolute;left:0;color:var(--mustard);}
-  .en b{color:var(--ink);font-weight:700;}
-  .srcline{font-size:12px;color:var(--ink3);margin-top:14px;}
-  .qa{border-bottom:1px solid var(--line);padding:15px 0;}
-  .qa:last-child{border-bottom:none;}
-  .qa p{font-size:14.5px;margin-top:3px;}
+  .checks{list-style:none;margin-top:18px;display:grid;gap:10px;}
+  .checks li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 18px;display:grid;grid-template-columns:26px 1fr;gap:12px;align-items:start;}
+  .checks .ic{width:26px;height:26px;border-radius:8px;background:#FFEDE7;color:var(--coral);display:grid;place-items:center;font-weight:800;font-size:13px;font-family:var(--mono);}
+  .checks h4{margin-bottom:2px;}
+  .checks p{font-size:14px;}
 
-  /* CTA */
-  .cta{background:var(--dark);border-radius:18px;padding:30px 28px;margin-top:22px;color:#fff;}
+  details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-top:14px;overflow:hidden;}
+  summary{padding:13px 18px;cursor:pointer;font-size:14px;font-weight:700;color:var(--ink);list-style:none;}
+  summary::-webkit-details-marker{display:none;}
+  summary::before{content:"＋ ";color:var(--coral);font-weight:800;}
+  details[open] summary::before{content:"－ ";}
+  details .body{padding:0 18px 16px;}
+  details .qa{padding:11px 0;border-bottom:1px solid var(--line);}
+  details .qa:last-child{border-bottom:none;}
+  details .qa p{font-size:14px;margin-top:2px;}
+
+  .fit{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;}
+  .fit div{border-radius:12px;padding:17px 19px;border:1px solid var(--line);background:var(--card);}
+  .fit h4{margin-bottom:6px;}
+  .fit p{font-size:14px;}
+  .fit .y h4{color:#2E6B45;}
+  .fit .n h4{color:var(--coral);}
+
+  @media (max-width:560px){ .vs,.fit{grid-template-columns:1fr;} }
+
+  .cta{background:var(--dark);border-radius:18px;padding:30px 28px;margin-top:26px;color:#fff;}
   .cta h3{color:#fff;margin:0 0 6px;font-size:20px;}
   .cta p{color:#C9BFB6;font-size:14.5px;}
   .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;}
@@ -103,7 +135,7 @@
   .cta .fine a{color:#C9BFB6;}
 
   .back{display:inline-flex;align-items:center;gap:7px;margin-top:52px;font-weight:700;color:var(--ink);}
-  footer{margin-top:26px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--ink3);}
+  footer{margin-top:26px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink3);}
 </style>
 </head>
 <body>
@@ -113,256 +145,162 @@
     <p class="kicker">직접 뜯어봤습니다</p>
     <h1>앱수모 호스팅거 번들,<br>안에 뭐가 들었나</h1>
     <p class="updated">한글 정리 · 확인 시점 2026-08-28</p>
-    <p class="lede">영문으로만 되어 있는 딜 페이지 내용을 전부 한글로 옮기고, 페이지에 안 적혀 있는 것들(1년 뒤 갱신 가격, ‘무제한’의 실제 한계선)까지 직접 확인해서 정리했습니다.</p>
-    <p class="lede" style="margin-top:12px;font-size:15px">항목마다 <strong>앱수모에 실제로 적혀 있는 영어 원문</strong>을 먼저 싣고, 그 아래에 한글 설명을 붙였습니다. 원문과 해석을 나란히 보실 수 있습니다.</p>
+    <p class="lede">영어로만 되어 있는 딜을 한글로 정리하고, 페이지에 안 적힌 것까지 확인했습니다.</p>
 
     <div class="notice">
-      <b>미리 알려드립니다.</b> 이 글의 버튼 링크는 제휴 링크입니다. 이 링크로 가입·구매하셔도 <b>추가 비용은 전혀 없고</b>, 저에게 소정의 수수료가 지급될 수 있습니다. 그래서 좋은 점만 쓰지 않고, 사기 전에 알아야 할 부분도 그대로 적었습니다. → <a href="/disclosure.html">제휴 공시 보기</a>
+      <b>미리 알려드립니다.</b> 아래 버튼은 제휴 링크입니다. 추가 비용은 전혀 없고, 저에게 수수료가 지급될 수 있습니다. 그래서 좋은 점만 쓰지 않았습니다. → <a href="/disclosure.html">제휴 공시</a>
     </div>
 
-    <div class="facts">
+    <figure>
+      <img src="/img/appsumo-hero.jpg" width="1000" height="354" alt="앱수모 호스팅거 번들 딜 페이지 상단. 정가 147달러, 판매가 24달러." loading="lazy" />
+      <figcaption><b>앱수모 실제 화면 ·</b> 정가 $147 → $24. 아래에 1년 이용 · 환불 불가 · 자동 갱신이 표시돼 있습니다.</figcaption>
+    </figure>
+
+    <div class="tiles">
       <div><span class="k">가격</span><span class="v">$24</span><span class="s">표기 정가 $147</span></div>
       <div><span class="k">이용 기간</span><span class="v">1년</span><span class="s">평생 이용권 아님</span></div>
       <div><span class="k">환불</span><span class="v">불가</span><span class="s">앱수모 60일 정책 예외</span></div>
-      <div><span class="k">대상</span><span class="v">신규만</span><span class="s">기존 호스팅거 고객 제외</span></div>
+      <div><span class="k">대상</span><span class="v">신규만</span><span class="s">기존 고객 제외</span></div>
     </div>
 
-    <h2>먼저, 딱 한 줄 요약</h2>
-
-    <div class="en">
-      <div class="lbl">AppSumo 원문</div>
-      <p>“Three Hostinger tools, one code. Host unlimited websites, run an AI agent that works while you sleep, and send email campaigns that AI builds for you. A full year of all three, $147 of value, starting at $24.”</p>
-      <p><b>“Released in limited batches. The price goes up each time one sells out.”</b></p>
-      <p><b>“Heads up: this bundle is non-refundable and available only to new Hostinger users.”</b></p>
+    <h2>가격은 계속 올라갑니다</h2>
+    <p class="sub">정해진 수량이 팔리면 다음 가격으로 넘어가고, 마지막 배치까지 팔리면 딜이 끝납니다.</p>
+    <div class="steps">
+      <div class="step done"><span class="p">$14</span><span class="q">—</span><span class="st">매진</span></div>
+      <div class="step now"><span class="p">$24</span><span class="q">1,500개</span><span class="st">● 판매 중</span></div>
+      <div class="step"><span class="p">$34</span><span class="q">1,500개</span><span class="st">대기</span></div>
+      <div class="step"><span class="p">$44</span><span class="q">2,000개</span><span class="st">이후 종료</span></div>
     </div>
+    <p class="sub">$24는 대략 3만 원대, 월 3천 원이 안 됩니다. 보시는 시점엔 올라가 있을 수 있습니다.</p>
 
-    <p style="margin-top:18px">호스팅거 툴 <strong>3가지를 코드 하나로</strong> 1년간 쓰는 묶음 상품입니다. 세 개를 따로 살 수는 없고 묶음으로만 판매합니다. 가격은 정해진 수량이 팔릴 때마다 올라가고, 마지막 배치까지 다 팔리면 딜이 끝납니다.</p>
+    <h2>구성품 3가지</h2>
+    <p class="sub">따로 살 수 없고 묶음으로만 판매합니다. 아래가 앱수모에 적힌 영어 원문 그대로입니다.</p>
 
-    <div class="tblbox">
-      <table>
-        <thead><tr><th>가격</th><th>수량</th><th>상태</th></tr></thead>
-        <tbody>
-          <tr><td class="mono">$14</td><td>—</td><td>매진</td></tr>
-          <tr><td class="mono">$24</td><td class="mono">1,500개</td><td><strong>판매 중</strong></td></tr>
-          <tr><td class="mono">$34</td><td class="mono">1,500개</td><td>대기</td></tr>
-          <tr><td class="mono">$44</td><td class="mono">2,000개</td><td>대기 · 이후 종료</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="sub" style="margin-top:10px">$24는 환율에 따라 대략 3만 원대, 월로 나누면 월 3천 원이 안 됩니다. 보시는 시점에 가격이 올라가 있을 수 있습니다.</p>
+    <figure>
+      <img src="/img/appsumo-products.jpg" width="1000" height="654" alt="앱수모에 표시된 구성품 세 카드. AI 자동화 앱 72달러 상당, Unlimited 호스팅 45달러 상당, 이메일 마케팅 29.88달러 상당." loading="lazy" />
+      <figcaption><b>앱수모 실제 화면 ·</b> 왼쪽부터 AI 자동화 앱 · Unlimited 호스팅 · 이메일 마케팅.</figcaption>
+    </figure>
 
-    <h2>구성품 ① AI 자동화 앱</h2>
-
-    <div class="en">
-      <div class="lbl">AppSumo 원문 · AI Automation Apps ($72 value)</div>
-      <p><b>“Your 24/7 AI agent, live in about 60 seconds”</b></p>
-      <p>“Pick OpenClaw, Hermes Agent, or n8n and Hostinger runs it for you. No server to configure, no updates to install. Message it in Telegram or WhatsApp and it sorts your inbox, drafts replies, runs research, and keeps working while you are offline.”</p>
-      <ul>
-        <li>Launch OpenClaw, Hermes Agent, or n8n in about 60 seconds</li>
-        <li>Ready out of the box with zero server maintenance</li>
-        <li>Telegram and WhatsApp pairing built in</li>
-        <li>AI credits, web search, and agentic email included</li>
-        <li>Switch to a different app anytime on the same plan</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <div class="cardhd">
-        <h3 style="margin:0">24시간 돌아가는 AI 에이전트, 약 60초 만에 가동</h3>
-        <span class="worth">$72 상당</span>
-      </div>
-      <p style="margin-top:8px">세 가지 앱 중 <strong>하나를 골라서</strong> 쓰고, 호스팅거가 서버 관리를 대신 해줍니다. 텔레그램이나 왓츠앱으로 말을 걸면 받은편지함을 정리하고, 답장 초안을 쓰고, 리서치를 돌립니다. 내가 컴퓨터를 꺼도 계속 돌아갑니다. 나중에 다른 앱으로 바꿀 수도 있습니다.</p>
-    </div>
-
-    <h3>세 앱이 각각 뭔가 (읽는 법 포함)</h3>
-    <div class="tblbox">
-      <table>
-        <thead><tr><th>앱</th><th>읽는 법</th><th>정체</th></tr></thead>
-        <tbody>
-          <tr>
-            <td><strong>n8n</strong></td>
-            <td><strong>엔-에이트-엔</strong></td>
-            <td>노드를 선으로 연결해 자동화를 짜는 워크플로 툴. 원래 이름이 <strong>nodemation</strong>(node + automation)이었는데 너무 길어서 줄인 게 n8n입니다. 표기는 항상 소문자.</td>
-          </tr>
-          <tr>
-            <td><strong>Hermes Agent</strong></td>
-            <td><strong>허미즈</strong> <span style="color:var(--ink3)">(헤르메스)</span></td>
-            <td>Nous Research가 만든 <strong>자가 개선형</strong> 에이전트. 성공한 작업을 스스로 ‘스킬’로 저장해 재사용하고 기억이 남아서, 쓸수록 잘하게 됩니다.</td>
-          </tr>
-          <tr>
-            <td><strong>OpenClaw</strong></td>
-            <td><strong>오픈-클로</strong></td>
-            <td>텔레그램·왓츠앱으로 대화하며 시키는 채팅 중심의 개인 비서형 에이전트.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <h3>① AI 자동화 앱 <span class="num">$72 상당</span></h3>
+    <p>세 앱 중 <strong>하나만</strong> 골라 쓰고, 서버 관리는 호스팅거가 합니다. 메신저로 시킬 수 있고 내 컴퓨터를 꺼도 계속 돌아갑니다.</p>
+    <ul class="checks">
+      <li><span class="ic">1</span><div><h4>n8n — “엔-에이트-엔”</h4><p>노드를 연결해 자동화를 짜는 툴. 원래 이름 <strong>nodemation</strong>(node+automation)을 줄인 것. 셋 중 한국 검색량 1위.</p></div></li>
+      <li><span class="ic">2</span><div><h4>Hermes Agent — “허미즈”</h4><p>Nous Research의 <strong>자가 개선형</strong> 에이전트. 성공한 작업을 스킬로 저장해 쓸수록 잘합니다.</p></div></li>
+      <li><span class="ic">3</span><div><h4>OpenClaw — “오픈-클로”</h4><p>메신저로 대화하며 시키는 개인 비서형 에이전트.</p></div></li>
+    </ul>
 
     <div class="flag">
-      <h4>여기가 제일 헷갈리는 부분입니다</h4>
-      <p>호스팅거가 주는 건 <strong>앱을 돌릴 환경</strong>이지, AI 자체가 무제한으로 딸려오는 게 아닙니다. 실제로 쓰려면 (1) 호스팅거가 주는 크레딧을 쓰거나 (2) 본인 API 키를 연결해야 하고, <strong>본인 키를 쓰면 그 사용료는 따로 청구</strong>됩니다. 그리고 이미 쓰고 계신 <strong>Claude Pro·Max 같은 구독 계정은 여기에 연결할 수 없습니다</strong> — Anthropic이 외부 서비스에서 구독 계정으로 요청을 처리하는 것을 정책으로 금지하고 있어서, 시도하면 계정이 제한될 수 있습니다.</p>
+      <h4>가장 오해하기 쉬운 부분</h4>
+      <p>호스팅거가 주는 건 <strong>앱을 돌릴 환경</strong>이지 AI가 무제한으로 딸려오는 게 아닙니다. 본인 API 키를 쓰면 <strong>그 사용료는 따로 청구</strong>되고, 이미 쓰고 계신 <strong>Claude Pro·Max 구독은 연결할 수 없습니다.</strong> Anthropic이 외부 서비스에서 구독 계정으로 요청 처리하는 것을 금지하고 있어, 시도하면 계정이 제한될 수 있습니다.</p>
     </div>
 
-    <h2>구성품 ② Unlimited 호스팅</h2>
+    <h3>② Unlimited 호스팅 <span class="num">$45 상당</span></h3>
+    <p>사이트 개수는 <strong>진짜 무제한</strong>입니다. 다만 아래 세 가지가 실질적인 천장이에요.</p>
 
-    <div class="en">
-      <div class="lbl">AppSumo 원문 · Unlimited plan ($45 value)</div>
-      <p><b>“Unlimited sites on fast NVMe hosting”</b></p>
-      <p>“Host as many websites as you want with 50 GB of NVMe storage, daily backups, a free domain for the year, and a CDN on every site. Build with WordPress, Node.js, the drag-and-drop builder, or vibe-code it with Hostinger's AI Builder.”</p>
-      <ul>
-        <li>Unlimited websites and unlimited mailboxes</li>
-        <li>50 GB NVMe storage with daily backups</li>
-        <li>Free domain for 1 year, free SSL, CDN included</li>
-        <li>WordPress, Node.js, and drag-and-drop builder</li>
-        <li>15 vibe coding credits with Hostinger's AI Builder</li>
-      </ul>
+    <div class="chart">
+      <div class="ct">저장 공간</div>
+      <div class="cs">단위: GB</div>
+      <div class="row"><span class="lab">Premium</span><span class="track"><span class="bar" style="width:20%"></span><span class="val">20 GB</span></span></div>
+      <div class="row on"><span class="lab">Unlimited<br>(이 딜)</span><span class="track"><span class="bar" style="width:50%"></span><span class="val">50 GB</span></span></div>
+      <div class="row"><span class="lab">Cloud Startup</span><span class="track"><span class="bar" style="width:100%"></span><span class="val">100 GB</span></span></div>
     </div>
 
-    <div class="card">
-      <div class="cardhd">
-        <h3 style="margin:0">사이트 무제한 + NVMe 50GB</h3>
-        <span class="worth">$45 상당</span>
-      </div>
-      <ul>
-        <li>웹사이트 무제한 · 메일함 무제한</li>
-        <li>50GB NVMe 저장공간 + 매일 자동 백업</li>
-        <li>도메인 1년 무료, SSL 무료, CDN 포함</li>
-        <li>워드프레스 · Node.js · 드래그앤드롭 빌더</li>
-        <li>AI 빌더 바이브 코딩 크레딧 15개</li>
-        <li>기존 사이트 무료 자동 이전</li>
-      </ul>
+    <div class="chart">
+      <div class="ct">데이터베이스 개수</div>
+      <div class="cs">워드프레스는 사이트 1개당 DB 1개를 씁니다</div>
+      <div class="row"><span class="lab">Premium</span><span class="track"><span class="bar" style="width:3.3%"></span><span class="val">10개</span></span></div>
+      <div class="row on"><span class="lab">Unlimited<br>(이 딜)</span><span class="track"><span class="bar" style="width:50%"></span><span class="val">150개</span></span></div>
+      <div class="row"><span class="lab">Cloud Startup</span><span class="track"><span class="bar" style="width:100%"></span><span class="val">300개</span></span></div>
     </div>
 
-    <h3>‘무제한’이 진짜 무제한일까</h3>
-    <p class="sub">사이트 개수는 무제한이 맞습니다. 다만 아래 항목들이 실질적인 천장이에요. 호스팅거 공식 비교표의 숫자입니다.</p>
-    <div class="tblbox">
-      <table>
-        <thead><tr><th>항목</th><th>Premium</th><th>Unlimited (이 딜)</th><th>Cloud Startup</th></tr></thead>
-        <tbody>
-          <tr><td><strong>웹사이트 수</strong></td><td>3개</td><td><strong>무제한</strong></td><td>무제한</td></tr>
-          <tr><td><strong>저장 공간</strong></td><td class="mono">20 GB</td><td class="mono">50 GB</td><td class="mono">100 GB</td></tr>
-          <tr><td><strong>DB 개수</strong></td><td class="mono">10</td><td class="mono">150</td><td class="mono">300</td></tr>
-          <tr><td>파일·폴더 수</td><td class="mono">400,000</td><td class="mono">600,000</td><td class="mono">2,000,000</td></tr>
-          <tr><td>PHP 워커</td><td class="mono">40</td><td class="mono">60</td><td class="mono">100</td></tr>
-          <tr><td>RAM / CPU</td><td class="mono">2GB / 1코어</td><td class="mono">3GB / 2코어</td><td class="mono">4GB / 4코어</td></tr>
-          <tr><td>메일함</td><td>사이트당 2개</td><td>무제한</td><td>무제한</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p style="margin-top:12px">워드프레스는 사이트 하나당 DB를 하나 씁니다. 그러니 <strong>이론상 150개</strong>까지 올릴 수 있고, 현실적으로는 저장공간(50GB)과 파일 개수(60만 개)가 먼저 찹니다. 이미지가 많은 사이트라면 용량보다 <strong>파일 개수가 먼저 걸리는 경우</strong>가 흔합니다.</p>
-
-    <div class="quote">
-      <b>알아두면 좋은 말</b>
-      <strong>NVMe</strong>는 저장장치를 CPU에 더 넓은 통로로 직접 연결하는 규격입니다. 예전 SSD가 쓰던 통로보다 훨씬 빨라서, 워드프레스에서는 <strong>데이터베이스 조회가 빨라져 페이지가 빨리 뜨는</strong> 것으로 체감됩니다.
+    <div class="chart">
+      <div class="ct">파일·폴더 개수</div>
+      <div class="cs">이미지가 많으면 용량보다 이게 먼저 찹니다</div>
+      <div class="row"><span class="lab">Premium</span><span class="track"><span class="bar" style="width:20%"></span><span class="val">40만</span></span></div>
+      <div class="row on"><span class="lab">Unlimited<br>(이 딜)</span><span class="track"><span class="bar" style="width:30%"></span><span class="val">60만</span></span></div>
+      <div class="row"><span class="lab">Cloud Startup</span><span class="track"><span class="bar" style="width:100%"></span><span class="val">200만</span></span></div>
     </div>
 
-    <h2>구성품 ③ 이메일 마케팅 (Reach 500)</h2>
+    <p style="margin-top:16px">워드프레스 기준 <strong>이론상 150개</strong>까지 올릴 수 있고, 현실에서는 용량과 파일 개수가 먼저 찹니다. 그 외에 도메인 1년 무료, SSL, CDN, 매일 백업, 기존 사이트 무료 이전이 포함됩니다.</p>
+    <p class="sub"><strong>NVMe</strong>는 저장장치를 CPU에 더 넓은 통로로 연결하는 규격입니다. 워드프레스에서는 페이지가 빨리 뜨는 것으로 체감됩니다.</p>
 
-    <div class="en">
-      <div class="lbl">AppSumo 원문 · Email marketing plan ($29.88 value)</div>
-      <p><b>“Campaigns AI writes, designs, and sends”</b></p>
-      <p>“Describe the email you want and Hostinger Reach writes the copy, builds the layout, and applies your branding. Smart Sending picks the send time, welcome flows and cart recovery run on their own, and deliverability records are set up for you.”</p>
-      <ul>
-        <li>AI writes, designs, and brands every campaign</li>
-        <li>Hostinger's Reach 500 Plan</li>
-        <li>Welcome flows, sequences, and cart recovery</li>
-        <li>Unlimited AI subject lines and spam checks</li>
-        <li>SPF, DKIM, DMARC, GDPR, and CAN-SPAM handled</li>
-      </ul>
+    <h3>③ 이메일 마케팅 <span class="num">$29.88 상당</span></h3>
+    <p>‘500’은 <strong>구독자 수</strong>입니다. 발송량은 따로 정해져 있어요.</p>
+    <div class="tiles">
+      <div><span class="k">구독자</span><span class="v">500명</span><span class="s">무료 요금제는 100명</span></div>
+      <div><span class="k">월 발송량</span><span class="v">3,500통</span><span class="s">무료 요금제는 200통</span></div>
+      <div><span class="k">전체 발송</span><span class="v">월 7회</span><span class="s">500명 전원에게 보낼 경우</span></div>
     </div>
 
-    <div class="card">
-      <div class="cardhd">
-        <h3 style="margin:0">AI가 쓰고, 디자인하고, 보내는 캠페인</h3>
-        <span class="worth">$29.88 상당</span>
-      </div>
-      <ul>
-        <li>캠페인 작성 · 디자인 · 브랜딩을 AI가 처리</li>
-        <li>웰컴 시퀀스, 자동 시퀀스, 장바구니 리커버리</li>
-        <li>AI 제목 생성 및 스팸 검사 무제한</li>
-        <li>SPF · DKIM · DMARC · GDPR · CAN-SPAM 자동 설정</li>
-      </ul>
+    <h2>1년 뒤에 얼마가 청구되나</h2>
+    <p class="sub">이 숫자는 딜 페이지에 없습니다. 호스팅거 공식 가격 페이지에서 확인했습니다.</p>
+    <div class="chart">
+      <div class="ct">연간 실제 부담액</div>
+      <div class="cs">Unlimited 요금제 기준</div>
+      <div class="row"><span class="lab">1년차<br>(이 딜)</span><span class="track"><span class="bar" style="width:11.8%"></span><span class="val">$24</span></span></div>
+      <div class="row on"><span class="lab">2년차<br>(자동 갱신)</span><span class="track"><span class="bar" style="width:100%"></span><span class="val">$203.88</span></span></div>
     </div>
-
-    <h3>‘500’이 무슨 숫자인가</h3>
-    <div class="tblbox">
-      <table>
-        <thead><tr><th>요금제</th><th>구독자</th><th>월 발송량</th><th>정가</th></tr></thead>
-        <tbody>
-          <tr><td>무료</td><td class="mono">100명</td><td class="mono">200통</td><td class="mono">$0</td></tr>
-          <tr><td><strong>Reach 500</strong> (이 딜)</td><td class="mono">500명</td><td class="mono">3,500통</td><td class="mono">$5.99/월</td></tr>
-          <tr><td>Reach 1,000</td><td class="mono">1,000명</td><td>—</td><td class="mono">$2.99~/월</td></tr>
-          <tr><td>Reach 2,500</td><td class="mono">2,500명</td><td>—</td><td class="mono">$6.99~/월</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p style="margin-top:12px"><strong>500은 구독자 수</strong>가 맞고, 발송량은 <strong>월 3,500통</strong>입니다. 구독자 500명 전원에게 보낸다면 한 달에 약 7회 보낼 수 있는 분량이에요.</p>
-
-    <h2>사기 전에 꼭 확인할 것</h2>
-
-    <div class="en">
-      <div class="lbl">AppSumo 원문 · Deal terms and conditions</div>
-      <ul>
-        <li>1 year of access to Hostinger's Unlimited plan, Reach 500 plan and AI automation apps</li>
-        <li>Offer available only to new users of Hostinger</li>
-        <li>You must redeem your codes within 60 days of purchase</li>
-        <li>This is an annual deal, <b>no credit card entry or payment method is required</b> during code redemption for all tools.</li>
-      </ul>
-    </div>
-
-    <div class="en">
-      <div class="lbl">AppSumo 원문 · ⭐ Before you buy</div>
-      <ul>
-        <li>These tools are 1-year access only, not lifetime access.</li>
-        <li>This bundle is non-refundable.</li>
-        <li>Available to new users of Hostinger only.</li>
-        <li><b>Credit card entry will be required</b> during redemption.</li>
-        <li>Limit one bundle per person.</li>
-      </ul>
-    </div>
-
-    <h3>1. 환불이 안 됩니다</h3>
-    <p>앱수모는 보통 60일 환불이 되는데, <strong>이 번들은 명시적으로 예외</strong>입니다. 한 번 결제하면 되돌릴 수 없습니다.</p>
-
-    <h3>2. 호스팅거 신규 가입자만 살 수 있습니다</h3>
-    <p>이미 호스팅거를 쓰고 계신 분은 <strong>기존 계정으로 등록이 안 됩니다.</strong> 환불도 안 되니, 여기에 해당하시면 결제 전에 반드시 확인하세요.</p>
-
-    <h3>3. 60일 안에 등록해야 합니다</h3>
-    <p>구매 후 <strong>60일 이내</strong>에 코드를 등록해야 하고, 1년 카운트는 결제일이 아니라 <strong>등록한 날부터</strong> 시작됩니다.</p>
-
-    <h3>4. 1년 뒤에 자동으로 갱신됩니다</h3>
     <div class="flag">
-      <h4>Unlimited 요금제 갱신가 — <span class="mono">$16.99/월</span> (연 <span class="mono">$203.88</span>)</h4>
-      <p>이 숫자는 딜 페이지에 안 나옵니다. 호스팅거 공식 가격 페이지에서 확인한 값이에요. 즉 <strong>$24로 시작해서 1년 뒤에는 연 $203.88이 청구</strong>되는 구조입니다. 계속 쓸 생각이 없다면 <strong>갱신일 전에 취소</strong>하셔야 합니다. 달력에 미리 표시해두시는 걸 권합니다.</p>
+      <h4>월 $16.99로 자동 갱신됩니다</h4>
+      <p>계속 쓸 생각이 없다면 <strong>갱신일 전에 반드시 취소</strong>하셔야 합니다. 지금 달력에 표시해두세요.</p>
     </div>
 
-    <h3>5. 안내가 서로 어긋나는 부분이 있습니다</h3>
-    <p>딜 페이지 안에서 카드 등록에 대한 설명이 두 군데 나오는데, 내용이 서로 반대입니다.</p>
-    <div class="quote">
-      <b>약관 (Deal terms) — 원문 / 한글</b>
-      “This is an annual deal, <strong>no credit card entry or payment method is required</strong> during code redemption for all tools.”<br>
-      → 연간 딜이며, 모든 툴의 코드 등록 시 신용카드나 결제수단 입력이 <strong>필요하지 않음</strong>
-    </div>
-    <div class="quote">
-      <b>구매 전 확인 (Before you buy) — 원문 / 한글</b>
-      “<strong>Credit card entry will be required</strong> during redemption.”<br>
-      → 코드 등록 시 신용카드 입력이 <strong>필요함</strong>
-    </div>
-    <p style="margin-top:12px">어느 쪽이 맞는지는 실제로 등록해봐야 알 수 있습니다. 자동 갱신 구조를 감안하면 <strong>카드 등록이 필요한 쪽으로 가정</strong>하고 준비하시는 편이 안전합니다.</p>
+    <h2>사기 전에 꼭 볼 것</h2>
+    <ul class="checks">
+      <li><span class="ic">!</span><div><h4>환불이 안 됩니다</h4><p>앱수모는 보통 60일 환불이 되지만 이 번들은 명시적 예외입니다.</p></div></li>
+      <li><span class="ic">!</span><div><h4>호스팅거 신규 가입자만 살 수 있습니다</h4><p>이미 쓰고 계시면 기존 계정으로 등록이 안 됩니다. 환불도 안 되니 결제 전에 꼭 확인하세요.</p></div></li>
+      <li><span class="ic">!</span><div><h4>60일 안에 등록해야 합니다</h4><p>1년 카운트는 결제일이 아니라 <strong>등록한 날</strong>부터 시작합니다.</p></div></li>
+    </ul>
 
-    <h2>자주 나오는 질문</h2>
-    <div class="card">
-      <div class="qa"><h4>세 개를 따로 살 수 있나요?</h4><p>없습니다. 묶음으로만 판매합니다.</p></div>
-      <div class="qa"><h4>여러 개 살 수 있나요?</h4><p>1인 1개 한정입니다.</p></div>
-      <div class="qa"><h4>‘1년 이용권’이 정확히 뭔가요?</h4><p>월 요금 없이 1년간 씁니다. 평생 이용권이 아니고, 1년 카운트는 호스팅거에서 코드를 등록한 시점부터 시작합니다.</p></div>
-      <div class="qa"><h4>나중에 제품이 추가되나요?</h4><p>아니요. 지금 구성이 전부입니다.</p></div>
-      <div class="qa"><h4>구매 후 어떻게 쓰나요?</h4><p>결제하면 각 툴을 활성화하는 단계별 안내가 담긴 등록 페이지를 받습니다.</p></div>
-      <div class="qa"><h4>툴 자체가 문제면 어디에 문의하나요?</h4><p>툴 관련은 등록 후 호스팅거 고객지원, 결제나 번들 접근 문제는 앱수모 쪽으로 문의합니다.</p></div>
+    <h3>안내가 서로 어긋나는 부분</h3>
+    <p class="sub">카드 등록에 대한 설명이 같은 페이지에 두 번 나오는데, 내용이 반대입니다.</p>
+    <div class="vs">
+      <div class="pane a">
+        <div class="src">약관 · Deal terms</div>
+        <p class="enq">“This is an annual deal, <b>no credit card entry or payment method is required</b> during code redemption for all tools.”</p>
+        <p class="ko">→ 카드 입력이 <b>필요 없음</b></p>
+      </div>
+      <div class="pane b">
+        <div class="src">구매 전 확인 · Before you buy</div>
+        <p class="enq">“<b>Credit card entry will be required</b> during redemption.”</p>
+        <p class="ko">→ 카드 입력이 <b>필요함</b></p>
+      </div>
     </div>
+    <p style="margin-top:14px">어느 쪽이 맞는지는 실제로 등록해야 압니다. 자동 갱신 구조를 보면 <strong>카드 등록이 필요한 쪽으로 가정</strong>하시는 게 안전합니다.</p>
+
+    <details>
+      <summary>딜 약관 영어 원문 전체 보기</summary>
+      <div class="body">
+        <div class="qa"><h4>Deal terms and conditions</h4>
+          <p>1 year of access to Hostinger's Unlimited plan, Reach 500 plan and AI automation apps · Offer available only to new users of Hostinger · You must redeem your codes within 60 days of purchase · This is an annual deal, no credit card entry or payment method is required during code redemption for all tools.</p></div>
+        <div class="qa"><h4>⭐ Before you buy</h4>
+          <p>These tools are 1-year access only, not lifetime access. · This bundle is non-refundable. · Available to new users of Hostinger only. · Credit card entry will be required during redemption. · Limit one bundle per person.</p></div>
+      </div>
+    </details>
+
+    <details>
+      <summary>자주 나오는 질문</summary>
+      <div class="body">
+        <div class="qa"><h4>세 개를 따로 살 수 있나요?</h4><p>없습니다. 묶음으로만 판매합니다.</p></div>
+        <div class="qa"><h4>여러 개 살 수 있나요?</h4><p>1인 1개 한정입니다.</p></div>
+        <div class="qa"><h4>‘1년 이용권’이 정확히 뭔가요?</h4><p>월 요금 없이 1년간 씁니다. 평생 이용권이 아니고, 1년은 코드를 등록한 시점부터 셉니다.</p></div>
+        <div class="qa"><h4>나중에 제품이 추가되나요?</h4><p>아니요. 지금 구성이 전부입니다.</p></div>
+        <div class="qa"><h4>구매 후 어떻게 쓰나요?</h4><p>결제하면 각 툴을 활성화하는 단계별 안내 페이지를 받습니다.</p></div>
+        <div class="qa"><h4>툴이 문제면 어디에 문의하나요?</h4><p>툴 관련은 호스팅거 지원, 결제·번들 접근 문제는 앱수모로 문의합니다.</p></div>
+      </div>
+    </details>
 
     <h2>그래서, 사도 될까요?</h2>
-    <p><strong>맞는 분</strong> — 호스팅거를 한 번도 안 써보셨고, 사이트를 여러 개 만들 계획이 있고, 1년 뒤 갱신일에 취소 여부를 판단할 자신이 있는 분. 이 조건이면 1년에 3만 원대는 확실히 좋은 조건입니다.</p>
-    <p style="margin-top:10px"><strong>안 맞는 분</strong> — 이미 호스팅거를 쓰고 계신 분(애초에 구매 불가), 자동 갱신을 챙기기 어려운 분, 환불 불가가 부담스러운 분, 그리고 AI 에이전트를 공짜로 무제한 쓸 수 있다고 기대하신 분.</p>
+    <div class="fit">
+      <div class="y">
+        <h4>✓ 맞는 분</h4>
+        <p>호스팅거를 한 번도 안 써봤고, 사이트를 여러 개 만들 계획이 있고, 1년 뒤 갱신일에 취소 여부를 챙길 수 있는 분. 이 조건이면 1년 3만 원대는 확실히 좋습니다.</p>
+      </div>
+      <div class="n">
+        <h4>✕ 안 맞는 분</h4>
+        <p>이미 호스팅거를 쓰는 분(구매 자체가 불가), 자동 갱신을 챙기기 어려운 분, 환불 불가가 부담인 분, AI를 공짜로 무제한 쓸 거라 기대한 분.</p>
+      </div>
+    </div>
 
     <div class="cta">
       <h3>링크</h3>
@@ -370,21 +308,20 @@
       <div class="btns">
         <a class="btn btn-a" href="https://appsumo.8odi.net/mikukjubu-hostinger" target="_blank" rel="noopener sponsored">
           앱수모에서 번들 보기
-          <small>이 글에서 다룬 $24 번들 · 신규 가입자용</small>
+          <small>이 글에서 다룬 번들 · 신규 가입자용</small>
         </a>
         <a class="btn btn-b" href="https://hostinger.sjv.io/mikukjubu-hosting" target="_blank" rel="noopener sponsored">
           호스팅거 직접 보기
-          <small>딜이 끝났거나 기존 고객이신 경우</small>
+          <small>딜이 끝났거나 기존 고객인 경우</small>
         </a>
       </div>
-      <p class="fine">번들은 <b>호스팅거 신규 가입자 전용</b>이고 <b>환불이 되지 않습니다.</b> 이미 호스팅거를 쓰고 계시다면 오른쪽 링크로 가세요. 자세한 수수료 구조는 <a href="/disclosure.html">제휴 공시</a>에 있습니다.</p>
+      <p class="fine">번들은 <b>신규 가입자 전용</b>이고 <b>환불이 되지 않습니다.</b> 이미 호스팅거를 쓰신다면 오른쪽 링크로 가세요. 수수료 구조는 <a href="/disclosure.html">제휴 공시</a>에 있습니다.</p>
     </div>
 
     <a href="/" class="back">← 미국주부 홈으로</a>
 
     <footer>
-      영어 원문은 앱수모 딜 페이지에 게시된 내용을 인용한 것이며, 저작권은 각 사에 있습니다. 원문 전체는 <a href="https://appsumo.8odi.net/mikukjubu-hostinger" target="_blank" rel="noopener sponsored">앱수모 딜 페이지</a>에서 확인하실 수 있습니다.<br><br>
-      이 글의 숫자는 2026년 8월 28일에 앱수모 딜 페이지와 호스팅거 공식 가격 페이지에서 직접 확인한 값입니다. 가격·수량·구성은 이후 변경될 수 있으니 결제 전에 판매 페이지에서 다시 확인해 주세요.
+      화면 캡처와 영어 원문은 앱수모 딜 페이지 내용을 인용한 것이며 저작권은 각 사에 있습니다. 숫자는 2026년 8월 28일에 앱수모와 호스팅거 공식 페이지에서 직접 확인했습니다. 가격·수량·구성은 이후 바뀔 수 있으니 결제 전에 판매 페이지에서 다시 확인해 주세요.
     </footer>
   </main>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9b3d857e23354a79b458004691c28056"}'></script>
