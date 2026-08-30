@@ -52,8 +52,17 @@
   figcaption{font-size:12.5px;color:var(--ink3);margin-top:9px;}
   figcaption b{color:var(--ink2);font-weight:600;}
 
-  .notice{background:#FFF3EF;border:1px solid #FFD5C8;border-radius:12px;padding:14px 18px;margin-top:26px;font-size:14px;color:var(--ink2);}
-  .notice b{color:var(--ink);}
+  .bundlebox{background:var(--card);border:2px solid var(--coral);border-radius:16px;padding:24px 26px;margin-top:26px;}
+  .bundlebox h3{margin:0 0 6px;font-size:19px;}
+  .bundlebox p{font-size:15px;}
+  .topbtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+  .tbtn{display:inline-flex;flex-direction:column;gap:1px;padding:13px 20px;border-radius:11px;text-decoration:none;font-weight:700;font-size:15px;line-height:1.35;}
+  .tbtn small{font-weight:500;font-size:12px;opacity:.85;}
+  .tbtn:hover{text-decoration:none;opacity:.92;}
+  .tbtn-a{background:var(--coral);color:#fff;}
+  .tbtn-b{background:transparent;color:var(--ink);border:1.5px solid var(--line);}
+  .dis{font-size:12px;color:var(--ink3);margin-top:13px;}
+  .dis a{color:var(--ink3);font-weight:600;text-decoration:underline;}
 
   .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:24px;}
   .tiles div{background:var(--card);padding:16px 18px;display:flex;flex-direction:column;gap:3px;}
@@ -147,14 +156,26 @@
     <p class="updated">한글 정리 · 확인 시점 2026-08-28</p>
     <p class="lede">영어로만 되어 있는 딜을 한글로 정리하고, 페이지에 안 적힌 것까지 확인했습니다.</p>
 
-    <div class="notice">
-      <b>미리 알려드립니다.</b> 아래 버튼은 제휴 링크입니다. 추가 비용은 전혀 없고, 저에게 수수료가 지급될 수 있습니다. 그래서 좋은 점만 쓰지 않았습니다. → <a href="/disclosure.html">제휴 공시</a>
-    </div>
-
     <figure>
-      <img src="/img/appsumo-hero.jpg" width="1000" height="354" alt="앱수모 호스팅거 번들 딜 페이지 상단. 정가 147달러, 판매가 24달러." loading="lazy" />
-      <figcaption><b>앱수모 실제 화면 ·</b> 정가 $147 → $24. 아래에 1년 이용 · 환불 불가 · 자동 갱신이 표시돼 있습니다.</figcaption>
+      <img src="/img/appsumo-hero.jpg" width="1000" height="354" alt="앱수모 호스팅거 번들 딜 페이지 상단. 정가 147달러, 판매가 24달러." />
+      <figcaption><b>앱수모 실제 화면 ·</b> 정가 $147 → $24.</figcaption>
     </figure>
+
+    <div class="bundlebox">
+      <h3>따로 사는 게 아닙니다 — 한 번 결제로 3가지 전부</h3>
+      <p><strong>$24 한 번</strong>이면 AI 자동화 앱 · Unlimited 호스팅 · 이메일 마케팅 <strong>세 가지를 모두 1년간</strong> 씁니다. 애초에 개별 구매는 불가능하고, 묶음으로만 판매합니다.</p>
+      <div class="topbtns">
+        <a class="tbtn tbtn-a" href="https://appsumo.8odi.net/mikukjubu-hostinger" target="_blank" rel="noopener sponsored">
+          앱수모에서 번들 보기
+          <small>신규 가입자용</small>
+        </a>
+        <a class="tbtn tbtn-b" href="https://hostinger.sjv.io/mikukjubu-hosting" target="_blank" rel="noopener sponsored">
+          호스팅거 직접 보기
+          <small>딜이 끝났거나 기존 고객인 경우</small>
+        </a>
+      </div>
+      <p class="dis">제휴 링크 · 추가 비용 없음 · <a href="/disclosure.html">공시</a></p>
+    </div>
 
     <div class="tiles">
       <div><span class="k">가격</span><span class="v">$24</span><span class="s">표기 정가 $147</span></div>
@@ -171,10 +192,13 @@
       <div class="step"><span class="p">$34</span><span class="q">1,500개</span><span class="st">대기</span></div>
       <div class="step"><span class="p">$44</span><span class="q">2,000개</span><span class="st">이후 종료</span></div>
     </div>
-    <p class="sub">$24는 대략 3만 원대, 월 3천 원이 안 됩니다. 보시는 시점엔 올라가 있을 수 있습니다.</p>
+    <div class="flag">
+      <h4>$34나 $44로 보이신다면</h4>
+      <p>앞 배치가 이미 매진된 겁니다. 그래도 <strong>여전히 살 만합니다.</strong> Unlimited 호스팅 하나만 정가로 사도 1년에 <strong>$203.88</strong>인데, $44면 그 <strong>5분의 1 값으로 세 가지를 전부</strong> 쓰는 셈이니까요. 다음 배치로 넘어가면 또 오르고, 마지막 배치가 팔리면 딜 자체가 끝납니다. 하실 거면 미루지 마세요.</p>
+    </div>
 
     <h2>구성품 3가지</h2>
-    <p class="sub">따로 살 수 없고 묶음으로만 판매합니다. 아래가 앱수모에 적힌 영어 원문 그대로입니다.</p>
+    <p class="sub">아래가 앱수모에 적힌 영어 원문 그대로입니다.</p>
 
     <figure>
       <img src="/img/appsumo-products.jpg" width="1000" height="654" alt="앱수모에 표시된 구성품 세 카드. AI 자동화 앱 72달러 상당, Unlimited 호스팅 45달러 상당, 이메일 마케팅 29.88달러 상당." loading="lazy" />
@@ -281,7 +305,6 @@
     <details>
       <summary>자주 나오는 질문</summary>
       <div class="body">
-        <div class="qa"><h4>세 개를 따로 살 수 있나요?</h4><p>없습니다. 묶음으로만 판매합니다.</p></div>
         <div class="qa"><h4>여러 개 살 수 있나요?</h4><p>1인 1개 한정입니다.</p></div>
         <div class="qa"><h4>‘1년 이용권’이 정확히 뭔가요?</h4><p>월 요금 없이 1년간 씁니다. 평생 이용권이 아니고, 1년은 코드를 등록한 시점부터 셉니다.</p></div>
         <div class="qa"><h4>나중에 제품이 추가되나요?</h4><p>아니요. 지금 구성이 전부입니다.</p></div>
@@ -304,7 +327,7 @@
 
     <div class="cta">
       <h3>링크</h3>
-      <p>아래는 제휴 링크입니다. 추가 비용 없이 같은 가격으로 이용하실 수 있습니다.</p>
+      <p>번들은 신규 가입자 전용입니다. 이미 호스팅거를 쓰신다면 오른쪽 링크로 가세요.</p>
       <div class="btns">
         <a class="btn btn-a" href="https://appsumo.8odi.net/mikukjubu-hostinger" target="_blank" rel="noopener sponsored">
           앱수모에서 번들 보기
@@ -315,7 +338,7 @@
           <small>딜이 끝났거나 기존 고객인 경우</small>
         </a>
       </div>
-      <p class="fine">번들은 <b>신규 가입자 전용</b>이고 <b>환불이 되지 않습니다.</b> 이미 호스팅거를 쓰신다면 오른쪽 링크로 가세요. 수수료 구조는 <a href="/disclosure.html">제휴 공시</a>에 있습니다.</p>
+      <p class="fine">제휴 링크 · 추가 비용 없음 · <a href="/disclosure.html">공시</a></p>
     </div>
 
     <a href="/" class="back">← 미국주부 홈으로</a>
