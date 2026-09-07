@@ -84,7 +84,7 @@
   .lo-sub{display:block;font-size:11px;font-weight:600;color:var(--ink-soft);font-family:var(--en);letter-spacing:.02em;}
   .nav-menu{display:flex;gap:22px;}
   .nav-menu a{color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;}
-  .nav-menu a:hover{color:var(--coral);}
+  .nav-menu a:hover,.nav-menu a[aria-current]{color:var(--coral);}
   .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:11px 20px;font-weight:700;text-decoration:none;font-size:15px;transition:transform .2s,box-shadow .2s;}
   .btn-coral{background:var(--coral);color:#fff;box-shadow:var(--shadow-sm);}
   .btn-coral:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);}
@@ -222,6 +222,7 @@
     </a>
     <nav class="nav-menu">
       <a href="/#youtube">영상</a>
+      <a href="/blog/" aria-current="page">블로그</a>
       <a href="/#tools">추천 프로그램</a>
       <a href="/#contact">문의</a>
     </nav>
