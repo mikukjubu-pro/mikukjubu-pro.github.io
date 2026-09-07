@@ -10,10 +10,38 @@
   </url>
   <url>
     <loc>https://mikukjubu.com/en/</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://mikukjubu.com/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/" />
+  </url>
+  <url>
+    <loc>https://mikukjubu.com/tools/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/tools/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mikukjubu.com/en/tools/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/tools/" />
+  </url>
+  <url>
+    <loc>https://mikukjubu.com/en/tools/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/tools/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mikukjubu.com/en/tools/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/tools/" />
+  </url>
+  <url>
+    <loc>https://mikukjubu.com/contact/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/contact/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mikukjubu.com/en/contact/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/contact/" />
+  </url>
+  <url>
+    <loc>https://mikukjubu.com/en/contact/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/contact/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mikukjubu.com/en/contact/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/contact/" />
   </url>
   <url>
     <loc>https://mikukjubu.com/blog/</loc>
@@ -41,28 +69,28 @@
   </url>
   <url>
     <loc>https://mikukjubu.com/disclosure.html</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/disclosure.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://mikukjubu.com/en/disclosure.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/disclosure.html" />
   </url>
   <url>
     <loc>https://mikukjubu.com/en/disclosure.html</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/disclosure.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://mikukjubu.com/en/disclosure.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/disclosure.html" />
   </url>
   <url>
     <loc>https://mikukjubu.com/privacy.html</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/privacy.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://mikukjubu.com/en/privacy.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/privacy.html" />
   </url>
   <url>
     <loc>https://mikukjubu.com/en/privacy.html</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/privacy.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://mikukjubu.com/en/privacy.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/privacy.html" />

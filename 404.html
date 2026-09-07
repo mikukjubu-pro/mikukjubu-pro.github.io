@@ -4,67 +4,102 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>페이지를 찾을 수 없어요 · 미국주부</title>
+
 <meta name="robots" content="noindex" />
+
+
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#FFF6E8" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=JetBrains+Mono:wght@500&family=Caveat:wght@600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Gaegu:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/mk.css?v=20260907" />
+<script>document.documentElement.classList.add('js');</script>
 <style>
-  :root{
-    --cream:#FAF7F2; --ink:#241F1B; --ink2:#6B5D54; --coral:#FF5733; --coral-d:#E8431F;
-    --mustard:#D49E5C; --line:#EBE3D8;
-    --kr:'Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif;
-    --en:'Inter Tight',var(--kr); --mono:'JetBrains Mono',ui-monospace,monospace; --hand:'Caveat',cursive;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{
-    background:var(--cream); color:var(--ink); font-family:var(--kr);
-    min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px;
-    -webkit-font-smoothing:antialiased;
-  }
-  .card{max-width:560px; width:100%; text-align:center;}
-  .logo{display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink); margin-bottom:36px;}
-  .logo .mk{width:38px; height:38px; border-radius:10px; background:var(--coral); color:#fff;
-    display:grid; place-items:center; font-family:var(--en); font-weight:800; font-size:19px;}
-  .logo b{font-size:17px; letter-spacing:-.02em;}
-  .logo span.sub{display:block; font-family:var(--mono); font-size:10px; color:var(--ink2); letter-spacing:.08em; text-align:left;}
-  .num{
-    font-family:var(--en); font-weight:800; font-size:clamp(96px,24vw,160px); line-height:1;
-    letter-spacing:-.04em; color:var(--ink);
-  }
-  .num .o{color:var(--coral);}
-  .hand{font-family:var(--hand); font-size:26px; color:var(--mustard); transform:rotate(-3deg); display:inline-block; margin-top:4px;}
-  h1{font-size:clamp(22px,5vw,28px); font-weight:700; letter-spacing:-.02em; margin-top:14px;}
-  p.desc{margin-top:12px; font-size:16px; line-height:1.7; color:var(--ink2);}
-  .btns{margin-top:32px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;}
-  .btn{display:inline-flex; align-items:center; gap:8px; font-size:15.5px; font-weight:700;
-    padding:14px 26px; border-radius:999px; text-decoration:none; transition:transform .15s ease, background .15s ease;}
-  .btn:hover{transform:translateY(-2px);}
-  .btn-coral{background:var(--coral); color:#fff;}
-  .btn-coral:hover{background:var(--coral-d);}
-  .btn-ghost{background:#fff; color:var(--ink); border:1.5px solid var(--line);}
-  .en-line{margin-top:34px; font-family:var(--mono); font-size:12px; color:var(--ink2); letter-spacing:.04em;}
-  .en-line a{color:var(--coral); text-decoration:none;}
+  .page-head{background:var(--cream-2)}
+  .mk-article .btns{display:flex;flex-wrap:wrap;gap:14px;margin:26px 0 8px}
+  .mk-article .num{font-family:var(--disp);font-size:clamp(64px,14vw,120px);line-height:1;color:var(--plum)}
+  .mk-article .num .o{color:var(--coral)}
+  .mk-article .hand{font-family:var(--hand);font-size:28px;color:var(--coral);margin:6px 0 14px}
+  .mk-article .check{width:64px;height:64px;border-radius:50%;background:var(--lime);border:var(--bd) solid var(--edge);display:grid;place-items:center;margin-bottom:14px}
+  .mk-article .check svg{width:32px;height:32px;fill:none;stroke:var(--ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+  .mk-article .updated,.mk-article .en-line{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.05em}
+  .mk-article .back{display:inline-block;margin-top:30px;font-weight:800;color:var(--coral);border-bottom:2px solid var(--coral)}
 </style>
 </head>
 <body>
-  <main class="card">
-    <a href="/" class="logo" aria-label="미국주부 홈">
-      <span class="mk">M</span>
-      <span><b>미국주부</b><span class="sub">MOMPRENEUR DIARY</span></span>
+
+<header class="mk-nav">
+  <div class="wrap mk-nav-in">
+    <a href="/" class="mk-logo" aria-label="미국주부 홈">
+      <span class="mk-tile">M</span>
+      <span>미국주부<small>Mompreneur Diary</small></span>
     </a>
-    <div class="num">4<span class="o">0</span>4</div>
-    <div class="hand">앗, 길을 잃었어요!</div>
+    <nav class="mk-menu" id="mkMenu">
+      <a href="/#youtube">영상</a>
+      <a href="/blog/">블로그</a>
+      <a href="/tools/">추천 프로그램</a>
+      <a href="/contact/">문의</a>
+      <a href="/en/" class="lang">EN ↗</a>
+    </nav>
+    <div class="mk-nav-right">
+      <a href="/contact/" class="pill pill-coral">1:1 컨설팅 <span class="ar">↗</span></a>
+      <button class="mk-burger" id="mkBurger" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="tag" style="color:var(--coral)">NOTICE</span>
     <h1>페이지를 찾을 수 없어요</h1>
+  </div>
+</section>
+
+<main class="mk-article">
+<div class="num">4<span class="o">0</span>4</div>
+    <div class="hand">앗, 길을 잃었어요!</div>
+    
     <p class="desc">주소가 바뀌었거나 없는 페이지예요.<br />아래 버튼으로 홈으로 돌아가시면 다 있어요 :)</p>
     <div class="btns">
-      <a href="/" class="btn btn-coral">🏠 홈으로 가기 →</a>
-      <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener" class="btn btn-ghost">▶ 유튜브 보러가기</a>
+      <a href="/" class="pill pill-coral">🏠 홈으로 가기 →</a>
+      <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener" class="pill pill-white">▶ 유튜브 보러가기</a>
     </div>
     <p class="en-line">Page not found — <a href="/en/">go to English home →</a></p>
-  </main>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9b3d857e23354a79b458004691c28056"}'></script>
+</main>
+
+<footer class="mk-ft">
+  <div class="wrap">
+    <div class="mk-ft-top">
+      <div class="mk-ft-brand">
+        <a href="/" class="mk-logo"><span class="mk-tile">M</span><span>미국주부<small>Mompreneur Diary</small></span></a>
+        <p>미국에서 1인 사업하는 한국 주부. 온라인 마케팅 · 드랍쉬핑 · 온라인 셀러 컨설팅.</p>
+      </div>
+      <div class="mk-ft-col">
+        <h5>둘러보기</h5>
+        <a href="/#youtube">영상</a>
+        <a href="/blog/">블로그</a>
+        <a href="/tools/">추천 프로그램</a>
+        <a href="/contact/">문의</a>
+      </div>
+      <div class="mk-ft-col">
+        <h5>커뮤니티 · 연결</h5>
+        <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener">유튜브 구독하기 →</a>
+        <a href="https://www.youtube.com/channel/UCssWRwTEAY-UY7X7lvFi80w/join" target="_blank" rel="noopener">유튜브 멤버십 가입 →</a>
+        <a href="https://discord.gg/HgDDT2C6rs" target="_blank" rel="noopener">Discord 커뮤니티 →</a>
+      </div>
+    </div>
+    <div class="mk-ft-bot">
+      <span>© 2026 미국주부 · Mompreneur Diary. All rights reserved.</span>
+      <span><a href="/privacy.html">개인정보처리방침</a> · <a href="/disclosure.html">제휴 공시</a> · <a href="/en/">English</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/mk.js?v=20260907" defer></script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9b3d857e23354a79b458004691c28056"}'></script>
 </body>
 </html>

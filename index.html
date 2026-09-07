@@ -12,7 +12,7 @@
 <link rel="alternate" hreflang="ko" href="https://mikukjubu.com/" />
 <link rel="alternate" hreflang="en" href="https://mikukjubu.com/en/" />
 <link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/" />
-<meta name="theme-color" content="#FAF7F2" />
+<meta name="theme-color" content="#FFF6E8" />
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -60,7 +60,7 @@
       "@type": "Service",
       "@id": "https://mikukjubu.com/#service",
       "name": "미국주부 1:1 온라인 컨설팅",
-      "url": "https://mikukjubu.com/#contact",
+      "url": "https://mikukjubu.com/contact/",
       "description": "온라인 마케팅·드랍쉬핑·온라인 셀러 1:1 온라인 컨설팅 (채팅·보이스 미팅·화면 공유)",
       "provider": { "@id": "https://mikukjubu.com/#person" },
       "areaServed": "Worldwide"
@@ -69,766 +69,352 @@
 }
 </script>
 
-<!-- Pretendard (Korean) -->
+<!-- Fonts -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
-<!-- Inter Tight (EN head) / JetBrains Mono (labels) / Caveat (handwriting) -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,600;0,700;0,800;1,800&family=JetBrains+Mono:wght@400;500;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Gaegu:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/mk.css?v=20260907" />
+<script>document.documentElement.classList.add('js');</script>
 
 <style>
-  :root{
-    --cream:#FAF7F2;
-    --card:#FFFFFF;
-    --dark:#161311;
-    --coral:#FF5733;
-    --mustard:#D49E5C;
-    --beige:#F0E7DA;
-    --ink:#241F1B;
-    --ink-soft:#6B6157;
-    --line:#EBE3D8;
-    --radius:16px;
-    --radius-lg:24px;
-    --shadow-sm:0 1px 2px rgba(38,28,18,.04), 0 4px 14px rgba(38,28,18,.05);
-    --shadow-md:0 6px 18px rgba(38,28,18,.06), 0 18px 50px rgba(38,28,18,.08);
-    --shadow-lg:0 20px 60px rgba(38,28,18,.14);
-    --maxw:1200px;
-    --kr:'Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif;
-    --en:'Inter Tight',var(--kr);
-    --mono:'JetBrains Mono',ui-monospace,monospace;
-    --hand:'Caveat',cursive;
+  /* 홈 전용 — 히어로 패널과 콜라주 */
+  .hero{padding:26px 0 0}
+  .hero-panel{
+    background:var(--plum);color:var(--cream);
+    border:var(--bd) solid var(--edge);border-radius:34px;box-shadow:8px 8px 0 var(--edge);
+    padding:56px 52px 60px;position:relative;overflow:hidden;
   }
-
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:var(--kr);
-    background:var(--cream);
-    color:var(--ink);
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-    overflow-x:hidden;
+  .hero-panel::before{
+    content:"";position:absolute;right:-140px;top:-160px;width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%, #4A2C8F 0%, transparent 62%);
   }
-  a{color:inherit;text-decoration:none;}
-  img{max-width:100%;display:block;}
-
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
-
-  /* labels */
-  .eyebrow{
-    font-family:var(--mono);
-    font-size:12px;font-weight:500;
-    letter-spacing:.22em;text-transform:uppercase;
-    color:var(--mustard);
-    display:inline-flex;align-items:center;gap:10px;
-  }
-  .eyebrow::before{content:"";width:26px;height:1px;background:var(--mustard);display:inline-block;}
-  .eyebrow.center::before{display:none;}
-
-  .en-head{font-family:var(--en);font-weight:800;letter-spacing:-.02em;line-height:1;}
-
-  /* buttons */
-  .btn{
-    display:inline-flex;align-items:center;gap:9px;
-    font-family:var(--kr);font-weight:600;font-size:15px;
-    padding:14px 26px;border-radius:999px;border:1.5px solid transparent;
-    cursor:pointer;transition:transform .25s cubic-bezier(.2,.7,.3,1),box-shadow .25s,background .2s,color .2s,border-color .2s;
-    white-space:nowrap;
-  }
-  .btn .arw{font-family:var(--mono);font-size:13px;transition:transform .25s;}
-  .btn:hover .arw{transform:translateX(3px);}
-  .btn-coral{background:var(--coral);color:#fff;box-shadow:0 8px 22px rgba(255,87,51,.28);}
-  .btn-coral:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(255,87,51,.36);}
-  .btn-dark{background:var(--ink);color:#fff;}
-  .btn-dark:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);}
-  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line);}
-  .btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px);}
-  .btn-light{background:#fff;color:var(--ink);}
-  .btn-light:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);}
-  .btn-outline-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.28);}
-  .btn-outline-light:hover{border-color:#fff;transform:translateY(-2px);}
-
-  /* image placeholders */
-  .ph{
-    position:relative;overflow:hidden;background:var(--beige);
-    background-image:repeating-linear-gradient(135deg,rgba(212,158,92,.13) 0 12px,transparent 12px 24px);
-    display:flex;align-items:center;justify-content:center;
-  }
-  .ph.dark{background:#211C18;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 12px,transparent 12px 24px);}
-  .ph .ph-tag{
-    font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
-    color:var(--ink-soft);background:rgba(255,255,255,.72);
-    padding:7px 12px;border-radius:8px;border:1px solid var(--line);
-    text-align:center;line-height:1.5;backdrop-filter:blur(2px);
-  }
-  .ph.dark .ph-tag{color:#C9BEB0;background:rgba(0,0,0,.4);border-color:rgba(255,255,255,.12);}
-
-  /* sections */
-  section{position:relative;}
-  .sec-pad{padding:118px 0;}
-  .sec-head{max-width:660px;margin-bottom:56px;}
-  .sec-head.center{margin-inline:auto;text-align:center;}
-  .sec-title{
-    font-size:clamp(32px,4.2vw,50px);font-weight:800;letter-spacing:-.03em;line-height:1.12;margin-top:18px;
-  }
-  .sec-sub{margin-top:18px;font-size:17px;color:var(--ink-soft);}
-
-  /* reveal */
-  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1);}
-  .reveal.in{opacity:1;transform:none;}
-  .reveal.d1{transition-delay:.08s;}
-  .reveal.d2{transition-delay:.16s;}
-  .reveal.d3{transition-delay:.24s;}
-  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
-
-  /* ============ NAV ============ */
-  header.nav{
-    position:sticky;top:0;z-index:100;
-    background:rgba(250,247,242,.72);
-    backdrop-filter:saturate(180%) blur(16px);
-    -webkit-backdrop-filter:saturate(180%) blur(16px);
-    border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s;
-  }
-  header.nav.scrolled{border-bottom-color:var(--line);box-shadow:0 4px 20px rgba(38,28,18,.04);}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;}
-  .logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:20px;letter-spacing:-.02em;}
-  .logo .mk{width:34px;height:34px;border-radius:10px;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:var(--en);font-weight:800;font-size:17px;}
-  .logo .lo-sub{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-top:1px;}
-  .nav-menu{display:flex;align-items:center;gap:34px;}
-  .nav-menu a{font-size:15px;font-weight:500;color:var(--ink);position:relative;padding:4px 0;white-space:nowrap;}
-  .nav-menu a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--coral);transition:width .25s;}
-  .nav-menu a:hover{color:var(--coral);}
-  .nav-menu a:hover::after{width:100%;}
-  .nav-right{display:flex;align-items:center;gap:18px;}
-  .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;}
-  .burger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:.3s;}
-
-  /* ============ HERO ============ */
-  .hero{padding:84px 0 96px;}
-  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center;}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--lime)}
+  .eyebrow .dot{width:9px;height:9px;border-radius:50%;background:var(--lime);display:inline-block}
   .hero h1{
-    font-size:clamp(40px,6vw,72px);font-weight:800;letter-spacing:-.04em;line-height:1.08;margin:22px 0 0;
+    font-family:var(--disp);font-weight:400;font-size:clamp(34px,4.9vw,60px);line-height:1.08;
+    letter-spacing:-.02em;margin:18px 0 0;
   }
-  .hero-en{font-family:var(--en);font-weight:800;font-size:clamp(20px,2.4vw,30px);color:var(--mustard);margin-top:14px;letter-spacing:-.02em;line-height:1;}
-  .hero h1 mark{background:linear-gradient(transparent 62%,rgba(255,87,51,.22) 0);color:inherit;padding:0 2px;}
-  .hero-lead{margin-top:26px;font-size:18px;color:var(--ink-soft);max-width:460px;}
-  .hero-lead b{color:var(--ink);font-weight:600;}
-  .hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
-  .hero-meta{display:flex;gap:26px;margin-top:40px;flex-wrap:wrap;}
-  .hero-meta a{display:flex;flex-direction:column;gap:3px;}
-  .hero-meta .hm-k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mustard);}
-  .hero-meta .hm-v{font-weight:600;font-size:15px;}
-  .hero-photo{position:relative;}
-  .hero-photo .ph{aspect-ratio:4/5;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);}
+  .hero h1 .u{color:var(--coral)}
+  .hero h1 .mark{display:inline-block;padding:0 4px;background:linear-gradient(to top,var(--coral) 0 13px,transparent 13px)}
+  .hero-en{font-family:var(--en);font-size:15px;color:var(--lilac);margin-top:18px}
+  .hero-lead{margin-top:16px;font-size:16.5px;line-height:1.78;color:#E4DAF6;max-width:44ch}
+  .hero-lead b{color:var(--lime);font-weight:800}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+  .hero-cta .pill{border-color:#0E0722}
+  .hero-cta .pill-line{color:var(--cream)}
+  .hero-cta .pill-line:hover{color:var(--lime)}
+  .hero-meta{margin-top:26px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:#A38FD1}
+  .hero-meta a:hover{color:var(--lime)}
 
-  /* hero brand graphic */
-  .hero-art{
-    position:relative;aspect-ratio:4/5;border-radius:var(--radius-lg);overflow:hidden;
-    background:
-      radial-gradient(120% 80% at 80% 0%, #FBEEDD 0%, transparent 55%),
-      linear-gradient(160deg,#FDF6EC 0%,#F5E7D4 100%);
-    box-shadow:var(--shadow-lg);border:1px solid #EBDCC6;
+  .collage{position:relative;min-height:390px}
+  .card-vid{
+    position:absolute;left:2%;top:6%;width:74%;background:var(--coral);
+    border:var(--bd) solid var(--edge);border-radius:22px;box-shadow:7px 7px 0 var(--edge);
+    padding:20px 20px 22px;transform:rotate(-3.2deg);animation:floatA 7s ease-in-out infinite;
   }
-  .hero-art .art-dots{position:absolute;inset:0;background-image:radial-gradient(#D49E5C 1.3px,transparent 1.3px);background-size:18px 18px;opacity:.16;}
-  .hero-art .art-blob{position:absolute;border-radius:50%;filter:blur(2px);}
-  .hero-art .art-blob-a{width:46%;aspect-ratio:1;left:-12%;bottom:-10%;background:radial-gradient(circle at 35% 35%,rgba(255,87,51,.18),transparent 70%);}
-  .hero-art .art-blob-b{width:38%;aspect-ratio:1;right:-8%;top:8%;background:radial-gradient(circle at 50% 50%,rgba(212,158,92,.22),transparent 70%);}
-  .hero-art .art-globe{position:absolute;width:42%;right:8%;top:9%;filter:drop-shadow(0 12px 26px rgba(31,42,68,.28));}
-  .hero-art .art-laptop{position:absolute;left:11%;bottom:20%;width:62%;}
-  .hero-art .art-screen{
-    position:relative;aspect-ratio:16/10;border-radius:12px 12px 3px 3px;
-    background:linear-gradient(160deg,#202A43,#161B2B);border:3px solid #2C3047;
-    box-shadow:0 18px 36px rgba(22,27,43,.32);padding:14% 12% 0;overflow:hidden;
+  .card-vid .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:#FFE2D5;text-transform:uppercase}
+  .card-vid .t{font-family:var(--disp);font-size:27px;line-height:1.2;color:#fff;margin-top:10px}
+  .card-vid .play{
+    position:absolute;right:-16px;bottom:-16px;width:58px;height:58px;border-radius:50%;
+    background:var(--plum-deep);border:var(--bd) solid var(--edge);display:grid;place-items:center;
   }
-  .hero-art .art-bar{position:absolute;height:5px;border-radius:3px;background:rgba(247,233,214,.5);left:11%;}
-  .hero-art .art-bar-1{top:13%;width:30%;background:var(--coral);}
-  .hero-art .art-bar-2{top:24%;width:54%;}
-  .hero-art .art-bar-3{top:34%;width:40%;}
-  .hero-art .art-chart{position:absolute;left:11%;right:11%;bottom:30%;width:78%;height:auto;}
-  .hero-art .art-cols{position:absolute;left:11%;right:11%;bottom:11%;display:flex;gap:7%;align-items:flex-end;height:24%;}
-  .hero-art .art-cols i{flex:1;border-radius:3px 3px 0 0;background:var(--mustard);opacity:.9;}
-  .hero-art .art-cols i:nth-child(1){height:45%;}
-  .hero-art .art-cols i:nth-child(2){height:72%;}
-  .hero-art .art-cols i:nth-child(3){height:55%;background:var(--coral);}
-  .hero-art .art-cols i:nth-child(4){height:90%;}
-  .hero-art .art-base{height:10px;margin:0 14%;border-radius:0 0 9px 9px;background:linear-gradient(#39415C,#262C40);box-shadow:0 10px 16px rgba(22,27,43,.25);}
-  .hero-art .art-play{
-    position:absolute;right:13%;bottom:15%;width:23%;aspect-ratio:1.42;border-radius:18px;
-    background:var(--coral);display:grid;place-items:center;box-shadow:0 14px 28px rgba(255,87,51,.4);transform:rotate(-4deg);
+  .card-vid .play::after{content:"";border-left:15px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+  .card-list{
+    position:absolute;right:0;bottom:2%;width:70%;background:var(--lilac);
+    border:var(--bd) solid var(--edge);border-radius:22px;box-shadow:7px 7px 0 var(--edge);
+    padding:20px 22px;transform:rotate(2deg);animation:floatB 8s ease-in-out infinite;
   }
-  .hero-art .art-tri{width:0;height:0;border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:5px;}
-  .hero-art .art-chip{
-    position:absolute;left:9%;top:23%;background:#fff;border-radius:13px;padding:11px 13px;
-    box-shadow:0 12px 26px rgba(38,28,18,.16);display:flex;flex-direction:column;gap:7px;transform:rotate(-3deg);
+  .card-list h4{font-family:var(--disp);font-size:19px;color:var(--ink);font-weight:400}
+  .card-list ul{list-style:none;margin-top:12px;display:grid;gap:9px}
+  .card-list li{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;color:var(--ink)}
+  .card-list .ck{width:21px;height:21px;border-radius:50%;background:var(--plum);color:var(--lime);display:grid;place-items:center;font-size:11px;flex:none;font-weight:900}
+  .badge{
+    position:absolute;right:4%;top:-4%;width:96px;height:96px;border-radius:50%;background:var(--lime);
+    border:var(--bd) solid var(--edge);display:grid;place-items:center;text-align:center;
+    font-family:var(--disp);font-size:21px;line-height:1;color:var(--ink);animation:wob 5.5s ease-in-out infinite;z-index:3;
   }
-  .hero-art .art-chip-k{font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--ink-soft);}
-  .hero-art .art-chip-bars{display:flex;gap:4px;align-items:flex-end;height:22px;}
-  .hero-art .art-chip-bars i{width:6px;border-radius:2px;background:var(--mustard);}
-  .hero-art .art-chip-bars i:nth-child(1){height:40%;}
-  .hero-art .art-chip-bars i:nth-child(2){height:65%;}
-  .hero-art .art-chip-bars i:nth-child(3){height:50%;}
-  .hero-art .art-chip-bars i:nth-child(4){height:100%;background:var(--coral);}
-  .hero-tagsticker{
-    position:absolute;left:-22px;bottom:34px;background:#fff;border-radius:14px;padding:14px 18px;
-    box-shadow:var(--shadow-md);display:flex;align-items:center;gap:12px;
-  }
-  .hero-tagsticker .dot{width:38px;height:38px;border-radius:11px;background:var(--coral);color:#fff;display:grid;place-items:center;font-weight:700;}
-  .hero-tagsticker .ts-k{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);}
-  .hero-tagsticker .ts-v{font-weight:700;font-size:14px;}
-  .hero-hand{position:absolute;left:6%;top:4%;z-index:6;font-family:var(--hand);font-size:29px;line-height:1;color:var(--mustard);transform:rotate(-7deg);text-shadow:0 1px 0 rgba(253,246,236,.8);}
-  .hero-hand .arr{display:inline-block;font-size:20px;transform:rotate(20deg) translateY(2px);margin-left:2px;}
+  .hand{position:absolute;left:-4%;bottom:6%;font-family:var(--hand);font-size:27px;color:var(--lime);transform:rotate(-7deg);z-index:4}
+  @keyframes floatA{0%,100%{transform:rotate(-3.2deg) translateY(0)}50%{transform:rotate(-3.2deg) translateY(-11px)}}
+  @keyframes floatB{0%,100%{transform:rotate(2deg) translateY(0)}50%{transform:rotate(2deg) translateY(9px)}}
+  @keyframes wob{0%,100%{transform:rotate(-9deg)}50%{transform:rotate(9deg)}}
 
-  /* ============ YOUTUBE DARK ============ */
-  .yt{background:var(--dark);color:#fff;padding:104px 0;}
-  .yt .eyebrow{color:var(--coral);}
-  .yt .eyebrow::before{background:var(--coral);}
-  .yt-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:46px;}
-  .yt-title{font-size:clamp(30px,4vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.12;color:#fff;}
-  .yt-title .en{font-family:var(--en);color:#fff;}
-  .yt-handle{font-family:var(--mono);font-size:13px;color:#9C9389;margin-top:14px;letter-spacing:.04em;}
-  .yt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px 24px;}
-  .yt-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
-  .yt-player{position:relative;width:100%;max-width:1000px;margin:0 auto;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 26px 70px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.08);}
-  .yt-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;}
-  .yt-note{max-width:1000px;margin:18px auto 0;text-align:center;font-family:var(--mono);font-size:12px;letter-spacing:.03em;color:#857C72;}
-  .yt-card{cursor:pointer;display:block;text-decoration:none;}
-  .yt-thumb{
-    position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;
-    transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s;
-  }
-  .yt-card:hover .yt-thumb{transform:translateY(-5px);box-shadow:0 20px 40px rgba(0,0,0,.4);}
-  .yt-play{
-    position:absolute;inset:0;margin:auto;width:56px;height:56px;border-radius:50%;
-    background:rgba(255,87,51,.94);display:grid;place-items:center;
-    box-shadow:0 8px 24px rgba(0,0,0,.4);transition:transform .3s;
-  }
-  .yt-card:hover .yt-play{transform:scale(1.08);}
-  .yt-play::after{content:"";border-left:15px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px;}
-  .yt-dur{position:absolute;right:8px;bottom:8px;font-family:var(--mono);font-size:11px;background:rgba(0,0,0,.78);color:#fff;padding:3px 7px;border-radius:6px;}
-  .yt-meta{margin-top:14px;}
-  .yt-meta .vt{font-weight:600;font-size:15px;color:#F3EFEA;}
-  .yt-meta .vc{font-family:var(--mono);font-size:11px;color:#857C72;margin-top:5px;letter-spacing:.05em;}
-  .yt-foot{margin-top:48px;text-align:center;}
+  .contact-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:34px;align-items:start;margin-top:34px}
 
-  /* ============ OFFER CARDS ============ */
-  .offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-  .ocard{
-    background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);
-    padding:34px 30px 30px;box-shadow:var(--shadow-sm);
-    transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s,border-color .3s;
-    display:flex;flex-direction:column;
+  @media (max-width:1000px){
+    .hero-grid{grid-template-columns:1fr;gap:56px}
+    .collage{min-height:330px;max-width:460px}
+    .contact-grid{grid-template-columns:1fr}
   }
-  .ocard:hover{transform:translateY(-7px);box-shadow:var(--shadow-md);border-color:#E0D6C8;}
-  .ocard .onum{font-family:var(--mono);font-size:12px;color:var(--mustard);letter-spacing:.12em;}
-  .ocard .oico{
-    width:54px;height:54px;border-radius:15px;display:grid;place-items:center;margin:18px 0 20px;
-    background:var(--beige);color:var(--ink);
-  }
-  .ocard:nth-child(1) .oico{background:rgba(255,87,51,.12);color:var(--coral);}
-  .ocard:nth-child(2) .oico{background:rgba(212,158,92,.16);color:var(--mustard);}
-  .ocard:nth-child(3) .oico{background:rgba(22,19,17,.06);color:var(--ink);}
-  .ocard h3{font-size:22px;font-weight:700;letter-spacing:-.02em;}
-  .ocard .oen{font-family:var(--en);font-size:13px;font-weight:600;color:var(--ink-soft);margin-top:4px;letter-spacing:0;}
-  .ocard p{margin-top:13px;font-size:15.5px;color:var(--ink-soft);flex:1;}
-  .ocard .olink{margin-top:22px;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14.5px;color:var(--coral);}
-  .ocard .olink .arw{font-family:var(--mono);transition:transform .25s;}
-  .ocard:hover .olink .arw{transform:translateX(4px);}
-
-  /* ============ QUOTE ============ */
-  .quote{background:var(--beige);padding:118px 0;}
-  .quote-inner{max-width:920px;margin:0 auto;text-align:center;}
-  .quote blockquote{
-    font-size:clamp(28px,4.4vw,48px);font-weight:700;letter-spacing:-.03em;line-height:1.28;
-    color:var(--ink);text-wrap:balance;
-  }
-  .quote blockquote .hl{color:var(--coral);}
-  .quote .qmark{font-family:var(--en);font-size:90px;line-height:.4;color:var(--mustard);opacity:.55;}
-  .quote-sign{margin-top:38px;font-family:var(--hand);font-size:42px;color:var(--mustard);}
-  .quote-sub{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-top:6px;}
-
-  /* ============ CONSULTING ============ */
-  .cons-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
-  .feature-row{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid var(--line);}
-  .feature-row:first-of-type{border-top:1px solid var(--line);}
-  .feature-row .fnum{font-family:var(--mono);font-size:13px;color:var(--mustard);padding-top:3px;}
-  .feature-row h4{font-size:18px;font-weight:700;}
-  .feature-row p{font-size:15px;color:var(--ink-soft);margin-top:5px;}
-  .cons-side{
-    background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);
-    padding:34px;box-shadow:var(--shadow-md);position:sticky;top:96px;
-  }
-  .cons-side .cs-k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mustard);}
-  .cons-side h3{font-size:24px;font-weight:700;margin-top:8px;letter-spacing:-.02em;}
-  .chips{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 26px;}
-  .chip{font-size:13.5px;font-weight:500;padding:8px 15px;border-radius:999px;background:var(--beige);color:var(--ink);border:1px solid transparent;}
-  .price-row{display:flex;align-items:baseline;justify-content:space-between;padding:20px 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);margin-bottom:24px;}
-  .price-row .pk{font-size:14px;color:var(--ink-soft);}
-  .price-row .pv{font-family:var(--en);font-weight:800;font-size:26px;color:var(--ink);}
-  .price-row .pv small{font-family:var(--kr);font-size:14px;font-weight:600;color:var(--ink-soft);}
-  .note-prep{font-size:13.5px;color:var(--ink-soft);margin-top:18px;display:flex;gap:9px;}
-  .note-prep b{color:var(--ink);font-weight:600;}
-
-  /* ============ SMART WEB AGENCY ============ */
-  .swa{background:#F4EFE7;}
-  .pkg-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:6px;}
-  .pkg{
-    background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);
-    padding:32px;box-shadow:var(--shadow-sm);transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column;
-  }
-  .pkg:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);}
-  .pkg.featured{border-color:var(--mustard);box-shadow:0 14px 40px rgba(212,158,92,.18);}
-  .pkg-tag{display:inline-flex;align-self:flex-start;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:var(--beige);color:var(--ink-soft);}
-  .pkg.featured .pkg-tag{background:var(--mustard);color:#fff;}
-  .pkg h4{font-size:23px;font-weight:700;margin:18px 0 6px;letter-spacing:-.02em;}
-  .pkg .pkg-en{font-family:var(--en);font-size:13px;font-weight:600;color:var(--ink-soft);}
-  .pkg ul{list-style:none;margin:22px 0 24px;display:flex;flex-direction:column;gap:13px;flex:1;}
-  .pkg ul li{display:flex;gap:11px;font-size:15px;color:var(--ink);}
-  .pkg ul li .ck{color:var(--coral);font-weight:700;flex-shrink:0;}
-  .pkg .pkg-price{display:flex;align-items:baseline;justify-content:space-between;padding-top:20px;border-top:1px solid var(--line);margin-bottom:20px;}
-  .pkg .pkg-price .pv{font-family:var(--en);font-weight:800;font-size:24px;}
-  .pkg .pkg-price .pk{font-size:13px;color:var(--ink-soft);}
-  .swa-notes{margin-top:34px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--coral);border-radius:14px;padding:24px 28px;}
-  .swa-notes .nt-h{font-weight:700;font-size:15px;display:flex;align-items:center;gap:9px;margin-bottom:14px;}
-  .swa-notes ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 30px;}
-  .swa-notes ul li{font-size:14px;color:var(--ink-soft);display:flex;gap:9px;}
-  .swa-notes ul li::before{content:"•";color:var(--mustard);font-weight:700;}
-
-  /* ============ RECOMMENDED TOOLS TABS ============ */
-  .tabs-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px;}
-  .tab-btn .tb-en{font-family:var(--mono);font-size:11px;opacity:.7;white-space:nowrap;}
-  .tab-btn{
-    font-family:var(--kr);font-weight:600;font-size:14.5px;
-    padding:11px 20px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink-soft);
-    cursor:pointer;transition:.25s;display:flex;align-items:center;gap:9px;flex-shrink:0;white-space:nowrap;
-  }
-  .tab-btn .tb-en{font-family:var(--mono);font-size:11px;opacity:.7;}
-  .tab-btn:hover{border-color:var(--ink);color:var(--ink);}
-  .tab-btn.active{background:var(--ink);color:#fff;border-color:var(--ink);}
-  .tab-btn.active .tb-en{opacity:.6;}
-  .sec-disclosure{margin-top:14px;font-size:13px;line-height:1.6;color:var(--ink-3,#9C9389);max-width:760px;}
-  .sec-disclosure a{color:var(--coral);text-decoration:none;font-weight:600;}
-  .ft-legal a{color:#9C9389;text-decoration:none;}
-  .ft-legal a:hover{color:#fff;}
-  .legal-page{max-width:760px;margin:0 auto;padding:120px 24px 90px;}
-  .legal-page h1{font-size:clamp(28px,5vw,40px);font-weight:800;letter-spacing:-.03em;margin-bottom:8px;}
-  .legal-page .updated{font-family:var(--mono);font-size:12px;color:#9C9389;margin-bottom:36px;}
-  .legal-page h2{font-size:19px;font-weight:700;margin:30px 0 10px;}
-  .legal-page p,.legal-page li{font-size:15.5px;line-height:1.8;color:var(--ink-2,#6B5D54);}
-  .legal-page ul{padding-left:20px;margin:8px 0;}
-  .legal-page a{color:var(--coral);text-decoration:none;font-weight:600;}
-  .legal-back{display:inline-flex;align-items:center;gap:7px;margin-top:40px;font-weight:700;color:var(--ink);text-decoration:none;}
-  .tab-panel{display:none;}
-  .tab-panel.active{display:block;animation:fadeUp .5s cubic-bezier(.2,.7,.3,1);}
-  @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
-  .tool-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
-  .tool{
-    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-    padding:22px;box-shadow:var(--shadow-sm);transition:transform .28s,box-shadow .28s,border-color .28s;
-    display:flex;flex-direction:column;min-height:172px;
-  }
-  .tool:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:#E0D6C8;}
-  .tool .t-logo{width:44px;height:44px;border-radius:12px;background:var(--beige);display:grid;place-items:center;font-family:var(--en);font-weight:800;font-size:18px;color:var(--ink);margin-bottom:16px;}
-  .tool h5{font-size:16.5px;font-weight:700;}
-  .tool p{font-size:13px;color:var(--ink-soft);margin-top:5px;flex:1;}
-  .tool .t-link{margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--coral);display:inline-flex;align-items:center;gap:6px;}
-  .tool .t-link .arw{transition:transform .25s;}
-  .tool:hover .t-link .arw{transform:translateX(3px);}
-
-  /* ============ CONTACT ============ */
-  .contact-sec{background:var(--beige);}
-  .contact-sec .form-card{box-shadow:var(--shadow-lg);}
-  .contact-soc-k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:30px;}
-  .contact-soc-k + .social-row{margin-top:12px;}
-  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start;}
-  .contact-notice{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-top:26px;display:flex;gap:14px;}
-  .contact-notice .ni{flex-shrink:0;width:38px;height:38px;border-radius:11px;background:rgba(255,87,51,.1);color:var(--coral);display:grid;place-items:center;font-weight:700;}
-  .contact-notice p{font-size:14px;color:var(--ink-soft);}
-  .contact-notice p b{color:var(--ink);font-weight:600;}
-  .social-row{display:flex;gap:12px;margin-top:30px;}
-  .social-row a{display:flex;align-items:center;gap:10px;padding:11px 17px;border-radius:12px;border:1px solid var(--line);background:#fff;font-size:14px;font-weight:600;transition:.25s;}
-  .social-row a:hover{transform:translateY(-3px);box-shadow:var(--shadow-sm);border-color:var(--ink);}
-  .social-row a svg{width:18px;height:18px;}
-  .form-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:34px;box-shadow:var(--shadow-md);}
-  .form-card--embed{padding:12px;overflow:hidden;}
-
-  /* ============ FOOTER ============ */
-  footer.ft{background:var(--dark);color:#C9BEB0;padding:72px 0 38px;}
-  .ft-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:46px;border-bottom:1px solid rgba(255,255,255,.1);}
-  .ft-brand .logo{color:#fff;}
-  .ft-brand .logo .mk{background:#fff;color:var(--dark);}
-  .ft-brand p{margin-top:16px;font-size:14px;color:#857C72;max-width:280px;}
-  .ft-soc{display:flex;flex-direction:column;gap:14px;}
-  .ft-soc .fs-k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6F665C;}
-  .ft-soc-row{display:flex;gap:10px;}
-  .ft-soc-row a{width:42px;height:42px;border-radius:12px;border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;color:#C9BEB0;transition:.25s;}
-  .ft-soc-row a:hover{background:var(--coral);border-color:var(--coral);color:#fff;transform:translateY(-3px);}
-  .ft-soc-row a svg{width:19px;height:19px;}
-  .ft-community{display:flex;flex-direction:column;gap:14px;}
-  .ft-links{list-style:none;display:flex;flex-direction:column;gap:11px;}
-  .ft-links a{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:#C9BEB0;transition:color .2s,gap .2s;}
-  .ft-links a .arw{font-family:var(--mono);font-size:12px;color:#6F665C;transition:transform .2s,color .2s;}
-  .ft-links a:hover{color:#fff;}
-  .ft-links a:hover .arw{color:var(--coral);transform:translateX(3px);}
-  .ft-bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:28px;font-family:var(--mono);font-size:12px;color:#6F665C;letter-spacing:.04em;}
-
-  /* ============ RESPONSIVE ============ */
-  /* tablet */
-  @media (max-width:980px){
-    .hero-grid{grid-template-columns:1fr;gap:40px;}
-    .hero-copy{order:2;}
-    .hero-photo{order:1;max-width:380px;margin:0 auto;width:100%;}
-    .tool-grid{grid-template-columns:repeat(2,1fr);}
-    .contact-grid{grid-template-columns:1fr;gap:36px;}
-    .yt-head{gap:18px;}
-  }
-  /* mobile */
-  @media (max-width:680px){
-    .wrap{padding:0 18px;}
-    .sec-pad{padding:68px 0;}
-    .nav-inner{height:64px;}
-    .nav-menu{display:none;}
-    .nav-right .btn{display:none;}
-    .burger{display:flex;}
-    .nav-menu.open{display:flex;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:rgba(250,247,242,.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);padding:8px 18px 18px;box-shadow:var(--shadow-md);}
-    .nav-menu.open a{padding:15px 2px;border-bottom:1px solid var(--line);width:100%;font-size:16px;}
-    .hero{padding:54px 0 76px;}
-    .hero-photo{max-width:340px;}
-    .hero-tagsticker{left:0;bottom:-20px;}
-    .hero-cta{gap:10px;}
-    .hero-cta .btn{flex:1;justify-content:center;min-width:0;}
-    .hero-en{font-size:18px;}
-    .yt{padding:72px 0;}
-    .yt-player{border-radius:14px;}
-    .yt-grid{display:flex;overflow-x:auto;gap:14px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:10px;scroll-padding:0 18px;scrollbar-width:none;}
-    .yt-grid::-webkit-scrollbar{display:none;}
-    .yt-card{flex:0 0 80%;scroll-snap-align:start;}
-    .tool-grid{grid-template-columns:1fr;}
-    .quote blockquote{font-size:26px;}
-    .form-card{padding:24px;}
-    .contact-sec .sec-head{margin-bottom:36px;}
-    .ft-top{flex-direction:column;gap:30px;}
-    .ft-bot{flex-direction:column;gap:8px;}
-  }
-  /* small phones */
-  @media (max-width:430px){
-    .hero h1{font-size:38px;}
-    .hero-photo{max-width:300px;}
-    .hero-hand{font-size:24px;left:6%;top:4%;}
-    .hero-tagsticker{padding:11px 14px;}
-    .sec-title{font-size:30px;}
-    .tabs-bar{gap:8px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-left:-18px;margin-right:-18px;padding:0 18px 4px;}
-    .tabs-bar::-webkit-scrollbar{display:none;}
-    .tab-btn{padding:9px 14px;font-size:13.5px;}
-    .social-row a{padding:10px 14px;}
+  @media (max-width:760px){
+    .hero-panel{padding:36px 24px 46px;border-radius:26px;box-shadow:6px 6px 0 var(--edge)}
+    .badge{width:78px;height:78px;font-size:17px}
   }
 </style>
 </head>
 <body>
 
 <!-- ============ NAV ============ -->
-<header class="nav" id="nav">
-  <div class="wrap nav-inner">
-    <a href="#top" class="logo" aria-label="미국주부 홈">
-      <span class="mk">M</span>
-      <span>미국주부<span class="lo-sub">Mompreneur Diary</span></span>
+<header class="mk-nav">
+  <div class="wrap mk-nav-in">
+    <a href="/" class="mk-logo" aria-label="미국주부 홈">
+      <span class="mk-tile">M</span>
+      <span>미국주부<small>Mompreneur Diary</small></span>
     </a>
-    <nav class="nav-menu" id="menu">
+    <nav class="mk-menu" id="mkMenu">
       <a href="#youtube">영상</a>
       <a href="/blog/">블로그</a>
-      <a href="#tools">추천 프로그램</a>
-      <a href="#contact">문의</a>
-      <a href="/en/" class="lang-sw">EN</a>
+      <a href="/tools/">추천 프로그램</a>
+      <a href="/contact/">문의</a>
+      <a href="/en/" class="lang">EN ↗</a>
     </nav>
-    <div class="nav-right">
-      <a href="#contact" class="btn btn-coral">1:1 컨설팅 신청 <span class="arw">→</span></a>
-      <button class="burger" id="burger" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
+    <div class="mk-nav-right">
+      <a href="/contact/" class="pill pill-coral">1:1 컨설팅 <span class="ar">↗</span></a>
+      <button class="mk-burger" id="mkBurger" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i><i></i></button>
     </div>
   </div>
 </header>
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
-  <div class="wrap hero-grid">
-    <div class="hero-copy reveal in">
-      <span class="eyebrow">미국에서 1인 사업하는 한국 주부</span>
-      <h1>
-        미국주부와 함께 하는<br /><mark>글로벌 비즈니스</mark>
-      </h1>
-      <p class="hero-en">Build it. Run it. Mostly by yourself.</p>
-      <p class="hero-lead">
-        혼자서도 시작할 수 있어요. <b>온라인 마케팅 · 드랍쉬핑 · 온라인 셀러</b>까지,
-        제가 직접 부딪히며 배운 것들을 모두 보실 수 있습니다.
-      </p>
-      <div class="hero-cta">
-        <a href="#contact" class="btn btn-coral">1:1 컨설팅 미팅 신청 <span class="arw">→</span></a>
-        <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener" class="btn btn-ghost">유튜브 보러가기 <span class="arw">▶</span></a>
-      </div>
-      <div class="hero-meta">
-        <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener">
-          <span class="hm-k">YouTube</span><span class="hm-v">@mikukjubu</span>
-        </a>
-      </div>
-    </div>
-    <div class="hero-photo reveal in d1">
-      <span class="hero-hand">안녕하세요!<span class="arr">↓</span></span>
-      <div class="hero-art" role="img" aria-label="글로벌 온라인 비즈니스를 표현한 브랜드 그래픽">
-        <span class="art-dots"></span>
-        <span class="art-blob art-blob-a"></span>
-        <span class="art-blob art-blob-b"></span>
-
-        <!-- Globe -->
-        <svg class="art-globe" viewBox="0 0 120 120" aria-hidden="true">
-          <circle cx="60" cy="60" r="52" fill="#1F2A44"/>
-          <circle cx="60" cy="60" r="52" fill="none" stroke="#D49E5C" stroke-width="2" stroke-dasharray="3 5" opacity=".5"/>
-          <ellipse cx="60" cy="60" rx="22" ry="52" fill="none" stroke="#F7E9D6" stroke-width="1.5" opacity=".55"/>
-          <ellipse cx="60" cy="60" rx="44" ry="52" fill="none" stroke="#F7E9D6" stroke-width="1.5" opacity=".4"/>
-          <line x1="8" y1="60" x2="112" y2="60" stroke="#F7E9D6" stroke-width="1.5" opacity=".55"/>
-          <path d="M20 40 Q60 30 100 40" fill="none" stroke="#F7E9D6" stroke-width="1.5" opacity=".4"/>
-          <path d="M20 80 Q60 90 100 80" fill="none" stroke="#F7E9D6" stroke-width="1.5" opacity=".4"/>
-          <circle cx="42" cy="45" r="4" fill="#FF5733"/>
-          <circle cx="78" cy="72" r="4" fill="#FF5733"/>
-          <path d="M42 45 Q60 50 78 72" fill="none" stroke="#FF5733" stroke-width="1.5" stroke-dasharray="2 3"/>
-        </svg>
-
-        <!-- Laptop -->
-        <div class="art-laptop">
-          <div class="art-screen">
-            <span class="art-bar art-bar-1"></span>
-            <span class="art-bar art-bar-2"></span>
-            <span class="art-bar art-bar-3"></span>
-            <svg class="art-chart" viewBox="0 0 90 44" aria-hidden="true">
-              <polyline points="2,40 18,28 34,32 52,14 70,20 88,4" fill="none" stroke="#FF5733" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="88" cy="4" r="3.5" fill="#FF5733"/>
-            </svg>
-            <div class="art-cols"><i></i><i></i><i></i><i></i></div>
-          </div>
-          <div class="art-base"></div>
-        </div>
-
-        <!-- YouTube play chip -->
-        <div class="art-play"><span class="art-tri"></span></div>
-
-        <!-- mini growth chip -->
-        <div class="art-chip">
-          <span class="art-chip-k">GROWTH</span>
-          <div class="art-chip-bars"><i></i><i></i><i></i><i></i></div>
-        </div>
-      </div>
-      <div class="hero-tagsticker">
-        <span class="dot">★</span>
-        <span>
-          <span class="ts-k">Based in</span><br />
-          <span class="ts-v">USA · 1인 사업</span>
-        </span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ YOUTUBE (DARK) ============ -->
-<section class="yt" id="youtube">
   <div class="wrap">
-    <div class="yt-head reveal">
-      <div>
-        <span class="eyebrow">YouTube</span>
-        <h2 class="yt-title">미국주부 <span class="en">영상 시청</span></h2>
-        <p class="yt-handle">▶ youtube.com/@mikukjubu</p>
+    <div class="hero-panel">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow tag"><span class="dot"></span>미국에서 1인 사업하는 한국 주부</span>
+          <h1>미국주부와 함께 하는<br /><span class="u">글로벌</span> <span class="mark">비즈니스</span></h1>
+          <p class="hero-en">Build it. Run it. Mostly by yourself.</p>
+          <p class="hero-lead">혼자서도 시작할 수 있어요. <b>온라인 마케팅 · 드랍쉬핑 · 온라인 셀러</b>까지, 제가 직접 부딪히며 배운 것들을 모두 보실 수 있습니다.</p>
+          <div class="hero-cta">
+            <a href="/contact/" class="pill pill-lime">1:1 컨설팅 미팅 신청 <span class="ar">↗</span></a>
+            <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener" class="pill-line">유튜브 보러가기 <span class="ar">▶</span></a>
+          </div>
+          <p class="hero-meta"><a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener">YOUTUBE / @MIKUKJUBU</a></p>
+        </div>
+
+        <div class="collage" aria-hidden="true">
+          <div class="badge">해<br />보자</div>
+          <div class="card-vid">
+            <span class="k">MIKUKJUBU / YOUTUBE</span>
+            <div class="t">혼자 시작하는<br />온라인 비즈니스</div>
+            <span class="play"></span>
+          </div>
+          <div class="card-list">
+            <h4>오늘의 작은 시작</h4>
+            <ul>
+              <li><span class="ck">✓</span>영상으로 배우고</li>
+              <li><span class="ck">✓</span>글로 정리하고</li>
+              <li><span class="ck">✓</span>내 사업에 적용하기</li>
+            </ul>
+          </div>
+          <span class="hand">안녕하세요! ↘</span>
+        </div>
       </div>
-    </div>
-    <div class="yt-grid reveal" id="ytGrid">
-      <a class="yt-card" href="https://www.youtube.com/watch?v=EizgJIBgO4w" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/EizgJIBgO4w/hqdefault.jpg" alt="미국 드롭쉬핑 &amp; 틱톡샵 주간 트렌드 분석 영상 썸네일" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">미국 드롭쉬핑 & 틱톡샵 주간 트렌드 분석 | 잘 팔리는 제품 소싱 (파더스데이 준비!)</div><div class="vc">▶ YouTube에서 보기</div></div></a>
-      <a class="yt-card" href="https://www.youtube.com/watch?v=OsKyt1uHs7A" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/OsKyt1uHs7A/hqdefault.jpg" alt="클로드 AI 블로그 자동화의 현실 영상 썸네일" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">[2탄] 클로드 AI 블로그 자동화의 현실 (Claude) | 치명적 오류 해결법과 NotebookLM 딥리서치 세팅</div><div class="vc">▶ YouTube에서 보기</div></div></a>
-      <a class="yt-card" href="https://www.youtube.com/watch?v=lQuFItoPlB0" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/lQuFItoPlB0/hqdefault.jpg" alt="클로드 오푸스 4.8 성능 리뷰 영상 썸네일" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">클로드 오푸스 4.8 드디어 떴다🚀 가격 그대로 성능만 미쳤음</div><div class="vc">▶ YouTube에서 보기</div></div></a>
-    </div>
-    <div class="yt-foot reveal">
-      <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener" class="btn btn-outline-light">채널 전체보기 → @mikukjubu</a>
     </div>
   </div>
 </section>
 
-<!-- ============ RECOMMENDED TOOLS TABS ============ -->
-<section class="sec-pad" id="tools">
+<!-- ============ MARQUEE ============ -->
+<div class="marq" aria-hidden="true" style="margin-top:26px">
+  <div class="marq-track">
+    <span>ONLINE SELLER</span><span>DROPSHIPPING</span><span>AI &amp; AUTOMATION</span><span>WEBSITE</span><span>MARKETING</span><span>YOUR OWN PACE</span>
+    <span>ONLINE SELLER</span><span>DROPSHIPPING</span><span>AI &amp; AUTOMATION</span><span>WEBSITE</span><span>MARKETING</span><span>YOUR OWN PACE</span>
+  </div>
+</div>
+
+<!-- ============ 3갈래 ============ -->
+<section class="sec">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Tools I actually use</span>
-      <h2 class="sec-title">추천 프로그램</h2>
-      <p class="sec-sub">제가 직접 쓰면서 검증한 도구들입니다. 카테고리를 골라 살펴보세요.</p>
-      <p class="sec-disclosure">※ 아래 링크 중 일부는 제휴(affiliate) 링크로, 이를 통해 가입·구매하시면 추가 비용 없이 제게 소정의 수수료가 지급될 수 있습니다. 제가 실제로 써본 도구만 추천합니다. <a href="/disclosure.html">자세히 →</a></p>
-    </div>
-
-    <div class="tabs-bar reveal" role="tablist">
-      <button class="tab-btn active" data-tab="t1">웹사이트 · 이커머스 <span class="tb-en">Web</span></button>
-      <button class="tab-btn" data-tab="t2">아마존 · 이베이 · 월마트 셀러 <span class="tb-en">Seller</span></button>
-      <button class="tab-btn" data-tab="t3">드랍쉬핑 <span class="tb-en">Dropship</span></button>
-      <button class="tab-btn" data-tab="t4">이미지 · 영상 편집 <span class="tb-en">Media</span></button>
-      <button class="tab-btn" data-tab="t5">마케팅 <span class="tb-en">Marketing</span></button>
-      <button class="tab-btn" data-tab="t6">영어 · 기타 <span class="tb-en">English</span></button>
-    </div>
-
-    <!-- t1 Web -->
-    <div class="tab-panel active" id="t1">
-      <div class="tool-grid">
-        <div class="tool"><span class="t-logo">N</span><h5>Namecheap</h5><p>도메인 등록</p><a class="t-link" href="https://namecheap.pxf.io/KeMnxx" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">H</span><h5>Hostinger</h5><p>워드프레스 호스팅</p><a class="t-link" href="https://hostinger.sjv.io/rn5Nx3" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">S</span><h5>Shopify</h5><p>쇼핑몰 구축</p><a class="t-link" href="https://shopify.pxf.io/yqgDQ3" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">E</span><h5>Elementor</h5><p>워드프레스 디자인</p><a class="t-link" href="https://trk.elementor.com/8053" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">C</span><h5>Convertri</h5><p>빠른 웹사이트 빌더</p><a class="t-link" href="https://app.convertri.com/a/820fd90e-f362-11e8-bb43-0602f87a6cd8" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">B</span><h5>Brizy</h5><p>간단 웹사이트 빌더</p><a class="t-link" href="https://www.brizy.io/brizy-cloud-lifetime-deal?ref=erinkwon" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">S</span><h5>SpreadSimple</h5><p>구글시트 이커머스</p><a class="t-link" href="https://rcl.ink/L96Vi" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">L</span><h5>LinkWhisper</h5><p>내부 링크 자동화</p><a class="t-link" href="https://www.linkwhisper.com/special-offer/ref/3038/" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
+      <div>
+        <span class="tag">FIND YOUR NEXT THING</span>
+        <h2 class="sec-title">어떤 걸 배우고 싶으세요?</h2>
       </div>
+      <p class="sec-sub">궁금한 주제부터 가볍게 시작해요. 아래 세 갈래가 이 사이트의 전부입니다.</p>
     </div>
-    <!-- t2 Seller -->
-    <div class="tab-panel" id="t2">
-      <div class="tool-grid">
-        <div class="tool"><span class="t-logo">H</span><h5>Helium 10</h5><p>아마존 키워드 · 리서치</p><a class="t-link" href="https://crushtrk.com/?a=1444&c=255&p=r&s1=" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">B</span><h5>Book Bolt</h5><p>아마존 KDP 셀러</p><a class="t-link" href="https://affiliate.bookbolt.io/idevaffiliate.php?id=7257&url=917" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">Z</span><h5>Zik Analytics</h5><p>이베이 키워드 · 제목</p><a class="t-link" href="https://www.zikanalytics.com/r/ebay-killer" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">D</span><h5>Deliverr</h5><p>풀필먼트</p><a class="t-link" href="https://deliverr.com/?grsf=y4ej40" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-      </div>
-    </div>
-    <!-- t3 Dropship -->
-    <div class="tab-panel" id="t3">
-      <div class="tool-grid">
-        <div class="tool"><span class="t-logo">S</span><h5>Sell The Trend</h5><p>드랍쉬핑 사이트 · 리서치</p><a class="t-link" href="https://www.SellTheTrend.com/join/erinpak" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">A</span><h5>AutoDS</h5><p>드랍쉬핑 자동화</p><a class="t-link" href="https://platform.autods.com/register?ref=NDY1OA==" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">D</span><h5>DSers</h5><p>드랍쉬핑 주문 관리</p><a class="t-link" href="https://www.dsers.com/partner/1854778968663851008" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">P</span><h5>Printful</h5><p>주문제작 POD</p><a class="t-link" href="https://www.printful.com/a/9003419:14f3b3cb1d55d7d938528cc03a002a7e" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">A</span><h5>AppSumo</h5><p>소프트웨어 딜</p><a class="t-link" href="https://appsumo.8odi.net/Ry5mA2" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-      </div>
-    </div>
-    <!-- t4 Media -->
-    <div class="tab-panel" id="t4">
-      <div class="tool-grid">
-        <div class="tool"><span class="t-logo">A</span><h5>Adobe</h5><p>포토샵 · 일러스트 · 프리미어</p><a class="t-link" href="https://www.adobe.com/?sdid=49F59KY6" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">C</span><h5>Canva</h5><p>그래픽 · 영상 · 웹</p><a class="t-link" href="https://partner.canva.com/Xxgx75" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">C</span><h5>Creative Fabrica</h5><p>디자인 에셋</p><a class="t-link" href="https://www.creativefabrica.com/ref/5679235/" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">D</span><h5>Design Cuts</h5><p>디자인 에셋</p><a class="t-link" href="https://www.designcuts.com/?ref=designking" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">M</span><h5>Mighty Deals</h5><p>디자인 딜</p><a class="t-link" href="https://www.mightydeals.com/?refID=7524de7a" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">C</span><h5>Camtasia</h5><p>영상 편집</p><a class="t-link" href="https://techsmith.z6rjha.net/r3evB" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">V</span><h5>VidJuice</h5><p>영상 다운로더</p><a class="t-link" href="https://appsumo.8odi.net/QO9ex6" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">I</span><h5>InVideo</h5><p>AI 영상 생성</p><a class="t-link" href="https://invideo.sjv.io/2aknnz" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">O</span><h5>Opus</h5><p>쇼츠 영상 생성</p><a class="t-link" href="https://www.opus.pro/?via=7eb378" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-      </div>
-    </div>
-    <!-- t5 Marketing -->
-    <div class="tab-panel" id="t5">
-      <div class="tool-grid">
-        <div class="tool"><span class="t-logo">W</span><h5>WordPress 자동 포스팅</h5><p>워드프레스 글 자동 발행</p><a class="t-link" href="https://rcl.ink/uIAs1" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">소</span><h5>소셜미디어 자동 포스팅</h5><p>SNS 자동 발행</p><a class="t-link" href="https://rcl.ink/hcvhs" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">S</span><h5>StoryChief</h5><p>온라인 마케팅 · SNS</p><a class="t-link" href="https://ref.storychief.io/976131896" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">P</span><h5>PinInspector</h5><p>핀터레스트 키워드 · 리서치</p><a class="t-link" href="https://paykstrt.com/29582/2178" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">P</span><h5>Paced Email</h5><p>이메일 주소 생성</p><a class="t-link" href="https://appsumo.8odi.net/vn0W0W" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">T</span><h5>TubeBuddy</h5><p>유튜브 마케팅</p><a class="t-link" href="https://www.tubebuddy.com/pricing?a=lifetimepro" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-      </div>
-    </div>
-    <!-- t6 English -->
-    <div class="tab-panel" id="t6">
-      <div class="tool-grid">
-        <div class="tool"><span class="t-logo">G</span><h5>Grammarly</h5><p>영어 문법 교정</p><a class="t-link" href="https://www.shopper.com/aff_redirect?store_id=60781cf5f3d9c2de6467ad23&type=product&source=web&ref_id=62a43560ad7e8000230d0935&red_url=https%3A%2F%2Fgrammarly.com" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">C</span><h5>ClosersCopy</h5><p>AI 영어 카피라이터</p><a class="t-link" href="https://www.closerscopy.com/lifetime?ref=yqmh" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">P</span><h5>pCloud</h5><p>클라우드 스토리지</p><a class="t-link" href="https://partner.pcloud.com/r/19202" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-        <div class="tool"><span class="t-logo">S</span><h5>SubEasy</h5><p>AI 자막 생성</p><a class="t-link" href="https://www.subeasy.ai/?invite_code=kikonz" target="_blank" rel="noopener sponsored">사용해보기 <span class="arw">→</span></a></div>
-      </div>
+    <div class="picks reveal">
+      <a href="/tools/#seller" class="pick pick-1">
+        <span class="k">01 / SELL ONLINE</span>
+        <span class="arw">↗</span>
+        <h3>온라인 판매</h3>
+        <p>아마존 · 이베이 · 드랍쉬핑 · KDP</p>
+      </a>
+      <a href="/tools/#marketing" class="pick pick-2">
+        <span class="k">02 / WORK SMARTER</span>
+        <span class="arw">↗</span>
+        <h3>AI와 함께 일하기</h3>
+        <p>콘텐츠 제작 · 블로그 · 자동화</p>
+      </a>
+      <a href="/tools/#web" class="pick pick-3">
+        <span class="k">03 / MAKE IT YOURS</span>
+        <span class="arw">↗</span>
+        <h3>나만의 웹사이트</h3>
+        <p>웹사이트 · 쇼핑몰 · 마케팅</p>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ============ CONTACT (MAIN) ============ -->
-<section class="sec-pad contact-sec" id="contact">
+<!-- ============ 영상 ============ -->
+<section class="sec vids" id="youtube">
   <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow center">Business Inquiry · 가장 빠른 연락 방법</span>
-      <h2 class="sec-title">비즈니스 문의 &amp; 연락</h2>
-      <p class="sec-sub">1:1 컨설팅 미팅, 협업, 비즈니스 관련 문의는 아래 폼으로 보내주세요. 확인 후 회신드립니다.</p>
+    <div class="sec-head reveal">
+      <div>
+        <span class="tag">▶ YOUTUBE / @MIKUKJUBU</span>
+        <h2 class="sec-title">최신 영상</h2>
+      </div>
+      <p class="sec-sub">직접 해보고 안 되는 것까지 그대로 보여드립니다.</p>
     </div>
+    <div class="vgrid reveal" id="ytGrid">
+      <a class="vcard" href="https://www.youtube.com/watch?v=EizgJIBgO4w" target="_blank" rel="noopener">
+        <div class="vthumb"><img src="https://i.ytimg.com/vi/EizgJIBgO4w/hqdefault.jpg" alt="미국 드롭쉬핑 &amp; 틱톡샵 주간 트렌드 분석 영상 썸네일" loading="lazy" /><span class="vplay"></span></div>
+        <div class="vbody"><span class="vt">미국 드롭쉬핑 &amp; 틱톡샵 주간 트렌드 분석 | 잘 팔리는 제품 소싱 (파더스데이 준비!)</span><span class="vm">YOUTUBE에서 보기 →</span></div>
+      </a>
+      <a class="vcard" href="https://www.youtube.com/watch?v=OsKyt1uHs7A" target="_blank" rel="noopener">
+        <div class="vthumb"><img src="https://i.ytimg.com/vi/OsKyt1uHs7A/hqdefault.jpg" alt="클로드 AI 블로그 자동화의 현실 영상 썸네일" loading="lazy" /><span class="vplay"></span></div>
+        <div class="vbody"><span class="vt">[2탄] 클로드 AI 블로그 자동화의 현실 (Claude) | 치명적 오류 해결법과 NotebookLM 딥리서치 세팅</span><span class="vm">YOUTUBE에서 보기 →</span></div>
+      </a>
+      <a class="vcard" href="https://www.youtube.com/watch?v=lQuFItoPlB0" target="_blank" rel="noopener">
+        <div class="vthumb"><img src="https://i.ytimg.com/vi/lQuFItoPlB0/hqdefault.jpg" alt="클로드 오푸스 4.8 성능 리뷰 영상 썸네일" loading="lazy" /><span class="vplay"></span></div>
+        <div class="vbody"><span class="vt">클로드 오푸스 4.8 드디어 떴다🚀 가격 그대로 성능만 미쳤음</span><span class="vm">YOUTUBE에서 보기 →</span></div>
+      </a>
+    </div>
+    <div class="reveal" style="margin-top:32px">
+      <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener" class="pill pill-lime">채널 전체보기 → @mikukjubu</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 블로그 ============ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="tag">BLOG</span>
+        <h2 class="sec-title">영상으로 다 못한 이야기</h2>
+      </div>
+      <p class="sec-sub">숫자 · 가격 · 약관까지 확인해서 글로 정리합니다.</p>
+    </div>
+    <div class="blist reveal">
+      <a class="brow" href="/blog/marketing-is-money/">
+        <span class="btag">사례 분석</span>
+        <h3>마케팅이 돈이다 — 온라인으로 돈 번 13명이 실제로 한 일</h3>
+        <span class="bd">2026. 9. 7.</span>
+        <span class="go">→</span>
+      </a>
+      <a class="brow" href="/blog/ai-model-3/">
+        <span class="btag">AI 도구</span>
+        <h3>AI 모델 비교 2026 — 클로드 · 제미나이 · GPT-6 아스트라, 뭘 써야 하나</h3>
+        <span class="bd">2026. 9. 7.</span>
+        <span class="go">→</span>
+      </a>
+      <a class="brow" href="/blog/appsumo-hostinger/">
+        <span class="btag">도구 리뷰</span>
+        <h3>앱수모 호스팅거 번들, 안에 뭐가 들었나</h3>
+        <span class="bd">2026. 8. 28.</span>
+        <span class="go">→</span>
+      </a>
+    </div>
+    <div class="reveal" style="margin-top:30px">
+      <a href="/blog/" class="pill pill-white">블로그 전체보기 <span class="ar">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 추천 프로그램 (요약) ============ -->
+<section class="sec tools-wrap" id="tools">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="tag">TOOLS I ACTUALLY USE</span>
+        <h2 class="sec-title">추천 프로그램</h2>
+      </div>
+      <p class="sec-sub">제가 직접 쓰면서 검증한 도구 36개. 아래는 웹사이트 · 이커머스 도구입니다.</p>
+    </div>
+    <div class="tgrid reveal">
+      <a class="tool" href="https://namecheap.pxf.io/KeMnxx" target="_blank" rel="noopener sponsored"><span class="tl">N</span><h5>Namecheap</h5><p>도메인 등록</p><span class="go">사용해보기 →</span></a>
+      <a class="tool" href="https://hostinger.sjv.io/rn5Nx3" target="_blank" rel="noopener sponsored"><span class="tl">H</span><h5>Hostinger</h5><p>워드프레스 호스팅</p><span class="go">사용해보기 →</span></a>
+      <a class="tool" href="https://shopify.pxf.io/yqgDQ3" target="_blank" rel="noopener sponsored"><span class="tl">S</span><h5>Shopify</h5><p>쇼핑몰 구축</p><span class="go">사용해보기 →</span></a>
+      <a class="tool" href="https://trk.elementor.com/8053" target="_blank" rel="noopener sponsored"><span class="tl">E</span><h5>Elementor</h5><p>워드프레스 디자인</p><span class="go">사용해보기 →</span></a>
+      <a class="tool" href="https://www.SellTheTrend.com/join/erinpak" target="_blank" rel="noopener sponsored"><span class="tl">S</span><h5>Sell The Trend</h5><p>드랍쉬핑 리서치</p><span class="go">사용해보기 →</span></a>
+      <a class="tool" href="https://crushtrk.com/?a=1444&amp;c=255&amp;p=r&amp;s1=" target="_blank" rel="noopener sponsored"><span class="tl">H</span><h5>Helium 10</h5><p>아마존 키워드 · 리서치</p><span class="go">사용해보기 →</span></a>
+      <a class="tool" href="https://partner.canva.com/Xxgx75" target="_blank" rel="noopener sponsored"><span class="tl">C</span><h5>Canva</h5><p>그래픽 · 영상 · 웹</p><span class="go">사용해보기 →</span></a>
+      <a class="tool" href="https://www.tubebuddy.com/pricing?a=lifetimepro" target="_blank" rel="noopener sponsored"><span class="tl">T</span><h5>TubeBuddy</h5><p>유튜브 마케팅</p><span class="go">사용해보기 →</span></a>
+    </div>
+    <div class="reveal" style="margin-top:30px">
+      <a href="/tools/" class="pill pill-plum">추천 프로그램 36개 전체보기 <span class="ar">↗</span></a>
+    </div>
+    <p class="disc reveal">※ 위 링크 중 일부는 제휴 링크로, 이를 통해 가입 · 구매하시면 추가 비용 없이 제게 소정의 수수료가 지급될 수 있습니다. 제가 실제로 써본 도구만 추천합니다. <a href="/disclosure.html">자세히 →</a></p>
+  </div>
+</section>
+
+<!-- ============ 문의 ============ -->
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="cta-panel reveal">
+      <div>
+        <span class="tag">BUSINESS INQUIRY</span>
+        <h2>혼자 고민하다<br />막혔다면?</h2>
+        <p>1:1 컨설팅 미팅, 협업, 비즈니스 문의를 남겨주세요. 채팅 · 보이스 미팅 · 화면 공유로 진행합니다.</p>
+        <a href="/contact/" class="pill pill-lime">문의 페이지로 <span class="ar">↗</span></a>
+      </div>
+      <div class="cta-note">
+        <span class="k">읽어주세요</span>
+        <p>현재 <b>개인적인 질문 이메일 · 메시지는 당분간 받지 않고</b> 있습니다. 비즈니스 문의 위주로 남겨주세요. 유료 고객님은 전용 메시지 링크로 안내드립니다.</p>
+      </div>
+    </div>
+
     <div class="contact-grid">
       <div class="reveal">
-        <div class="contact-notice">
-          <span class="ni">!</span>
-          <p>현재 <b>개인적인 질문 이메일 · 메시지는 당분간 받지 않고</b> 있습니다. 비즈니스 문의 위주로 남겨주세요. <b>유료 고객님은 전용 메시지 링크</b>로 안내드립니다.</p>
-        </div>
-        <p class="contact-soc-k">유튜브로 연락하기</p>
-        <div class="social-row">
-          <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 0 0 1 7.5C.5 9.4.5 12 .5 12s0 2.6.5 4.5A3 3 0 0 0 3.1 18.6c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-4.5.5-4.5s0-2.6-.5-4.5ZM9.8 15.5v-7l6 3.5-6 3.5Z"/></svg>
-            YouTube 구독하기
-          </a>
+        <span class="tag" style="color:var(--ink-soft)">바로 남기기</span>
+        <h2 class="sec-title" style="font-size:clamp(24px,2.8vw,32px)">여기서 바로 보내셔도 됩니다</h2>
+        <p class="sec-sub" style="margin-top:12px">확인 후 회신드립니다. 유튜브로 연락하셔도 좋습니다.</p>
+        <div style="margin-top:22px">
+          <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener" class="pill pill-white">YouTube 구독하기 <span class="ar">↗</span></a>
         </div>
       </div>
-      <div class="form-card form-card--embed reveal d1">
+      <div class="form-card reveal d1">
         <!-- AidaForm: https://mikukjubu.aidaform.com/contactus -->
-          <div data-aidaform-app="form202405" data-url="https://mikukjubu.aidaform.com/contactus" data-width="100%" data-height="620px" data-do-resize></div>
-          <script>(function(){var r,d=document,gt=d.getElementById,cr=d.createElement,tg=d.getElementsByTagName,id="aidaform-app";if(!gt.call(d,id)){r=cr.call(d,"script");r.id=id;r.src="https://widget.aidaform.com/embed.js";(d.head || tg.call(d,"head")[0]).appendChild(r);}})()</script>
+        <div data-aidaform-app="form202405" data-url="https://mikukjubu.aidaform.com/contactus" data-width="100%" data-height="620px" data-do-resize></div>
+        <script>(function(){var r,d=document,gt=d.getElementById,cr=d.createElement,tg=d.getElementsByTagName,id="aidaform-app";if(!gt.call(d,id)){r=cr.call(d,"script");r.id=id;r.src="https://widget.aidaform.com/embed.js";(d.head || tg.call(d,"head")[0]).appendChild(r);}})()</script>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ FOOTER ============ -->
-<footer class="ft">
+<footer class="mk-ft">
   <div class="wrap">
-    <div class="ft-top">
-      <div class="ft-brand">
-        <a href="#top" class="logo"><span class="mk">M</span><span>미국주부<span class="lo-sub">Mompreneur Diary</span></span></a>
+    <div class="mk-ft-top">
+      <div class="mk-ft-brand">
+        <a href="/" class="mk-logo"><span class="mk-tile">M</span><span>미국주부<small>Mompreneur Diary</small></span></a>
         <p>미국에서 1인 사업하는 한국 주부. 온라인 마케팅 · 드랍쉬핑 · 온라인 셀러 컨설팅.</p>
       </div>
-      <div class="ft-soc">
-        <span class="fs-k">Follow</span>
-        <div class="ft-soc-row">
-          <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener" aria-label="YouTube">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 0 0 1 7.5C.5 9.4.5 12 .5 12s0 2.6.5 4.5A3 3 0 0 0 3.1 18.6c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-4.5.5-4.5s0-2.6-.5-4.5ZM9.8 15.5v-7l6 3.5-6 3.5Z"/></svg>
-          </a>
-        </div>
+      <div class="mk-ft-col">
+        <h5>둘러보기</h5>
+        <a href="#youtube">영상</a>
+        <a href="/blog/">블로그</a>
+        <a href="/tools/">추천 프로그램</a>
+        <a href="/contact/">문의</a>
       </div>
-      <div class="ft-community">
-        <span class="fs-k">커뮤니티 · 연결</span>
-        <ul class="ft-links">
-          <li><a href="https://youtube.com/c/미국주부글로벌비즈니스" target="_blank" rel="noopener">유튜브 구독하기 <span class="arw">→</span></a></li>
-          <li><a href="https://www.youtube.com/channel/UCssWRwTEAY-UY7X7lvFi80w/join" target="_blank" rel="noopener">유튜브 멤버십 가입 <span class="arw">→</span></a></li>
-          <li><a href="https://discord.gg/HgDDT2C6rs" target="_blank" rel="noopener">Discord 커뮤니티 <span class="arw">→</span></a></li>
-        </ul>
+      <div class="mk-ft-col">
+        <h5>커뮤니티 · 연결</h5>
+        <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener">유튜브 구독하기 →</a>
+        <a href="https://www.youtube.com/channel/UCssWRwTEAY-UY7X7lvFi80w/join" target="_blank" rel="noopener">유튜브 멤버십 가입 →</a>
+        <a href="https://discord.gg/HgDDT2C6rs" target="_blank" rel="noopener">Discord 커뮤니티 →</a>
       </div>
     </div>
-    <div class="ft-bot">
+    <div class="mk-ft-bot">
       <span>© 2026 미국주부 · Mompreneur Diary. All rights reserved.</span>
-      <span class="ft-legal"><a href="/privacy.html">개인정보처리방침</a> · <a href="/disclosure.html">제휴 공시</a></span>
+      <span><a href="/privacy.html">개인정보처리방침</a> · <a href="/disclosure.html">제휴 공시</a> · <a href="/en/">English</a></span>
     </div>
   </div>
 </footer>
 
+<script src="/js/mk.js?v=20260907" defer></script>
 <script>
-  // nav scrolled state
-  const nav = document.getElementById('nav');
-  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
-  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
-
-  // mobile menu
-  const burger = document.getElementById('burger');
-  const menu = document.getElementById('menu');
-  burger.addEventListener('click', () => menu.classList.toggle('open'));
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
-
-  // tabs
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById(btn.dataset.tab).classList.add('active');
-    });
-  });
-
-
-  // reveal on scroll
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
-  document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
-
-  // auto-refresh: always show the latest 3 videos from channel RSS.
-  // Only replaces the grid when 3 valid videos are parsed; otherwise the hardcoded 3 stay.
+  // 최신 영상 3개 자동 교체 — 3개를 확실히 못 얻으면 하드코딩 3개를 그대로 둔다.
   (async function(){
     try{
       const ch = 'UCssWRwTEAY-UY7X7lvFi80w';
@@ -853,10 +439,10 @@
       }
       if(items.length >= 3){
         document.getElementById('ytGrid').innerHTML = items.map(v =>
-          '<a class="yt-card" href="https://www.youtube.com/watch?v=' + v.id + '" target="_blank" rel="noopener"><div class="yt-thumb"><img src="https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg" alt="' + esc(v.title) + ' 썸네일" loading="lazy"><span class="yt-play"></span></div><div class="yt-meta"><div class="vt">' + esc(v.title) + '</div><div class="vc">▶ YouTube에서 보기</div></div></a>'
+          '<a class="vcard" href="https://www.youtube.com/watch?v=' + v.id + '" target="_blank" rel="noopener"><div class="vthumb"><img src="https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg" alt="' + esc(v.title) + ' 썸네일" loading="lazy"><span class="vplay"></span></div><div class="vbody"><span class="vt">' + esc(v.title) + '</span><span class="vm">YOUTUBE에서 보기 →</span></div></a>'
         ).join('');
       }
-    }catch(err){ /* keep hardcoded fallback */ }
+    }catch(err){ /* 하드코딩 3개 유지 */ }
   })();
 </script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9b3d857e23354a79b458004691c28056"}'></script>

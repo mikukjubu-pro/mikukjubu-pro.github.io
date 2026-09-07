@@ -1,0 +1,84 @@
+/* ============================================================
+   글 페이지 전용 공통 셸 — 네비 + 푸터만. (A안 "팝 스튜디오")
+   각 글 페이지는 자기 본문 CSS 를 그대로 쓰고, 이 파일은
+   .mk- 접두어 안에서만 동작한다. 본문 레이아웃은 건드리지 않는다.
+   쓰는 법: 글 페이지의 <style> 뒤에 이 한 줄
+   <link rel="stylesheet" href="/css/mk-post.css?v=20260907">
+   ============================================================ */
+
+.mk-nav,.mk-nav *,.mk-ft,.mk-ft *{box-sizing:border-box;margin:0;padding:0;line-height:normal}
+.mk-nav,.mk-ft{
+  --plum-deep:#1B1038;
+  --cream:#FFF6E8;
+  --cream-2:#FBEBD6;
+  --coral:#FF6A3D;
+  --lime:#D7F24B;
+  --white:#FFFFFF;
+  --ink:#180F2E;
+  --ink-soft:#5B4C77;
+  --mk-kr:'Pretendard Variable',Pretendard,'Apple SD Gothic Neo',system-ui,'Malgun Gothic',sans-serif;
+  --mk-en:'Archivo Black',var(--mk-kr);
+  --mk-mono:'Space Mono',ui-monospace,monospace;
+  font-family:var(--mk-kr);
+}
+.mk-nav a,.mk-ft a{text-decoration:none}
+.mkw{max-width:1180px;margin:0 auto;padding:0 24px;width:100%}
+
+/* ---------- 네비 ---------- */
+.mk-nav{position:sticky;top:0;z-index:200;background:#FFF6E8;border-bottom:2.5px solid #180F2E}
+.mk-nav-in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
+.mk-nav .mk-logo{display:flex;align-items:center;gap:11px;color:var(--ink);font-weight:900;font-size:18px;letter-spacing:-.02em;line-height:1.15}
+.mk-nav .mk-tile,.mk-ft .mk-tile{
+  width:38px;height:38px;border-radius:12px;background:var(--coral);flex:none;
+  border:2.5px solid var(--ink);display:grid;place-items:center;
+  font-family:var(--mk-en);font-size:18px;color:#fff;box-shadow:3px 3px 0 var(--ink);
+}
+.mk-nav .mk-logo small,.mk-ft .mk-logo small{
+  display:block;font-family:var(--mk-mono);font-size:9.5px;font-weight:400;letter-spacing:.16em;
+  color:var(--ink-soft);text-transform:uppercase;margin-top:2px;
+}
+.mk-menu{display:flex;align-items:center;gap:24px;font-weight:700;font-size:14.5px}
+.mk-menu a{color:var(--ink);position:relative;padding:4px 0;white-space:nowrap}
+.mk-menu a::after{
+  content:"";position:absolute;left:0;right:0;bottom:-2px;height:4px;background:var(--lime);
+  border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .2s ease;
+}
+.mk-menu a:hover::after,.mk-menu a[aria-current]::after{transform:scaleX(1)}
+.mk-menu .lang{font-family:var(--mk-mono);font-size:12px;letter-spacing:.08em}
+.mk-nav .mk-cta{
+  display:inline-flex;align-items:center;gap:8px;padding:11px 19px;border-radius:999px;
+  border:2.5px solid var(--ink);background:var(--coral);color:#fff;font-weight:800;font-size:14px;
+  box-shadow:4px 4px 0 var(--ink);transition:transform .16s ease,box-shadow .16s ease;
+}
+.mk-nav .mk-cta:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+
+/* ---------- 푸터 ---------- */
+.mk-ft{background:var(--plum-deep);color:#BDAADD;border-top:2.5px solid var(--ink);padding:48px 0 32px;margin-top:64px;line-height:1.6}
+.mk-ft-top{display:flex;justify-content:space-between;gap:34px;flex-wrap:wrap;padding-bottom:24px;border-bottom:1px solid #3A2B60}
+.mk-ft-brand{max-width:34ch}
+.mk-ft-brand .mk-logo{display:flex;align-items:center;gap:11px;color:var(--cream);font-weight:900;font-size:18px}
+.mk-ft-brand p{margin-top:12px;font-size:13.5px;line-height:1.75;color:#BDAADD}
+.mk-ft h5{font-family:var(--mk-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#8E7BB8;margin-bottom:12px}
+.mk-ft-col a{display:block;padding:4px 0;font-size:14px;font-weight:600;color:#BDAADD}
+.mk-ft-col a:hover{color:var(--lime)}
+.mk-ft-bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:20px;font-family:var(--mk-mono);font-size:11px;letter-spacing:.06em;color:#8E7BB8}
+.mk-ft-bot a{color:#BDAADD}
+.mk-ft-bot a:hover{color:var(--lime)}
+
+.mk-burger{display:none;width:42px;height:38px;border:2.5px solid var(--ink);border-radius:10px;background:#fff;cursor:pointer}
+.mk-burger i{display:block;width:17px;height:2.5px;background:var(--ink);margin:3px auto;border-radius:2px}
+
+@media (max-width:860px){
+  .mk-menu{
+    position:absolute;top:72px;left:0;right:0;background:#FFF6E8;border-bottom:2.5px solid #180F2E;
+    flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 16px;display:none;
+  }
+  .mk-menu.open{display:flex}
+  .mk-menu a{padding:12px 0;border-bottom:1px solid #FBEBD6}
+  .mk-menu a::after{display:none}
+  .mk-burger{display:block}
+  .mk-nav .mk-cta{display:none}
+}
+@media (prefers-reduced-motion: reduce){
+  .mk-nav *,.mk-ft *{transition:none !important}
+}

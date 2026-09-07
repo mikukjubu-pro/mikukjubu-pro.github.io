@@ -10,7 +10,7 @@
 <link rel="canonical" href="https://mikukjubu.com/blog/marketing-is-money/" />
 <link rel="alternate" hreflang="ko" href="https://mikukjubu.com/blog/marketing-is-money/" />
 <link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/blog/marketing-is-money/" />
-<meta name="theme-color" content="#FAF7F2" />
+<meta name="theme-color" content="#FFF6E8" />
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
 <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -49,8 +49,8 @@
 
 <style>
   :root{
-    --cream:#FAF7F2; --card:#FFFFFF; --dark:#161311; --coral:#FF5733; --mustard:#D49E5C;
-    --beige:#F0E7DA; --ink:#241F1B; --ink-soft:#6B6157; --line:#EBE3D8;
+    --cream:#FFF6E8; --card:#FFFFFF; --dark:#1B1038; --coral:#FF6A3D; --mustard:#D49E5C;
+    --beige:#FBEBD6; --ink:#180F2E; --ink-soft:#5B4C77; --line:#EFE2D0;
     --green:#2E7D5B;
     --radius:16px; --radius-lg:24px;
     --shadow-sm:0 1px 2px rgba(38,28,18,.04), 0 4px 14px rgba(38,28,18,.05);
@@ -213,22 +213,39 @@
   .src{font-size:13px;color:var(--ink-soft);margin-top:26px;line-height:1.7;}
   .src b{color:var(--ink);}
 </style>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/mk-post.css?v=20260907" />
+<style>
+  /* A안 — 본문 제목 서체 */
+  main h1,main h2,main .sec-title{
+    font-family:'Black Han Sans','Pretendard Variable',Pretendard,sans-serif;
+    font-weight:400;letter-spacing:-.015em;
+  }
+  main h1{font-size:clamp(30px,4.4vw,50px);line-height:1.14}
+  main h2{line-height:1.22}
+</style>
 </head>
 <body>
 
-<header class="nav">
-  <div class="wrap nav-inner">
-    <a href="/" class="logo" aria-label="미국주부 홈">
-      <span class="mk">M</span>
-      <span>미국주부<span class="lo-sub">Mompreneur Diary</span></span>
+<header class="mk-nav">
+  <div class="mkw mk-nav-in">
+    <a href="/" class="mk-logo" aria-label="미국주부 홈">
+      <span class="mk-tile">M</span>
+      <span>미국주부<small>Mompreneur Diary</small></span>
     </a>
-    <nav class="nav-menu">
+    <nav class="mk-menu" id="mkMenu">
       <a href="/#youtube">영상</a>
       <a href="/blog/" aria-current="page">블로그</a>
-      <a href="/#tools">추천 프로그램</a>
-      <a href="/#contact">문의</a>
+      <a href="/tools/">추천 프로그램</a>
+      <a href="/contact/">문의</a>
+      <a href="/en/" class="lang">EN ↗</a>
     </nav>
-    <a href="/#contact" class="btn btn-coral">1:1 컨설팅 신청 →</a>
+    <div style="display:flex;align-items:center;gap:12px">
+      <a href="/contact/" class="mk-cta">1:1 컨설팅 ↗</a>
+      <button class="mk-burger" id="mkBurger" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
   </div>
 </header>
 
@@ -263,74 +280,74 @@
       <p class="sec-sub">특별한 제품은 하나도 없습니다. 설탕물, 데오도란트, 프로필 사진, 코드 묶음, 책 제목.</p>
     </div>
     <div class="gal">
-      <figure class="reveal "><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="34" y="20" width="52" height="62" rx="4" fill="#fff"/>
+      <figure class="reveal "><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="34" y="20" width="52" height="62" rx="4" fill="#fff"/>
     <circle cx="60" cy="43" r="10" fill="#D49E5C"/>
-    <path d="M44 74c2.4-10 8-15 16-15s13.6 5 16 15" fill="#FF5733"/>
-    <path d="M100 26l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#FF5733" stroke-width="1.6"/>
+    <path d="M44 74c2.4-10 8-15 16-15s13.6 5 16 15" fill="#FF6A3D"/>
+    <path d="M100 26l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#FF6A3D" stroke-width="1.6"/>
     <path d="M99 60l2 4.5 4.5 2-4.5 2-2 4.5-2-4.5-4.5-2 4.5-2z" fill="#D49E5C" stroke-width="1.4"/></g></svg><figcaption>AI 프로필 사진 사이트<span class="who">Pieter Levels</span></figcaption></figure>
-      <figure class="reveal d1"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="34" width="76" height="46" rx="7" fill="#fff"/>
+      <figure class="reveal d1"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="34" width="76" height="46" rx="7" fill="#fff"/>
     <path d="M50 34l6-9h16l6 9" fill="#D49E5C"/>
-    <circle cx="64" cy="57" r="15" fill="#FF5733"/><circle cx="64" cy="57" r="6.5" fill="#fff"/>
-    <rect x="88" y="42" width="9" height="6" rx="2" fill="#241F1B"/>
+    <circle cx="64" cy="57" r="15" fill="#FF6A3D"/><circle cx="64" cy="57" r="6.5" fill="#fff"/>
+    <rect x="88" y="42" width="9" height="6" rx="2" fill="#180F2E"/>
     <path d="M108 30v10M113 35h-10" stroke="#D49E5C" stroke-width="2.8"/></g></svg><figcaption>AI 프로필 사진 사이트<span class="who">Danny Postma</span></figcaption></figure>
-      <figure class="reveal d2"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="22" width="100" height="58" rx="6" fill="#fff"/>
-    <path d="M20 36h100" /><circle cx="30" cy="29" r="2.6" fill="#FF5733" stroke="none"/>
-    <circle cx="39" cy="29" r="2.6" fill="#D49E5C" stroke="none"/><circle cx="48" cy="29" r="2.6" fill="#F0E7DA"/>
-    <path d="M52 50l-8 8 8 8M88 50l8 8-8 8" stroke="#FF5733" stroke-width="3"/>
+      <figure class="reveal d2"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="22" width="100" height="58" rx="6" fill="#fff"/>
+    <path d="M20 36h100" /><circle cx="30" cy="29" r="2.6" fill="#FF6A3D" stroke="none"/>
+    <circle cx="39" cy="29" r="2.6" fill="#D49E5C" stroke="none"/><circle cx="48" cy="29" r="2.6" fill="#FBEBD6"/>
+    <path d="M52 50l-8 8 8 8M88 50l8 8-8 8" stroke="#FF6A3D" stroke-width="3"/>
     <path d="M76 46l-12 24" stroke="#D49E5C" stroke-width="3"/></g></svg><figcaption>개발자용 코드 묶음<span class="who">Marc Lou</span></figcaption></figure>
-      <figure class="reveal d3"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M26 40h88v42H26z" fill="#fff"/>
-    <path d="M22 40l6-16h84l6 16z" fill="#FF5733"/>
+      <figure class="reveal d3"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M26 40h88v42H26z" fill="#fff"/>
+    <path d="M22 40l6-16h84l6 16z" fill="#FF6A3D"/>
     <path d="M45 24v16M70 24v16M95 24v16" stroke="#fff" stroke-width="2"/>
     <rect x="58" y="56" width="24" height="26" rx="2" fill="#D49E5C"/>
-    <path d="M34 52h14M34 62h14" stroke="#241F1B" stroke-width="2"/></g></svg><figcaption>쇼핑몰 만들어주는 앱<span class="who">Sebastian Ghiorghiu</span></figcaption></figure>
-      <figure class="reveal "><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M38 18h38l16 16v48H38z" fill="#fff"/><path d="M76 18v16h16"/>
-    <path d="M48 46h30M48 56h30M48 66h18" stroke="#241F1B" stroke-width="2"/>
-    <circle cx="99" cy="68" r="15" fill="#FF5733"/>
+    <path d="M34 52h14M34 62h14" stroke="#180F2E" stroke-width="2"/></g></svg><figcaption>쇼핑몰 만들어주는 앱<span class="who">Sebastian Ghiorghiu</span></figcaption></figure>
+      <figure class="reveal "><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M38 18h38l16 16v48H38z" fill="#fff"/><path d="M76 18v16h16"/>
+    <path d="M48 46h30M48 56h30M48 66h18" stroke="#180F2E" stroke-width="2"/>
+    <circle cx="99" cy="68" r="15" fill="#FF6A3D"/>
     <path d="M95 61l10 7-10 7z" fill="#fff" stroke="none"/></g></svg><figcaption>PDF 전자책 · 영상 강의<span class="who">Daniel Vassallo</span></figcaption></figure>
-      <figure class="reveal d1"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="24" y="22" width="92" height="54" rx="6" fill="#fff"/>
+      <figure class="reveal d1"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="24" y="22" width="92" height="54" rx="6" fill="#fff"/>
     <path d="M62 76v8M78 76v8M56 84h28" />
-    <circle cx="70" cy="49" r="14" fill="#FF5733"/><path d="M66 42l10 7-10 7z" fill="#fff" stroke="none"/>
+    <circle cx="70" cy="49" r="14" fill="#FF6A3D"/><path d="M66 42l10 7-10 7z" fill="#fff" stroke="none"/>
     <path d="M32 30h12" stroke="#D49E5C" stroke-width="3"/></g></svg><figcaption>$150 온라인 강의<span class="who">Justin Welsh</span></figcaption></figure>
-      <figure class="reveal d2"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="22" y="16" width="26" height="30" rx="4" fill="#fff"/>
+      <figure class="reveal d2"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="22" y="16" width="26" height="30" rx="4" fill="#fff"/>
     <path d="M20 46h30l-4 18H24z" fill="#D49E5C"/>
-    <circle cx="35" cy="70" r="5" fill="#FF5733"/>
-    <ellipse cx="95" cy="52" rx="17" ry="9" fill="#FF5733" transform="rotate(-12 95 52)"/>
-    <circle cx="77" cy="45" r="7.5" fill="#FF5733"/>
+    <circle cx="35" cy="70" r="5" fill="#FF6A3D"/>
+    <ellipse cx="95" cy="52" rx="17" ry="9" fill="#FF6A3D" transform="rotate(-12 95 52)"/>
+    <circle cx="77" cy="45" r="7.5" fill="#FF6A3D"/>
     <path d="M70 47L46 61" stroke-width="3"/>
     <path d="M87 40c6-10 17-9 19 2" fill="#D49E5C"/>
     <path d="M111 55l13 3M110 58l11 7" stroke-width="2.6"/>
-    <circle cx="79" cy="43" r="1.8" fill="#241F1B" stroke="none"/></g></svg><figcaption>벌새 먹이용 설탕물<span class="who">Sam Thompson</span></figcaption></figure>
-      <figure class="reveal d3"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="44" y="28" width="30" height="54" rx="5" fill="#fff"/>
+    <circle cx="79" cy="43" r="1.8" fill="#180F2E" stroke="none"/></g></svg><figcaption>벌새 먹이용 설탕물<span class="who">Sam Thompson</span></figcaption></figure>
+      <figure class="reveal d3"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="44" y="28" width="30" height="54" rx="5" fill="#fff"/>
     <path d="M49 18h20v10H49z" fill="#D49E5C"/>
     <path d="M44 44h30" />
     <path d="M52 58h14M52 68h14" stroke-width="2"/>
-    <path d="M92 44c0 13 8 22 20 22 0-13-8-22-20-22z" fill="#FF5733"/>
+    <path d="M92 44c0 13 8 22 20 22 0-13-8-22-20-22z" fill="#FF6A3D"/>
     <path d="M95 47c6 4 12 11 14 18" stroke="#fff" stroke-width="1.8"/></g></svg><figcaption>천연 데오도란트<span class="who">Moiz Ali</span></figcaption></figure>
-      <figure class="reveal "><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="42" y="12" width="56" height="76" rx="9" fill="#fff"/>
+      <figure class="reveal "><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="42" y="12" width="56" height="76" rx="9" fill="#fff"/>
     <path d="M62 20h16" stroke-width="2.4"/>
     <rect x="50" y="32" width="31" height="16" rx="4" fill="#D49E5C" stroke-width="2"/>
     <path d="M54 48v7l8-7z" fill="#D49E5C" stroke="none"/>
-    <rect x="59" y="58" width="31" height="16" rx="4" fill="#FF5733" stroke-width="2"/>
-    <path d="M86 74v7l-8-7z" fill="#FF5733" stroke="none"/></g></svg><figcaption>문자·얼굴 점수 앱<span class="who">Blake Anderson</span></figcaption></figure>
-      <figure class="reveal d1"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="44" y="16" width="52" height="68" rx="8" fill="#fff"/>
-    <path d="M54 52h32c0 9-7 15-16 15s-16-6-16-15z" fill="#FF5733"/>
+    <rect x="59" y="58" width="31" height="16" rx="4" fill="#FF6A3D" stroke-width="2"/>
+    <path d="M86 74v7l-8-7z" fill="#FF6A3D" stroke="none"/></g></svg><figcaption>문자·얼굴 점수 앱<span class="who">Blake Anderson</span></figcaption></figure>
+      <figure class="reveal d1"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="44" y="16" width="52" height="68" rx="8" fill="#fff"/>
+    <path d="M54 52h32c0 9-7 15-16 15s-16-6-16-15z" fill="#FF6A3D"/>
     <path d="M50 67h40" stroke-width="2"/>
     <path d="M64 44c0-4 3-5 3-8M76 44c0-5 4-6 4-9" stroke="#D49E5C" stroke-width="2.2"/>
     <path d="M32 30v-6h8M108 30v-6h-8M32 70v6h8M108 70v6h-8" stroke="#D49E5C" stroke-width="2.4"/></g></svg><figcaption>사진으로 칼로리 세는 앱<span class="who">Zach Yadegari</span></figcaption></figure>
-      <figure class="reveal d2"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M60 18h20v10l7 9v45H53V37l7-9z" fill="#fff"/>
-    <path d="M53 52h34" /><path d="M53 52h34v30H53z" fill="#FF5733"/>
+      <figure class="reveal d2"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M60 18h20v10l7 9v45H53V37l7-9z" fill="#fff"/>
+    <path d="M53 52h34" /><path d="M53 52h34v30H53z" fill="#FF6A3D"/>
     <path d="M72 56l-8 12h7l-3 10 10-13h-7z" fill="#fff" stroke="none"/>
     <path d="M104 30l-6 12h6l-4 12" stroke="#D49E5C" stroke-width="2.6"/></g></svg><figcaption>스포츠 음료<span class="who">Logan Paul · KSI</span></figcaption></figure>
-      <figure class="reveal d3"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 24h46l24 26-24 26H32z" fill="#FF5733"/>
+      <figure class="reveal d3"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 24h46l24 26-24 26H32z" fill="#FF6A3D"/>
     <circle cx="45" cy="50" r="5.5" fill="#fff"/>
     <circle cx="68" cy="41" r="4.5" fill="none" stroke="#fff" stroke-width="3"/>
     <circle cx="84" cy="59" r="4.5" fill="none" stroke="#fff" stroke-width="3"/>
     <path d="M64 63l24-26" stroke="#fff" stroke-width="3"/></g></svg><figcaption>소프트웨어 할인 딜<span class="who">Noah Kagan</span></figcaption></figure>
-      <figure class="reveal "><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M26 24h34c5 0 8 3 8 8v46c0-4-3-7-8-7H26z" fill="#fff"/>
+      <figure class="reveal "><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M26 24h34c5 0 8 3 8 8v46c0-4-3-7-8-7H26z" fill="#fff"/>
     <path d="M114 24H80c-5 0-8 3-8 8v46c0-4 3-7 8-7h34z" fill="#D49E5C"/>
     <path d="M70 30v50" stroke-width="2.6"/>
-    <path d="M38 44l6-12 6 12M40 40h8" stroke="#FF5733" stroke-width="2.4"/>
-    <path d="M88 32h7a5 5 0 0 1 0 10h-7zM88 42h8a5 5 0 0 1 0 10h-8z" stroke="#241F1B" stroke-width="2.2" fill="#fff"/></g></svg><figcaption>책 제목 (제품이 아니라 이름)<span class="who">Tim Ferriss</span></figcaption></figure>
+    <path d="M38 44l6-12 6 12M40 40h8" stroke="#FF6A3D" stroke-width="2.4"/>
+    <path d="M88 32h7a5 5 0 0 1 0 10h-7zM88 42h8a5 5 0 0 1 0 10h-8z" stroke="#180F2E" stroke-width="2.2" fill="#fff"/></g></svg><figcaption>책 제목 (제품이 아니라 이름)<span class="who">Tim Ferriss</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -350,10 +367,10 @@
         </tr></thead>
         <tbody>
           <tr>
-            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="34" y="20" width="52" height="62" rx="4" fill="#fff"/>
+            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="34" y="20" width="52" height="62" rx="4" fill="#fff"/>
     <circle cx="60" cy="43" r="10" fill="#D49E5C"/>
-    <path d="M44 74c2.4-10 8-15 16-15s13.6 5 16 15" fill="#FF5733"/>
-    <path d="M100 26l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#FF5733" stroke-width="1.6"/>
+    <path d="M44 74c2.4-10 8-15 16-15s13.6 5 16 15" fill="#FF6A3D"/>
+    <path d="M100 26l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#FF6A3D" stroke-width="1.6"/>
     <path d="M99 60l2 4.5 4.5 2-4.5 2-2 4.5-2-4.5-4.5-2 4.5-2z" fill="#D49E5C" stroke-width="1.4"/></g></svg>Pieter Levels</span></td>
             <td>AI 프로필 사진 사이트</td>
             <td><span class="chip">자기 사이트</span></td>
@@ -362,10 +379,10 @@
             <td><span class="t-res">월 $105,000</span><br /><span class="t-note">코드는 PHP 파일 하나, 서버 한 대</span></td>
           </tr>
           <tr>
-            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="34" width="76" height="46" rx="7" fill="#fff"/>
+            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="34" width="76" height="46" rx="7" fill="#fff"/>
     <path d="M50 34l6-9h16l6 9" fill="#D49E5C"/>
-    <circle cx="64" cy="57" r="15" fill="#FF5733"/><circle cx="64" cy="57" r="6.5" fill="#fff"/>
-    <rect x="88" y="42" width="9" height="6" rx="2" fill="#241F1B"/>
+    <circle cx="64" cy="57" r="15" fill="#FF6A3D"/><circle cx="64" cy="57" r="6.5" fill="#fff"/>
+    <rect x="88" y="42" width="9" height="6" rx="2" fill="#180F2E"/>
     <path d="M108 30v10M113 35h-10" stroke="#D49E5C" stroke-width="2.8"/></g></svg>Danny Postma</span></td>
             <td>AI 프로필 사진 사이트</td>
             <td><span class="chip">자기 사이트</span></td>
@@ -374,10 +391,10 @@
             <td><span class="t-res">2주 만에 $100,000</span><br /><span class="t-note">위 제품과 기능이 사실상 같다</span></td>
           </tr>
           <tr>
-            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="22" width="100" height="58" rx="6" fill="#fff"/>
-    <path d="M20 36h100" /><circle cx="30" cy="29" r="2.6" fill="#FF5733" stroke="none"/>
-    <circle cx="39" cy="29" r="2.6" fill="#D49E5C" stroke="none"/><circle cx="48" cy="29" r="2.6" fill="#F0E7DA"/>
-    <path d="M52 50l-8 8 8 8M88 50l8 8-8 8" stroke="#FF5733" stroke-width="3"/>
+            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="22" width="100" height="58" rx="6" fill="#fff"/>
+    <path d="M20 36h100" /><circle cx="30" cy="29" r="2.6" fill="#FF6A3D" stroke="none"/>
+    <circle cx="39" cy="29" r="2.6" fill="#D49E5C" stroke="none"/><circle cx="48" cy="29" r="2.6" fill="#FBEBD6"/>
+    <path d="M52 50l-8 8 8 8M88 50l8 8-8 8" stroke="#FF6A3D" stroke-width="3"/>
     <path d="M76 46l-12 24" stroke="#D49E5C" stroke-width="3"/></g></svg>Marc Lou</span></td>
             <td>개발자용 코드 묶음</td>
             <td><span class="chip">자기 사이트</span></td>
@@ -386,11 +403,11 @@
             <td><span class="t-res">월 $141,000</span><br /><span class="t-note">관객을 제품보다 먼저 만들었다</span></td>
           </tr>
           <tr>
-            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M26 40h88v42H26z" fill="#fff"/>
-    <path d="M22 40l6-16h84l6 16z" fill="#FF5733"/>
+            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M26 40h88v42H26z" fill="#fff"/>
+    <path d="M22 40l6-16h84l6 16z" fill="#FF6A3D"/>
     <path d="M45 24v16M70 24v16M95 24v16" stroke="#fff" stroke-width="2"/>
     <rect x="58" y="56" width="24" height="26" rx="2" fill="#D49E5C"/>
-    <path d="M34 52h14M34 62h14" stroke="#241F1B" stroke-width="2"/></g></svg>Sebastian Ghiorghiu</span></td>
+    <path d="M34 52h14M34 62h14" stroke="#180F2E" stroke-width="2"/></g></svg>Sebastian Ghiorghiu</span></td>
             <td>쇼핑몰 만들어주는 앱</td>
             <td><span class="chip">Shopify 앱스토어</span></td>
             <td>자기 유튜브 채널</td>
@@ -398,9 +415,9 @@
             <td><span class="t-res">월 $350,000</span><br /><span class="t-note">유료 고객 1만 명 이상</span></td>
           </tr>
           <tr>
-            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M38 18h38l16 16v48H38z" fill="#fff"/><path d="M76 18v16h16"/>
-    <path d="M48 46h30M48 56h30M48 66h18" stroke="#241F1B" stroke-width="2"/>
-    <circle cx="99" cy="68" r="15" fill="#FF5733"/>
+            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M38 18h38l16 16v48H38z" fill="#fff"/><path d="M76 18v16h16"/>
+    <path d="M48 46h30M48 56h30M48 66h18" stroke="#180F2E" stroke-width="2"/>
+    <circle cx="99" cy="68" r="15" fill="#FF6A3D"/>
     <path d="M95 61l10 7-10 7z" fill="#fff" stroke="none"/></g></svg>Daniel Vassallo</span></td>
             <td>PDF 전자책 · 영상 강의</td>
             <td><span class="chip">Gumroad</span></td>
@@ -409,9 +426,9 @@
             <td><span class="t-res">4개월 $104,754</span><br /><span class="t-note">본인 분석 — 매출의 95%가 트위터에서</span></td>
           </tr>
           <tr>
-            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="24" y="22" width="92" height="54" rx="6" fill="#fff"/>
+            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="24" y="22" width="92" height="54" rx="6" fill="#fff"/>
     <path d="M62 76v8M78 76v8M56 84h28" />
-    <circle cx="70" cy="49" r="14" fill="#FF5733"/><path d="M66 42l10 7-10 7z" fill="#fff" stroke="none"/>
+    <circle cx="70" cy="49" r="14" fill="#FF6A3D"/><path d="M66 42l10 7-10 7z" fill="#fff" stroke="none"/>
     <path d="M32 30h12" stroke="#D49E5C" stroke-width="3"/></g></svg>Justin Welsh</span></td>
             <td>$150 온라인 강의</td>
             <td><span class="chip">Gumroad</span></td>
@@ -420,15 +437,15 @@
             <td><span class="t-res">누적 $12.5M+</span><br /><span class="t-note">마진 약 86% · 정직원 0명</span></td>
           </tr>
           <tr>
-            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="22" y="16" width="26" height="30" rx="4" fill="#fff"/>
+            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="22" y="16" width="26" height="30" rx="4" fill="#fff"/>
     <path d="M20 46h30l-4 18H24z" fill="#D49E5C"/>
-    <circle cx="35" cy="70" r="5" fill="#FF5733"/>
-    <ellipse cx="95" cy="52" rx="17" ry="9" fill="#FF5733" transform="rotate(-12 95 52)"/>
-    <circle cx="77" cy="45" r="7.5" fill="#FF5733"/>
+    <circle cx="35" cy="70" r="5" fill="#FF6A3D"/>
+    <ellipse cx="95" cy="52" rx="17" ry="9" fill="#FF6A3D" transform="rotate(-12 95 52)"/>
+    <circle cx="77" cy="45" r="7.5" fill="#FF6A3D"/>
     <path d="M70 47L46 61" stroke-width="3"/>
     <path d="M87 40c6-10 17-9 19 2" fill="#D49E5C"/>
     <path d="M111 55l13 3M110 58l11 7" stroke-width="2.6"/>
-    <circle cx="79" cy="43" r="1.8" fill="#241F1B" stroke="none"/></g></svg>Sam Thompson</span></td>
+    <circle cx="79" cy="43" r="1.8" fill="#180F2E" stroke="none"/></g></svg>Sam Thompson</span></td>
             <td>벌새 먹이용 설탕물</td>
             <td><span class="chip">Shopify</span></td>
             <td>메타(페북·인스타) 광고</td>
@@ -436,11 +453,11 @@
             <td><span class="t-res">21일 $5,000</span><br /><span class="t-note">이미 연 300억 원 팔리던 시장</span></td>
           </tr>
           <tr>
-            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="44" y="28" width="30" height="54" rx="5" fill="#fff"/>
+            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="44" y="28" width="30" height="54" rx="5" fill="#fff"/>
     <path d="M49 18h20v10H49z" fill="#D49E5C"/>
     <path d="M44 44h30" />
     <path d="M52 58h14M52 68h14" stroke-width="2"/>
-    <path d="M92 44c0 13 8 22 20 22 0-13-8-22-20-22z" fill="#FF5733"/>
+    <path d="M92 44c0 13 8 22 20 22 0-13-8-22-20-22z" fill="#FF6A3D"/>
     <path d="M95 47c6 4 12 11 14 18" stroke="#fff" stroke-width="1.8"/></g></svg>Moiz Ali</span></td>
             <td>천연 데오도란트</td>
             <td><span class="chip">Shopify Plus</span></td>
@@ -449,12 +466,12 @@
             <td><span class="t-res">$100,000,000에 매각</span><br /><span class="t-note">P&amp;G가 인수 (2017년)</span></td>
           </tr>
           <tr>
-            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="42" y="12" width="56" height="76" rx="9" fill="#fff"/>
+            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="42" y="12" width="56" height="76" rx="9" fill="#fff"/>
     <path d="M62 20h16" stroke-width="2.4"/>
     <rect x="50" y="32" width="31" height="16" rx="4" fill="#D49E5C" stroke-width="2"/>
     <path d="M54 48v7l8-7z" fill="#D49E5C" stroke="none"/>
-    <rect x="59" y="58" width="31" height="16" rx="4" fill="#FF5733" stroke-width="2"/>
-    <path d="M86 74v7l-8-7z" fill="#FF5733" stroke="none"/></g></svg>Blake Anderson</span></td>
+    <rect x="59" y="58" width="31" height="16" rx="4" fill="#FF6A3D" stroke-width="2"/>
+    <path d="M86 74v7l-8-7z" fill="#FF6A3D" stroke="none"/></g></svg>Blake Anderson</span></td>
             <td>문자·얼굴 점수 앱</td>
             <td><span class="chip">앱스토어</span></td>
             <td>틱톡 소형 크리에이터 2명</td>
@@ -462,8 +479,8 @@
             <td><span class="t-res">첫 달 $80,000</span><br /><span class="t-note">1주일 만에 20만 다운로드</span></td>
           </tr>
           <tr>
-            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="44" y="16" width="52" height="68" rx="8" fill="#fff"/>
-    <path d="M54 52h32c0 9-7 15-16 15s-16-6-16-15z" fill="#FF5733"/>
+            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="44" y="16" width="52" height="68" rx="8" fill="#fff"/>
+    <path d="M54 52h32c0 9-7 15-16 15s-16-6-16-15z" fill="#FF6A3D"/>
     <path d="M50 67h40" stroke-width="2"/>
     <path d="M64 44c0-4 3-5 3-8M76 44c0-5 4-6 4-9" stroke="#D49E5C" stroke-width="2.2"/>
     <path d="M32 30v-6h8M108 30v-6h-8M32 70v6h8M108 70v6h-8" stroke="#D49E5C" stroke-width="2.4"/></g></svg>Zach Yadegari</span></td>
@@ -474,8 +491,8 @@
             <td><span class="t-res">월 $5,700,000</span><br /><span class="t-note">18세에 MyFitnessPal에 매각</span></td>
           </tr>
           <tr>
-            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M60 18h20v10l7 9v45H53V37l7-9z" fill="#fff"/>
-    <path d="M53 52h34" /><path d="M53 52h34v30H53z" fill="#FF5733"/>
+            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M60 18h20v10l7 9v45H53V37l7-9z" fill="#fff"/>
+    <path d="M53 52h34" /><path d="M53 52h34v30H53z" fill="#FF6A3D"/>
     <path d="M72 56l-8 12h7l-3 10 10-13h-7z" fill="#fff" stroke="none"/>
     <path d="M104 30l-6 12h6l-4 12" stroke="#D49E5C" stroke-width="2.6"/></g></svg>Logan Paul · KSI</span></td>
             <td>스포츠 음료</td>
@@ -485,7 +502,7 @@
             <td><span class="t-res">1년차 $250,000,000</span><br /><span class="t-note">2년차 $1.2B → 지금 약 $300M</span></td>
           </tr>
           <tr>
-            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 24h46l24 26-24 26H32z" fill="#FF5733"/>
+            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 24h46l24 26-24 26H32z" fill="#FF6A3D"/>
     <circle cx="45" cy="50" r="5.5" fill="#fff"/>
     <circle cx="68" cy="41" r="4.5" fill="none" stroke="#fff" stroke-width="3"/>
     <circle cx="84" cy="59" r="4.5" fill="none" stroke="#fff" stroke-width="3"/>
@@ -497,11 +514,11 @@
             <td><span class="t-res">24시간 만에 $3,000</span><br /><span class="t-note">지금은 연매출 $80,000,000</span></td>
           </tr>
           <tr>
-            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M26 24h34c5 0 8 3 8 8v46c0-4-3-7-8-7H26z" fill="#fff"/>
+            <td><span class="t-who"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M26 24h34c5 0 8 3 8 8v46c0-4-3-7-8-7H26z" fill="#fff"/>
     <path d="M114 24H80c-5 0-8 3-8 8v46c0-4 3-7 8-7h34z" fill="#D49E5C"/>
     <path d="M70 30v50" stroke-width="2.6"/>
-    <path d="M38 44l6-12 6 12M40 40h8" stroke="#FF5733" stroke-width="2.4"/>
-    <path d="M88 32h7a5 5 0 0 1 0 10h-7zM88 42h8a5 5 0 0 1 0 10h-8z" stroke="#241F1B" stroke-width="2.2" fill="#fff"/></g></svg>Tim Ferriss</span></td>
+    <path d="M38 44l6-12 6 12M40 40h8" stroke="#FF6A3D" stroke-width="2.4"/>
+    <path d="M88 32h7a5 5 0 0 1 0 10h-7zM88 42h8a5 5 0 0 1 0 10h-8z" stroke="#180F2E" stroke-width="2.2" fill="#fff"/></g></svg>Tim Ferriss</span></td>
             <td>책 제목 (제품이 아니라 이름)</td>
             <td><span class="chip">서점 · 아마존</span></td>
             <td>구글 광고</td>
@@ -577,10 +594,10 @@
     </div>
     <div class="p-grid">
       <article class="p-card reveal ">
-        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="34" y="20" width="52" height="62" rx="4" fill="#fff"/>
+        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="34" y="20" width="52" height="62" rx="4" fill="#fff"/>
     <circle cx="60" cy="43" r="10" fill="#D49E5C"/>
-    <path d="M44 74c2.4-10 8-15 16-15s13.6 5 16 15" fill="#FF5733"/>
-    <path d="M100 26l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#FF5733" stroke-width="1.6"/>
+    <path d="M44 74c2.4-10 8-15 16-15s13.6 5 16 15" fill="#FF6A3D"/>
+    <path d="M100 26l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#FF6A3D" stroke-width="1.6"/>
     <path d="M99 60l2 4.5 4.5 2-4.5 2-2 4.5-2-4.5-4.5-2 4.5-2z" fill="#D49E5C" stroke-width="1.4"/></g></svg><div><div class="p-name">Pieter Levels</div><div class="p-what">AI 프로필 사진 사이트</div></div></div>
         <dl class="p-body">
           <div class="p-row"><dt>판 곳</dt><dd><span class="chip">자기 사이트</span></dd></div>
@@ -591,10 +608,10 @@
         <div class="p-foot"><span class="p-res">월 $105,000</span><span class="t-note">코드는 PHP 파일 하나, 서버 한 대</span></div>
       </article>
       <article class="p-card reveal d1">
-        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="34" width="76" height="46" rx="7" fill="#fff"/>
+        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="34" width="76" height="46" rx="7" fill="#fff"/>
     <path d="M50 34l6-9h16l6 9" fill="#D49E5C"/>
-    <circle cx="64" cy="57" r="15" fill="#FF5733"/><circle cx="64" cy="57" r="6.5" fill="#fff"/>
-    <rect x="88" y="42" width="9" height="6" rx="2" fill="#241F1B"/>
+    <circle cx="64" cy="57" r="15" fill="#FF6A3D"/><circle cx="64" cy="57" r="6.5" fill="#fff"/>
+    <rect x="88" y="42" width="9" height="6" rx="2" fill="#180F2E"/>
     <path d="M108 30v10M113 35h-10" stroke="#D49E5C" stroke-width="2.8"/></g></svg><div><div class="p-name">Danny Postma</div><div class="p-what">AI 프로필 사진 사이트</div></div></div>
         <dl class="p-body">
           <div class="p-row"><dt>판 곳</dt><dd><span class="chip">자기 사이트</span></dd></div>
@@ -605,10 +622,10 @@
         <div class="p-foot"><span class="p-res">2주 만에 $100,000</span><span class="t-note">위 제품과 기능이 사실상 같다</span></div>
       </article>
       <article class="p-card reveal d2">
-        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="22" width="100" height="58" rx="6" fill="#fff"/>
-    <path d="M20 36h100" /><circle cx="30" cy="29" r="2.6" fill="#FF5733" stroke="none"/>
-    <circle cx="39" cy="29" r="2.6" fill="#D49E5C" stroke="none"/><circle cx="48" cy="29" r="2.6" fill="#F0E7DA"/>
-    <path d="M52 50l-8 8 8 8M88 50l8 8-8 8" stroke="#FF5733" stroke-width="3"/>
+        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="22" width="100" height="58" rx="6" fill="#fff"/>
+    <path d="M20 36h100" /><circle cx="30" cy="29" r="2.6" fill="#FF6A3D" stroke="none"/>
+    <circle cx="39" cy="29" r="2.6" fill="#D49E5C" stroke="none"/><circle cx="48" cy="29" r="2.6" fill="#FBEBD6"/>
+    <path d="M52 50l-8 8 8 8M88 50l8 8-8 8" stroke="#FF6A3D" stroke-width="3"/>
     <path d="M76 46l-12 24" stroke="#D49E5C" stroke-width="3"/></g></svg><div><div class="p-name">Marc Lou</div><div class="p-what">개발자용 코드 묶음</div></div></div>
         <dl class="p-body">
           <div class="p-row"><dt>판 곳</dt><dd><span class="chip">자기 사이트</span></dd></div>
@@ -619,11 +636,11 @@
         <div class="p-foot"><span class="p-res">월 $141,000</span><span class="t-note">관객을 제품보다 먼저 만들었다</span></div>
       </article>
       <article class="p-card reveal ">
-        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M26 40h88v42H26z" fill="#fff"/>
-    <path d="M22 40l6-16h84l6 16z" fill="#FF5733"/>
+        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M26 40h88v42H26z" fill="#fff"/>
+    <path d="M22 40l6-16h84l6 16z" fill="#FF6A3D"/>
     <path d="M45 24v16M70 24v16M95 24v16" stroke="#fff" stroke-width="2"/>
     <rect x="58" y="56" width="24" height="26" rx="2" fill="#D49E5C"/>
-    <path d="M34 52h14M34 62h14" stroke="#241F1B" stroke-width="2"/></g></svg><div><div class="p-name">Sebastian Ghiorghiu</div><div class="p-what">쇼핑몰 만들어주는 앱</div></div></div>
+    <path d="M34 52h14M34 62h14" stroke="#180F2E" stroke-width="2"/></g></svg><div><div class="p-name">Sebastian Ghiorghiu</div><div class="p-what">쇼핑몰 만들어주는 앱</div></div></div>
         <dl class="p-body">
           <div class="p-row"><dt>판 곳</dt><dd><span class="chip">Shopify 앱스토어</span></dd></div>
           <div class="p-row"><dt>알린 곳</dt><dd>자기 유튜브 채널</dd></div>
@@ -633,9 +650,9 @@
         <div class="p-foot"><span class="p-res">월 $350,000</span><span class="t-note">유료 고객 1만 명 이상</span></div>
       </article>
       <article class="p-card reveal d1">
-        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M38 18h38l16 16v48H38z" fill="#fff"/><path d="M76 18v16h16"/>
-    <path d="M48 46h30M48 56h30M48 66h18" stroke="#241F1B" stroke-width="2"/>
-    <circle cx="99" cy="68" r="15" fill="#FF5733"/>
+        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M38 18h38l16 16v48H38z" fill="#fff"/><path d="M76 18v16h16"/>
+    <path d="M48 46h30M48 56h30M48 66h18" stroke="#180F2E" stroke-width="2"/>
+    <circle cx="99" cy="68" r="15" fill="#FF6A3D"/>
     <path d="M95 61l10 7-10 7z" fill="#fff" stroke="none"/></g></svg><div><div class="p-name">Daniel Vassallo</div><div class="p-what">PDF 전자책 · 영상 강의</div></div></div>
         <dl class="p-body">
           <div class="p-row"><dt>판 곳</dt><dd><span class="chip">Gumroad</span></dd></div>
@@ -646,9 +663,9 @@
         <div class="p-foot"><span class="p-res">4개월 $104,754</span><span class="t-note">본인 분석 — 매출의 95%가 트위터에서</span></div>
       </article>
       <article class="p-card reveal d2">
-        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="24" y="22" width="92" height="54" rx="6" fill="#fff"/>
+        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="24" y="22" width="92" height="54" rx="6" fill="#fff"/>
     <path d="M62 76v8M78 76v8M56 84h28" />
-    <circle cx="70" cy="49" r="14" fill="#FF5733"/><path d="M66 42l10 7-10 7z" fill="#fff" stroke="none"/>
+    <circle cx="70" cy="49" r="14" fill="#FF6A3D"/><path d="M66 42l10 7-10 7z" fill="#fff" stroke="none"/>
     <path d="M32 30h12" stroke="#D49E5C" stroke-width="3"/></g></svg><div><div class="p-name">Justin Welsh</div><div class="p-what">$150 온라인 강의</div></div></div>
         <dl class="p-body">
           <div class="p-row"><dt>판 곳</dt><dd><span class="chip">Gumroad</span></dd></div>
@@ -659,15 +676,15 @@
         <div class="p-foot"><span class="p-res">누적 $12.5M+</span><span class="t-note">마진 약 86% · 정직원 0명</span></div>
       </article>
       <article class="p-card reveal ">
-        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="22" y="16" width="26" height="30" rx="4" fill="#fff"/>
+        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="22" y="16" width="26" height="30" rx="4" fill="#fff"/>
     <path d="M20 46h30l-4 18H24z" fill="#D49E5C"/>
-    <circle cx="35" cy="70" r="5" fill="#FF5733"/>
-    <ellipse cx="95" cy="52" rx="17" ry="9" fill="#FF5733" transform="rotate(-12 95 52)"/>
-    <circle cx="77" cy="45" r="7.5" fill="#FF5733"/>
+    <circle cx="35" cy="70" r="5" fill="#FF6A3D"/>
+    <ellipse cx="95" cy="52" rx="17" ry="9" fill="#FF6A3D" transform="rotate(-12 95 52)"/>
+    <circle cx="77" cy="45" r="7.5" fill="#FF6A3D"/>
     <path d="M70 47L46 61" stroke-width="3"/>
     <path d="M87 40c6-10 17-9 19 2" fill="#D49E5C"/>
     <path d="M111 55l13 3M110 58l11 7" stroke-width="2.6"/>
-    <circle cx="79" cy="43" r="1.8" fill="#241F1B" stroke="none"/></g></svg><div><div class="p-name">Sam Thompson</div><div class="p-what">벌새 먹이용 설탕물</div></div></div>
+    <circle cx="79" cy="43" r="1.8" fill="#180F2E" stroke="none"/></g></svg><div><div class="p-name">Sam Thompson</div><div class="p-what">벌새 먹이용 설탕물</div></div></div>
         <dl class="p-body">
           <div class="p-row"><dt>판 곳</dt><dd><span class="chip">Shopify</span></dd></div>
           <div class="p-row"><dt>알린 곳</dt><dd>메타(페북·인스타) 광고</dd></div>
@@ -677,11 +694,11 @@
         <div class="p-foot"><span class="p-res">21일 $5,000</span><span class="t-note">이미 연 300억 원 팔리던 시장</span></div>
       </article>
       <article class="p-card reveal d1">
-        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="44" y="28" width="30" height="54" rx="5" fill="#fff"/>
+        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="44" y="28" width="30" height="54" rx="5" fill="#fff"/>
     <path d="M49 18h20v10H49z" fill="#D49E5C"/>
     <path d="M44 44h30" />
     <path d="M52 58h14M52 68h14" stroke-width="2"/>
-    <path d="M92 44c0 13 8 22 20 22 0-13-8-22-20-22z" fill="#FF5733"/>
+    <path d="M92 44c0 13 8 22 20 22 0-13-8-22-20-22z" fill="#FF6A3D"/>
     <path d="M95 47c6 4 12 11 14 18" stroke="#fff" stroke-width="1.8"/></g></svg><div><div class="p-name">Moiz Ali</div><div class="p-what">천연 데오도란트</div></div></div>
         <dl class="p-body">
           <div class="p-row"><dt>판 곳</dt><dd><span class="chip">Shopify Plus</span></dd></div>
@@ -692,12 +709,12 @@
         <div class="p-foot"><span class="p-res">$100,000,000에 매각</span><span class="t-note">P&amp;G가 인수 (2017년)</span></div>
       </article>
       <article class="p-card reveal d2">
-        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="42" y="12" width="56" height="76" rx="9" fill="#fff"/>
+        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="42" y="12" width="56" height="76" rx="9" fill="#fff"/>
     <path d="M62 20h16" stroke-width="2.4"/>
     <rect x="50" y="32" width="31" height="16" rx="4" fill="#D49E5C" stroke-width="2"/>
     <path d="M54 48v7l8-7z" fill="#D49E5C" stroke="none"/>
-    <rect x="59" y="58" width="31" height="16" rx="4" fill="#FF5733" stroke-width="2"/>
-    <path d="M86 74v7l-8-7z" fill="#FF5733" stroke="none"/></g></svg><div><div class="p-name">Blake Anderson</div><div class="p-what">문자·얼굴 점수 앱</div></div></div>
+    <rect x="59" y="58" width="31" height="16" rx="4" fill="#FF6A3D" stroke-width="2"/>
+    <path d="M86 74v7l-8-7z" fill="#FF6A3D" stroke="none"/></g></svg><div><div class="p-name">Blake Anderson</div><div class="p-what">문자·얼굴 점수 앱</div></div></div>
         <dl class="p-body">
           <div class="p-row"><dt>판 곳</dt><dd><span class="chip">앱스토어</span></dd></div>
           <div class="p-row"><dt>알린 곳</dt><dd>틱톡 소형 크리에이터 2명</dd></div>
@@ -707,8 +724,8 @@
         <div class="p-foot"><span class="p-res">첫 달 $80,000</span><span class="t-note">1주일 만에 20만 다운로드</span></div>
       </article>
       <article class="p-card reveal ">
-        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="44" y="16" width="52" height="68" rx="8" fill="#fff"/>
-    <path d="M54 52h32c0 9-7 15-16 15s-16-6-16-15z" fill="#FF5733"/>
+        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="44" y="16" width="52" height="68" rx="8" fill="#fff"/>
+    <path d="M54 52h32c0 9-7 15-16 15s-16-6-16-15z" fill="#FF6A3D"/>
     <path d="M50 67h40" stroke-width="2"/>
     <path d="M64 44c0-4 3-5 3-8M76 44c0-5 4-6 4-9" stroke="#D49E5C" stroke-width="2.2"/>
     <path d="M32 30v-6h8M108 30v-6h-8M32 70v6h8M108 70v6h-8" stroke="#D49E5C" stroke-width="2.4"/></g></svg><div><div class="p-name">Zach Yadegari</div><div class="p-what">사진으로 칼로리 세는 앱</div></div></div>
@@ -721,8 +738,8 @@
         <div class="p-foot"><span class="p-res">월 $5,700,000</span><span class="t-note">18세에 MyFitnessPal에 매각</span></div>
       </article>
       <article class="p-card reveal d1">
-        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M60 18h20v10l7 9v45H53V37l7-9z" fill="#fff"/>
-    <path d="M53 52h34" /><path d="M53 52h34v30H53z" fill="#FF5733"/>
+        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M60 18h20v10l7 9v45H53V37l7-9z" fill="#fff"/>
+    <path d="M53 52h34" /><path d="M53 52h34v30H53z" fill="#FF6A3D"/>
     <path d="M72 56l-8 12h7l-3 10 10-13h-7z" fill="#fff" stroke="none"/>
     <path d="M104 30l-6 12h6l-4 12" stroke="#D49E5C" stroke-width="2.6"/></g></svg><div><div class="p-name">Logan Paul · KSI</div><div class="p-what">스포츠 음료</div></div></div>
         <dl class="p-body">
@@ -734,7 +751,7 @@
         <div class="p-foot"><span class="p-res">1년차 $250,000,000</span><span class="t-note">2년차 $1.2B → 지금 약 $300M</span></div>
       </article>
       <article class="p-card reveal d2">
-        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 24h46l24 26-24 26H32z" fill="#FF5733"/>
+        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 24h46l24 26-24 26H32z" fill="#FF6A3D"/>
     <circle cx="45" cy="50" r="5.5" fill="#fff"/>
     <circle cx="68" cy="41" r="4.5" fill="none" stroke="#fff" stroke-width="3"/>
     <circle cx="84" cy="59" r="4.5" fill="none" stroke="#fff" stroke-width="3"/>
@@ -748,11 +765,11 @@
         <div class="p-foot"><span class="p-res">24시간 만에 $3,000</span><span class="t-note">지금은 연매출 $80,000,000</span></div>
       </article>
       <article class="p-card reveal ">
-        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M26 24h34c5 0 8 3 8 8v46c0-4-3-7-8-7H26z" fill="#fff"/>
+        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M26 24h34c5 0 8 3 8 8v46c0-4-3-7-8-7H26z" fill="#fff"/>
     <path d="M114 24H80c-5 0-8 3-8 8v46c0-4 3-7 8-7h34z" fill="#D49E5C"/>
     <path d="M70 30v50" stroke-width="2.6"/>
-    <path d="M38 44l6-12 6 12M40 40h8" stroke="#FF5733" stroke-width="2.4"/>
-    <path d="M88 32h7a5 5 0 0 1 0 10h-7zM88 42h8a5 5 0 0 1 0 10h-8z" stroke="#241F1B" stroke-width="2.2" fill="#fff"/></g></svg><div><div class="p-name">Tim Ferriss</div><div class="p-what">책 제목 (제품이 아니라 이름)</div></div></div>
+    <path d="M38 44l6-12 6 12M40 40h8" stroke="#FF6A3D" stroke-width="2.4"/>
+    <path d="M88 32h7a5 5 0 0 1 0 10h-7zM88 42h8a5 5 0 0 1 0 10h-8z" stroke="#180F2E" stroke-width="2.2" fill="#fff"/></g></svg><div><div class="p-name">Tim Ferriss</div><div class="p-what">책 제목 (제품이 아니라 이름)</div></div></div>
         <dl class="p-body">
           <div class="p-row"><dt>판 곳</dt><dd><span class="chip">서점 · 아마존</span></dd></div>
           <div class="p-row"><dt>알린 곳</dt><dd>구글 광고</dd></div>
@@ -806,10 +823,10 @@
     </div>
     <div class="tw reveal">
       <article class="p-card">
-        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="34" y="20" width="52" height="62" rx="4" fill="#fff"/>
+        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="34" y="20" width="52" height="62" rx="4" fill="#fff"/>
     <circle cx="60" cy="43" r="10" fill="#D49E5C"/>
-    <path d="M44 74c2.4-10 8-15 16-15s13.6 5 16 15" fill="#FF5733"/>
-    <path d="M100 26l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#FF5733" stroke-width="1.6"/>
+    <path d="M44 74c2.4-10 8-15 16-15s13.6 5 16 15" fill="#FF6A3D"/>
+    <path d="M100 26l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#FF6A3D" stroke-width="1.6"/>
     <path d="M99 60l2 4.5 4.5 2-4.5 2-2 4.5-2-4.5-4.5-2 4.5-2z" fill="#D49E5C" stroke-width="1.4"/></g></svg><div><div class="p-name">Pieter Levels</div><div class="p-what">AI 프로필 사진 사이트</div></div></div>
         <dl class="p-body">
           <div class="p-row"><dt>알린 곳</dt><dd>자기 트위터 (10년간 축적)</dd></div>
@@ -819,10 +836,10 @@
       </article>
       <div class="tw-vs">VS</div>
       <article class="p-card">
-        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="34" width="76" height="46" rx="7" fill="#fff"/>
+        <div class="p-top"><svg class="il" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect x="0" y="0" width="140" height="100" rx="14" fill="#FBEBD6"/><g fill="none" stroke="#180F2E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="34" width="76" height="46" rx="7" fill="#fff"/>
     <path d="M50 34l6-9h16l6 9" fill="#D49E5C"/>
-    <circle cx="64" cy="57" r="15" fill="#FF5733"/><circle cx="64" cy="57" r="6.5" fill="#fff"/>
-    <rect x="88" y="42" width="9" height="6" rx="2" fill="#241F1B"/>
+    <circle cx="64" cy="57" r="15" fill="#FF6A3D"/><circle cx="64" cy="57" r="6.5" fill="#fff"/>
+    <rect x="88" y="42" width="9" height="6" rx="2" fill="#180F2E"/>
     <path d="M108 30v10M113 35h-10" stroke="#D49E5C" stroke-width="2.8"/></g></svg><div><div class="p-name">Danny Postma</div><div class="p-what">AI 프로필 사진 사이트</div></div></div>
         <dl class="p-body">
           <div class="p-row"><dt>알린 곳</dt><dd>트위터 + 구글 검색</dd></div>
@@ -871,7 +888,7 @@
       <h2>내 상황에서는 어떤 방법이 맞을까요?</h2>
       <p>채널이 있는지, 돈이 있는지, 둘 다 없는지에 따라 다음 한 수가 완전히 달라집니다. 1:1로 같이 짚어드립니다.</p>
       <div class="cta-row">
-        <a href="/#contact" class="btn btn-coral">1:1 컨설팅 신청 →</a>
+        <a href="/contact/" class="btn btn-coral">1:1 컨설팅 신청 →</a>
         <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener" class="btn btn-ghost">유튜브에서 더 보기</a>
       </div>
     </div>
@@ -884,11 +901,30 @@
 
 </main>
 
-<footer class="ft">
-  <div class="wrap">
-    <div class="ft-bot">
+<footer class="mk-ft">
+  <div class="mkw">
+    <div class="mk-ft-top">
+      <div class="mk-ft-brand">
+        <a href="/" class="mk-logo"><span class="mk-tile">M</span><span>미국주부<small>Mompreneur Diary</small></span></a>
+        <p>미국에서 1인 사업하는 한국 주부. 온라인 마케팅 · 드랍쉬핑 · 온라인 셀러 컨설팅.</p>
+      </div>
+      <div class="mk-ft-col">
+        <h5>둘러보기</h5>
+        <a href="/#youtube">영상</a>
+        <a href="/blog/">블로그</a>
+        <a href="/tools/">추천 프로그램</a>
+        <a href="/contact/">문의</a>
+      </div>
+      <div class="mk-ft-col">
+        <h5>커뮤니티 · 연결</h5>
+        <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener">유튜브 구독하기 →</a>
+        <a href="https://www.youtube.com/channel/UCssWRwTEAY-UY7X7lvFi80w/join" target="_blank" rel="noopener">유튜브 멤버십 가입 →</a>
+        <a href="https://discord.gg/HgDDT2C6rs" target="_blank" rel="noopener">Discord 커뮤니티 →</a>
+      </div>
+    </div>
+    <div class="mk-ft-bot">
       <span>© 2026 미국주부 · Mompreneur Diary. All rights reserved.</span>
-      <span><a href="/privacy.html">개인정보처리방침</a> · <a href="/disclosure.html">제휴 공시</a> · <a href="/">홈</a></span>
+      <span><a href="/privacy.html">개인정보처리방침</a> · <a href="/disclosure.html">제휴 공시</a> · <a href="/en/">English</a></span>
     </div>
   </div>
 </footer>
@@ -925,6 +961,16 @@
   }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
 
   document.querySelectorAll('.reveal, [data-count]').forEach(function(el){ io.observe(el); });
+})();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('mkBurger'), m=document.getElementById('mkMenu');
+  if(!b||!m) return;
+  b.addEventListener('click',function(){
+    var open=m.classList.toggle('open');
+    b.setAttribute('aria-expanded', open?'true':'false');
+  });
 })();
 </script>
 </body>

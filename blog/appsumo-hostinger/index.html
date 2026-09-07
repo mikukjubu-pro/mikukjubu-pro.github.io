@@ -21,8 +21,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
 <style>
-  :root{--cream:#FAF7F2;--ink:#241F1B;--ink2:#6B5D54;--ink3:#9C9389;--coral:#FF5733;
-    --mustard:#D49E5C;--dark:#161311;--line:#EBE3D8;--card:#FFFFFF;--mute:#CFC5B9;
+  :root{--cream:#FFF6E8;--ink:#180F2E;--ink2:#5B4C77;--ink3:#8C7FA8;--coral:#FF6A3D;
+    --mustard:#D49E5C;--dark:#1B1038;--line:#EFE2D0;--card:#FFFFFF;--mute:#CFC5B9;
     --kr:'Pretendard Variable',Pretendard,system-ui,sans-serif;--en:'Inter Tight',var(--kr);
     --mono:'JetBrains Mono',monospace;}
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -172,42 +172,40 @@
   "image": "https://mikukjubu.com/og-image.png"
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/mk-post.css?v=20260907" />
+<style>
+  /* A안 — 본문 제목 서체 */
+  main h1,main h2,main .sec-title{
+    font-family:'Black Han Sans','Pretendard Variable',Pretendard,sans-serif;
+    font-weight:400;letter-spacing:-.015em;
+  }
+  main h1{font-size:clamp(30px,4.4vw,50px);line-height:1.14}
+  main h2{line-height:1.22}
+</style>
 </head>
 <body>
-<style>
-.mkn,.mkn *{box-sizing:border-box;margin:0;padding:0;line-height:normal;}
-.mkn{position:sticky;top:0;z-index:200;background:rgba(250,247,242,.82);
-  backdrop-filter:saturate(180%) blur(16px);-webkit-backdrop-filter:saturate(180%) blur(16px);
-  border-bottom:1px solid #EBE3D8;
-  font-family:'Pretendard Variable',Pretendard,-apple-system,system-ui,'Malgun Gothic',sans-serif;}
-.mkn-in{max-width:1200px;margin:0 auto;padding:0 24px;height:64px;
-  display:flex;align-items:center;justify-content:space-between;gap:18px;}
-.mkn a{text-decoration:none;}
-.mkn-logo{display:flex;align-items:center;gap:10px;color:#241F1B;font-weight:800;font-size:15px;line-height:1.15;}
-.mkn-mk{width:30px;height:30px;border-radius:9px;background:#FF5733;color:#fff;
-  display:grid;place-items:center;font-weight:800;font-size:15px;flex:none;}
-.mkn-sub{display:block;font-size:10.5px;font-weight:600;color:#6B6157;}
-.mkn-menu{display:flex;gap:22px;}
-.mkn-menu a{color:#241F1B;font-weight:600;font-size:14.5px;white-space:nowrap;}
-.mkn-menu a:hover,.mkn-menu a[aria-current]{color:#FF5733;}
-.mkn-cta{background:#FF5733;color:#fff;border-radius:999px;padding:10px 18px;
-  font-weight:700;font-size:14px;white-space:nowrap;transition:transform .2s;}
-.mkn-cta:hover{transform:translateY(-2px);}
-@media(max-width:820px){.mkn-menu{gap:15px;}.mkn-menu a{font-size:13.5px;}.mkn-sub{display:none;}.mkn-cta{display:none;}}
-@media(max-width:520px){.mkn-in{height:56px;padding:0 15px;}.mkn-menu{gap:11px;}.mkn-menu a{font-size:12.5px;}.mkn-logo{font-size:13.5px;}}
-</style>
-<div class="mkn" role="banner">
-  <div class="mkn-in">
-    <a class="mkn-logo" href="/"><span class="mkn-mk">M</span><span>미국주부<span class="mkn-sub">Mompreneur Diary</span></span></a>
-    <nav class="mkn-menu">
+<header class="mk-nav">
+  <div class="mkw mk-nav-in">
+    <a href="/" class="mk-logo" aria-label="미국주부 홈">
+      <span class="mk-tile">M</span>
+      <span>미국주부<small>Mompreneur Diary</small></span>
+    </a>
+    <nav class="mk-menu" id="mkMenu">
       <a href="/#youtube">영상</a>
       <a href="/blog/" aria-current="page">블로그</a>
-      <a href="/#tools">추천 프로그램</a>
-      <a href="/#contact">문의</a>
+      <a href="/tools/">추천 프로그램</a>
+      <a href="/contact/">문의</a>
+      <a href="/en/" class="lang">EN ↗</a>
     </nav>
-    <a class="mkn-cta" href="/#contact">1:1 컨설팅 →</a>
+    <div style="display:flex;align-items:center;gap:12px">
+      <a href="/contact/" class="mk-cta">1:1 컨설팅 ↗</a>
+      <button class="mk-burger" id="mkBurger" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
   </div>
-</div>
+</header>
   <main class="wrap">
     <p class="kicker">직접 뜯어봤습니다</p>
     <h1>앱수모 호스팅거 번들,<br>안에 뭐가 들었나</h1>
@@ -407,10 +405,44 @@
 
     <a href="/" class="back">← 미국주부 홈으로</a>
 
-    <footer>
-      화면 캡처와 영어 원문은 앱수모 딜 페이지 내용을 인용한 것이며 저작권은 각 사에 있습니다. 숫자는 2026년 8월 30일에 앱수모와 호스팅거 공식 페이지에서 직접 확인했습니다. 가격·수량·구성은 이후 바뀔 수 있으니 결제 전에 판매 페이지에서 다시 확인해 주세요.
-    </footer>
+    <footer class="mk-ft">
+  <div class="mkw">
+    <div class="mk-ft-top">
+      <div class="mk-ft-brand">
+        <a href="/" class="mk-logo"><span class="mk-tile">M</span><span>미국주부<small>Mompreneur Diary</small></span></a>
+        <p>미국에서 1인 사업하는 한국 주부. 온라인 마케팅 · 드랍쉬핑 · 온라인 셀러 컨설팅.</p>
+      </div>
+      <div class="mk-ft-col">
+        <h5>둘러보기</h5>
+        <a href="/#youtube">영상</a>
+        <a href="/blog/">블로그</a>
+        <a href="/tools/">추천 프로그램</a>
+        <a href="/contact/">문의</a>
+      </div>
+      <div class="mk-ft-col">
+        <h5>커뮤니티 · 연결</h5>
+        <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener">유튜브 구독하기 →</a>
+        <a href="https://www.youtube.com/channel/UCssWRwTEAY-UY7X7lvFi80w/join" target="_blank" rel="noopener">유튜브 멤버십 가입 →</a>
+        <a href="https://discord.gg/HgDDT2C6rs" target="_blank" rel="noopener">Discord 커뮤니티 →</a>
+      </div>
+    </div>
+    <div class="mk-ft-bot">
+      <span>© 2026 미국주부 · Mompreneur Diary. All rights reserved.</span>
+      <span><a href="/privacy.html">개인정보처리방침</a> · <a href="/disclosure.html">제휴 공시</a> · <a href="/en/">English</a></span>
+    </div>
+  </div>
+</footer>
   </main>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9b3d857e23354a79b458004691c28056"}'></script>
+<script>
+(function(){
+  var b=document.getElementById('mkBurger'), m=document.getElementById('mkMenu');
+  if(!b||!m) return;
+  b.addEventListener('click',function(){
+    var open=m.classList.toggle('open');
+    b.setAttribute('aria-expanded', open?'true':'false');
+  });
+})();
+</script>
 </body>
 </html>
