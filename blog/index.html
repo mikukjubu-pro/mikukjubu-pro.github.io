@@ -95,10 +95,12 @@
 
   .list{padding:10px 0 72px;display:grid;gap:20px;}
   .post{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;
-    display:grid;grid-template-columns:260px 1fr;gap:0;box-shadow:var(--shadow-sm);
+    display:grid;grid-template-columns:320px 1fr;gap:0;align-items:center;box-shadow:var(--shadow-sm);
     transition:transform .3s cubic-bezier(.2,.7,.3,1),box-shadow .3s;}
   .post:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);}
-  .post .th{width:100%;height:100%;object-fit:cover;border-radius:0;background:var(--beige);}
+  /* 16:9 그대로 담아 헤드라인이 잘리지 않게 한다 (세로 늘림 금지) */
+  .post .th{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;align-self:center;
+    border-radius:0;background:var(--beige);}
   .p-body{padding:26px 30px;display:flex;flex-direction:column;gap:10px;justify-content:center;}
   .p-meta{display:flex;align-items:center;gap:12px;font-size:12.5px;}
   .p-tag{font-family:var(--mono);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--coral);}
@@ -153,12 +155,7 @@
 
   <div class="wrap list">
     <a class="post reveal " href="/blog/marketing-is-money/">
-      <svg class="th" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 78h96" stroke-width="2.6"/>
-    <rect x="30" y="58" width="16" height="20" fill="#D49E5C"/>
-    <rect x="54" y="46" width="16" height="32" fill="#D49E5C"/>
-    <rect x="78" y="30" width="16" height="48" fill="#FF5733"/>
-    <circle cx="112" cy="30" r="13" fill="#FF5733"/>
-    <path d="M112 23v14M108 27h7a2.6 2.6 0 0 1 0 5h-6a2.6 2.6 0 0 0 0 5h7" stroke="#fff" stroke-width="2.2"/></g></svg>
+      <img class="th" src="/img/marketing-is-money-cover.png" alt="제품이 아니라 마케팅이 돈을 법니다 — 광고비 0원 7건, 20만 원 안쪽 3건, 광고비 투입 3건" width="1200" height="675" fetchpriority="high" />
       <div class="p-body">
         <div class="p-meta"><span class="p-tag">사례 분석</span><span class="p-date">2026. 9. 7.</span></div>
         <h2>마케팅이 돈이다 — 온라인으로 돈 번 13명이 실제로 한 일</h2>
@@ -167,12 +164,7 @@
       </div>
     </a>
     <a class="post reveal d1" href="/ai-model-3.html">
-      <svg class="th" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="30" width="32" height="42" rx="7" fill="#fff"/>
-    <rect x="54" y="30" width="32" height="42" rx="7" fill="#D49E5C"/>
-    <rect x="92" y="30" width="32" height="42" rx="7" fill="#FF5733"/>
-    <path d="M24 44h16M24 54h10" stroke-width="2.2"/>
-    <path d="M62 44h16M62 54h10" stroke="#fff" stroke-width="2.2"/>
-    <path d="M99 52l6 7 12-14" stroke="#fff" stroke-width="3.4"/></g></svg>
+      <img class="th" src="https://i.ytimg.com/vi/N5C8Zcs7Wxg/maxresdefault.jpg" alt="AI 모델 3종 비교 영상 썸네일" width="1200" height="675" loading="lazy" decoding="async" />
       <div class="p-body">
         <div class="p-meta"><span class="p-tag">AI 도구</span><span class="p-date">2026. 9. 7.</span></div>
         <h2>AI 모델 비교 2026 — 클로드 · 제미나이 · GPT-6 아스트라, 뭘 써야 하나</h2>
@@ -181,13 +173,7 @@
       </div>
     </a>
     <a class="post reveal d2" href="/blog/appsumo-hostinger/">
-      <svg class="th" viewBox="0 0 140 100" role="img" aria-hidden="true"><rect width="140" height="100" rx="14" fill="#F0E7DA"/><g fill="none" stroke="#241F1B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="24" width="60" height="18" rx="4" fill="#fff"/>
-    <rect x="20" y="48" width="60" height="18" rx="4" fill="#fff"/>
-    <rect x="20" y="72" width="60" height="18" rx="4" fill="#D49E5C"/>
-    <circle cx="30" cy="33" r="2.6" fill="#FF5733" stroke="none"/>
-    <circle cx="30" cy="57" r="2.6" fill="#FF5733" stroke="none"/>
-    <circle cx="105" cy="46" r="20" fill="#FF5733"/>
-    <path d="M85 46h40M105 26c6 7 6 33 0 40M105 26c-6 7-6 33 0 40" stroke="#fff" stroke-width="2"/></g></svg>
+      <img class="th" src="/img/appsumo-hero.jpg" alt="호스팅거 번들 딜 페이지 — 정가 $147, 판매가 $24" width="1200" height="675" loading="lazy" decoding="async" />
       <div class="p-body">
         <div class="p-meta"><span class="p-tag">도구 리뷰</span><span class="p-date">2026. 8. 28.</span></div>
         <h2>앱수모 호스팅거 번들, 안에 뭐가 들었나</h2>
