@@ -45,7 +45,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,600;0,700;0,800;1,800&family=JetBrains+Mono:wght@400;500;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Gaegu:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/mk-post.css?v=20260907" />
 
 <style>
   :root{
@@ -57,13 +58,14 @@
     --shadow-md:0 6px 18px rgba(38,28,18,.06), 0 18px 50px rgba(38,28,18,.08);
     --maxw:1200px;
     --kr:'Pretendard Variable',Pretendard,-apple-system,system-ui,sans-serif;
-    --en:'Inter Tight',var(--kr);
-    --mono:'JetBrains Mono',ui-monospace,monospace;
-    --hand:'Caveat',cursive;
+    --en:'Archivo Black',var(--kr);
+    --mono:'Space Mono',ui-monospace,monospace;
+    --hand:'Gaegu',cursive;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
-  body{font-family:var(--kr);background:var(--cream);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  body{font-family:var(--kr);background:var(--cream);color:var(--ink);line-height:1.65;word-break:keep-all;-webkit-font-smoothing:antialiased;}
+  main h1,main h2{font-family:'Black Han Sans',var(--kr);font-weight:400;letter-spacing:-.015em;}
   img,svg{max-width:100%;display:block;}
   a{color:var(--coral);}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
@@ -107,7 +109,7 @@
   .stat-num{font-family:var(--en);font-weight:800;font-size:clamp(56px,12vw,104px);line-height:1;color:var(--coral);}
   .stat-txt{font-size:clamp(15px,2vw,19px);line-height:1.55;}
   .stat-txt b{color:#fff;}
-  .stat-txt span{display:block;margin-top:8px;color:#B8ADA0;font-size:15px;}
+  .stat-txt span{display:block;margin-top:8px;color:#9C8FB8;font-size:15px;}
   @media(max-width:640px){.stat-hero{grid-template-columns:1fr;gap:12px;padding:26px 22px;}}
 
   /* ---------- sections ---------- */
@@ -118,7 +120,7 @@
   .sec-sub{margin-top:12px;color:var(--ink-soft);font-size:17px;max-width:760px;}
   .band{background:var(--beige);}
   .band-dark{background:var(--dark);color:#fff;}
-  .band-dark h2{color:#fff;} .band-dark .sec-sub{color:#B8ADA0;}
+  .band-dark h2{color:#fff;} .band-dark .sec-sub{color:#9C8FB8;}
 
   /* ---------- gallery (이미지만) ---------- */
   .gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:18px;}
@@ -134,7 +136,7 @@
   th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle;}
   thead th{background:var(--beige);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;white-space:nowrap;}
   tbody tr:last-child td{border-bottom:0;}
-  tbody tr:hover{background:#FDFBF8;}
+  tbody tr:hover{background:#FFFBF2;}
   .t-who{display:flex;align-items:center;gap:10px;font-weight:700;font-family:var(--en);white-space:nowrap;}
   .t-who svg{width:34px;height:24px;flex:0 0 auto;}
   .chip{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12.5px;font-weight:700;background:var(--ink);color:#fff;white-space:nowrap;}
@@ -202,29 +204,16 @@
   .take-row{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:baseline;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;}
   .take-n{font-family:var(--en);font-weight:800;color:var(--coral);}
   .cta{background:var(--dark);color:#fff;border-radius:var(--radius-lg);padding:44px 36px;text-align:center;}
-  .cta h2{color:#fff;} .cta p{color:#B8ADA0;margin:14px auto 24px;max-width:620px;}
+  .cta h2{color:#fff;} .cta p{color:#9C8FB8;margin:14px auto 24px;max-width:620px;}
   .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
   .cta .btn-ghost{border-color:#fff;color:#fff;} .cta .btn-ghost:hover{background:#fff;color:var(--ink);}
 
   /* ---------- footer ---------- */
-  .ft{background:var(--dark);color:#B8ADA0;padding:44px 0 30px;margin-top:20px;}
+  .ft{background:var(--dark);color:#9C8FB8;padding:44px 0 30px;margin-top:20px;}
   .ft a{color:#fff;text-decoration:none;} .ft a:hover{color:var(--coral);}
   .ft-bot{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13.5px;}
   .src{font-size:13px;color:var(--ink-soft);margin-top:26px;line-height:1.7;}
   .src b{color:var(--ink);}
-</style>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/css/mk-post.css?v=20260907" />
-<style>
-  /* A안 — 본문 제목 서체 */
-  main h1,main h2,main .sec-title{
-    font-family:'Black Han Sans','Pretendard Variable',Pretendard,sans-serif;
-    font-weight:400;letter-spacing:-.015em;
-  }
-  main h1{font-size:clamp(30px,4.4vw,50px);line-height:1.14}
-  main h2{line-height:1.22}
 </style>
 </head>
 <body>
@@ -409,7 +398,7 @@
     <rect x="58" y="56" width="24" height="26" rx="2" fill="#D49E5C"/>
     <path d="M34 52h14M34 62h14" stroke="#180F2E" stroke-width="2"/></g></svg>Sebastian Ghiorghiu</span></td>
             <td>쇼핑몰 만들어주는 앱</td>
-            <td><span class="chip">Shopify 앱스토어</span></td>
+            <td><span class="chip">Shopify 앱마켓</span></td>
             <td>자기 유튜브 채널</td>
             <td><span class="money c-free">0원</span></td>
             <td><span class="t-res">월 $350,000</span><br /><span class="t-note">유료 고객 1만 명 이상</span></td>
@@ -473,7 +462,7 @@
     <rect x="59" y="58" width="31" height="16" rx="4" fill="#FF6A3D" stroke-width="2"/>
     <path d="M86 74v7l-8-7z" fill="#FF6A3D" stroke="none"/></g></svg>Blake Anderson</span></td>
             <td>문자·얼굴 점수 앱</td>
-            <td><span class="chip">앱스토어</span></td>
+            <td><span class="chip">앱스토어·구글플레이</span></td>
             <td>틱톡 소형 크리에이터 2명</td>
             <td><span class="money c-tiny">$100</span></td>
             <td><span class="t-res">첫 달 $80,000</span><br /><span class="t-note">1주일 만에 20만 다운로드</span></td>
@@ -485,7 +474,7 @@
     <path d="M64 44c0-4 3-5 3-8M76 44c0-5 4-6 4-9" stroke="#D49E5C" stroke-width="2.2"/>
     <path d="M32 30v-6h8M108 30v-6h-8M32 70v6h8M108 70v6h-8" stroke="#D49E5C" stroke-width="2.4"/></g></svg>Zach Yadegari</span></td>
             <td>사진으로 칼로리 세는 앱</td>
-            <td><span class="chip">앱스토어</span></td>
+            <td><span class="chip">앱스토어·구글플레이</span></td>
             <td>틱톡 크리에이터 → 유료광고</td>
             <td><span class="money c-paid">월 $1,000,000+</span></td>
             <td><span class="t-res">월 $5,700,000</span><br /><span class="t-note">18세에 MyFitnessPal에 매각</span></td>
@@ -642,7 +631,7 @@
     <rect x="58" y="56" width="24" height="26" rx="2" fill="#D49E5C"/>
     <path d="M34 52h14M34 62h14" stroke="#180F2E" stroke-width="2"/></g></svg><div><div class="p-name">Sebastian Ghiorghiu</div><div class="p-what">쇼핑몰 만들어주는 앱</div></div></div>
         <dl class="p-body">
-          <div class="p-row"><dt>판 곳</dt><dd><span class="chip">Shopify 앱스토어</span></dd></div>
+          <div class="p-row"><dt>판 곳</dt><dd><span class="chip">Shopify 앱마켓</span></dd></div>
           <div class="p-row"><dt>알린 곳</dt><dd>자기 유튜브 채널</dd></div>
           <div class="p-row"><dt>방법</dt><dd>시청자가 매일 겪던 불편을 그대로 제품으로 만들어 그 채널에 팔았다.</dd></div>
           <div class="p-row"><dt>든 돈</dt><dd><b class="money c-free">0원</b> · 몇 년</dd></div>
@@ -716,7 +705,7 @@
     <rect x="59" y="58" width="31" height="16" rx="4" fill="#FF6A3D" stroke-width="2"/>
     <path d="M86 74v7l-8-7z" fill="#FF6A3D" stroke="none"/></g></svg><div><div class="p-name">Blake Anderson</div><div class="p-what">문자·얼굴 점수 앱</div></div></div>
         <dl class="p-body">
-          <div class="p-row"><dt>판 곳</dt><dd><span class="chip">앱스토어</span></dd></div>
+          <div class="p-row"><dt>판 곳</dt><dd><span class="chip">앱스토어·구글플레이</span></dd></div>
           <div class="p-row"><dt>알린 곳</dt><dd>틱톡 소형 크리에이터 2명</dd></div>
           <div class="p-row"><dt>방법</dt><dd>건당 $50씩 딱 2건. 광고 티가 안 나는 영상을 찍게 했다.</dd></div>
           <div class="p-row"><dt>든 돈</dt><dd><b class="money c-tiny">$100</b> · 1주일</dd></div>
@@ -730,7 +719,7 @@
     <path d="M64 44c0-4 3-5 3-8M76 44c0-5 4-6 4-9" stroke="#D49E5C" stroke-width="2.2"/>
     <path d="M32 30v-6h8M108 30v-6h-8M32 70v6h8M108 70v6h-8" stroke="#D49E5C" stroke-width="2.4"/></g></svg><div><div class="p-name">Zach Yadegari</div><div class="p-what">사진으로 칼로리 세는 앱</div></div></div>
         <dl class="p-body">
-          <div class="p-row"><dt>판 곳</dt><dd><span class="chip">앱스토어</span></dd></div>
+          <div class="p-row"><dt>판 곳</dt><dd><span class="chip">앱스토어·구글플레이</span></dd></div>
           <div class="p-row"><dt>알린 곳</dt><dd>틱톡 크리에이터 → 유료광고</dd></div>
           <div class="p-row"><dt>방법</dt><dd>크리에이터로 월 $2M까지 갔다가 벽을 만나 광고로 갈아탔다.</dd></div>
           <div class="p-row"><dt>든 돈</dt><dd><b class="money c-paid">월 $1,000,000+</b> · 18개월</dd></div>
@@ -800,8 +789,8 @@
       <article class="m-card reveal d1">
         <span class="m-no c-tiny">7건</span>
         <h3>남의 마켓플레이스</h3>
-        <p>Gumroad · Shopify · 앱스토어</p>
-        <div class="m-people"><span>Daniel Vassallo · Gumroad</span><span>Justin Welsh · Gumroad</span><span>Sam Thompson · Shopify</span><span>Moiz Ali · Shopify Plus</span><span>Sebastian Ghiorghiu · Shopify 앱스토어</span><span>Blake Anderson · 앱스토어</span><span>Zach Yadegari · 앱스토어</span></div>
+        <p>Gumroad · Shopify · 앱마켓</p>
+        <div class="m-people"><span>Daniel Vassallo · Gumroad</span><span>Justin Welsh · Gumroad</span><span>Sam Thompson · Shopify</span><span>Moiz Ali · Shopify Plus</span><span>Sebastian Ghiorghiu · Shopify 앱마켓</span><span>Blake Anderson · 앱스토어·구글플레이</span><span>Zach Yadegari · 앱스토어·구글플레이</span></div>
       </article>
       <article class="m-card reveal d2">
         <span class="m-no c-paid">2건</span>
@@ -961,16 +950,6 @@
   }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
 
   document.querySelectorAll('.reveal, [data-count]').forEach(function(el){ io.observe(el); });
-})();
-</script>
-<script>
-(function(){
-  var b=document.getElementById('mkBurger'), m=document.getElementById('mkMenu');
-  if(!b||!m) return;
-  b.addEventListener('click',function(){
-    var open=m.classList.toggle('open');
-    b.setAttribute('aria-expanded', open?'true':'false');
-  });
 })();
 </script>
 </body>
