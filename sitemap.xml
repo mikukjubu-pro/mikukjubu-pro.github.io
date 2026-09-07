@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://mikukjubu.com/</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://mikukjubu.com/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/" />
@@ -16,6 +16,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/" />
   </url>
   <url>
+    <loc>https://mikukjubu.com/blog/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/blog/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/blog/" />
+  </url>
+  <url>
+    <loc>https://mikukjubu.com/blog/marketing-is-money/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/blog/marketing-is-money/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/blog/marketing-is-money/" />
+  </url>
+  <url>
     <loc>https://mikukjubu.com/ai-model-3.html</loc>
     <lastmod>2026-09-07</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/ai-model-3.html" />
@@ -26,12 +38,6 @@
     <lastmod>2026-09-03</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/ai-watermark.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/ai-watermark.html" />
-  </url>
-  <url>
-    <loc>https://mikukjubu.com/marketing-is-money.html</loc>
-    <lastmod>2026-09-07</lastmod>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/marketing-is-money.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/marketing-is-money.html" />
   </url>
   <url>
     <loc>https://mikukjubu.com/appsumo-hostinger.html</loc>
