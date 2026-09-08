@@ -882,9 +882,55 @@
       </div>
     </div>
 
-    <p class="src reveal"><b>자료 출처</b> — 각 인물이 공개한 수치(levels.io, Daniel Vassallo, Justin Welsh), Forbes · Inc. · CNBC 보도,
-    The Koerner Office 팟캐스트, Indie Hackers·Starter Story 분석. 매출·순이익·반복매출(MRR)은 원문 기준을 그대로 표기했습니다.
-    본인이 직접 밝힌 수치는 검증이 불가능한 경우가 있습니다.</p>
+    <style>
+      .srcbox{margin-top:44px;border-top:2px solid var(--line,#e6e0d4);padding-top:28px;}
+      .srcbox h3{font-size:19px;margin:0 0 6px;}
+      .srcbox .lead{font-size:14px;color:var(--ink-soft);margin:0 0 20px;line-height:1.7;}
+      /* 이 페이지엔 비교표용 전역 규칙 table{min-width:900px} 이 있다. 그걸 풀어야 본문 폭에 맞는다 */
+      .srctbl{width:100%;min-width:0;table-layout:fixed;border-collapse:collapse;font-size:13px;line-height:1.55;
+        word-break:keep-all;overflow-wrap:anywhere;}
+      .srctbl th{text-align:left;font-size:12px;letter-spacing:.06em;color:var(--ink-soft);
+        border-bottom:1px solid var(--line,#e6e0d4);padding:0 10px 8px 0;font-weight:700;}
+      .srctbl td{border-bottom:1px solid var(--line,#e6e0d4);padding:10px 10px 10px 0;vertical-align:top;}
+      .srctbl th:nth-child(1),.srctbl td:nth-child(1){width:24%;font-weight:700;}
+      .srctbl th:nth-child(2),.srctbl td:nth-child(2){width:26%;color:var(--ink);}
+      .srctbl th:nth-child(3),.srctbl td:nth-child(3){width:50%;}
+      .srctbl .k{display:inline-block;font-size:11px;padding:2px 7px;border-radius:99px;
+        background:rgba(0,0,0,.06);color:var(--ink-soft);margin-right:6px;white-space:nowrap;}
+      @media(max-width:680px){
+        .srctbl,.srctbl tbody,.srctbl tr,.srctbl td{display:block;width:100%;}
+        .srctbl thead{display:none;}
+        .srctbl tr{border-bottom:1px solid var(--line,#e6e0d4);padding:12px 0;}
+        .srctbl td{border:0;padding:2px 0;white-space:normal;}
+      }
+    </style>
+    <div class="srcbox reveal">
+      <h3>자료 출처</h3>
+      <p class="lead">이 글에는 특정 프로그램이나 툴을 쓰지 않았습니다. 숫자가 <b>어디서 나온 것인지</b>를 사례별로 적어둡니다.
+      크게 두 종류입니다 — <b>본인이 직접 공개한 숫자</b>(제3자 검증이 불가능합니다)와 <b>인수 발표·언론 보도로 확인되는 숫자</b>입니다.</p>
+      <table class="srctbl">
+        <thead><tr><th>사례</th><th>이 글에 쓴 숫자</th><th>어디서 나온 숫자인가</th></tr></thead>
+        <tbody>
+          <tr><td>Pieter Levels</td><td>월 $105,000</td><td><span class="k">본인 공개</span>levels.io 의 공개 매출 페이지와 본인 X 게시물</td></tr>
+          <tr><td>Danny Postma</td><td>2주 $100,000</td><td><span class="k">본인 공개</span>런칭 직후 본인 X 게시물</td></tr>
+          <tr><td>Marc Lou</td><td>월 $141,000</td><td><span class="k">본인 공개</span>본인이 운영하는 공개 매출 대시보드</td></tr>
+          <tr><td>Sebastian Ghiorghiu</td><td>월 반복매출 $350,000</td><td><span class="k">본인 공개</span>본인 유튜브 영상에서 밝힌 수치</td></tr>
+          <tr><td>Daniel Vassallo</td><td>4개월 $104,754</td><td><span class="k">본인 공개</span>Gumroad 판매 화면을 직접 공개</td></tr>
+          <tr><td>Justin Welsh</td><td>누적 $12.5M+</td><td><span class="k">본인 공개</span>본인 뉴스레터·링크드인에서 누적 매출로 밝힘</td></tr>
+          <tr><td>Sam Thompson</td><td>21일 $5,000</td><td><span class="k">본인 공개</span>본인이 공개한 쇼피파이 매출 화면</td></tr>
+          <tr><td>Moiz Ali · Native</td><td>$100,000,000 매각</td><td><span class="k">인수 발표</span>2017년 P&amp;G 인수 건. 언론 보도로 확인됨</td></tr>
+          <tr><td>Blake Anderson</td><td>광고비 $100 · 첫 달 $80,000</td><td><span class="k">본인 공개</span>인터뷰·팟캐스트에서 밝힌 수치</td></tr>
+          <tr><td>Zach Yadegari · Cal AI</td><td>월 $5,700,000 · 광고비 월 $1,000,000+</td><td><span class="k">본인 공개</span>인터뷰에서 밝힌 수치</td></tr>
+          <tr><td>Logan Paul · KSI · Prime</td><td>1년차 $250,000,000 → 지금 약 $300,000,000</td><td><span class="k">언론 보도</span>업계·언론이 집계한 연매출. 고점 대비 감소분도 같은 기준</td></tr>
+          <tr><td>Noah Kagan · AppSumo</td><td>광고비 $60 · 24시간 $3,000</td><td><span class="k">본인 공개</span>본인 저서·영상에서 반복해 밝힌 초기 사례</td></tr>
+          <tr><td>Tim Ferriss</td><td>광고비 $200 미만 · 210만 부</td><td><span class="k">본인 공개</span><span class="k">보도</span>제목 테스트 과정은 본인이 여러 차례 공개, 판매 부수는 보도 기준</td></tr>
+          <tr><td>“54% 는 매출 0원”</td><td>54% · 67.8% · 10.2%</td><td><span class="k">공개 데이터 집계</span>개인 개발자·1인 제작자가 공개한 제품 매출 데이터를 모아 집계한 값. 특정 시점의 스냅숏입니다</td></tr>
+        </tbody>
+      </table>
+      <p class="lead" style="margin:18px 0 0;">매출 · 순이익 · 반복매출(MRR)은 원문이 쓴 기준을 그대로 옮겼습니다. 셋은 서로 다른 숫자라 단순 비교가 어렵습니다.
+      본인이 직접 밝힌 숫자는 확인할 방법이 없다는 점을 감안하고 보시는 게 맞습니다.
+      그리고 이 13건은 <b>전부 성공한 사례</b>입니다 — 같은 방법으로 안 된 사람은 위의 54% 안에 남아 있습니다.</p>
+    </div>
   </div>
 </section>
 
