@@ -1,7 +1,7 @@
 /* ============================================================
    미국주부 · Mompreneur Diary — 공통 디자인 (A안 "팝 스튜디오")
    2026-09-07
-   쓰는 법: <link rel="stylesheet" href="/css/mk.css?v=20260907">
+   쓰는 법: <link rel="stylesheet" href="/css/mk.css?v=20260909">
    폰트 링크(구글 + Pretendard)는 각 페이지 <head> 에 그대로 둔다.
    ============================================================ */
 
@@ -292,8 +292,9 @@ h2.sec-title{font-family:var(--disp);font-weight:400;font-size:clamp(29px,3.6vw,
 .mk-article p{margin:0 0 18px}
 .mk-article ul,.mk-article ol{margin:0 0 20px 22px}
 .mk-article li{margin-bottom:8px}
-.mk-article a{color:var(--coral);font-weight:700;border-bottom:2px solid rgba(255,106,61,.35)}
-.mk-article a:hover{border-bottom-color:var(--coral)}
+/* 버튼(.pill)은 제외한다 — 안 그러면 코랄 버튼 위에 코랄 글씨가 얹혀 안 보인다 */
+.mk-article a:not(.pill):not(.pill-line){color:var(--coral);font-weight:700;border-bottom:2px solid rgba(255,106,61,.35)}
+.mk-article a:not(.pill):not(.pill-line):hover{border-bottom-color:var(--coral)}
 .mk-article blockquote{
   border-left:5px solid var(--lime);background:var(--white);border-radius:0 14px 14px 0;
   padding:16px 20px;margin:0 0 22px;font-weight:600;

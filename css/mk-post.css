@@ -3,7 +3,7 @@
    각 글 페이지는 자기 본문 CSS 를 그대로 쓰고, 이 파일은
    .mk- 접두어 안에서만 동작한다. 본문 레이아웃은 건드리지 않는다.
    쓰는 법: 글 페이지의 <style> 뒤에 이 한 줄
-   <link rel="stylesheet" href="/css/mk-post.css?v=20260907">
+   <link rel="stylesheet" href="/css/mk-post.css?v=20260909">
    ============================================================ */
 
 .mk-nav,.mk-nav *,.mk-ft,.mk-ft *{box-sizing:border-box;margin:0;padding:0;line-height:normal}
