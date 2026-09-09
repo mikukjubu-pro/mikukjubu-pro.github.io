@@ -266,18 +266,19 @@
       </div>
       <p class="sec-sub">직접 해보고 안 되는 것까지 그대로 보여드립니다.</p>
     </div>
+    <!-- 최신 영상 3개는 .github/workflows/latest-videos.yml 이 매시간 자동으로 갱신한다. 손으로 고치지 말 것 -->
     <div class="vgrid reveal" id="ytGrid">
-      <a class="vcard" href="https://www.youtube.com/watch?v=EizgJIBgO4w" target="_blank" rel="noopener">
-        <div class="vthumb"><img src="https://i.ytimg.com/vi/EizgJIBgO4w/hqdefault.jpg" alt="미국 드롭쉬핑 &amp; 틱톡샵 주간 트렌드 분석 영상 썸네일" loading="lazy" /><span class="vplay"></span></div>
-        <div class="vbody"><span class="vt">미국 드롭쉬핑 &amp; 틱톡샵 주간 트렌드 분석 | 잘 팔리는 제품 소싱 (파더스데이 준비!)</span><span class="vm">YOUTUBE에서 보기 →</span></div>
+      <a class="vcard" href="https://www.youtube.com/watch?v=nBgUZTX1Gl4" target="_blank" rel="noopener">
+        <div class="vthumb"><img src="https://i.ytimg.com/vi/nBgUZTX1Gl4/hqdefault.jpg" alt="광고비 100달러로 일주일 만에 20만 다운로드 | 온라인 부업 실제 사례 썸네일" loading="lazy" /><span class="vplay"></span></div>
+        <div class="vbody"><span class="vt">광고비 100달러로 일주일 만에 20만 다운로드 | 온라인 부업 실제 사례</span><span class="vm">YOUTUBE에서 보기 →</span></div>
       </a>
-      <a class="vcard" href="https://www.youtube.com/watch?v=OsKyt1uHs7A" target="_blank" rel="noopener">
-        <div class="vthumb"><img src="https://i.ytimg.com/vi/OsKyt1uHs7A/hqdefault.jpg" alt="클로드 AI 블로그 자동화의 현실 영상 썸네일" loading="lazy" /><span class="vplay"></span></div>
-        <div class="vbody"><span class="vt">[2탄] 클로드 AI 블로그 자동화의 현실 (Claude) | 치명적 오류 해결법과 NotebookLM 딥리서치 세팅</span><span class="vm">YOUTUBE에서 보기 →</span></div>
+      <a class="vcard" href="https://www.youtube.com/watch?v=Z2o-gAwh8qg" target="_blank" rel="noopener">
+        <div class="vthumb"><img src="https://i.ytimg.com/vi/Z2o-gAwh8qg/hqdefault.jpg" alt="온라인 부업 13개 전부 뜯어봤습니다 | 성공은 제품이 아니라 마케팅이었습니다 썸네일" loading="lazy" /><span class="vplay"></span></div>
+        <div class="vbody"><span class="vt">온라인 부업 13개 전부 뜯어봤습니다 | 성공은 제품이 아니라 마케팅이었습니다</span><span class="vm">YOUTUBE에서 보기 →</span></div>
       </a>
-      <a class="vcard" href="https://www.youtube.com/watch?v=lQuFItoPlB0" target="_blank" rel="noopener">
-        <div class="vthumb"><img src="https://i.ytimg.com/vi/lQuFItoPlB0/hqdefault.jpg" alt="클로드 오푸스 4.8 성능 리뷰 영상 썸네일" loading="lazy" /><span class="vplay"></span></div>
-        <div class="vbody"><span class="vt">클로드 오푸스 4.8 드디어 떴다🚀 가격 그대로 성능만 미쳤음</span><span class="vm">YOUTUBE에서 보기 →</span></div>
+      <a class="vcard" href="https://www.youtube.com/watch?v=Haph8cDwOnQ" target="_blank" rel="noopener">
+        <div class="vthumb"><img src="https://i.ytimg.com/vi/Haph8cDwOnQ/hqdefault.jpg" alt="AI 워터마크 의무화 | 내 블로그 글은 어떻게 되나 | 클로드 제미나이 챗GPT 전부 들어갑니다 썸네일" loading="lazy" /><span class="vplay"></span></div>
+        <div class="vbody"><span class="vt">AI 워터마크 의무화 | 내 블로그 글은 어떻게 되나 | 클로드 제미나이 챗GPT 전부 들어갑니다</span><span class="vm">YOUTUBE에서 보기 →</span></div>
       </a>
     </div>
     <div class="reveal" style="margin-top:32px">
@@ -413,38 +414,6 @@
 </footer>
 
 <script src="/js/mk.js?v=20260909" defer></script>
-<script>
-  // 최신 영상 3개 자동 교체 — 3개를 확실히 못 얻으면 하드코딩 3개를 그대로 둔다.
-  (async function(){
-    try{
-      const ch = 'UCssWRwTEAY-UY7X7lvFi80w';
-      const feed = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + ch;
-      const res = await fetch('https://api.allorigins.win/raw?url=' + encodeURIComponent(feed));
-      if(!res.ok) return;
-      const doc = new DOMParser().parseFromString(await res.text(), 'text/xml');
-      const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-      const items = [];
-      for(const e of doc.getElementsByTagName('entry')){
-        let id = '';
-        const vid = e.getElementsByTagName('yt:videoId')[0] || e.getElementsByTagName('videoId')[0];
-        if(vid && vid.textContent) id = vid.textContent.trim();
-        if(!id){
-          const link = e.querySelector('link') ? e.querySelector('link').getAttribute('href') : '';
-          const m = (link || '').match(/[?&]v=([^&]+)/);
-          if(m) id = m[1];
-        }
-        const t = e.getElementsByTagName('title')[0];
-        if(id) items.push({ id: id, title: t ? t.textContent : '' });
-        if(items.length >= 3) break;
-      }
-      if(items.length >= 3){
-        document.getElementById('ytGrid').innerHTML = items.map(v =>
-          '<a class="vcard" href="https://www.youtube.com/watch?v=' + v.id + '" target="_blank" rel="noopener"><div class="vthumb"><img src="https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg" alt="' + esc(v.title) + ' 썸네일" loading="lazy"><span class="vplay"></span></div><div class="vbody"><span class="vt">' + esc(v.title) + '</span><span class="vm">YOUTUBE에서 보기 →</span></div></a>'
-        ).join('');
-      }
-    }catch(err){ /* 하드코딩 3개 유지 */ }
-  })();
-</script>
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9b3d857e23354a79b458004691c28056"}'></script>
 </body>
 </html>
