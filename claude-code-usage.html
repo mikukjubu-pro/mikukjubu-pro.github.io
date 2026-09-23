@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>클로드 코드 사용량 한 장 정리 (무료 PDF) · 미국주부</title>
+<meta name="description" content="별로 쓰지도 않았는데 클로드 코드 사용량이 확 줄었다면. 원인 6가지와 /usage · /clear · /compact를 언제 쓰는지 A4 두 장에 정리한 무료 PDF." />
+
+<link rel="canonical" href="https://mikukjubu.com/claude-code-usage.html" />
+<link rel="alternate" hreflang="ko" href="https://mikukjubu.com/claude-code-usage.html" />
+<link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/claude-code-usage.html" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#FFF6E8" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Gaegu:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/mk.css?v=20260909" />
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  .page-head{background:var(--cream-2)}
+  .mk-article .hand{font-family:var(--hand);font-size:28px;color:var(--coral);margin:2px 0 22px}
+  .mk-article .updated{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.05em}
+  .mk-article .back{display:inline-block;margin-top:34px;font-weight:800;color:var(--coral);border-bottom:2px solid var(--coral)}
+
+  /* 다운로드 카드 — 이 페이지의 본체 */
+  .dl{display:block;background:var(--lime);border:var(--bd) solid var(--edge);border-radius:22px;
+      padding:26px 28px;margin:26px 0 10px;box-shadow:8px 8px 0 var(--edge);
+      transition:transform .15s ease, box-shadow .15s ease}
+  .dl:hover{transform:translate(-3px,-3px);box-shadow:11px 11px 0 var(--edge)}
+  .dl-in{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .dl-ic{flex:0 0 auto;width:62px;height:62px;border-radius:16px;background:var(--cream);
+         border:var(--bd) solid var(--edge);display:grid;place-items:center}
+  .dl-ic svg{width:30px;height:30px;fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+  .dl-tx{flex:1 1 220px;min-width:0}
+  .dl-tx b{display:block;font-family:var(--disp);font-size:clamp(21px,4.6vw,27px);color:var(--ink);line-height:1.25}
+  .dl-tx span{display:block;font-family:var(--mono);font-size:12px;color:var(--ink-soft);margin-top:6px;letter-spacing:.04em}
+  .dl-go{flex:0 0 auto;font-family:var(--disp);font-size:17px;color:var(--ink);
+         background:var(--coral);border:var(--bd) solid var(--edge);border-radius:999px;padding:11px 22px}
+  .free{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.05em;margin:0 0 26px}
+
+  /* 무엇이 들어있나 */
+  .pages{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 8px}
+  .pg{background:var(--cream);border:var(--bd) solid var(--edge);border-radius:18px;padding:20px 22px;box-shadow:5px 5px 0 var(--edge)}
+  .pg h3{font-family:var(--disp);font-size:19px;color:var(--plum);margin:0 0 4px}
+  .pg .no{font-family:var(--mono);font-size:11px;color:var(--coral);letter-spacing:.1em;margin:0 0 10px}
+  .pg ul{margin:0;padding-left:18px}
+  .pg li{margin:7px 0;line-height:1.55}
+  @media(max-width:700px){.pages{grid-template-columns:1fr}}
+
+  .cmds{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0 4px}
+  .cmds code{font-family:var(--mono);font-size:13px;background:var(--lilac);border:2px solid var(--edge);
+             border-radius:999px;padding:6px 14px;color:var(--ink)}
+</style>
+<meta property="og:type" content="website" />
+<meta property="og:title" content="클로드 코드 사용량 한 장 정리 (무료 PDF) · 미국주부" />
+<meta property="og:description" content="별로 쓰지도 않았는데 사용량이 확 줄었다면. 원인 6가지와 명령어를 A4 두 장에 정리했습니다." />
+<meta property="og:url" content="https://mikukjubu.com/claude-code-usage.html" />
+<meta property="og:image" content="https://mikukjubu.com/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://mikukjubu.com/og-image.png" />
+</head>
+<body>
+
+<header class="mk-nav">
+  <div class="wrap mk-nav-in">
+    <a href="/" class="mk-logo" aria-label="미국주부 홈">
+      <span class="mk-tile">M</span>
+      <span>미국주부<small>Mompreneur Diary</small></span>
+    </a>
+    <nav class="mk-menu" id="mkMenu">
+      <a href="/#youtube">영상</a>
+      <a href="/blog/">블로그</a>
+      <a href="/tools/">추천 프로그램</a>
+      <a href="/contact/">문의</a>
+      <a href="/en/" class="lang">EN ↗</a>
+    </nav>
+    <div class="mk-nav-right">
+      <a href="/contact/" class="pill pill-coral">1:1 컨설팅 <span class="ar">↗</span></a>
+      <button class="mk-burger" id="mkBurger" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="tag" style="color:var(--coral)">무료 자료</span>
+    <h1>클로드 코드 사용량,<br />한 장 정리</h1>
+  </div>
+</section>
+
+<main class="mk-article">
+<p class="hand">별로 쓰지도 않았는데 한도가 찼다면</p>
+
+<p>클로드는 요청할 때마다 <b>그 창의 대화 전체를 다시 보냅니다.</b> 그래서 질문을 길게 썼느냐보다 <b>대화창을 언제 비웠느냐</b>가 사용량을 정합니다. 한도는 늘려서 푸는 게 아니라, 어디서 새는지 찾으면 대부분 풀립니다.</p>
+
+<a class="dl" href="/files/claude-code-usage-cheatsheet.pdf" target="_blank" rel="noopener">
+  <span class="dl-in">
+    <span class="dl-ic" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
+    </span>
+    <span class="dl-tx">
+      <b>PDF 받기 — A4 2장</b>
+      <span>1장 진단 · 2장 처방 · 한국어</span>
+    </span>
+    <span class="dl-go">열기 ↗</span>
+  </span>
+</a>
+<p class="free">무료 · 이메일 입력 없음 · 바로 열립니다</p>
+
+<h2>무엇이 들어있나</h2>
+
+<div class="pages">
+  <div class="pg">
+    <p class="no">1 장 · 진단</p>
+    <h3>내가 안 썼는데 사용량이 느는 6가지</h3>
+    <ul>
+      <li><b>한 시간 쉬었다 왔다</b> — 제일 많이 겪는 경우. 캐시가 식어서 대화 전체를 다시 처리합니다</li>
+      <li>창을 안 닫고 계속 썼다 (긴 세션)</li>
+      <li><code>/compact</code>를 자주 눌렀다</li>
+      <li>그 밖의 3가지 + 한도 메시지 4종이 각각 무슨 뜻인지</li>
+    </ul>
+  </div>
+  <div class="pg">
+    <p class="no">2 장 · 처방</p>
+    <h3>그래서 뭘 누르면 되나</h3>
+    <ul>
+      <li>지금 상황이 <b>넷 중 어느 것인지</b> 고르면 명령어가 나옵니다</li>
+      <li>자주 쓰는 명령어 한 장 정리</li>
+      <li>평소에 덜 쓰는 습관 4가지</li>
+      <li>다른 AI 도구와 뭐가 다른지 비교</li>
+    </ul>
+  </div>
+</div>
+
+<div class="cmds">
+  <code>/usage</code><code>/context</code><code>/clear</code><code>/compact</code><code>/rewind</code><code>/btw</code>
+</div>
+
+<h2>왜 이걸 정리했나</h2>
+<p>“사용량을 아끼는 법”은 이미 많은데, <b>내 경우가 어디에 해당하는지</b>부터 알려주는 자료가 없었습니다. 그래서 1장은 <b>원인 찾기</b>, 2장은 <b>고르기</b>로 나눴습니다. 외울 게 아니라 <b>한도 경고가 떴을 때 꺼내 보는 용도</b>입니다.</p>
+
+<h2>출처</h2>
+<p>전부 <b>클로드 코드 공식 문서</b>(<a href="https://code.claude.com/docs" target="_blank" rel="noopener">code.claude.com/docs</a>) 기준으로 확인한 내용만 담았습니다. 유튜브 영상에서 도는 이야기 중 문서로 확인되지 않는 것은 뺐습니다.</p>
+<p class="updated">2026년 9월 21일 기준 · Claude Code v2.1.2xx · 문서가 바뀌면 이 페이지의 파일도 갱신합니다</p>
+
+<h2>영상으로 보기</h2>
+<p>같은 내용을 <a href="/#youtube">유튜브</a>에서 짧게 설명했습니다. 궁금한 게 남으면 <a href="/contact/">문의</a>로 알려주세요.</p>
+
+<a href="/" class="back">← 홈으로 돌아가기</a>
+</main>
+
+<footer class="mk-ft">
+  <div class="wrap">
+    <div class="mk-ft-top">
+      <div class="mk-ft-brand">
+        <a href="/" class="mk-logo"><span class="mk-tile">M</span><span>미국주부<small>Mompreneur Diary</small></span></a>
+        <p>미국에서 1인 사업하는 한국 주부. 온라인 마케팅 · 드랍쉬핑 · 온라인 셀러 컨설팅.</p>
+      </div>
+      <div class="mk-ft-col">
+        <h5>둘러보기</h5>
+        <a href="/#youtube">영상</a>
+        <a href="/blog/">블로그</a>
+        <a href="/tools/">추천 프로그램</a>
+        <a href="/contact/">문의</a>
+      </div>
+      <div class="mk-ft-col">
+        <h5>커뮤니티 · 연결</h5>
+        <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener">유튜브 구독하기 →</a>
+        <a href="https://www.youtube.com/channel/UCssWRwTEAY-UY7X7lvFi80w/join" target="_blank" rel="noopener">유튜브 멤버십 가입 →</a>
+        <a href="https://discord.gg/HgDDT2C6rs" target="_blank" rel="noopener">Discord 커뮤니티 →</a>
+      </div>
+    </div>
+    <div class="mk-ft-bot">
+      <span>© 2026 미국주부 · Mompreneur Diary. All rights reserved.</span>
+      <span><a href="/privacy.html">개인정보처리방침</a> · <a href="/disclosure.html">제휴 공시</a> · <a href="/en/">English</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/mk.js?v=20260909" defer></script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9b3d857e23354a79b458004691c28056"}'></script>
+</body>
+</html>
