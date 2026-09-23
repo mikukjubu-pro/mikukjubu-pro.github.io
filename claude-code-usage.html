@@ -50,6 +50,21 @@
   .pg li{margin:7px 0;line-height:1.55}
   @media(max-width:700px){.pages{grid-template-columns:1fr}}
 
+  /* 영상 · 구독 */
+  .yt{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin:18px 0 6px}
+  .yt a{display:inline-flex;align-items:center;gap:10px;font-weight:800;border:var(--bd) solid var(--edge);
+        border-radius:999px;padding:12px 24px;box-shadow:4px 4px 0 var(--edge);
+        transition:transform .15s ease,box-shadow .15s ease}
+  .yt a:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--edge)}
+  .yt .watch{background:var(--coral);color:var(--ink)}
+  .yt .sub{background:var(--cream);color:var(--ink)}
+
+  /* 갱신 노트 */
+  .stale{background:var(--cream);border:var(--bd) dashed var(--edge);border-radius:20px;
+         padding:22px 26px;margin:16px 0 6px}
+  .stale p{margin:0}
+  .stale p + p{margin-top:8px}
+
   .cmds{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0 4px}
   .cmds code{font-family:var(--mono);font-size:13px;background:var(--lilac);border:2px solid var(--edge);
              border-radius:999px;padding:6px 14px;color:var(--ink)}
@@ -142,12 +157,24 @@
 <h2>왜 이걸 정리했나</h2>
 <p>“사용량을 아끼는 법”은 이미 많은데, <b>내 경우가 어디에 해당하는지</b>부터 알려주는 자료가 없었습니다. 그래서 1장은 <b>원인 찾기</b>, 2장은 <b>고르기</b>로 나눴습니다. 외울 게 아니라 <b>한도 경고가 떴을 때 꺼내 보는 용도</b>입니다.</p>
 
+<h2>영상으로 보기</h2>
+<p>같은 내용을 <b>48초</b>짜리 영상으로 만들어 뒀습니다. 왜 한 시간이 기준인지, 화면에서 어디를 봐야 하는지 실제 <code>/usage</code> 화면으로 보여드립니다.</p>
+
+<div class="yt">
+  <a class="watch" href="https://www.youtube.com/shorts/Gl4BE2-CBLM" target="_blank" rel="noopener">▶ 영상 보기 (48초)</a>
+  <a class="sub" href="https://www.youtube.com/@mikukjubu?sub_confirmation=1" target="_blank" rel="noopener">유튜브 구독 →</a>
+</div>
+<p>이런 자료를 계속 만들고 있습니다. 구독해 두시면 새로 올라올 때 보실 수 있습니다.</p>
+
 <h2>출처</h2>
 <p>전부 <b>클로드 코드 공식 문서</b>(<a href="https://code.claude.com/docs" target="_blank" rel="noopener">code.claude.com/docs</a>) 기준으로 확인한 내용만 담았습니다. 유튜브 영상에서 도는 이야기 중 문서로 확인되지 않는 것은 뺐습니다.</p>
-<p class="updated">2026년 9월 21일 기준 · Claude Code v2.1.2xx · 문서가 바뀌면 이 페이지의 파일도 갱신합니다</p>
+<p class="updated">2026년 9월 21일 기준 · Claude Code v2.1.2xx</p>
 
-<h2>영상으로 보기</h2>
-<p>같은 내용을 <a href="/#youtube">유튜브</a>에서 짧게 설명했습니다. 궁금한 게 남으면 <a href="/contact/">문의</a>로 알려주세요.</p>
+<h2>내용이 안 맞나요?</h2>
+<div class="stale">
+  <p><b>클로드 코드는 자주 바뀝니다.</b> 이 자료는 <b>2026년 9월 21일</b> 기준으로 만들었습니다. 그 뒤에 문서가 바뀌어서 안 맞는 부분을 보셨거나, 새 버전이 필요하시면 <a href="/contact/">알려주세요</a>.</p>
+  <p>확인해서 <b>파일을 갱신하고</b> 이 페이지에 그대로 올려 두겠습니다. 주소는 바뀌지 않으니 이 링크만 다시 열어 보시면 됩니다.</p>
+</div>
 
 <a href="/" class="back">← 홈으로 돌아가기</a>
 </main>
