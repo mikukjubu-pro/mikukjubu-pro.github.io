@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>내 사이트, AI에 나올까? 무료 점검 프롬프트 · 미국주부</title>
+<meta name="description" content="챗GPT·클로드·제미나이가 내 가게나 블로그를 추천하는지 직접 확인하는 복붙 프롬프트와 채점표. 세 AI에서 직접 테스트한 결과와 함정까지 담았습니다." />
+
+<link rel="canonical" href="https://mikukjubu.com/ai-visibility-check.html" />
+<link rel="alternate" hreflang="ko" href="https://mikukjubu.com/ai-visibility-check.html" />
+<link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/ai-visibility-check.html" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#FFF6E8" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Gaegu:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/mk.css?v=20260924" />
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  .page-head{background:var(--cream-2)}
+  .mk-article .hand{font-family:var(--hand);font-size:28px;color:var(--coral);margin:2px 0 22px}
+  .mk-article .updated{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.05em}
+  .mk-article .back{display:inline-block;margin-top:34px;font-weight:800;color:var(--coral);border-bottom:2px solid var(--coral)}
+
+  /* 규칙 3개 */
+  .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0 26px}
+  .rule{background:var(--lime);border:var(--bd) solid var(--edge);border-radius:18px;padding:18px 20px;box-shadow:5px 5px 0 var(--edge)}
+  .rule .no{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--ink);margin:0 0 6px}
+  .rule .t{display:block;font-family:var(--disp);font-size:19px;color:var(--ink);margin-bottom:6px}
+  .rule p{margin:0;line-height:1.55}
+  @media(max-width:760px){.rules{grid-template-columns:1fr}}
+
+  /* 테스트 결과 */
+  .found{background:var(--cream);border:var(--bd) dashed var(--edge);border-radius:20px;padding:20px 24px;margin:14px 0 8px}
+  .found ul{margin:0;padding-left:18px}
+  .found li{margin:8px 0;line-height:1.6}
+
+  /* 표 */
+  .tbl{overflow-x:auto;margin:14px 0 8px}
+  .tbl table{border-collapse:collapse;width:100%;min-width:560px;background:var(--cream);border:var(--bd) solid var(--edge)}
+  .tbl th,.tbl td{padding:10px 12px;border-bottom:2px solid var(--edge);text-align:left;font-size:14.5px;vertical-align:top;line-height:1.55}
+  .tbl th{background:var(--lilac);font-size:13px;font-weight:800}
+  .tbl tr:last-child td{border-bottom:0}
+
+  /* 복붙 프롬프트 */
+  .pr{background:var(--cream);border:var(--bd) solid var(--edge);border-radius:18px;box-shadow:5px 5px 0 var(--edge);margin:12px 0 18px;overflow:hidden}
+  .pr-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;border-bottom:var(--bd) solid var(--edge);background:var(--lilac)}
+  .pr-bar span{font-family:var(--disp);font-size:16px;color:var(--ink)}
+  .pr pre{margin:0;padding:16px 18px;white-space:pre-wrap;overflow-wrap:anywhere;font-family:inherit;font-size:15px;line-height:1.7;color:var(--ink)}
+  .pr pre .ph{background:#FFE24B;border-radius:4px;padding:0 3px}
+  .pr .note{margin:0;padding:0 18px 14px;font-size:14px;color:var(--ink-soft);line-height:1.55}
+  .pr-bar .cp{cursor:pointer;font-size:13px;padding:7px 14px;flex-shrink:0}
+  .pr-fun .pr-bar{background:var(--lime)}
+
+  details.more{background:var(--cream);border:var(--bd) solid var(--edge);border-radius:18px;padding:14px 18px;margin:14px 0}
+  details.more summary{cursor:pointer;font-family:var(--disp);font-size:18px;color:var(--plum)}
+  details.more[open] summary{margin-bottom:10px}
+
+  .warn{background:var(--cream);border:var(--bd) dashed var(--edge);border-radius:20px;padding:20px 24px;margin:14px 0 6px}
+  .warn ol{margin:0;padding-left:20px}
+  .warn li{margin:8px 0;line-height:1.6}
+</style>
+<meta property="og:type" content="article" />
+<meta property="og:title" content="내 사이트, AI에 나올까? 무료 점검 프롬프트" />
+<meta property="og:description" content="챗GPT·클로드·제미나이가 내 가게나 블로그를 추천하는지 직접 확인하는 복붙 프롬프트와 채점표." />
+<meta property="og:url" content="https://mikukjubu.com/ai-visibility-check.html" />
+<meta property="og:image" content="https://mikukjubu.com/img/ai-visibility-check-cover.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://mikukjubu.com/img/ai-visibility-check-cover.png" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article",
+ "headline":"내 사이트, AI에 나올까? 무료 점검 프롬프트",
+ "description":"챗GPT·클로드·제미나이가 내 가게나 블로그를 추천하는지 직접 확인하는 복붙 프롬프트와 채점표. 세 AI에서 직접 테스트한 결과와 함정까지 담았습니다.",
+ "image":"https://mikukjubu.com/img/ai-visibility-check-cover.png",
+ "datePublished":"2026-09-25","dateModified":"2026-09-25","inLanguage":"ko",
+ "author":{"@type":"Person","name":"미국주부","url":"https://mikukjubu.com/"},
+ "publisher":{"@type":"Person","name":"미국주부","url":"https://mikukjubu.com/"},
+ "mainEntityOfPage":"https://mikukjubu.com/ai-visibility-check.html"}
+</script>
+</head>
+<body>
+
+<header class="mk-nav">
+  <div class="wrap mk-nav-in">
+    <a href="/" class="mk-logo" aria-label="미국주부 홈">
+      <span class="mk-tile">M</span>
+      <span>미국주부<small>Mompreneur Diary</small></span>
+    </a>
+    <nav class="mk-menu" id="mkMenu">
+      <a href="/#youtube">영상</a>
+      <a href="/blog/">블로그</a>
+      <a href="/tools/">추천 프로그램</a>
+      <a href="/contact/">문의</a>
+      <a href="/en/" class="lang">EN ↗</a>
+    </nav>
+    <div class="mk-nav-right">
+      <a href="/contact/" class="pill pill-coral">1:1 컨설팅 <span class="ar">↗</span></a>
+      <button class="mk-burger" id="mkBurger" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="tag" style="color:var(--coral)">무료 자료</span>
+    <h1>내 사이트,<br />AI에 나올까?</h1>
+  </div>
+</section>
+
+<main class="mk-article">
+<p class="hand">돈 안 내고 직접 확인하는 복붙 프롬프트</p>
+
+<p>손님이 챗GPT에 <b>"근처 베이글 맛집 추천해 줘"</b>라고 물었을 때 내 가게가 나오는지, 유료 도구 없이 직접 확인하는 방법입니다. 아래 프롬프트를 복사해서 <b>[노란 칸]</b>만 내 것으로 바꿔 쓰면 됩니다. 챗GPT·클로드·제미나이 세 곳에서 직접 돌려 보고 정리했습니다.</p>
+
+<h2>먼저, 규칙 3가지</h2>
+<div class="rules">
+  <div class="rule"><p class="no">RULE 1</p><span class="t">내 이름은 빼고 묻기</span><p>"○○빵집 알아?"라고 물으면 AI가 검색해서 뭐든 찾아옵니다. 노출 여부는 <b>손님이 할 질문</b>으로만 봅니다.</p></div>
+  <div class="rule"><p class="no">RULE 2</p><span class="t">3번 돌리기</span><p>AI 답은 물을 때마다 바뀝니다. 한 번 결과로 판단하지 말고 <b>3번 중 몇 번 나왔나</b>로 봅니다.</p></div>
+  <div class="rule"><p class="no">RULE 3</p><span class="t">나를 모르는 상태로</span><p>평소 쓰던 채팅은 AI가 나를 기억합니다. <b>임시 채팅 + 개인화 끄기</b>로 처음 보는 손님처럼 묻습니다.</p></div>
+</div>
+
+<h2>직접 테스트해 보니</h2>
+<p>2026년 9월 25일, 같은 질문(<b>"서울 성수동에서 베이글 맛집 찾고 있어…"</b>)을 세 AI에 돌렸습니다. 셋 다 프롬프트대로 5곳과 출처를 내놨고, 이런 게 보였습니다.</p>
+<div class="found">
+  <ul>
+    <li><b>AI가 참고한 곳은 가게 홈페이지가 아니었습니다.</b> 다이닝코드·트리플·네이버 지도·카카오맵·식신·기사·블로그 후기처럼 <b>남이 쓴 페이지</b>가 출처였습니다. 작은 가게는 "웹사이트"로 인스타그램 주소가 나왔습니다.</li>
+    <li><b>챗GPT 임시 채팅도 기본값은 기억을 씁니다.</b> 첫 질문 전에 오른쪽 위 <b>Personalized → Unpersonalized</b>로 바꿔야 기억·맞춤 지침을 안 씁니다.</li>
+    <li><b>제미나이는 같은 가게를 두 번 넣었습니다.</b> 5곳이라 해도 실제로는 4곳이었습니다. 결과는 꼭 눈으로 확인하세요.</li>
+    <li><b>클로드는 오래된 정보를 따로 표시했습니다</b>("이 주소는 2023년 글 기준"). 틀린 정보를 찾을 때 쓸모 있습니다.</li>
+  </ul>
+</div>
+
+<h2>준비 1분 — AI별로 다른 것</h2>
+<p>질문 문구는 거의 같아도 됩니다. 다른 건 <b>기억 끄는 법</b>과 <b>출처 보는 곳</b>입니다.</p>
+<div class="tbl">
+<table>
+  <thead><tr><th>AI</th><th>기억 끄기</th><th>웹 검색</th><th>출처 보는 곳</th></tr></thead>
+  <tbody>
+    <tr><td><b>챗GPT</b></td><td>임시 채팅 → 첫 질문 전에 오른쪽 위 <b>Unpersonalized</b> 선택</td><td>알아서 검색. 안 하면 프롬프트에 "웹에서 검색해서"</td><td>답 속 출처 칩 + <b>Sources</b> 버튼</td></tr>
+    <tr><td><b>클로드</b></td><td>오른쪽 위 유령 아이콘 <b>Incognito</b></td><td>무료도 가능. 필요하면 알아서 검색("Searched the web" 표시)</td><td>문장마다 붙는 출처</td></tr>
+    <tr><td><b>제미나이</b></td><td>New chat 옆 <b>Temporary chat</b></td><td>프롬프트에 "웹에서 검색해서"를 꼭 넣기</td><td>답 속 출처 이름 / Sources 패널</td></tr>
+    <tr><td>퍼플렉시티</td><td>Incognito</td><td>기본이 검색</td><td>모든 답에 출처 번호</td></tr>
+  </tbody>
+</table>
+</div>
+<p>지역 가게면 질문에 <b>도시·동네 이름을 직접</b> 넣으세요. 제미나이는 기본으로 내 위치와 구글 계정 주소를 참고해서, 이름을 안 넣으면 사는 곳에 따라 결과가 달라집니다.</p>
+
+<h2>복붙 프롬프트</h2>
+<p>①이 가장 중요합니다. 시간이 없으면 ①만 3번 돌려도 됩니다.</p>
+
+<div class="pr"><div class="pr-bar"><span>① 손님 질문으로 노출 확인</span><button class="pill pill-white cp" type="button">복사</button></div>
+<pre><span class="ph">[내 지역]</span>에서 <span class="ph">[내 분야]</span> 찾고 있어. 웹에서 검색해서 추천할 곳 5곳을 알려줘.
+각 추천마다 이름, 웹사이트 주소, 추천 이유 한 줄, 참고한 출처 링크를 적어줘.</pre>
+<p class="note">예: [서울 성수동]에서 [베이글 맛집] / [부산 해운대]에서 [반려견 동반 카페]. 내 이름은 넣지 않습니다.</p></div>
+
+<div class="pr"><div class="pr-bar"><span>①-b 블로그·온라인 가게용</span><button class="pill pill-white cp" type="button">복사</button></div>
+<pre><span class="ph">[내 블로그 주제]</span>에 대해 초보자가 믿고 볼 만한 블로그나 웹사이트 5곳을 웹에서 찾아서 알려줘.
+각각 주소와 추천 이유 한 줄, 참고한 출처 링크를 적어줘.</pre></div>
+
+<div class="pr"><div class="pr-bar"><span>② 손님 질문 넓히기</span><button class="pill pill-white cp" type="button">복사</button></div>
+<pre><span class="ph">[내 분야]</span>를 찾는 사람이 AI에게 실제로 물어볼 만한 질문을 10개 만들어줘.
+"추천", "비교", "가격", "초보", "근처" 같은 여러 상황을 섞어줘.</pre>
+<p class="note">나온 질문 중 3개를 골라 ①처럼 각각 새 임시 채팅에서 돌립니다. 손님마다 묻는 말이 다르니까요.</p></div>
+
+<div class="pr"><div class="pr-bar"><span>③ AI가 나를 제대로 아는지</span><button class="pill pill-white cp" type="button">복사</button></div>
+<pre><span class="ph">[내 사이트 주소]</span>에 대해 웹에서 찾아보고 알려줘.
+1) 어떤 곳인지 두세 줄로 설명
+2) 네가 참고한 페이지 주소 전부
+3) 틀렸을 수도 있는 정보가 있으면 따로 표시</pre>
+<p class="note">여기서부터는 내 이름을 넣습니다. 영업시간·가격·위치가 <b>틀리게</b> 나오면 그게 제일 먼저 고칠 것입니다.</p></div>
+
+<div class="pr"><div class="pr-bar"><span>④ 내 사이트 중 어떤 페이지가 쓰이나</span><button class="pill pill-white cp" type="button">복사</button></div>
+<pre><span class="ph">[내 분야]</span> 관련 질문에 답할 때 <span class="ph">[내 사이트 주소]</span> 안에서 인용할 만한 페이지가 있으면 주소를 전부 적어줘.
+각 페이지가 어떤 질문에 쓸모 있는지 한 줄씩 적어줘. 찾지 못했으면 "없음"이라고 써줘.</pre></div>
+
+<div class="pr"><div class="pr-bar"><span>⑤ 경쟁 가게와 비교</span><button class="pill pill-white cp" type="button">복사</button></div>
+<pre><span class="ph">[내 지역]</span>에서 <span class="ph">[내 분야]</span>를 찾는 사람에게 <span class="ph">[내 사이트 주소]</span>, <span class="ph">[경쟁 사이트 1]</span>, <span class="ph">[경쟁 사이트 2]</span> 중 어디를 먼저 추천하겠어?
+웹에서 확인하고, 순서와 이유, 각 사이트에 대해 참고한 출처 링크를 적어줘.</pre></div>
+
+<div class="pr"><div class="pr-bar"><span>⑥ 왜 안 나올까 + 고칠 점</span><button class="pill pill-white cp" type="button">복사</button></div>
+<pre>①번 질문에서 <span class="ph">[내 사이트 주소]</span>가 추천에 안 들어갔다면(또는 뒤쪽이었다면), 추천된 곳들과 비교해서 이유로 보이는 점을 3가지만 알려줘.
+그리고 내가 이번 주에 할 수 있는 개선 3가지를 쉬운 말로 적어줘. 추측인 부분은 "추측"이라고 표시해줘.</pre>
+<p class="note">AI는 자기가 왜 그렇게 골랐는지 실제로는 모릅니다. 이 답은 그럴듯한 추측으로만 참고하세요.</p></div>
+
+<div class="pr"><div class="pr-bar"><span>⑦ 결과를 표로 정리</span><button class="pill pill-white cp" type="button">복사</button></div>
+<pre>지금까지 이 대화의 답을 표로 정리해줘.
+열: 질문 / 내 사이트 언급(예·아니오) / 내 사이트 링크(예·아니오) / 몇 번째 / 같이 나온 곳 / 인용된 내 페이지 주소 / 톤(좋음·보통·나쁨)</pre></div>
+
+<details class="more">
+  <summary>클로드용 압축 버전 (무료 사용량 아끼기) ▾</summary>
+  <p>클로드 무료는 사용량이 5시간마다 초기화되고 검색이 사용량을 씁니다. 질문을 두 개로 줄인 버전입니다.</p>
+  <div class="pr"><div class="pr-bar"><span>클로드 ① 손님 질문</span><button class="pill pill-white cp" type="button">복사</button></div>
+<pre>웹 검색을 써서 답해줘. <span class="ph">[내 지역]</span>에서 <span class="ph">[내 분야]</span>를 찾는 사람에게 추천할 곳 5곳을 골라줘.
+각각 이름, 주소, 추천 이유 한 줄, 근거가 된 출처를 달아줘.
+검색으로 확인하지 못한 곳은 넣지 말아줘.</pre></div>
+  <div class="pr"><div class="pr-bar"><span>클로드 ② 내 사이트 확인 + 정리</span><button class="pill pill-white cp" type="button">복사</button></div>
+<pre>웹 검색으로 <span class="ph">[내 사이트 주소]</span>를 찾아봐줘.
+- 이 사이트가 무엇인지 두 줄 요약
+- 실제로 열어본 페이지 주소 목록
+- 찾을 수 없었던 정보는 "확인 못 함"이라고 적기
+- 위 ① 결과에서 내 사이트가 덜 보인 이유로 보이는 점 3개와, 이번 주에 할 수 있는 개선 3개
+추측으로 채우지 말아줘.</pre></div>
+</details>
+
+<details class="more">
+  <summary>English version (미국 손님 기준으로 볼 때) ▾</summary>
+  <div class="pr"><div class="pr-bar"><span>① Customer question</span><button class="pill pill-white cp" type="button">복사</button></div>
+<pre>I'm looking for <span class="ph">[type of business]</span> in <span class="ph">[city]</span>. Search the web and recommend 5 options.
+For each one, give the name, website, a one-line reason, and the source link you used.</pre></div>
+  <div class="pr"><div class="pr-bar"><span>③ Does AI know my site?</span><button class="pill pill-white cp" type="button">복사</button></div>
+<pre>Search the web for <span class="ph">[my site URL]</span>. Summarize what it is in 2–3 lines, list every page you looked at, and flag anything that might be wrong.</pre></div>
+</details>
+
+<h2>재미 버전 — 그래도 쓸모 있게</h2>
+<p>공유하기 좋은 버전입니다. 재미있지만 각각 점검하는 게 있습니다.</p>
+
+<div class="pr pr-fun"><div class="pr-bar"><span>🎤 AI 기자 인터뷰 — AI가 나를 어떻게 소개하나</span><button class="pill pill-white cp" type="button">복사</button></div>
+<pre>너는 동네 소식지 기자야. 웹에서 <span class="ph">[내 사이트 주소]</span>를 조사하고, 이 가게(블로그)를 소개하는 짧은 기사를 써줘.
+제목, 한 줄 요약, 장점 2개, 아쉬운 점 1개, 참고한 링크를 넣어줘. 찾지 못한 정보는 지어내지 말아줘.</pre></div>
+
+<div class="pr pr-fun"><div class="pr-bar"><span>💘 AI 소개팅 — 3명 안에 내가 있나</span><button class="pill pill-white cp" type="button">복사</button></div>
+<pre>너는 소개팅 주선자야. "<span class="ph">[손님이 할 질문]</span>"을 하는 사람에게 어울리는 <span class="ph">[내 분야]</span> 상대를 웹에서 3곳 찾아서 소개해줘.
+각 후보의 매력 포인트, 주소, 출처 링크를 달아줘.</pre>
+<p class="note">3곳 안에 내가 없으면 "왜 나는 소개 안 해 줬어?"로 이어서 물어보세요(⑥과 같은 효과).</p></div>
+
+<div class="pr pr-fun"><div class="pr-bar"><span>🔥 쓴소리 모드 — 처음 온 손님 눈으로</span><button class="pill pill-white cp" type="button">복사</button></div>
+<pre><span class="ph">[내 사이트 주소]</span>를 웹에서 보고, 처음 온 손님 입장에서 솔직하게 놀려줘.
+단, 웃기되 구체적으로: 헷갈리는 점, 찾기 어려운 정보, 경쟁 사이트보다 약한 점을 짚어줘. 마지막엔 고칠 점 3개로 정리해줘.</pre></div>
+
+<div class="pr pr-fun"><div class="pr-bar"><span>🌸 칭찬 모드 — 내 강점 찾기</span><button class="pill pill-white cp" type="button">복사</button></div>
+<pre><span class="ph">[내 사이트 주소]</span>를 웹에서 보고 이 곳의 진짜 강점 3가지를 찾아줘.
+그리고 그 강점이 AI 답변에 더 잘 인용되려면 사이트 어디에 어떻게 써두면 좋을지 알려줘.</pre></div>
+
+<div class="pr pr-fun"><div class="pr-bar"><span>🕵️ 미스터리 손님 — AI는 어떻게 검색하나</span><button class="pill pill-white cp" type="button">복사</button></div>
+<pre>너는 <span class="ph">[내 지역]</span>에 막 이사 온 사람이야. <span class="ph">[내 분야]</span>를 찾으려고 인터넷을 뒤지는 과정을 그대로 보여줘.
+어떤 검색을 하고, 어떤 사이트를 열고, 최종적으로 어디를 고르는지 단계별로 적고 링크를 달아줘.</pre></div>
+
+<h2>채점표</h2>
+<p>결과는 메모장이나 구글 시트에 이렇게 적어 두세요. 아래 버튼을 누르면 표 머리글이 복사돼서 시트에 바로 붙여 넣을 수 있습니다.</p>
+<div class="pr"><div class="pr-bar"><span>채점표 머리글 (시트에 붙여넣기)</span><button class="pill pill-white cp" type="button">복사</button></div>
+<pre>날짜	AI	질문	회차	언급(0/1)	링크(0/1)	순서	톤(+/0/-)	같이 나온 곳	인용된 내 페이지	틀린 정보</pre></div>
+<div class="tbl">
+<table>
+  <thead><tr><th>날짜</th><th>AI</th><th>질문</th><th>회차</th><th>언급</th><th>링크</th><th>순서</th><th>톤</th><th>같이 나온 곳</th><th>틀린 정보</th></tr></thead>
+  <tbody><tr><td>9/25</td><td>챗GPT</td><td>①</td><td>1</td><td>1</td><td>0</td><td>4</td><td>0</td><td>A빵집, B베이커리</td><td>영업시간</td></tr></tbody>
+</table>
+</div>
+<ul>
+  <li><b>노출률</b> = 언급이 1인 칸 ÷ 전체 회차. 예: 질문 3개 × 3번 = 9번 중 4번 → 44%</li>
+  <li><b>링크율</b> = 링크가 1인 칸 ÷ 전체 회차. 이름만 나오고 링크는 없는 경우가 많습니다</li>
+  <li><b>자주 나온 경쟁 가게</b>를 보세요. AI가 그 가게를 어디서 보고 추천했는지(출처)가 내가 올라가야 할 곳입니다</li>
+  <li>한 달 뒤 같은 질문으로 다시 돌려서 <b>숫자가 오르는지만</b> 봅니다. 한 번의 순위 변화엔 의미를 두지 마세요</li>
+</ul>
+
+<h2>공식 무료 숫자도 있습니다</h2>
+<p>프롬프트는 "오늘 내 눈으로 본 표본"입니다. 실제 노출 숫자는 무료 공식 도구가 보여 줍니다.</p>
+<ul>
+  <li><b>구글 서치콘솔 → 생성형 AI 보고서</b>: 구글 AI 개요·AI 모드에서 내 페이지가 몇 번 보였는지</li>
+  <li><b>빙 웹마스터 도구 → AI Performance</b>: 마이크로소프트 코파일럿이 내 페이지를 몇 번 출처로 썼는지, 어떤 검색어였는지</li>
+</ul>
+
+<h2>솔직한 주의사항</h2>
+<div class="warn">
+  <ol>
+    <li><b>AI 답은 매번 바뀝니다.</b> 같은 질문에 같은 목록이 나올 확률은 1%도 안 된다는 조사가 있습니다(SparkToro, 2026년 1월). 그래서 "여러 번 중 몇 번"으로 봅니다.</li>
+    <li><b>유료 추적 도구 데이터와는 다릅니다.</b> 유료 도구는 매일 수십~수백 개 질문을 자동으로 돌립니다. 이건 직접 보는 점검입니다.</li>
+    <li><b>AI가 가짜 링크를 만들 때가 있습니다.</b> 링크는 직접 눌러서 열리는지 확인하고 적으세요.</li>
+    <li><b>"왜 날 안 뽑았어?"에 대한 답은 추측입니다.</b> AI는 자기 선택 이유를 실제로 알지 못합니다.</li>
+    <li><b>내 이름을 넣은 질문(③)은 "AI가 나를 정확히 아는가"만 봅니다.</b> 노출 여부는 이름 없는 질문(①)으로만 판단하세요.</li>
+  </ol>
+</div>
+
+<h2>출처</h2>
+<p>AI별 기능은 각 회사 공식 도움말(<a href="https://help.openai.com/en/articles/8914046-temporary-chat-faq/" target="_blank" rel="noopener">챗GPT 임시 채팅</a>, <a href="https://support.claude.com/en/articles/12260368-use-incognito-chats" target="_blank" rel="noopener">클로드 시크릿 채팅</a>, <a href="https://support.google.com/gemini/answer/14143489?hl=en" target="_blank" rel="noopener">제미나이 출처 확인</a>)과 2026년 9월 25일 직접 테스트한 화면 기준입니다. 답 변동 수치는 <a href="https://sparktoro.com/blog/new-research-ais-are-highly-inconsistent-when-recommending-brands-or-products-marketers-should-take-care-when-tracking-ai-visibility/" target="_blank" rel="noopener">SparkToro 조사</a>입니다.</p>
+<p class="updated">2026년 9월 25일 기준 · 테스트: 챗GPT · 클로드 · 제미나이</p>
+
+<div class="yt">
+  <a class="pill pill-white" href="https://www.youtube.com/@mikukjubu?sub_confirmation=1" target="_blank" rel="noopener">유튜브 구독 <span class="ar">↗</span></a>
+</div>
+<p>이런 자료를 계속 만들고 있습니다. 화면이 바뀌어서 안 맞는 부분을 보셨으면 <a href="/contact/">알려주세요</a>.</p>
+
+<a href="/" class="back">← 홈으로 돌아가기</a>
+</main>
+
+<footer class="mk-ft">
+  <div class="wrap">
+    <div class="mk-ft-top">
+      <div class="mk-ft-brand">
+        <a href="/" class="mk-logo"><span class="mk-tile">M</span><span>미국주부<small>Mompreneur Diary</small></span></a>
+        <p>미국에서 1인 사업하는 한국 주부. 온라인 마케팅 · 드랍쉬핑 · 온라인 셀러 컨설팅.</p>
+      </div>
+      <div class="mk-ft-col">
+        <h5>둘러보기</h5>
+        <a href="/#youtube">영상</a>
+        <a href="/blog/">블로그</a>
+        <a href="/tools/">추천 프로그램</a>
+        <a href="/contact/">문의</a>
+      </div>
+      <div class="mk-ft-col">
+        <h5>커뮤니티 · 연결</h5>
+        <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener">유튜브 구독하기 →</a>
+        <a href="https://www.youtube.com/channel/UCssWRwTEAY-UY7X7lvFi80w/join" target="_blank" rel="noopener">유튜브 멤버십 가입 →</a>
+        <a href="https://discord.gg/HgDDT2C6rs" target="_blank" rel="noopener">Discord 커뮤니티 →</a>
+      </div>
+    </div>
+    <div class="mk-ft-bot">
+      <span>© 2026 미국주부 · Mompreneur Diary. All rights reserved.</span>
+      <span><a href="/privacy.html">개인정보처리방침</a> · <a href="/disclosure.html">제휴 공시</a> · <a href="/en/">English</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.pr').forEach(function(box){
+  var b=box.querySelector('.cp'), t=box.querySelector('pre');
+  if(!b||!t) return;
+  b.addEventListener('click',function(){
+    var done=function(){ b.textContent='복사됨 ✓'; setTimeout(function(){ b.textContent='복사'; },1800); };
+    var fallback=function(){ var r=document.createRange(); r.selectNodeContents(t); var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); try{ document.execCommand('copy'); done(); }catch(e){ b.textContent='선택됨 — Ctrl+C'; } };
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t.innerText).then(done, fallback); } else { fallback(); }
+  });
+});
+</script>
+<script src="/js/mk.js?v=20260924" defer></script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9b3d857e23354a79b458004691c28056"}'></script>
+</body>
+</html>
