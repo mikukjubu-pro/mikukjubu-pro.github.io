@@ -144,6 +144,12 @@ h2.sec-title{font-family:var(--disp);font-weight:400;font-size:clamp(29px,3.6vw,
   transition:transform .18s ease;
 }
 .pick:hover .arw{transform:translate(3px,-3px)}
+.pick .ico{
+  width:56px;height:56px;margin-top:20px;border-radius:16px;display:grid;place-items:center;
+  background:var(--cream);color:var(--edge);border:var(--bd) solid var(--edge);box-shadow:3px 3px 0 var(--edge);
+}
+.pick .ico svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pick h3{padding-top:16px}
 
 /* ---------- 영상 ---------- */
 .vids{background:var(--plum-deep);border-top:var(--bd) solid var(--edge);border-bottom:var(--bd) solid var(--edge);color:var(--cream)}
