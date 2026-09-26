@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>움직이는 웹사이트 프롬프트, 무료로 써 봤다 — GetLayers 테스트 · 미국주부</title>
+<meta name="description" content="GetLayers 무료 프롬프트를 클로드 코드에 그대로 넣어 봤습니다. 무료로 되는 21개, 하루 1번 제한 푸는 법, 유료가 필요한지까지 직접 테스트했습니다." />
+<link rel="canonical" href="https://mikukjubu.com/blog/getlayers-free-prompt-test/" />
+<link rel="alternate" hreflang="ko" href="https://mikukjubu.com/blog/getlayers-free-prompt-test/" />
+<link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/blog/getlayers-free-prompt-test/" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#FFF6E8" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Gaegu:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/mk.css?v=20260924" />
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  .page-head{background:var(--cream-2)}
+  .mk-article .hand{font-family:var(--hand);font-size:28px;color:var(--coral);margin:2px 0 22px}
+  .mk-article .updated{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.05em}
+  .mk-article .back{display:inline-block;margin-top:34px;font-weight:800;color:var(--coral);border-bottom:2px solid var(--coral)}
+
+  .tldr{background:var(--lime);border:var(--bd) solid var(--edge);border-radius:20px;padding:20px 24px;box-shadow:6px 6px 0 var(--edge);margin:6px 0 26px}
+  .tldr p{margin:0}
+  .tldr p + p{margin-top:8px}
+
+  /* 불타는 화면 데모 */
+  .burn{position:relative;margin:18px 0 0;aspect-ratio:16/10;border:var(--bd) solid var(--edge);border-radius:22px;box-shadow:8px 8px 0 var(--edge);overflow:hidden;background:var(--ink);touch-action:pan-y}
+  .burn canvas{display:block;width:100%;height:100%;cursor:crosshair}
+  .mk-article .burn-replay{position:absolute;right:14px;bottom:14px;font:700 13px/1 var(--mono);background:var(--lime);color:var(--ink);border:2px solid var(--edge);border-radius:999px;padding:9px 14px;box-shadow:3px 3px 0 var(--edge);cursor:pointer}
+  .mk-article .burn-replay:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--edge)}
+  .burn-hint{text-align:center;font-weight:700;font-size:14px;color:var(--plum);margin:20px 0 8px}
+  @media(max-width:560px){.mk-article .burn-replay{font-size:11px;padding:7px 10px;right:10px;bottom:10px}}
+
+  .tbl{overflow-x:auto;margin:14px 0 8px}
+  .tbl table{border-collapse:collapse;width:100%;min-width:460px;background:var(--cream);border:var(--bd) solid var(--edge);border-radius:14px;overflow:hidden}
+  .tbl th,.tbl td{padding:10px 12px;border-bottom:2px solid var(--edge);text-align:left;font-size:14.5px}
+  .tbl th{background:var(--lilac);font-family:var(--mono);font-size:12px;letter-spacing:.04em}
+  .tbl tr:last-child td{border-bottom:0}
+  .ok{color:#1C7A45;font-weight:800}
+  .bad{color:#B3261E;font-weight:800}
+
+  .warn{background:var(--cream);border:var(--bd) dashed var(--edge);border-radius:20px;padding:20px 24px;margin:16px 0 6px}
+  .warn p{margin:0}
+  .warn p + p{margin-top:8px}
+
+  figure.shot{margin:18px 0 8px}
+  figure.shot img{display:block;width:100%;height:auto;border:var(--bd) solid var(--edge);border-radius:18px;box-shadow:6px 6px 0 var(--edge);background:#fff}
+  figure.shot figcaption{font-family:var(--mono);font-size:12px;color:var(--ink-soft);margin-top:12px;letter-spacing:.03em}
+</style>
+<meta property="og:type" content="article" />
+<meta property="og:title" content="움직이는 웹사이트 프롬프트, 무료로 써 봤다 — GetLayers 테스트" />
+<meta property="og:description" content="GetLayers 무료 프롬프트를 클로드 코드에 그대로 넣어 봤습니다. 무료 21개와 제한, 유료가 필요한지까지." />
+<meta property="og:url" content="https://mikukjubu.com/blog/getlayers-free-prompt-test/" />
+<meta property="og:image" content="https://mikukjubu.com/img/getlayers-free-prompt-test-cover.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://mikukjubu.com/img/getlayers-free-prompt-test-cover.png" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article",
+ "headline":"움직이는 웹사이트 프롬프트, 무료로 써 봤다 — GetLayers 테스트",
+ "description":"GetLayers 무료 프롬프트를 클로드 코드에 그대로 넣어 봤습니다. 무료로 되는 21개, 하루 1번 제한 푸는 법, 유료가 필요한지까지 직접 테스트했습니다.",
+ "image":"https://mikukjubu.com/img/getlayers-free-prompt-test-cover.png",
+ "datePublished":"2026-09-26","dateModified":"2026-09-26",
+ "inLanguage":"ko",
+ "author":{"@type":"Person","name":"미국주부","url":"https://mikukjubu.com/"},
+ "publisher":{"@type":"Person","name":"미국주부","url":"https://mikukjubu.com/"},
+ "mainEntityOfPage":"https://mikukjubu.com/blog/getlayers-free-prompt-test/"}
+</script>
+</head>
+<body>
+
+<header class="mk-nav">
+  <div class="wrap mk-nav-in">
+    <a href="/" class="mk-logo" aria-label="미국주부 홈">
+      <span class="mk-tile">M</span>
+      <span>미국주부<small>Mompreneur Diary</small></span>
+    </a>
+    <nav class="mk-menu" id="mkMenu">
+      <a href="/#youtube">영상</a>
+      <a href="/blog/">블로그</a>
+      <a href="/tools/">추천 프로그램</a>
+      <a href="/contact/">문의</a>
+      <a href="/en/" class="lang">EN ↗</a>
+    </nav>
+    <div class="mk-nav-right">
+      <a href="/contact/" class="pill pill-coral">1:1 컨설팅 <span class="ar">↗</span></a>
+      <button class="mk-burger" id="mkBurger" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="tag" style="color:var(--coral)">AI 웹사이트</span>
+    <h1>움직이는 웹사이트 프롬프트,<br />무료로 써 봤다</h1>
+  </div>
+</section>
+
+<main class="mk-article">
+<p class="hand">GetLayers 무료 프롬프트, 진짜 공짜일까?</p>
+
+<div class="tldr">
+  <p><b>한 줄 요약.</b> GetLayers는 움직이는 웹사이트를 만드는 <b>프롬프트 모음</b>입니다. 프롬프트를 복사해서 클로드 코드 같은 AI에 붙여 넣으면 사이트 코드가 나옵니다.</p>
+  <p><b>무료로 21개</b>를 쓸 수 있습니다. 로그인 안 하면 복사가 <b>하루 1번</b>이고, 무료 가입하면 그 제한이 없어집니다. 소스코드 다운로드만 유료입니다.</p>
+</div>
+
+<h2>먼저 만져 보세요</h2>
+<p>아래 화면은 GetLayers 무료 템플릿 <b>Kimi</b>의 대표 효과를 보고, <b>같은 원리로 이 블로그에 맞게 다시 만든 것</b>입니다. 코드 화면이 위에서부터 타 들어가며 완성된 사이트가 드러나고, 그다음부터는 <b>마우스가 지나간 자리에만</b> 코드가 다시 보입니다.</p>
+<div class="burn" id="burn"><canvas aria-label="코드 화면이 불타 사라지며 완성된 사이트가 드러나는 효과"></canvas><button class="burn-replay" type="button">↺ 다시 보기</button></div>
+<p class="burn-hint">마우스(폰은 손가락)로 화면을 문질러 보세요</p>
+
+<h2>GetLayers가 뭔가요</h2>
+<p><a href="https://www.getlayers.ai/" target="_blank" rel="noopener">GetLayers</a>는 디자인 파일이나 코드가 아니라 <b>"이렇게 만들어라"라고 적힌 아주 긴 설명서(프롬프트)</b>를 파는 곳입니다. 템플릿·3D 장면·배경·그라디언트·섹션 다섯 종류가 있고, 고른 프롬프트를 AI 코딩 도구에 붙여 넣으면 HTML 한 파일로 사이트가 만들어집니다.</p>
+<p>이번에 테스트한 Kimi 프롬프트는 길이가 <b>약 29만 8천 자</b>였습니다. 색, 글꼴, 움직임 수치, 3D 코드까지 전부 적혀 있어서 AI가 추측할 틈이 거의 없게 짜여 있습니다.</p>
+
+<h2>무료로 되는 것</h2>
+<p>카테고리마다 맨 위 <b>"TRY FOR FREE"</b> 줄에 있는 것만 무료입니다. 2026년 9월 26일에 직접 세어 봤습니다.</p>
+<div class="tbl">
+<table>
+  <thead><tr><th>종류</th><th>무료</th><th>예시</th></tr></thead>
+  <tbody>
+    <tr><td>템플릿 (페이지 통째)</td><td class="ok">5개</td><td>Kimi · Soda · Lumora · Laocoon · Baseline</td></tr>
+    <tr><td>3D 장면</td><td class="ok">5개</td><td>Flow Wave · Tunnel · Elliptical Galaxy 등</td></tr>
+    <tr><td>배경</td><td class="ok">6개</td><td>Moon Walk · Purple Desert · Sea Storm 등</td></tr>
+    <tr><td>그라디언트</td><td class="ok">5개</td><td>Soffit (같은 효과의 색 변형 5개)</td></tr>
+    <tr><td>섹션 (페이지 블록)</td><td class="bad">0개</td><td>전부 유료</td></tr>
+  </tbody>
+</table>
+</div>
+<p>전체 라이브러리는 템플릿만 52개, 3D 장면 353개, 배경 276개라서 무료는 <b>맛보기</b> 정도입니다.</p>
+
+<h3>하루 1번 제한</h3>
+<p>로그인하지 않으면 무료 프롬프트도 <b>하루에 1번만</b> 복사됩니다. 한 번 복사하면 "오늘 무료 복사를 다 썼다"는 문구가 뜹니다. <b>무료로 가입하고 로그인하면</b> 이 문구가 사라지고 무료 프롬프트를 계속 복사할 수 있습니다. 카드 등록은 필요 없습니다.</p>
+
+<h2>원본 프롬프트를 그대로 넣어 봤다</h2>
+<p>Kimi 프롬프트 29만 8천 자를 <b>클로드 코드</b>에 그대로 넣고 사이트를 만들게 했습니다. 이 정도 길이는 채팅창에 한 번에 붙이기 어려워서, 파일을 나눠 읽는 클로드 코드로 테스트했습니다.</p>
+<div class="tbl">
+<table>
+  <thead><tr><th>확인한 것</th><th>결과</th></tr></thead>
+  <tbody>
+    <tr><td>완성까지 걸린 시간</td><td>약 13분 (브라우저 확인까지 약 15분)</td></tr>
+    <tr><td>결과물</td><td>HTML 한 파일, 327KB (사진·3D 모델은 GetLayers 서버에서 불러옴)</td></tr>
+    <tr><td>로딩 화면 → 헬멧이 타는 효과</td><td class="ok">원본처럼 작동</td></tr>
+    <tr><td>마우스 따라 헬멧이 다시 보이는 효과</td><td class="ok">원본처럼 작동</td></tr>
+    <tr><td>아래 섹션 4개 (시즌·경력·뉴스·푸터)</td><td class="ok">전부 표시</td></tr>
+    <tr><td>콘솔 오류</td><td class="ok">0개</td></tr>
+    <tr><td>프롬프트 그대로 붙였을 때</td><td class="bad">문법 오류 2군데</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="warn">
+  <p><b>프롬프트에 빈 곳이 두 군데 있었습니다.</b> 프롬프트 안에 그대로 쓰라고 적힌 코드 중 한 곳은 <b>닫는 괄호 하나가 빠져 있었고</b>, 다른 한 곳은 <b>함수 내용이 중간에 잘려</b> 있었습니다. 그대로 붙이면 바로 오류가 납니다. 클로드 코드가 알아서 채워 넣어서 해결했지만, 오류를 못 고치는 도구라면 여기서 멈춥니다.</p>
+  <p>또 하나, 프롬프트 수치 그대로 만들면 <b>태블릿 폭(800px)에서 오른쪽 패널이 잘립니다.</b> PC 화면 기준으로 짜인 템플릿입니다.</p>
+</div>
+<p>정리하면 <b>무료 프롬프트만으로도 원본과 거의 같은 사이트가 나옵니다.</b> 다만 29만 자짜리 설명서라 긴 글을 다룰 수 있고 오류를 스스로 고치는 AI 코딩 도구가 있어야 합니다.</p>
+
+<h2>유료는 필요할까</h2>
+<div class="tbl">
+<table>
+  <thead><tr><th>플랜</th><th>가격</th><th>무엇이 더 되나</th></tr></thead>
+  <tbody>
+    <tr><td>Free</td><td>$0</td><td>무료 프롬프트 21개 (소스코드 다운로드 없음)</td></tr>
+    <tr><td>Unlimited</td><td>$139 평생</td><td>전체 프롬프트 + 상업용 라이선스</td></tr>
+    <tr><td>Full Stack</td><td>$199 평생</td><td>위 전부 + 소스코드 · 3D 원본 · 디스코드</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="warn">
+  <p><b>사기 전에 두 가지.</b> 첫째, <b>환불이 안 됩니다.</b> 가격 페이지에 "디지털 콘텐츠라 사는 순간 전부 열린다"며 환불하지 않는다고 적혀 있습니다. 무료 21개를 먼저 충분히 써 보고 결정하세요.</p>
+  <p>둘째, <b>무료 라이선스 설명이 엇갈립니다.</b> 무료 템플릿 카드에는 "Commercial licence(상업용 라이선스)" 표시가 붙어 있는데, 가격 페이지에는 "무료는 체험용이니 그대로 내보내지 말고 내 것으로 바꿔 쓰라"고 되어 있습니다. 내 사이트에 쓸 거라면 이 글의 데모처럼 <b>원리만 가져와 내 디자인으로 다시 만드는 쪽</b>이 안전합니다.</p>
+</div>
+
+<h2>출처</h2>
+<p>무료 개수와 제한은 <a href="https://www.getlayers.ai/" target="_blank" rel="noopener">GetLayers 사이트</a>에서, 가격과 환불 규정은 <a href="https://www.getlayers.ai/pricing" target="_blank" rel="noopener">가격 페이지</a>에서 직접 확인했습니다. 가격 페이지에는 할인 타이머가 붙어 있어 가격이 바뀔 수 있습니다.</p>
+<p class="updated">2026년 9월 26일 기준</p>
+
+<a href="/blog/" class="back">← 블로그 목록으로</a>
+</main>
+
+<footer class="mk-ft">
+  <div class="wrap">
+    <div class="mk-ft-top">
+      <div class="mk-ft-brand">
+        <a href="/" class="mk-logo"><span class="mk-tile">M</span><span>미국주부<small>Mompreneur Diary</small></span></a>
+        <p>미국에서 1인 사업하는 한국 주부. 온라인 마케팅 · 드랍쉬핑 · 온라인 셀러 컨설팅.</p>
+      </div>
+      <div class="mk-ft-col">
+        <h5>둘러보기</h5>
+        <a href="/#youtube">영상</a>
+        <a href="/blog/">블로그</a>
+        <a href="/tools/">추천 프로그램</a>
+        <a href="/contact/">문의</a>
+      </div>
+      <div class="mk-ft-col">
+        <h5>커뮤니티 · 연결</h5>
+        <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener">유튜브 구독하기 →</a>
+        <a href="https://www.youtube.com/channel/UCssWRwTEAY-UY7X7lvFi80w/join" target="_blank" rel="noopener">유튜브 멤버십 가입 →</a>
+        <a href="https://discord.gg/HgDDT2C6rs" target="_blank" rel="noopener">Discord 커뮤니티 →</a>
+      </div>
+    </div>
+    <div class="mk-ft-bot">
+      <span>© 2026 미국주부 · Mompreneur Diary. All rights reserved.</span>
+      <span><a href="/privacy.html">개인정보처리방침</a> · <a href="/disclosure.html">제휴 공시</a> · <a href="/en/">English</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/burn-reveal.js?v=20260926" defer></script>
+<script src="/js/mk.js?v=20260924" defer></script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9b3d857e23354a79b458004691c28056"}'></script>
+</body>
+</html>
