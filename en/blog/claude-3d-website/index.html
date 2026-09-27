@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>I Gave Claude One URL and It Built a 3D Universe · Mikukjubu</title>
+<meta name="description" content="I gave Claude one website URL and asked for 3D. Every article and app landed on its own planet. Try it yourself and copy the exact prompt." />
+<link rel="canonical" href="https://mikukjubu.com/en/blog/claude-3d-website/" />
+<link rel="alternate" hreflang="ko" href="https://mikukjubu.com/blog/claude-3d-website/" />
+<link rel="alternate" hreflang="en" href="https://mikukjubu.com/en/blog/claude-3d-website/" />
+<link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/blog/claude-3d-website/" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#FFF6E8" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Gaegu:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/mk.css?v=20260924" />
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  .page-head{background:var(--cream-2)}
+  .mk-article .hand{font-family:var(--hand);font-size:28px;color:var(--coral);margin:2px 0 22px}
+  .mk-article .updated{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.05em}
+  .mk-article .back{display:inline-block;margin-top:34px;font-weight:800;color:var(--coral);border-bottom:2px solid var(--coral)}
+  .tldr{background:var(--lime);border:var(--bd) solid var(--edge);border-radius:20px;padding:20px 24px;box-shadow:6px 6px 0 var(--edge);margin:6px 0 26px}
+  .tldr p{margin:0}
+  .tldr p + p{margin-top:8px}
+  .mk-article .u3d{position:relative;margin:18px 0 0;aspect-ratio:16/10;border:var(--bd) solid var(--edge);border-radius:22px;box-shadow:8px 8px 0 var(--edge);overflow:hidden;background:#03050B}
+  .mk-article .u3d iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+  .mk-article .cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:26px 0 8px}
+  .mk-article .ytv{max-width:330px;margin:18px auto 0;aspect-ratio:9/16;border:var(--bd) solid var(--edge);border-radius:22px;box-shadow:8px 8px 0 var(--edge);overflow:hidden;background:#000}
+  .mk-article .ytv iframe{width:100%;height:100%;border:0;display:block}
+  .mk-article .prompt{position:relative;background:var(--cream);border:var(--bd) solid var(--edge);border-radius:20px;padding:22px 24px 18px;box-shadow:6px 6px 0 var(--edge);margin:16px 0 8px}
+  .mk-article .prompt pre{margin:0;white-space:pre-wrap;word-break:keep-all;font-family:var(--body,Pretendard),sans-serif;font-size:15.5px;line-height:1.8;color:var(--ink)}
+  .mk-article .prompt .copy{margin-top:16px;cursor:pointer;font:inherit;font-weight:800}
+  .mk-article .tips{margin:18px 0 6px;padding-left:0;list-style:none}
+  .mk-article .tips li{background:var(--cream);border:2px solid var(--edge);border-radius:14px;padding:12px 16px;margin:0 0 10px}
+  @media(max-width:560px){.mk-article .u3d{aspect-ratio:3/4}}
+</style>
+<meta property="og:type" content="article" />
+<meta property="og:title" content="I Gave Claude One URL and It Built a 3D Universe" />
+<meta property="og:description" content="I gave Claude one website URL and asked for 3D. Every article and app landed on its own planet. Try it yourself and copy the exact prompt." />
+<meta property="og:url" content="https://mikukjubu.com/en/blog/claude-3d-website/" />
+<meta property="og:image" content="https://mikukjubu.com/img/claude-3d-website-cover.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://mikukjubu.com/img/claude-3d-website-cover.png" />
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "I Gave Claude One URL and It Built a 3D Universe", "description": "I gave Claude one website URL and asked for 3D. Every article and app landed on its own planet. Try it yourself and copy the exact prompt.", "image": "https://mikukjubu.com/img/claude-3d-website-cover.png", "datePublished": "2026-09-26", "dateModified": "2026-09-26", "inLanguage": "en", "author": {"@type": "Person", "name": "Mikukjubu", "url": "https://mikukjubu.com/"}, "publisher": {"@type": "Person", "name": "Mikukjubu", "url": "https://mikukjubu.com/"}, "mainEntityOfPage": "https://mikukjubu.com/en/blog/claude-3d-website/", "video": {"@type": "VideoObject", "name": "사이트 주소 하나로 3D 웹사이트 만들기", "description": "I gave Claude one website URL and asked for 3D. Every article and app landed on its own planet. Try it yourself and copy the exact prompt.", "thumbnailUrl": "https://i.ytimg.com/vi/-3qd2t5Mvs4/hqdefault.jpg", "uploadDate": "2026-09-26", "embedUrl": "https://www.youtube.com/embed/-3qd2t5Mvs4"}}
+</script>
+</head>
+<body>
+
+<header class="mk-nav">
+  <div class="wrap mk-nav-in">
+    <a href="/en/" class="mk-logo" aria-label="Mikukjubu home">
+      <span class="mk-tile">M</span>
+      <span>Mikukjubu<small>Mompreneur Diary</small></span>
+    </a>
+    <nav class="mk-menu" id="mkMenu">
+      <a href="/en/#youtube">Videos</a>
+      <a href="/en/tools/">Tools</a>
+      <a href="/en/contact/">Contact</a>
+      <a href="/blog/claude-3d-website/" class="lang">한국어 ↗</a>
+    </nav>
+    <div class="mk-nav-right">
+      <a href="/en/contact/" class="pill pill-coral">1:1 Consulting <span class="ar">↗</span></a>
+      <button class="mk-burger" id="mkBurger" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="tag" style="color:var(--coral)">AI WEBSITE</span>
+    <h1>I gave Claude one URL.<br />It built a 3D universe.</h1>
+  </div>
+</section>
+
+<main class="mk-article">
+<p class="hand">Swap in your own URL and use it as is</p>
+
+<div class="tldr">
+  <p><b>In short.</b> Give Claude your website address and ask for a 3D version. It reads the site first, then builds a <b>3D universe with one article or app on each planet</b>, all in a single HTML file.</p>
+  <p>Look around below, then <b>copy the prompt</b> at the bottom and change the URL.</p>
+</div>
+
+<h2>Look around first</h2>
+<p>This is the actual 3D universe Claude built. The camera flies between planets on its own, and each stop shows a <b>card</b> for the article or app on that planet. The buttons on the card open the real page.</p>
+<div class="u3d"><iframe src="/3d/#en" title="3D universe built from one website URL, preview" loading="lazy" allow="fullscreen"></iframe></div>
+<div class="cta"><a class="pill pill-plum" href="/3d/#en">Open the 3D universe full screen <span class="ar">↗</span></a></div>
+<p>Inside this page, <b>zoom and touch dragging are off</b> so you can keep scrolling. Open it full screen to drag and zoom.</p>
+
+<h2>Watch the Short</h2>
+<p>The whole build in a <b>33-second</b> Short. The audio is in Korean, with English subtitles.</p>
+<div class="ytv"><iframe src="https://www.youtube-nocookie.com/embed/-3qd2t5Mvs4" title="Building a 3D website from one URL, YouTube Short" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+<div class="cta"><a class="pill pill-white" href="https://www.youtube.com/shorts/-3qd2t5Mvs4" target="_blank" rel="noopener">▶ Watch on YouTube</a><a class="pill pill-white" href="https://www.youtube.com/@mikukjubu?sub_confirmation=1" target="_blank" rel="noopener">Subscribe <span class="ar">↗</span></a></div>
+
+<h2>The exact prompt</h2>
+<p>I used the Korean version of this prompt. Here it is in English. Replace <b>[your site URL]</b> with your own address.</p>
+<div class="prompt"><pre id="promptText">First look around my website [your site URL], then build a 3D outer-space scene from the real articles and apps on it.
+1. One HTML file, using Three.js to draw the Sun, planets and a black hole
+2. Attach one of my articles or apps to each planet, and when the camera arrives, show a card with the title, a one-line description and a link
+3. Let the camera fly between planets on its own, and let me drag with the mouse to look around
+4. Make sure the planets don't get cut off on a vertical (Shorts) screen</pre><button class="pill pill-plum copy" type="button" data-copy="promptText" data-done="Copied ✓">Copy prompt</button></div>
+<ul class="tips">
+  <li><b>Want it more realistic?</b> When it's done, add: "Put NASA planet images on the planets."</li>
+  <li><b>Not a space site?</b> Ask for a "museum gallery" or a "small town" instead of a solar system. Your articles become exhibits or buildings.</li>
+</ul>
+
+<h2>How it was made</h2>
+<p>Claude looked through the site first, then picked <b>9 stops</b> out of 724 articles and 32 free apps and laid them out from the Sun to a black hole. The Sun gets the solar cycle article and tracker, Earth gets the daytime Moon article, Jupiter gets the gravity assist simulator, and so on.</p>
+<p>The result is <b>one HTML file</b>. The 3D is drawn with Three.js, a free library, so it opens in any modern browser with nothing to install. The first version drew the planets in code; a second request added NASA planet images.</p>
+
+<h2>Where the planet images come from</h2>
+<p>Earth's day and night maps and clouds come from NASA's Blue Marble and Black Marble sets, the Moon from the Lunar Reconnaissance Orbiter map, and Venus, Mars, Jupiter, Saturn and Neptune from NASA 3D Resources. NASA allows its imagery to be used without permission when NASA is credited and no endorsement is implied. This project is not endorsed by NASA.</p>
+<p class="updated">As of September 26, 2026</p>
+
+<a href="/en/" class="back">← Back to Mikukjubu</a>
+</main>
+
+<footer class="mk-ft">
+  <div class="wrap">
+    <div class="mk-ft-top">
+      <div class="mk-ft-brand">
+        <a href="/en/" class="mk-logo"><span class="mk-tile">M</span><span>Mikukjubu<small>Mompreneur Diary</small></span></a>
+        <p>Korean mompreneur running a solo business in the USA. Online marketing · dropshipping · e-commerce consulting.</p>
+      </div>
+      <div class="mk-ft-col">
+        <h5>Explore</h5>
+        <a href="/en/#youtube">Videos</a>
+        <a href="/en/tools/">Tools</a>
+        <a href="/en/contact/">Contact</a>
+        <a href="/">한국어</a>
+      </div>
+      <div class="mk-ft-col">
+        <h5>Community</h5>
+        <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener">Subscribe on YouTube →</a>
+        <a href="https://www.youtube.com/channel/UCssWRwTEAY-UY7X7lvFi80w/join" target="_blank" rel="noopener">Join the membership →</a>
+        <a href="https://discord.gg/HgDDT2C6rs" target="_blank" rel="noopener">Discord community →</a>
+      </div>
+    </div>
+    <div class="mk-ft-bot">
+      <span>© 2026 Mikukjubu · Mompreneur Diary. All rights reserved.</span>
+      <span><a href="/en/privacy.html">Privacy</a> · <a href="/en/disclosure.html">Affiliate disclosure</a> · <a href="/">한국어</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/copy-prompt.js?v=20260926" defer></script>
+<script src="/js/mk.js?v=20260924" defer></script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9b3d857e23354a79b458004691c28056"}'></script>
+</body>
+</html>

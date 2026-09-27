@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>사이트 주소 하나 줬더니 3D 우주가 됐다 — 클로드 프롬프트 공개 · 미국주부</title>
+<meta name="description" content="클로드에게 웹사이트 주소 하나를 주고 3D로 만들어 달라고 했더니, 글과 앱이 행성마다 붙은 3D 우주가 나왔습니다. 실제로 쓴 프롬프트와 직접 둘러보기까지." />
+<link rel="canonical" href="https://mikukjubu.com/blog/claude-3d-website/" />
+<link rel="alternate" hreflang="ko" href="https://mikukjubu.com/blog/claude-3d-website/" />
+<link rel="alternate" hreflang="en" href="https://mikukjubu.com/en/blog/claude-3d-website/" />
+<link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/blog/claude-3d-website/" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#FFF6E8" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Gaegu:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/mk.css?v=20260924" />
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  .page-head{background:var(--cream-2)}
+  .mk-article .hand{font-family:var(--hand);font-size:28px;color:var(--coral);margin:2px 0 22px}
+  .mk-article .updated{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.05em}
+  .mk-article .back{display:inline-block;margin-top:34px;font-weight:800;color:var(--coral);border-bottom:2px solid var(--coral)}
+  .tldr{background:var(--lime);border:var(--bd) solid var(--edge);border-radius:20px;padding:20px 24px;box-shadow:6px 6px 0 var(--edge);margin:6px 0 26px}
+  .tldr p{margin:0}
+  .tldr p + p{margin-top:8px}
+  .mk-article .u3d{position:relative;margin:18px 0 0;aspect-ratio:16/10;border:var(--bd) solid var(--edge);border-radius:22px;box-shadow:8px 8px 0 var(--edge);overflow:hidden;background:#03050B}
+  .mk-article .u3d iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+  .mk-article .cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:26px 0 8px}
+  .mk-article .ytv{max-width:330px;margin:18px auto 0;aspect-ratio:9/16;border:var(--bd) solid var(--edge);border-radius:22px;box-shadow:8px 8px 0 var(--edge);overflow:hidden;background:#000}
+  .mk-article .ytv iframe{width:100%;height:100%;border:0;display:block}
+  .mk-article .prompt{position:relative;background:var(--cream);border:var(--bd) solid var(--edge);border-radius:20px;padding:22px 24px 18px;box-shadow:6px 6px 0 var(--edge);margin:16px 0 8px}
+  .mk-article .prompt pre{margin:0;white-space:pre-wrap;word-break:keep-all;font-family:var(--body,Pretendard),sans-serif;font-size:15.5px;line-height:1.8;color:var(--ink)}
+  .mk-article .prompt .copy{margin-top:16px;cursor:pointer;font:inherit;font-weight:800}
+  .mk-article .tips{margin:18px 0 6px;padding-left:0;list-style:none}
+  .mk-article .tips li{background:var(--cream);border:2px solid var(--edge);border-radius:14px;padding:12px 16px;margin:0 0 10px}
+  @media(max-width:560px){.mk-article .u3d{aspect-ratio:3/4}}
+</style>
+<meta property="og:type" content="article" />
+<meta property="og:title" content="사이트 주소 하나 줬더니 3D 우주가 됐다 — 클로드 프롬프트 공개" />
+<meta property="og:description" content="클로드에게 웹사이트 주소 하나를 주고 3D로 만들어 달라고 했더니, 글과 앱이 행성마다 붙은 3D 우주가 나왔습니다. 실제로 쓴 프롬프트와 직접 둘러보기까지." />
+<meta property="og:url" content="https://mikukjubu.com/blog/claude-3d-website/" />
+<meta property="og:image" content="https://mikukjubu.com/img/claude-3d-website-cover.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://mikukjubu.com/img/claude-3d-website-cover.png" />
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "사이트 주소 하나 줬더니 3D 우주가 됐다 — 클로드 프롬프트 공개", "description": "클로드에게 웹사이트 주소 하나를 주고 3D로 만들어 달라고 했더니, 글과 앱이 행성마다 붙은 3D 우주가 나왔습니다. 실제로 쓴 프롬프트와 직접 둘러보기까지.", "image": "https://mikukjubu.com/img/claude-3d-website-cover.png", "datePublished": "2026-09-26", "dateModified": "2026-09-26", "inLanguage": "ko", "author": {"@type": "Person", "name": "미국주부", "url": "https://mikukjubu.com/"}, "publisher": {"@type": "Person", "name": "미국주부", "url": "https://mikukjubu.com/"}, "mainEntityOfPage": "https://mikukjubu.com/blog/claude-3d-website/", "video": {"@type": "VideoObject", "name": "사이트 주소 하나로 3D 웹사이트 만들기", "description": "클로드에게 웹사이트 주소 하나를 주고 3D로 만들어 달라고 했더니, 글과 앱이 행성마다 붙은 3D 우주가 나왔습니다. 실제로 쓴 프롬프트와 직접 둘러보기까지.", "thumbnailUrl": "https://i.ytimg.com/vi/-3qd2t5Mvs4/hqdefault.jpg", "uploadDate": "2026-09-26", "embedUrl": "https://www.youtube.com/embed/-3qd2t5Mvs4"}}
+</script>
+</head>
+<body>
+
+<header class="mk-nav">
+  <div class="wrap mk-nav-in">
+    <a href="/" class="mk-logo" aria-label="미국주부 홈">
+      <span class="mk-tile">M</span>
+      <span>미국주부<small>Mompreneur Diary</small></span>
+    </a>
+    <nav class="mk-menu" id="mkMenu">
+      <a href="/#youtube">영상</a>
+      <a href="/blog/">블로그</a>
+      <a href="/tools/">추천 프로그램</a>
+      <a href="/contact/">문의</a>
+      <a href="/en/blog/claude-3d-website/" class="lang">EN ↗</a>
+    </nav>
+    <div class="mk-nav-right">
+      <a href="/contact/" class="pill pill-coral">1:1 컨설팅 <span class="ar">↗</span></a>
+      <button class="mk-burger" id="mkBurger" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="tag" style="color:var(--coral)">AI 웹사이트</span>
+    <h1>사이트 주소 하나 줬더니<br />3D 우주가 됐다</h1>
+  </div>
+</section>
+
+<main class="mk-article">
+<p class="hand">주소만 바꿔서 그대로 쓰시면 됩니다</p>
+
+<div class="tldr">
+  <p><b>한 줄 요약.</b> 클로드에게 웹사이트 주소를 주고 3D로 만들어 달라고 하면, 사이트를 먼저 읽고 <b>글과 앱을 행성마다 하나씩 붙인 3D 우주</b>를 HTML 파일 하나로 만들어 줍니다.</p>
+  <p>아래에서 직접 둘러보고, 맨 아래 <b>프롬프트를 복사</b>해서 주소만 바꿔 쓰세요.</p>
+</div>
+
+<h2>먼저 둘러보세요</h2>
+<p>아래 화면이 실제로 만들어진 3D 우주입니다. 저절로 행성 사이를 날아다니고, 행성에 도착하면 그 행성에 붙은 <b>글·앱 카드</b>가 뜹니다. 카드의 버튼을 누르면 실제 글로 갑니다.</p>
+<div class="u3d"><iframe src="/3d/" title="사이트 주소 하나로 만든 3D 우주 미리보기" loading="lazy" allow="fullscreen"></iframe></div>
+<div class="cta"><a class="pill pill-plum" href="/3d/">3D 우주 전체 화면으로 보기 <span class="ar">↗</span></a></div>
+<p>글 안에서는 페이지가 잘 내려가도록 <b>확대와 손가락 끌기를 꺼 두었습니다.</b> 마우스로 끌어서 돌려 보고 확대하려면 전체 화면으로 여세요. 오른쪽 위 <b>EN</b> 버튼을 누르면 영어로 바뀝니다.</p>
+
+<h2>영상으로 보기</h2>
+<p>만드는 과정을 <b>33초</b> 쇼츠로 정리했습니다.</p>
+<div class="ytv"><iframe src="https://www.youtube-nocookie.com/embed/-3qd2t5Mvs4" title="사이트 주소 하나로 3D 웹사이트 만들기 쇼츠" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+<div class="cta"><a class="pill pill-white" href="https://www.youtube.com/shorts/-3qd2t5Mvs4" target="_blank" rel="noopener">▶ 유튜브에서 보기</a><a class="pill pill-white" href="https://www.youtube.com/@mikukjubu?sub_confirmation=1" target="_blank" rel="noopener">유튜브 구독 <span class="ar">↗</span></a></div>
+
+<h2>실제로 쓴 프롬프트</h2>
+<p>이 프롬프트를 클로드에 그대로 넣었습니다. <b>[사이트 주소]</b> 부분만 내 주소로 바꾸세요.</p>
+<div class="prompt"><pre id="promptText">내 웹사이트 [사이트 주소]를 먼저 둘러보고, 사이트에 있는 실제 글과 앱으로 3D 우주 공간을 만들어줘.
+1. HTML 파일 하나로, Three.js로 태양·행성·블랙홀을 그려줘
+2. 행성마다 내 사이트 글이나 앱을 하나씩 붙이고, 도착하면 제목·한 줄 설명·링크 카드가 뜨게 해줘
+3. 카메라가 행성 사이를 자동으로 날아다니고, 마우스로 끌어서 둘러볼 수도 있게 해줘
+4. 세로 화면(쇼츠)에서도 행성이 잘리지 않게 해줘</pre><button class="pill pill-plum copy" type="button" data-copy="promptText" data-done="복사됐어요 ✓">프롬프트 복사</button></div>
+<ul class="tips">
+  <li><b>더 실감 나게</b> — 다 만들어지면 한 번 더 이렇게 말하세요: "행성에 NASA 행성 사진을 입혀줘"</li>
+  <li><b>우주 사이트가 아니라면</b> — '태양계' 대신 '박물관 전시실'이나 '작은 도시'로 바꿔서 요청하세요. 글이 전시품이나 건물이 됩니다.</li>
+</ul>
+
+<h2>어떻게 만들어졌나</h2>
+<p>클로드가 사이트를 먼저 둘러보고, 글 724편과 무료 앱 32개 중에서 <b>9곳</b>을 골라 태양부터 블랙홀까지 순서대로 놓았습니다. 태양에는 태양 주기 글과 앱, 지구에는 낮달 글, 목성에는 스윙바이 시뮬레이터가 붙는 식입니다.</p>
+<p>결과물은 <b>HTML 파일 하나</b>입니다. 3D는 Three.js라는 무료 라이브러리로 그려서, 따로 설치할 것 없이 브라우저에서 바로 열립니다. 처음엔 행성을 코드로만 그렸고, 두 번째 요청으로 NASA 행성 사진을 입혔습니다.</p>
+
+<h2>행성 사진은 어디서 왔나</h2>
+<p>지구의 낮·밤 사진과 구름은 NASA의 Blue Marble·Black Marble, 달은 달 탐사선 LRO 지도, 금성·화성·목성·토성·해왕성은 NASA 3D Resources 자료입니다. NASA는 출처를 밝히고 NASA가 보증한 것처럼 보이지 않게 쓰면 허락 없이 써도 된다고 안내합니다. 이 3D는 NASA와 관계가 없습니다.</p>
+<p class="updated">2026년 9월 26일 기준</p>
+
+<a href="/blog/" class="back">← 블로그 목록으로</a>
+</main>
+
+<footer class="mk-ft">
+  <div class="wrap">
+    <div class="mk-ft-top">
+      <div class="mk-ft-brand">
+        <a href="/" class="mk-logo"><span class="mk-tile">M</span><span>미국주부<small>Mompreneur Diary</small></span></a>
+        <p>미국에서 1인 사업하는 한국 주부. 온라인 마케팅 · 드랍쉬핑 · 온라인 셀러 컨설팅.</p>
+      </div>
+      <div class="mk-ft-col">
+        <h5>둘러보기</h5>
+        <a href="/#youtube">영상</a>
+        <a href="/blog/">블로그</a>
+        <a href="/tools/">추천 프로그램</a>
+        <a href="/contact/">문의</a>
+      </div>
+      <div class="mk-ft-col">
+        <h5>커뮤니티 · 연결</h5>
+        <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener">유튜브 구독하기 →</a>
+        <a href="https://www.youtube.com/channel/UCssWRwTEAY-UY7X7lvFi80w/join" target="_blank" rel="noopener">유튜브 멤버십 가입 →</a>
+        <a href="https://discord.gg/HgDDT2C6rs" target="_blank" rel="noopener">Discord 커뮤니티 →</a>
+      </div>
+    </div>
+    <div class="mk-ft-bot">
+      <span>© 2026 미국주부 · Mompreneur Diary. All rights reserved.</span>
+      <span><a href="/privacy.html">개인정보처리방침</a> · <a href="/disclosure.html">제휴 공시</a> · <a href="/en/">English</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/copy-prompt.js?v=20260926" defer></script>
+<script src="/js/mk.js?v=20260924" defer></script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9b3d857e23354a79b458004691c28056"}'></script>
+</body>
+</html>
