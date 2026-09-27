@@ -414,7 +414,7 @@ function goTo(i){i=(i+STOPS.length)%STOPS.length;const s=STOPS[i];const asp=inne
   const fromP=camera.position.clone(),fromL=controls.target.clone(),d=fromP.distanceTo(toP);
   const side=new THREE.Vector3().subVectors(toP,fromP).cross(V3(0,1,0)).normalize().multiplyScalar(d*.12);
   const bank=(side.x*(toP.z-fromP.z)-side.z*(toP.x-fromP.x))>0?-.09:.09;tr={fromP,fromL,toP,toL,bank,ctrl:fromP.clone().lerp(toP,.5).add(V3(0,d*.16,0)).add(side),dur:clamp(d/60,2.8,5.8)};
-  phase='travel';pt=0;cur=i;controls.enabled=false;showCard(i);padStop();whoosh(tr.dur);}
+  phase='travel';pt=0;cur=i;controls.enabled=false;showCard(i);whoosh(tr.dur);}
 const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
 
 $('prev').onclick=()=>{setAuto(false);goTo(cur-1);};
@@ -427,7 +427,7 @@ addEventListener('keydown',e=>{if(e.key===' '){e.preventDefault();$('play').clic
 if(location.hash.includes('clean'))document.body.classList.add('clean');
 
 /* ---------- sound (Web Audio, 전부 코드로 합성 — 음원 파일 없음) ---------- */
-const SND={ctx:null,on:false,master:null,noise:null,pad:null};
+const SND={ctx:null,on:false,master:null,noise:null};
 function sndInit(){if(SND.ctx)return true;const C=window.AudioContext||window.webkitAudioContext;if(!C)return false;
   const c=new C();SND.ctx=c;const comp=c.createDynamicsCompressor();comp.threshold.value=-20;comp.knee.value=12;comp.ratio.value=5;comp.connect(c.destination);
   SND.master=c.createGain();SND.master.gain.value=0;SND.master.connect(comp);
@@ -438,7 +438,7 @@ function sndLabel(){const s=$('snd');if(!s)return;s.classList.toggle('off',!SND.
   const nar=innerWidth<=520;s.textContent=SND.on?(nar?'🔊':(lang==='ko'?'🔊 소리 끄기':'🔊 Sound off')):(nar?(lang==='ko'?'🔇 소리':'🔇 Sound'):(lang==='ko'?'🔇 소리 켜기':'🔇 Sound on'));s.title=SND.on?(lang==='ko'?'소리 끄기':'Sound off'):(lang==='ko'?'소리 켜기':'Sound on');}
 function sndSet(v){if(!sndInit())return;SND.on=v;const c=SND.ctx;if(c.state!=='running')c.resume();const t=c.currentTime;
   SND.master.gain.cancelScheduledValues(t);SND.master.gain.setTargetAtTime(v?1:0,t,.12);
-  if(v){if(phase==='dwell')padStart(STOPS[cur].id);else if(tr)whoosh(Math.max(.8,tr.dur-pt));}else padStop();sndLabel();}
+  if(v){if(phase==='travel'?Boolean(tr):false)whoosh(Math.max(.8,tr.dur-pt));}sndLabel();}
 function env(g,t,peak,a,d){g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(peak,t+a);g.gain.exponentialRampToValueAtTime(.0001,t+a+d);}
 /* 이동: 로켓 엔진 저음 + 바람 가르는 쉭 소리 */
 function whoosh(dur){if(!SND.on)return;const c=SND.ctx,t=c.currentTime;
@@ -454,25 +454,6 @@ function whoosh(dur){if(!SND.on)return;const c=SND.ctx,t=c.currentTime;
 /* 도착: 짧은 종소리 */
 function chime(id){if(!SND.on)return;const c=SND.ctx,t=c.currentTime,base={sun:392,earth:523.3,mars:440,jupiter:349.2,saturn:587.3,neptune:659.3,exo:493.9,bh:293.7}[id]||523.3;
   [1,1.5,2.01].forEach((m,i)=>{const o=c.createOscillator();o.type='sine';o.frequency.value=base*m;const g=c.createGain();env(g,t+i*.07,.12/(i+1),.01,1.6);o.connect(g);g.connect(SND.master);o.start(t+i*.07);o.stop(t+i*.07+1.8);});}
-/* 행성마다 다른 우주 배경음 */
-const PADS={arrive:[55,82.4,110],sun:[36.7,55,73.4],earth:[130.8,164.8,196],mars:[98,116.5,146.8],jupiter:[43.7,65.4,87.3],
-  saturn:[146.8,185,220,293.7],neptune:[196,246.9,293.7,392],exo:[110,138.6,164.8],bh:[27.5,29.1,41.2]};
-function padStart(id){if(!SND.on)return;padStop();const c=SND.ctx,t=c.currentTime,f=PADS[id]||PADS.arrive;
-  const out=c.createGain();out.gain.setValueAtTime(.0001,t);out.gain.exponentialRampToValueAtTime(id==='bh'?.22:.11,t+1.8);
-  const lp=c.createBiquadFilter();lp.type='lowpass';lp.frequency.value=id==='neptune'?2400:1300;lp.connect(out);out.connect(SND.master);const nodes=[];
-  f.forEach((hz,i)=>{const o=c.createOscillator();o.type=i%2?'triangle':'sine';o.frequency.value=hz;o.detune.value=(i-1)*5;
-    const lfo=c.createOscillator(),lg=c.createGain();lfo.frequency.value=.07+i*.045;lg.gain.value=4;lfo.connect(lg);lg.connect(o.detune);
-    const og=c.createGain();og.gain.value=1/f.length;o.connect(og);og.connect(lp);o.start(t);lfo.start(t);nodes.push(o,lfo);});
-  if(id==='sun'){const n=c.createBufferSource();n.buffer=SND.noise;n.loop=true;const bp=c.createBiquadFilter();bp.type='bandpass';bp.frequency.value=700;bp.Q.value=.6;
-    const g=c.createGain();g.gain.value=.18;n.connect(bp);bp.connect(g);g.connect(out);n.start(t);nodes.push(n);}
-  if(id==='bh'){const o=c.createOscillator();o.type='sine';o.frequency.setValueAtTime(60,t);o.frequency.exponentialRampToValueAtTime(22,t+8);
-    const g=c.createGain();g.gain.value=.5;o.connect(g);g.connect(out);o.start(t);nodes.push(o);}
-  if(id==='exo'){const o=c.createOscillator();o.type='sine';o.frequency.value=880;const g=c.createGain();g.gain.value=0;
-    const lfo=c.createOscillator(),lg=c.createGain();lfo.frequency.value=.95/(Math.PI*2);lg.gain.value=.05;lfo.connect(lg);lg.connect(g.gain);o.connect(g);g.connect(out);o.start(t);lfo.start(t);nodes.push(o,lfo);}
-  SND.pad={out,nodes};}
-function padStop(){const p=SND.pad;if(!p)return;SND.pad=null;const c=SND.ctx,t=c.currentTime;
-  p.out.gain.cancelScheduledValues(t);p.out.gain.setValueAtTime(Math.max(p.out.gain.value,.0002),t);p.out.gain.exponentialRampToValueAtTime(.0001,t+1.1);
-  p.nodes.forEach(n=>{try{n.stop(t+1.2);}catch(e){}});}
 $('snd').onclick=()=>sndSet(!SND.on);
 document.addEventListener('visibilitychange',()=>{if(!SND.ctx)return;if(document.hidden)SND.ctx.suspend();else if(SND.on)SND.ctx.resume();});
 
@@ -512,7 +493,7 @@ function frame(){const dt=Math.min(clock.getDelta(),.05);T+=dt;
   if(phase==='travel'&&tr){pt+=dt;const k=ease(Math.min(pt/tr.dur,1)),u=1-k;
     camera.position.set(u*u*tr.fromP.x+2*u*k*tr.ctrl.x+k*k*tr.toP.x,u*u*tr.fromP.y+2*u*k*tr.ctrl.y+k*k*tr.toP.y,u*u*tr.fromP.z+2*u*k*tr.ctrl.z+k*k*tr.toP.z);
     controls.target.lerpVectors(tr.fromL,tr.toL,k);camera.lookAt(controls.target);camera.rotateZ(Math.sin(k*Math.PI)*tr.bank);
-    if(pt>=tr.dur){phase='dwell';pt=0;controls.enabled=!(inFrame?matchMedia('(pointer: coarse)').matches:false);chime(STOPS[cur].id);padStart(STOPS[cur].id);}}
+    if(pt>=tr.dur){phase='dwell';pt=0;controls.enabled=!(inFrame?matchMedia('(pointer: coarse)').matches:false);chime(STOPS[cur].id);}}
   else{controls.autoRotate=!reduce;controls.update();if(auto){pt+=dt;if(pt>STOPS[cur].dwell)goTo(cur+1);}}
   const seg=segs.children[cur];if(seg)seg.firstChild.style.width=(phase==='dwell'?clamp(pt/STOPS[cur].dwell,0,1)*100:0)+'%';
   $('transit').style.opacity=(STOPS[cur].hud&&phase==='dwell')?1:0;if(STOPS[cur].hud)drawLC();
