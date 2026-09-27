@@ -89,6 +89,8 @@ body.clean .top .tbtns,body.clean .ctrl,body.clean #hint{display:none}
 .tb.nav{text-decoration:none;display:inline-block;line-height:1.2;color:var(--ink);background:var(--glass);border:1px solid var(--line);border-radius:8px;white-space:nowrap;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .tb.nav:hover{border-color:rgba(255,181,71,.6)}
 #clean{display:none}
+#snd.off{border-color:var(--sun);color:var(--sun)}
+@media (max-width:520px){.tbtns{gap:6px}.tbtns .tb{padding:7px 8px;font-size:12px;letter-spacing:.02em}.brand{font-size:11px}}
 body.inframe .hint#hint{display:none}
 </style>
 </head>
@@ -101,6 +103,7 @@ body.inframe .hint#hint{display:none}
   <div class="brand"><b>The Universe Episodes</b> · 3D<span class="count" id="count">01 / 09</span></div>
   <div class="tbtns">
     <button class="tb" id="lang" type="button" aria-label="언어 바꾸기">EN</button>
+    <button class="tb off" id="snd" type="button" aria-pressed="false">🔇 소리 켜기</button>
     <a class="tb nav" id="nav" href="/blog/claude-3d-website/">← 만든 방법</a>
     <button class="tb" id="clean" type="button" title="녹화용 화면 (H)">녹화 화면</button>
   </div>
@@ -392,7 +395,7 @@ const $=id=>document.getElementById(id);
 let lang=location.hash.includes('en')?'en':location.hash.includes('ko')?'ko':((navigator.language||'ko').toLowerCase().startsWith('ko')?'ko':'en');
 const inFrame=window.self!==window.top;
 if(inFrame){document.body.classList.add('inframe');controls.enableZoom=false;if(matchMedia('(pointer: coarse)').matches){controls.enabled=false;controls.enableRotate=false;canvas.style.touchAction='pan-y';}}
-function navUpd(){const n=$('nav');if(!n)return;if(inFrame){n.href='/3d/'+(lang==='en'?'#en':'');n.target='_top';n.textContent=lang==='ko'?'⛶ 전체 화면':'⛶ Full screen';}else{n.href=lang==='ko'?'/blog/claude-3d-website/':'/en/blog/claude-3d-website/';n.textContent=lang==='ko'?'← 만든 방법':'← How it was made';}$('credit').textContent=lang==='ko'?'행성 사진: NASA 공개 자료 (Blue Marble · Black Marble · LRO · NASA 3D Resources)':'Planet images: NASA (Blue Marble · Black Marble · LRO · NASA 3D Resources). Not endorsed by NASA.';$('loading').textContent=lang==='ko'?'행성을 그리는 중…':'Drawing the planets…';document.documentElement.lang=lang;}
+function navUpd(){const n=$('nav');if(!n)return;if(inFrame){n.href='/3d/'+(lang==='en'?'#en':'');n.target='_top';n.textContent=lang==='ko'?'⛶ 전체 화면':'⛶ Full screen';}else{n.href=lang==='ko'?'/blog/claude-3d-website/':'/en/blog/claude-3d-website/';n.textContent=lang==='ko'?'← 만든 방법':'← How it was made';}$('credit').textContent=lang==='ko'?'행성 사진: NASA 공개 자료 (Blue Marble · Black Marble · LRO · NASA 3D Resources)':'Planet images: NASA (Blue Marble · Black Marble · LRO · NASA 3D Resources). Not endorsed by NASA.';$('loading').textContent=lang==='ko'?'행성을 그리는 중…':'Drawing the planets…';document.documentElement.lang=lang;if(typeof sndLabel==='function')sndLabel();}
 const segs=$('segs');STOPS.forEach((s,i)=>{const d=document.createElement('div');d.className='seg';d.innerHTML='<i></i>';d.title=(i+1)+'';d.onclick=()=>{setAuto(false);goTo(i);};segs.appendChild(d);});
 function fillCard(i){const s=STOPS[i],c=s[lang];$('kick').textContent=c.k;$('ttl').textContent=c.t;$('sub').textContent=lang==='ko'?s.sub:'';$('body').textContent=c.b;
   $('links').innerHTML='';s.links.forEach(l=>{const a=document.createElement('a');a.href=l.url;a.target='_blank';a.rel='noopener';a.textContent=(lang==='ko'?l.ko:l.en)+' ↗';$('links').appendChild(a);});
@@ -409,7 +412,7 @@ function goTo(i){i=(i+STOPS.length)%STOPS.length;const s=STOPS[i];const asp=inne
   const fromP=camera.position.clone(),fromL=controls.target.clone(),d=fromP.distanceTo(toP);
   const side=new THREE.Vector3().subVectors(toP,fromP).cross(V3(0,1,0)).normalize().multiplyScalar(d*.12);
   const bank=(side.x*(toP.z-fromP.z)-side.z*(toP.x-fromP.x))>0?-.09:.09;tr={fromP,fromL,toP,toL,bank,ctrl:fromP.clone().lerp(toP,.5).add(V3(0,d*.16,0)).add(side),dur:clamp(d/60,2.8,5.8)};
-  phase='travel';pt=0;cur=i;controls.enabled=false;showCard(i);}
+  phase='travel';pt=0;cur=i;controls.enabled=false;showCard(i);padStop();whoosh(tr.dur);}
 const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
 
 $('prev').onclick=()=>{setAuto(false);goTo(cur-1);};
@@ -420,6 +423,56 @@ $('clean').onclick=()=>document.body.classList.toggle('clean');
 controls.addEventListener('start',()=>setAuto(false));
 addEventListener('keydown',e=>{if(e.key===' '){e.preventDefault();$('play').click();}else if(e.key==='ArrowRight')$('next').click();else if(e.key==='ArrowLeft')$('prev').click();else if(e.key==='h'||e.key==='H')$('clean').click();});
 if(location.hash.includes('clean'))document.body.classList.add('clean');
+
+/* ---------- sound (Web Audio, 전부 코드로 합성 — 음원 파일 없음) ---------- */
+const SND={ctx:null,on:false,master:null,noise:null,pad:null};
+function sndInit(){if(SND.ctx)return true;const C=window.AudioContext||window.webkitAudioContext;if(!C)return false;
+  const c=new C();SND.ctx=c;const comp=c.createDynamicsCompressor();comp.threshold.value=-20;comp.knee.value=12;comp.ratio.value=5;comp.connect(c.destination);
+  SND.master=c.createGain();SND.master.gain.value=0;SND.master.connect(comp);
+  const b=c.createBuffer(1,c.sampleRate*2,c.sampleRate),d=b.getChannelData(0);let last=0;
+  for(let i=0;i<d.length;i++){const w=Math.random()*2-1;last=(last+.02*w)/1.02;d[i]=w*.35+last*3.5;}
+  SND.noise=b;return true;}
+function sndLabel(){const s=$('snd');if(!s)return;s.classList.toggle('off',!SND.on);s.setAttribute('aria-pressed',SND.on?'true':'false');
+  s.textContent=SND.on?(lang==='ko'?'🔊 소리 끄기':'🔊 Sound off'):(lang==='ko'?'🔇 소리 켜기':'🔇 Sound on');}
+function sndSet(v){if(!sndInit())return;SND.on=v;const c=SND.ctx;if(c.state!=='running')c.resume();const t=c.currentTime;
+  SND.master.gain.cancelScheduledValues(t);SND.master.gain.setTargetAtTime(v?1:0,t,.12);
+  if(v){if(phase==='dwell')padStart(STOPS[cur].id);else if(tr)whoosh(Math.max(.8,tr.dur-pt));}else padStop();sndLabel();}
+function env(g,t,peak,a,d){g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(peak,t+a);g.gain.exponentialRampToValueAtTime(.0001,t+a+d);}
+/* 이동: 로켓 엔진 저음 + 바람 가르는 쉭 소리 */
+function whoosh(dur){if(!SND.on)return;const c=SND.ctx,t=c.currentTime;
+  const n=c.createBufferSource();n.buffer=SND.noise;n.loop=true;
+  const bp=c.createBiquadFilter();bp.type='bandpass';bp.Q.value=.9;
+  bp.frequency.setValueAtTime(160,t);bp.frequency.exponentialRampToValueAtTime(2200,t+dur*.5);bp.frequency.exponentialRampToValueAtTime(240,t+dur);
+  const ng=c.createGain();env(ng,t,.75,dur*.45,dur*.55);n.connect(bp);bp.connect(ng);ng.connect(SND.master);n.start(t);n.stop(t+dur+.2);
+  const o=c.createOscillator();o.type='sawtooth';o.frequency.setValueAtTime(38,t);o.frequency.linearRampToValueAtTime(64,t+dur*.5);o.frequency.linearRampToValueAtTime(34,t+dur);
+  const lp=c.createBiquadFilter();lp.type='lowpass';lp.frequency.value=160;const og=c.createGain();env(og,t,.42,dur*.3,dur*.7);
+  o.connect(lp);lp.connect(og);og.connect(SND.master);o.start(t);o.stop(t+dur+.2);
+  const r=c.createBufferSource();r.buffer=SND.noise;r.loop=true;const rl=c.createBiquadFilter();rl.type='lowpass';rl.frequency.value=120;
+  const rg=c.createGain();env(rg,t,.45,dur*.25,dur*.75);r.connect(rl);rl.connect(rg);rg.connect(SND.master);r.start(t);r.stop(t+dur+.2);}
+/* 도착: 짧은 종소리 */
+function chime(id){if(!SND.on)return;const c=SND.ctx,t=c.currentTime,base={sun:392,earth:523.3,mars:440,jupiter:349.2,saturn:587.3,neptune:659.3,exo:493.9,bh:293.7}[id]||523.3;
+  [1,1.5,2.01].forEach((m,i)=>{const o=c.createOscillator();o.type='sine';o.frequency.value=base*m;const g=c.createGain();env(g,t+i*.07,.12/(i+1),.01,1.6);o.connect(g);g.connect(SND.master);o.start(t+i*.07);o.stop(t+i*.07+1.8);});}
+/* 행성마다 다른 우주 배경음 */
+const PADS={arrive:[55,82.4,110],sun:[36.7,55,73.4],earth:[130.8,164.8,196],mars:[98,116.5,146.8],jupiter:[43.7,65.4,87.3],
+  saturn:[146.8,185,220,293.7],neptune:[196,246.9,293.7,392],exo:[110,138.6,164.8],bh:[27.5,29.1,41.2]};
+function padStart(id){if(!SND.on)return;padStop();const c=SND.ctx,t=c.currentTime,f=PADS[id]||PADS.arrive;
+  const out=c.createGain();out.gain.setValueAtTime(.0001,t);out.gain.exponentialRampToValueAtTime(id==='bh'?.22:.11,t+1.8);
+  const lp=c.createBiquadFilter();lp.type='lowpass';lp.frequency.value=id==='neptune'?2400:1300;lp.connect(out);out.connect(SND.master);const nodes=[];
+  f.forEach((hz,i)=>{const o=c.createOscillator();o.type=i%2?'triangle':'sine';o.frequency.value=hz;o.detune.value=(i-1)*5;
+    const lfo=c.createOscillator(),lg=c.createGain();lfo.frequency.value=.07+i*.045;lg.gain.value=4;lfo.connect(lg);lg.connect(o.detune);
+    const og=c.createGain();og.gain.value=1/f.length;o.connect(og);og.connect(lp);o.start(t);lfo.start(t);nodes.push(o,lfo);});
+  if(id==='sun'){const n=c.createBufferSource();n.buffer=SND.noise;n.loop=true;const bp=c.createBiquadFilter();bp.type='bandpass';bp.frequency.value=700;bp.Q.value=.6;
+    const g=c.createGain();g.gain.value=.18;n.connect(bp);bp.connect(g);g.connect(out);n.start(t);nodes.push(n);}
+  if(id==='bh'){const o=c.createOscillator();o.type='sine';o.frequency.setValueAtTime(60,t);o.frequency.exponentialRampToValueAtTime(22,t+8);
+    const g=c.createGain();g.gain.value=.5;o.connect(g);g.connect(out);o.start(t);nodes.push(o);}
+  if(id==='exo'){const o=c.createOscillator();o.type='sine';o.frequency.value=880;const g=c.createGain();g.gain.value=0;
+    const lfo=c.createOscillator(),lg=c.createGain();lfo.frequency.value=.95/(Math.PI*2);lg.gain.value=.05;lfo.connect(lg);lg.connect(g.gain);o.connect(g);g.connect(out);o.start(t);lfo.start(t);nodes.push(o,lfo);}
+  SND.pad={out,nodes};}
+function padStop(){const p=SND.pad;if(!p)return;SND.pad=null;const c=SND.ctx,t=c.currentTime;
+  p.out.gain.cancelScheduledValues(t);p.out.gain.setValueAtTime(Math.max(p.out.gain.value,.0002),t);p.out.gain.exponentialRampToValueAtTime(.0001,t+1.1);
+  p.nodes.forEach(n=>{try{n.stop(t+1.2);}catch(e){}});}
+$('snd').onclick=()=>sndSet(!SND.on);
+document.addEventListener('visibilitychange',()=>{if(!SND.ctx)return;if(document.hidden)SND.ctx.suspend();else if(SND.on)SND.ctx.resume();});
 
 /* ---------- labels ---------- */
 const LBL={sun:['태양','Sun'],mercury:['수성','Mercury'],venus:['금성','Venus'],earth:['지구','Earth'],moon:['달','Moon'],mars:['화성','Mars'],jupiter:['목성','Jupiter'],saturn:['토성','Saturn'],uranus:['천왕성','Uranus'],neptune:['해왕성','Neptune'],exo:['외계 행성계','Exoplanet system'],bh:['블랙홀','Black hole']};
@@ -457,7 +510,7 @@ function frame(){const dt=Math.min(clock.getDelta(),.05);T+=dt;
   if(phase==='travel'&&tr){pt+=dt;const k=ease(Math.min(pt/tr.dur,1)),u=1-k;
     camera.position.set(u*u*tr.fromP.x+2*u*k*tr.ctrl.x+k*k*tr.toP.x,u*u*tr.fromP.y+2*u*k*tr.ctrl.y+k*k*tr.toP.y,u*u*tr.fromP.z+2*u*k*tr.ctrl.z+k*k*tr.toP.z);
     controls.target.lerpVectors(tr.fromL,tr.toL,k);camera.lookAt(controls.target);camera.rotateZ(Math.sin(k*Math.PI)*tr.bank);
-    if(pt>=tr.dur){phase='dwell';pt=0;controls.enabled=!(inFrame?matchMedia('(pointer: coarse)').matches:false);}}
+    if(pt>=tr.dur){phase='dwell';pt=0;controls.enabled=!(inFrame?matchMedia('(pointer: coarse)').matches:false);chime(STOPS[cur].id);padStart(STOPS[cur].id);}}
   else{controls.autoRotate=!reduce;controls.update();if(auto){pt+=dt;if(pt>STOPS[cur].dwell)goTo(cur+1);}}
   const seg=segs.children[cur];if(seg)seg.firstChild.style.width=(phase==='dwell'?clamp(pt/STOPS[cur].dwell,0,1)*100:0)+'%';
   $('transit').style.opacity=(STOPS[cur].hud&&phase==='dwell')?1:0;if(STOPS[cur].hud)drawLC();
