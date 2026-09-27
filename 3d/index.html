@@ -90,6 +90,8 @@ body.clean .top .tbtns,body.clean .ctrl,body.clean #hint{display:none}
 .tb.nav:hover{border-color:rgba(255,181,71,.6)}
 #clean{display:none}
 #snd.off{border-color:var(--sun);color:var(--sun)}
+#u3dx{}
+.tbtns{align-items:flex-start}.tbtns .tb{white-space:nowrap}
 @media (max-width:520px){.tbtns{gap:6px}.tbtns .tb{padding:7px 8px;font-size:12px;letter-spacing:.02em}.brand{font-size:11px}}
 body.inframe .hint#hint{display:none}
 </style>
@@ -433,7 +435,7 @@ function sndInit(){if(SND.ctx)return true;const C=window.AudioContext||window.we
   for(let i=0;i<d.length;i++){const w=Math.random()*2-1;last=(last+.02*w)/1.02;d[i]=w*.35+last*3.5;}
   SND.noise=b;return true;}
 function sndLabel(){const s=$('snd');if(!s)return;s.classList.toggle('off',!SND.on);s.setAttribute('aria-pressed',SND.on?'true':'false');
-  s.textContent=SND.on?(lang==='ko'?'🔊 소리 끄기':'🔊 Sound off'):(lang==='ko'?'🔇 소리 켜기':'🔇 Sound on');}
+  const nar=innerWidth<=520;s.textContent=SND.on?(nar?'🔊':(lang==='ko'?'🔊 소리 끄기':'🔊 Sound off')):(nar?(lang==='ko'?'🔇 소리':'🔇 Sound'):(lang==='ko'?'🔇 소리 켜기':'🔇 Sound on'));s.title=SND.on?(lang==='ko'?'소리 끄기':'Sound off'):(lang==='ko'?'소리 켜기':'Sound on');}
 function sndSet(v){if(!sndInit())return;SND.on=v;const c=SND.ctx;if(c.state!=='running')c.resume();const t=c.currentTime;
   SND.master.gain.cancelScheduledValues(t);SND.master.gain.setTargetAtTime(v?1:0,t,.12);
   if(v){if(phase==='dwell')padStart(STOPS[cur].id);else if(tr)whoosh(Math.max(.8,tr.dur-pt));}else padStop();sndLabel();}
