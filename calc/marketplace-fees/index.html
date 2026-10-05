@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>마켓 수수료 비교 계산기 — 아마존·이베이·월마트·엣시·쇼피파이·틱톡샵 · 미국주부</title>
+<meta name="description" content="같은 상품을 아마존·이베이·월마트·엣시·쇼피파이·틱톡샵에서 팔면 각각 얼마 남는지 한 화면에서 비교하는 무료 계산기. 카테고리별 공식 수수료 반영." />
+
+<link rel="canonical" href="https://mikukjubu.com/calc/marketplace-fees/" />
+<link rel="alternate" hreflang="ko" href="https://mikukjubu.com/calc/marketplace-fees/" />
+<link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/calc/marketplace-fees/" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#FFF6E8" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="미국주부 · Mompreneur Diary" />
+<meta property="og:title" content="마켓 수수료 비교 계산기 — 6개 마켓에서 각각 얼마 남을까" />
+<meta property="og:description" content="같은 상품을 아마존·이베이·월마트·엣시·쇼피파이·틱톡샵에서 팔면 얼마 남는지 한 화면에서 비교합니다." />
+<meta property="og:url" content="https://mikukjubu.com/calc/marketplace-fees/" />
+<meta property="og:image" content="https://mikukjubu.com/og-image.png" />
+<meta property="og:locale" content="ko_KR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://mikukjubu.com/og-image.png" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Gaegu:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/mk.css?v=20260924" />
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  .page-head{background:var(--cream-2)}
+  .fc{display:grid;grid-template-columns:minmax(300px,380px) 1fr;gap:32px;align-items:start;padding-top:40px;padding-bottom:56px}
+  .fc-form{background:var(--white);border:var(--bd) solid var(--edge);border-radius:24px;box-shadow:7px 7px 0 var(--edge);padding:24px 22px;position:sticky;top:92px;max-height:calc(100vh - 112px);overflow-y:auto}
+  .fc-form h2,.fc-res h2{font-family:var(--disp);font-weight:400;font-size:24px;margin-bottom:16px}
+  .fc-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .fc-f{display:block;margin-bottom:14px}
+  .fc-f span{display:block;font-size:13.5px;font-weight:800;margin-bottom:6px}
+  .fc-f small{display:block;font-size:12px;font-weight:600;color:var(--ink-soft);margin-top:5px;line-height:1.5}
+  .fc-f input,.fc-f select{width:100%;font:inherit;font-size:16px;font-weight:700;color:var(--ink);background:var(--cream);
+    border:2px solid var(--edge);border-radius:12px;padding:10px 12px}
+  .fc-f input:focus,.fc-f select:focus{outline:3px solid var(--lime);outline-offset:1px}
+  .fc-f input:disabled{opacity:.45}
+  .fc-check{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;margin:-4px 0 14px;cursor:pointer}
+  .fc-check input{width:18px;height:18px;accent-color:var(--plum)}
+  .fc-more{border-top:2px dashed var(--edge);margin-top:6px;padding-top:14px}
+  .fc-more summary{font-weight:800;font-size:14px;cursor:pointer;margin-bottom:14px}
+  .fc-sum{background:var(--lime);border:var(--bd) solid var(--edge);border-radius:18px;padding:16px 20px;font-weight:800;font-size:16.5px;line-height:1.6;margin-bottom:22px}
+  .fc-out{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+  .fc-card{background:var(--white);border:var(--bd) solid var(--edge);border-radius:20px;box-shadow:5px 5px 0 var(--edge);padding:20px}
+  .fc-card.is-best{background:var(--lilac);box-shadow:7px 7px 0 var(--edge)}
+  .fc-card header{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+  .fc-card h3{font-size:17px;font-weight:800}
+  .fc-badge{font-family:var(--mono);font-size:11px;font-weight:700;background:var(--lime);border:2px solid var(--edge);border-radius:999px;padding:3px 10px}
+  .fc-profit{font-family:var(--en);font-size:34px;line-height:1.15;margin-top:10px}
+  .fc-profit small{display:block;font-family:var(--kr);font-size:12px;font-weight:700;color:var(--ink-soft);margin-top:2px}
+  .fc-card.is-loss .fc-profit{color:#C22E0C}
+  .fc-rate{font-family:var(--mono);font-size:12.5px;font-weight:700;margin:8px 0 6px}
+  .fc-fee{font-size:13px;font-weight:700;margin-bottom:12px}
+  .fc-be{font-size:12.5px;font-weight:800;margin-top:12px;background:var(--cream);border:2px solid var(--edge);border-radius:10px;padding:6px 10px}
+  .fc-bar{display:none}
+  .fc-card dl{display:grid;grid-template-columns:1fr auto;gap:5px 12px;font-size:13px;border-top:2px solid var(--edge);padding-top:12px}
+  .fc-card dt{font-weight:600;color:var(--ink-soft)}
+  .fc-card dd{font-weight:800;text-align:right;font-variant-numeric:tabular-nums}
+  .fc-note{font-size:12px;font-weight:700;line-height:1.55;margin-top:12px;padding-top:10px;border-top:2px dashed var(--edge)}
+  .fc-foot{border-top:var(--bd) solid var(--edge);background:var(--cream-2);padding:36px 0 44px;font-size:14px;line-height:1.8}
+  .fc-foot h2{font-family:var(--disp);font-weight:400;font-size:22px;margin-bottom:12px}
+  .fc-foot ul{margin:0 0 18px 20px}
+  .fc-foot li{margin-bottom:6px}
+  .fc-foot a{font-weight:800;border-bottom:2px solid var(--coral)}
+  .fc-foot .src a{margin-right:14px;white-space:nowrap}
+  @media(max-width:900px){
+    .fc{grid-template-columns:1fr;gap:26px;padding-top:28px}
+    .fc-form{position:static;max-height:none;overflow:visible}
+    .fc-bar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:40;align-items:center;justify-content:space-between;gap:10px;
+      background:var(--plum);color:var(--cream);border:var(--bd) solid var(--edge);border-radius:999px;box-shadow:4px 4px 0 var(--edge);
+      padding:12px 18px;font-weight:800;font-size:14.5px}
+    .fc-bar.is-off{display:none}
+    .fc-bar b{font-family:var(--en);font-weight:400;font-size:15px}
+  }
+</style>
+</head>
+<body>
+
+<header class="mk-nav">
+  <div class="wrap mk-nav-in">
+    <a href="/" class="mk-logo" aria-label="미국주부 홈">
+      <span class="mk-tile">M</span>
+      <span>미국주부<small>Mompreneur Diary</small></span>
+    </a>
+    <nav class="mk-menu" id="mkMenu">
+      <a href="/#youtube">영상</a>
+      <a href="/blog/">블로그</a>
+      <a href="/tools/">추천 프로그램</a>
+      <a href="/contact/">문의</a>
+      <a href="/en/" class="lang">EN ↗</a>
+    </nav>
+    <div class="mk-nav-right">
+      <a href="/contact/" class="pill pill-coral">1:1 컨설팅 <span class="ar">↗</span></a>
+      <button class="mk-burger" id="mkBurger" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="tag">무료 계산기</span>
+    <h1>같은 상품, 어디서 팔면<br />제일 많이 남을까?</h1>
+    <p class="lead">판매가와 원가를 한 번만 넣으면 아마존 · 이베이 · 월마트 · 엣시 · 쇼피파이 · 틱톡샵에서 각각 얼마가 남는지 바로 비교해 드려요. 카테고리별 공식 수수료를 그대로 넣었어요.</p>
+  </div>
+</section>
+
+<main class="wrap fc">
+  <form class="fc-form" id="fcForm" onsubmit="return false">
+    <h2>내 상품 넣기</h2>
+    <label class="fc-f"><span>카테고리</span><select id="fcCat"></select></label>
+    <div class="fc-row">
+      <label class="fc-f"><span>판매가 ($)</span><input id="fcPrice" type="number" inputmode="decimal" min="0" step="0.01" value="40" /></label>
+      <label class="fc-f"><span>원가 ($)</span><input id="fcCost" type="number" inputmode="decimal" min="0" step="0.01" value="15" /></label>
+    </div>
+    <div class="fc-row">
+      <label class="fc-f"><span>내가 내는 배송비 ($)</span><input id="fcShip" type="number" inputmode="decimal" min="0" step="0.01" value="6" /></label>
+      <label class="fc-f"><span>한 달 판매 개수</span><input id="fcQty" type="number" inputmode="numeric" min="1" step="1" value="100" /></label>
+    </div>
+    <label class="fc-f"><span>아마존 FBA 배송비 ($)</span><input id="fcFba" type="number" inputmode="decimal" min="0" step="0.01" value="6" />
+      <small>크기 · 무게마다 달라요. <a href="https://sellercentral.amazon.com/fba/profitabilitycalculator/index" target="_blank" rel="noopener nofollow" style="border-bottom:2px solid var(--coral);font-weight:800">아마존 공식 계산기</a>에서 내 상품 값을 확인해 넣으세요.</small></label>
+    <label class="fc-f"><span>광고비 (개당 $)</span><input id="fcAd" type="number" inputmode="decimal" min="0" step="0.01" value="0" /></label>
+    <label class="fc-check"><input id="fcAdSplit" type="checkbox" /> 마켓마다 광고비 따로 넣기</label>
+    <div id="fcAdEach" hidden>
+      <div class="fc-row">
+        <label class="fc-f"><span>아마존</span><input id="fcAd-amazon" type="number" inputmode="decimal" min="0" step="0.01" value="0" /></label>
+        <label class="fc-f"><span>이베이</span><input id="fcAd-ebay" type="number" inputmode="decimal" min="0" step="0.01" value="0" /></label>
+      </div>
+      <div class="fc-row">
+        <label class="fc-f"><span>월마트</span><input id="fcAd-walmart" type="number" inputmode="decimal" min="0" step="0.01" value="0" /></label>
+        <label class="fc-f"><span>엣시</span><input id="fcAd-etsy" type="number" inputmode="decimal" min="0" step="0.01" value="0" /></label>
+      </div>
+      <div class="fc-row">
+        <label class="fc-f"><span>쇼피파이</span><input id="fcAd-shopify" type="number" inputmode="decimal" min="0" step="0.01" value="0" /></label>
+        <label class="fc-f"><span>틱톡샵</span><input id="fcAd-tiktok" type="number" inputmode="decimal" min="0" step="0.01" value="0" /></label>
+      </div>
+    </div>
+    <details class="fc-more">
+      <summary>더 정확하게 (선택)</summary>
+      <div class="fc-row">
+        <label class="fc-f"><span>구매자에게 받는 배송비 ($)</span><input id="fcBuyerShip" type="number" inputmode="decimal" min="0" step="0.01" value="0" /></label>
+        <label class="fc-f"><span>판매세 (%)</span><input id="fcTax" type="number" inputmode="decimal" min="0" step="0.1" value="0" /></label>
+      </div>
+      <label class="fc-f"><span>기타 비용 (개당 $)</span><input id="fcOther" type="number" inputmode="decimal" min="0" step="0.01" value="0" />
+        <small>반품 손실, 포장비, 틱톡 크리에이터 수수료처럼 따로 나가는 돈이 있으면 넣으세요.</small></label>
+      <label class="fc-f"><span>아마존 요금제</span><select id="fcAzPlan"><option value="pro">프로 — 월 $39.99</option><option value="individual">개인 — 개당 $0.99</option></select></label>
+      <label class="fc-f"><span>쇼피파이 요금제 (월 결제)</span><select id="fcSpPlan"><option value="basic">Basic — 월 $39</option><option value="grow">Grow — 월 $105</option><option value="advanced">Advanced — 월 $399</option></select></label>
+    </details>
+  </form>
+
+  <section class="fc-res" id="fcRes" aria-live="polite">
+    <h2>마켓별로 남는 돈</h2>
+    <p class="fc-sum" id="fcSum"></p>
+    <div class="fc-out" id="fcOut"></div>
+  </section>
+</main>
+<a class="fc-bar" id="fcBar" href="#fcRes"><span>제일 많이 남는 곳 <b id="fcBarTx"></b></span><span>결과 보기 ↓</span></a>
+
+<section class="fc-foot">
+  <div class="wrap">
+    <h2>이 계산기가 계산하는 방식</h2>
+    <ul>
+      <li>순이익 = 판매가 − 마켓 수수료 − 월 요금(한 달 판매 개수로 나눔) − 배송비 − 광고비 − 원가</li>
+      <li>마진은 순이익을 판매가로 나눈 값이고, ROI는 순이익을 원가로 나눈 값이에요.</li>
+      <li>이베이는 구매자에게 받는 배송비와 판매세까지 더한 총액에 수수료가 붙어요. 아마존 · 월마트는 판매가와 구매자에게 받는 배송비에만 붙어요.</li>
+      <li>가격대에 따라 요율이 바뀌는 카테고리(의류 · 뷰티 · 가구 · 시계 등)는 가격 구간에 맞춰 계산해요.</li>
+      <li>「○○ 넘게 팔아야 남아요」는 지금 넣은 원가 · 배송비 · 광고비로 손해를 안 보는 가장 낮은 판매가예요.</li>
+    </ul>
+    <h2 style="margin-top:26px">계산에 넣지 않은 것</h2>
+    <ul>
+      <li>아마존 FBA 보관료 · 입고 운송비, 반품, 프로모션 할인, 환율 — 해당되면 「기타 비용」 칸에 넣어 주세요.</li>
+      <li>엣시 오프사이트 광고 — 엣시가 바깥에 낸 광고로 팔린 주문에는 12~15%가 더 붙어요.</li>
+      <li>틱톡샵 크리에이터 수수료 — 내가 정하는 값이라 「기타 비용」 칸에 넣어 주세요.</li>
+      <li>이베이 스토어 구독자와 판매 등급이 낮은 셀러는 요율이 달라요. 이 계산기는 스토어 없는 일반 셀러 기준이에요.</li>
+      <li>결과는 예상치예요. 실제 정산은 각 마켓 정산서가 기준이에요.</li>
+    </ul>
+    <p class="src">수수료 확인 날짜 <b id="fcChecked"></b> · 공식 수수료 페이지:
+      <a href="https://sell.amazon.com/pricing" target="_blank" rel="noopener nofollow">아마존</a>
+      <a href="https://www.ebay.com/help/selling/fees-credits-invoices/selling-fees?id=4822" target="_blank" rel="noopener nofollow">이베이</a>
+      <a href="https://marketplacelearn.walmart.com/guides/Getting%20started/Onboarding/Referral-fee-schedule-for-contract-categories" target="_blank" rel="noopener nofollow">월마트</a>
+      <a href="https://www.etsy.com/legal/fees/" target="_blank" rel="noopener nofollow">엣시</a>
+      <a href="https://www.shopify.com/pricing" target="_blank" rel="noopener nofollow">쇼피파이</a>
+      <a href="https://seller-us.tiktok.com/university/essay?knowledge_id=5988482086864682" target="_blank" rel="noopener nofollow">틱톡샵</a>
+    </p>
+  </div>
+</section>
+
+<footer class="mk-ft">
+  <div class="wrap">
+    <div class="mk-ft-top">
+      <div class="mk-ft-brand">
+        <a href="/" class="mk-logo"><span class="mk-tile">M</span><span>미국주부<small>Mompreneur Diary</small></span></a>
+        <p>미국에서 1인 사업하는 한국 주부. 온라인 마케팅 · 드랍쉬핑 · 온라인 셀러 컨설팅.</p>
+      </div>
+      <div class="mk-ft-col">
+        <h5>둘러보기</h5>
+        <a href="/#youtube">영상</a>
+        <a href="/blog/">블로그</a>
+        <a href="/tools/">추천 프로그램</a>
+        <a href="/contact/">문의</a>
+      </div>
+      <div class="mk-ft-col">
+        <h5>커뮤니티 · 연결</h5>
+        <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener">유튜브 구독하기 →</a>
+        <a href="https://www.youtube.com/channel/UCssWRwTEAY-UY7X7lvFi80w/join" target="_blank" rel="noopener">유튜브 멤버십 가입 →</a>
+        <a href="https://discord.gg/HgDDT2C6rs" target="_blank" rel="noopener">Discord 커뮤니티 →</a>
+      </div>
+    </div>
+    <div class="mk-ft-bot">
+      <span>© 2026 미국주부 · Mompreneur Diary. All rights reserved.</span>
+      <span><a href="/privacy.html">개인정보처리방침</a> · <a href="/disclosure.html">제휴 공시</a> · <a href="/en/">English</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/calc-fees.js?v=20261005b" defer></script>
+<script src="/js/mk.js?v=20260924" defer></script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9b3d857e23354a79b458004691c28056"}'></script>
+</body>
+</html>
