@@ -66,7 +66,7 @@
       for (i = 0; i < lines.length; i++) fees += lines[i][1];
       var arrive = sale - fees;
       function at(rate) {
-        var net = arrive * (1 - rate);
+        var net = arrive > 0 ? arrive * (1 - rate) : arrive;   // 도착 달러가 없으면 출금 수수료도 없다
         var denom = net - dutyUsd;                              // 환율 1원당 남는 달러
         return {
           net: net,
@@ -160,15 +160,22 @@
 
   function render() {
     var inp = read(), r = calc(inp), m = r.main, i, html, keep;
-    var hasFx = r.fx !== null;
+    var hasFx = r.fx !== null, saleLabel = +inp.buyerShip > 0 ? '판매가 + 배송비' : '판매가';
+    if (m.sale <= 0) {   // 판매가가 없으면 계산할 게 없다
+      $('kpHeroPct').textContent = '—'; $('kpHeroSub').textContent = '판매가를 넣어 주세요';
+      $('kpWf').innerHTML = ''; $('kpOut').innerHTML = '';
+      $('kpKrw').textContent = '—'; $('kpKrwSub').textContent = ''; $('kpProfit').textContent = '—'; $('kpProfit').classList.remove('is-loss');
+      $('kpProfitSub').textContent = ''; $('kpBe').textContent = '—'; $('kpBeSub').textContent = ''; $('kpBarTx').textContent = '—';
+      return;
+    }
 
     // ① 큰 글자
     $('kpHeroPct').textContent = pctTxt(m.pct);
-    $('kpHeroSub').textContent = m.ko + ' · 판매가 ' + usd(m.sale) + ' 중 ' + range(m.net, usd) + '가 통장으로';
+    $('kpHeroSub').textContent = m.ko + ' · ' + saleLabel + ' ' + usd(m.sale) + ' 중 ' + range(m.net, usd) + '가 통장으로';
 
     // ② 폭포 그림
     keep = m.sale;
-    html = wfRow('판매가 ' + (inp.buyerShip > 0 ? '+ 배송비 ' : '') + '<b>' + usd(m.sale) + '</b>', 0, keep, m.sale, 'is-top');
+    html = wfRow(saleLabel + ' <b>' + usd(m.sale) + '</b>', 0, keep, m.sale, 'is-top');
     for (i = 0; i < m.lines.length; i++) {
       keep -= m.lines[i][1];
       html += wfRow('− ' + esc(m.lines[i][0]) + ' <b>' + usd(m.lines[i][1]) + '</b>', m.lines[i][1], keep, m.sale);
@@ -181,7 +188,7 @@
     // ③ 원화 입금 ④ 순이익 ⑤ 손익분기 환율
     $('kpKrw').textContent = hasFx ? range(m.krw, won) : '환율을 넣으면 원화로 보여 드려요';
     $('kpKrwSub').textContent = hasFx
-      ? '판매가를 그대로 환산하면 ' + won(m.sale * r.fx) + ' — 그중 ' + pctTxt(m.pct) + '가 들어와요'
+      ? saleLabel + '를 그대로 환산하면 ' + won(m.sale * r.fx) + ' — 그중 ' + pctTxt(m.pct) + '가 들어와요'
       : '위 % 는 환율과 상관없이 그대로예요';
     if (hasFx) {
       $('kpProfit').textContent = range(m.profit, won);
@@ -194,11 +201,15 @@
     if (m.beFx.hi === null && m.beFx.lo === null) {
       $('kpBe').textContent = '환율과 상관없이 손해예요';
       $('kpBeSub').textContent = '수수료와 관세를 빼면 달러가 남지 않아요 — 판매가를 올리거나 원가를 낮춰 보세요';
-    } else {
-      var beHi = m.beFx.hi === null ? m.beFx.lo : m.beFx.hi;   // 출금 요율이 높을 때(hi) 손익분기 환율이 더 높다 = 보수적
-      $('kpBe').textContent = '환율이 ' + won(beHi) + ' 아래로 내려가면 손해예요';
-      $('kpBeSub').textContent = m.w.fixed || m.beFx.lo === null ? '지금 넣은 원가 · 배송비 · 관세 기준'
-        : 'Payoneer 출금 4% 기준 · 1.2% 면 ' + won(m.beFx.lo);
+    } else if (m.beFx.lo <= 0 && (m.beFx.hi === null || m.beFx.hi <= 0)) {
+      $('kpBe').textContent = '손해 나는 환율이 없어요';
+      $('kpBeSub').textContent = '원가 · 배송비를 넣으면 손익분기 환율이 나와요';
+    } else if (m.beFx.hi === null) {   // 출금 4% 일 때만 달러가 안 남는 경우
+      $('kpBe').textContent = '환율이 ' + won(m.beFx.lo) + ' 아래로 내려가면 손해예요';
+      $('kpBeSub').textContent = 'Payoneer 출금 1.2% 기준 · 4% 면 환율과 상관없이 손해예요';
+    } else {   // 출금 요율이 높을 때(hi) 손익분기 환율이 더 높다 = 보수적인 쪽을 큰 글자로
+      $('kpBe').textContent = '환율이 ' + won(m.beFx.hi) + ' 아래로 내려가면 손해예요';
+      $('kpBeSub').textContent = m.w.fixed ? '지금 넣은 원가 · 배송비 · 관세 기준' : 'Payoneer 출금 4% 기준 · 1.2% 면 ' + won(m.beFx.lo);
     }
 
     // ⑥ 마켓 3개 카드
@@ -239,7 +250,7 @@
         if (j && j.rates && j.rates.KRW) ok(j.rates.KRW, '기준: 유럽중앙은행(Frankfurter) · ' + j.date);
         else throw new Error('no KRW');
       }).catch(function () {
-        if (!done && !fxMeta.touched) { $('kpFxSrc').textContent = '환율을 자동으로 못 가져왔어요 — 아래 링크에서 보고 직접 넣어 주세요'; render(); }
+        if (!done && !fxMeta.touched) { $('kpFxSrc').textContent = '환율을 자동으로 못 가져왔어요 — 아래 링크에서 보고 직접 넣어 주세요'; $('kpFx').placeholder = '예: 1340'; render(); }
       });
     });
   }
@@ -256,7 +267,7 @@
       document.body.dataset.market = this.dataset.m;
       render();
     });
-    $('kpFx').addEventListener('input', function () { fxMeta.touched = true; $('kpFxSrc').textContent = '직접 넣은 환율'; });
+    $('kpFx').addEventListener('input', function () { fxMeta.touched = true; $('kpFxSrc').textContent = this.value ? '직접 넣은 환율' : '환율을 넣어 주세요'; this.placeholder = '예: 1340'; });
     $('kpForm').addEventListener('input', render);
     $('kpForm').addEventListener('change', render);
     $('kpChecked').textContent = KRW.checked;
