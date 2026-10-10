@@ -151,4 +151,10 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/calc/fair-draw/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/calc/fair-draw/" />
   </url>
+  <url>
+    <loc>https://mikukjubu.com/calc/krw-payout/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/calc/krw-payout/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/calc/krw-payout/" />
+  </url>
 </urlset>

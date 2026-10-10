@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>원화 입금 계산기 — 미국에 팔면 한국 통장엔 얼마 들어올까 · 미국주부</title>
+<meta name="description" content="한국에서 이베이·엣시·아마존(미국)에 팔면 수수료·해외 수수료·환전·관세까지 빼고 한국 통장에 원화로 얼마 들어오는지, 판매가의 몇 %인지 계산하는 무료 계산기." />
+
+<link rel="canonical" href="https://mikukjubu.com/calc/krw-payout/" />
+<link rel="alternate" hreflang="ko" href="https://mikukjubu.com/calc/krw-payout/" />
+<link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/calc/krw-payout/" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#FFF6E8" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="미국주부 · Mompreneur Diary" />
+<meta property="og:title" content="원화 입금 계산기 — 미국에 팔면 한국 통장엔 얼마 들어올까" />
+<meta property="og:description" content="이베이·엣시·아마존 수수료부터 해외 수수료·환전·관세까지 다 빼고, 한국 통장에 원화로 얼마 들어오는지 계산해 드려요." />
+<meta property="og:url" content="https://mikukjubu.com/calc/krw-payout/" />
+<meta property="og:image" content="https://mikukjubu.com/og-image.png" />
+<meta property="og:locale" content="ko_KR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://mikukjubu.com/og-image.png" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Gaegu:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/mk.css?v=20260924" />
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  .page-head{background:var(--cream-2)}
+  .fc{display:grid;grid-template-columns:minmax(300px,380px) 1fr;gap:32px;align-items:start;padding-top:40px;padding-bottom:56px}
+  .fc-form{background:var(--white);border:var(--bd) solid var(--edge);border-radius:24px;box-shadow:7px 7px 0 var(--edge);padding:24px 22px;position:sticky;top:92px;max-height:calc(100vh - 112px);overflow-y:auto}
+  .fc-form h2,.fc-res h2{font-family:var(--disp);font-weight:400;font-size:24px;margin-bottom:16px}
+  .fc-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .fc-f{display:block;margin-bottom:14px}
+  .fc-f span{display:block;font-size:13.5px;font-weight:800;margin-bottom:6px}
+  .fc-f small{display:block;font-size:12px;font-weight:600;color:var(--ink-soft);margin-top:5px;line-height:1.5}
+  .fc-f input,.fc-f select{width:100%;font:inherit;font-size:16px;font-weight:700;color:var(--ink);background:var(--cream);
+    border:2px solid var(--edge);border-radius:12px;padding:10px 12px}
+  .fc-f input:focus,.fc-f select:focus{outline:3px solid var(--lime);outline-offset:1px}
+  .fc-f small a,.kp-links a{color:var(--coral);font-weight:800;border-bottom:2px solid var(--coral)}
+  .fc-check{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;margin:-4px 0 14px;cursor:pointer}
+  .fc-check input{width:18px;height:18px;accent-color:var(--plum)}
+  .fc-more{border-top:2px dashed var(--edge);margin-top:6px;padding-top:14px}
+  .fc-more summary{font-weight:800;font-size:14px;cursor:pointer;margin-bottom:14px}
+  .fc-more h4{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin:6px 0 10px}
+  .kp-tabs{margin-bottom:16px}
+  .kp-tabs .tab{font-size:13px;padding:8px 14px}
+  .kp-fx{background:var(--cream-2);border:2px solid var(--edge);border-radius:14px;padding:12px;margin-bottom:14px}
+  .kp-fx .fc-f{margin-bottom:6px}
+  .kp-fx-src{font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-height:1.5}
+  .kp-links{font-size:12.5px;font-weight:700;margin-top:8px;line-height:1.7}
+  .kp-links a{margin-right:12px;white-space:nowrap}
+  .kp-hero{background:var(--lilac);border:var(--bd) solid var(--edge);border-radius:22px;box-shadow:6px 6px 0 var(--edge);padding:22px 24px;margin-bottom:22px}
+  .kp-hero .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+  .kp-hero-pct{font-family:var(--en);font-size:clamp(40px,6vw,64px);line-height:1.05;margin-top:6px}
+  .kp-hero-pct b{font-family:var(--disp);font-weight:400;font-size:.5em;margin-left:6px}
+  .kp-hero-sub{font-size:14px;font-weight:700;margin-top:8px;color:var(--ink-soft)}
+  .kp-wfbox{background:var(--white);border:var(--bd) solid var(--edge);border-radius:20px;box-shadow:5px 5px 0 var(--edge);padding:20px;margin-bottom:22px}
+  .kp-wfbox h3{font-size:15px;font-weight:800;margin-bottom:14px}
+  .kp-wf{display:grid;gap:9px}
+  .kp-wf-lab{font-size:13px;font-weight:600;color:var(--ink-soft);margin-bottom:4px}
+  .kp-wf-lab b{color:var(--ink);font-weight:800;font-variant-numeric:tabular-nums}
+  .kp-wf-lab small{font-weight:600}
+  .kp-wf-bar{height:22px;border:2px solid var(--edge);border-radius:8px;background:var(--cream);display:flex;overflow:hidden}
+  .kp-wf-bar i{display:block;height:100%}
+  .kp-wf-bar .keep{background:var(--lime)}
+  .kp-wf-bar .cut{background:var(--coral);border-left:2px solid var(--edge)}
+  .kp-wf-row.is-top .keep{background:var(--lilac)}
+  .kp-wf-row.is-final .kp-wf-lab{color:var(--ink);font-size:15px;font-weight:800}
+  .kp-wf-row.is-final .keep{background:var(--plum)}
+  .kp-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}
+  .kp-stat{background:var(--white);border:var(--bd) solid var(--edge);border-radius:18px;box-shadow:4px 4px 0 var(--edge);padding:16px}
+  .kp-stat .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);font-weight:700}
+  .kp-stat .v{font-family:var(--disp);font-weight:400;font-size:21px;line-height:1.25;margin-top:6px;font-variant-numeric:tabular-nums}
+  .kp-stat .v.is-loss{color:#C22E0C}
+  .kp-stat .s{font-size:12px;font-weight:600;color:var(--ink-soft);margin-top:6px;line-height:1.5}
+  .fc-out{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:18px}
+  .fc-card{background:var(--white);border:var(--bd) solid var(--edge);border-radius:20px;box-shadow:5px 5px 0 var(--edge);padding:20px}
+  .fc-card.is-best{background:var(--lilac);box-shadow:7px 7px 0 var(--edge)}
+  .fc-card header{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+  .fc-card h3{font-size:17px;font-weight:800}
+  .fc-badge{font-family:var(--mono);font-size:11px;font-weight:700;background:var(--lime);border:2px solid var(--edge);border-radius:999px;padding:3px 10px}
+  .fc-profit{font-family:var(--en);font-size:30px;line-height:1.15;margin-top:10px}
+  .fc-profit small{display:block;font-family:var(--kr);font-size:12px;font-weight:700;color:var(--ink-soft);margin-top:2px}
+  .fc-fee{font-size:13px;font-weight:700;margin:8px 0 12px}
+  .fc-be{font-size:12.5px;font-weight:800;margin-top:12px;background:var(--cream);border:2px solid var(--edge);border-radius:10px;padding:6px 10px}
+  .fc-card dl{display:grid;grid-template-columns:1fr auto;gap:5px 12px;font-size:13px;border-top:2px solid var(--edge);padding-top:12px}
+  .fc-card dt{font-weight:600;color:var(--ink-soft)}
+  .fc-card dd{font-weight:800;text-align:right;font-variant-numeric:tabular-nums}
+  .fc-note{font-size:12px;font-weight:700;line-height:1.55;margin-top:12px;padding-top:10px;border-top:2px dashed var(--edge)}
+  .fc-bar{display:none}
+  .fc-foot{border-top:var(--bd) solid var(--edge);background:var(--cream-2);padding:36px 0 44px;font-size:14px;line-height:1.8}
+  .fc-foot h2{font-family:var(--disp);font-weight:400;font-size:22px;margin-bottom:12px}
+  .fc-foot ul{margin:0 0 18px 20px}
+  .fc-foot li{margin-bottom:6px}
+  .fc-foot a{font-weight:800;border-bottom:2px solid var(--coral)}
+  .fc-foot .src a{margin-right:14px;white-space:nowrap}
+  .kp-cross{background:var(--white);border:var(--bd) solid var(--edge);border-radius:16px;padding:14px 18px;margin:0 0 22px;font-weight:700}
+  @media(max-width:900px){
+    .fc{grid-template-columns:1fr;gap:26px;padding-top:28px}
+    .fc-form{position:static;max-height:none;overflow:visible}
+    .kp-stats{grid-template-columns:1fr}
+    .fc-bar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:40;align-items:center;justify-content:space-between;gap:10px;
+      background:var(--plum);color:var(--cream);border:var(--bd) solid var(--edge);border-radius:999px;box-shadow:4px 4px 0 var(--edge);
+      padding:12px 18px;font-weight:800;font-size:14.5px}
+    .fc-bar.is-off{display:none}
+    .fc-bar b{font-family:var(--en);font-weight:400;font-size:15px}
+  }
+</style>
+</head>
+<body>
+
+<header class="mk-nav">
+  <div class="wrap mk-nav-in">
+    <a href="/" class="mk-logo" aria-label="미국주부 홈">
+      <span class="mk-tile">M</span>
+      <span>미국주부<small>Mompreneur Diary</small></span>
+    </a>
+    <nav class="mk-menu" id="mkMenu">
+      <a href="/#youtube">영상</a>
+      <a href="/blog/">블로그</a>
+      <a href="/tools/">추천 프로그램</a>
+      <a href="/contact/">문의</a>
+      <a href="/en/" class="lang">EN ↗</a>
+    </nav>
+    <div class="mk-nav-right">
+      <a href="/contact/" class="pill pill-coral">1:1 컨설팅 <span class="ar">↗</span></a>
+      <button class="mk-burger" id="mkBurger" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="tag">무료 계산기 · 한국 셀러용</span>
+    <h1>미국에 팔면,<br />한국 통장엔 얼마 들어올까?</h1>
+    <p class="lead">이베이 · 엣시 · 아마존 수수료부터 해외 수수료 · 환전 · 관세까지 다 빼고 계산해 드려요. 환율은 바뀌니까 「판매가의 몇 %가 통장에 들어오나」를 먼저 보여 드리고, 원화는 오늘 환율로 함께 계산해요.</p>
+  </div>
+</section>
+
+<main class="wrap fc">
+  <form class="fc-form" id="kpForm" onsubmit="return false">
+    <h2>상품 정보 넣기</h2>
+    <div class="tabs kp-tabs" role="tablist" aria-label="마켓">
+      <button type="button" class="tab kp-tab active" role="tab" aria-selected="true" data-m="ebay">이베이</button>
+      <button type="button" class="tab kp-tab" role="tab" aria-selected="false" data-m="etsy">엣시</button>
+      <button type="button" class="tab kp-tab" role="tab" aria-selected="false" data-m="amazon">아마존</button>
+    </div>
+    <label class="fc-f"><span>카테고리</span><select id="kpCat"></select></label>
+    <div class="fc-row">
+      <label class="fc-f"><span>판매가 ($)</span><input id="kpPrice" type="number" inputmode="decimal" min="0" step="0.01" value="40" /></label>
+      <label class="fc-f"><span>구매자 배송비 ($)</span><input id="kpBuyerShip" type="number" inputmode="decimal" min="0" step="0.01" value="0" /></label>
+    </div>
+    <div class="fc-row">
+      <label class="fc-f"><span>원가 (원)</span><input id="kpCost" type="number" inputmode="numeric" min="0" step="10" value="15000" /></label>
+      <label class="fc-f"><span>국제 배송비 (원)</span><input id="kpIntlShip" type="number" inputmode="numeric" min="0" step="10" value="11060" />
+        <small>예: K-Packet 300g 11,060원 (2026 우체국 요금표)</small></label>
+    </div>
+    <div class="kp-fx">
+      <label class="fc-f"><span>환율 (1달러 = 원)</span><input id="kpFx" type="number" inputmode="decimal" min="0" step="0.01" placeholder="자동으로 가져오는 중…" /></label>
+      <p class="kp-fx-src" id="kpFxSrc">환율을 가져오는 중…</p>
+      <p class="kp-links">지금 환율 보기:
+        <a href="https://m.stock.naver.com/marketindex/exchange/FX_USDKRW" target="_blank" rel="nofollow noopener">네이버 증권 ↗</a>
+        <a href="https://www.kebhana.com/cont/mall/mall15/mall1501/index.jsp" target="_blank" rel="nofollow noopener">하나은행 현재환율 ↗</a></p>
+      <p class="kp-fx-src">이 환율은 시장 기준 환율이에요. Payoneer · 은행은 여기에 수수료를 얹은 자기 환율을 써요 (아래 「출금 요율」 칸에 반영). 직접 고쳐 넣어도 돼요.</p>
+    </div>
+    <details class="fc-more">
+      <summary>더 정확하게 (선택)</summary>
+      <h4>공통</h4>
+      <div class="fc-row">
+        <label class="fc-f"><span>판매세 (%)</span><input id="kpTax" type="number" inputmode="decimal" min="0" step="0.1" value="0" />
+          <small>구매자가 내고 마켓이 걷어요. 수수료 기준 금액에만 들어가요.</small></label>
+        <label class="fc-f"><span>관세율 (%)</span><input id="kpDuty" type="number" inputmode="decimal" min="0" step="0.1" value="12.5" />
+          <small>한국산은 대부분 12.5% (MFN + 301조 합계). MFN 이 12.5% 넘는 품목은 그 MFN 값.</small></label>
+      </div>
+      <div class="fc-row">
+        <label class="fc-f"><span>DDP 대행 수수료 (원)</span><input id="kpDdp" type="number" inputmode="numeric" min="0" step="10" value="0" />
+          <small>관세 선납 대행비. 배송사 안내문을 보고 넣으세요.</small></label>
+        <label class="fc-f"><span>포장비 (원)</span><input id="kpPacking" type="number" inputmode="numeric" min="0" step="10" value="0" /></label>
+      </div>
+      <label class="fc-f"><span>Payoneer 출금 요율 (%)</span><input id="kpPayoneer" type="number" inputmode="decimal" min="0" max="10" step="0.1" placeholder="비우면 1.2~4% 범위로" />
+        <small>Payoneer 공식 표는 1.2~4% 범위만 공개해요. 계정 화면의 요율을 알면 넣으세요. (이베이 · 엣시)</small></label>
+      <h4>엣시</h4>
+      <label class="fc-f"><span>오프사이트 광고로 팔린 주문</span>
+        <select id="kpOffsite"><option value="none">아니요 (기본)</option><option value="std">네 — 15% (연매출 $10,000 미만)</option><option value="big">네 — 12% (연매출 $10,000 이상)</option></select></label>
+      <label class="fc-check"><input id="kpEtsyUsd" type="checkbox" checked /> 미국 달러(USD)로 등록 — 환전 2.5% 없음</label>
+      <h4>아마존</h4>
+      <div class="fc-row">
+        <label class="fc-f"><span>요금제</span><select id="kpAzPlan"><option value="pro">프로 — 월 $39.99</option><option value="individual">개인 — 개당 $0.99</option></select></label>
+        <label class="fc-f"><span>한 달 판매 개수</span><input id="kpQty" type="number" inputmode="numeric" min="1" step="1" value="100" /></label>
+      </div>
+      <label class="fc-f"><span>FBA 배송비 ($)</span><input id="kpFba" type="number" inputmode="decimal" min="0" step="0.01" value="0" />
+        <small>크기 · 무게마다 달라요. <a href="https://sellercentral.amazon.com/fba/profitabilitycalculator/index" target="_blank" rel="nofollow noopener">아마존 공식 계산기</a>에서 확인해 넣으세요.</small></label>
+    </details>
+  </form>
+
+  <section class="fc-res" id="kpRes" aria-live="polite">
+    <div class="kp-hero">
+      <span class="k">판매가 중 통장에 들어오는 비율</span>
+      <p class="kp-hero-pct"><span id="kpHeroPct"></span><b>가 통장에 들어와요</b></p>
+      <p class="kp-hero-sub" id="kpHeroSub"></p>
+    </div>
+
+    <div class="kp-wfbox">
+      <h3>판매가에서 어디서 얼마씩 빠지나</h3>
+      <div class="kp-wf" id="kpWf"></div>
+    </div>
+
+    <div class="kp-stats">
+      <div class="kp-stat"><span class="k">원화 입금 (예상)</span><p class="v" id="kpKrw"></p><p class="s" id="kpKrwSub"></p></div>
+      <div class="kp-stat"><span class="k">순이익 (원)</span><p class="v" id="kpProfit"></p><p class="s" id="kpProfitSub"></p></div>
+      <div class="kp-stat"><span class="k">환율 손익분기</span><p class="v" id="kpBe"></p><p class="s" id="kpBeSub"></p></div>
+    </div>
+
+    <h2>같은 상품, 마켓 3곳 비교</h2>
+    <div class="fc-out" id="kpOut"></div>
+  </section>
+</main>
+<a class="fc-bar" id="kpBar" href="#kpRes"><span>통장에 <b id="kpBarTx"></b></span><span>결과 보기 ↓</span></a>
+
+<section class="fc-foot">
+  <div class="wrap">
+    <p class="kp-cross">미국에 살면서 파시나요? → <a href="/calc/marketplace-fees/">마켓 수수료 비교 계산기</a> (6개 마켓, 달러 기준)</p>
+    <h2>이 계산기가 계산하는 방식</h2>
+    <ul>
+      <li><b>이베이:</b> 최종 판매 수수료(카테고리별, 대부분 13.6%) + 주문당 $0.40($10 이하 $0.30) + 해외 수수료 1.45%(한국 등록 셀러) → 미국 달러로 Payoneer 입금 → 원화로 출금할 때 1.2~4%. 셋 다 구매자 배송비 · 판매세까지 더한 총액에 붙어요. USD 로 팔아 USD 로 받으면 이베이 환전 수수료는 없어요.</li>
+      <li><b>엣시:</b> 등록비 $0.20 + 거래 수수료 6.5% + 결제 수수료 6.5% + $0.30(한국 셀러 — 미국 셀러 3% + $0.25 와 달라요) → Payoneer → 출금. 등록 통화가 USD 가 아니면 환전 2.5% 가 더 붙어요.</li>
+      <li><b>아마존:</b> 판매 수수료(카테고리별, 최소 수수료 적용) + 요금제 + FBA 배송비 → 원화로 받으면 Amazon Currency Converter 1.5%.</li>
+      <li><b>순이익</b> = 원화 입금 − 원가 − 포장비 − 국제 배송비 − DDP 대행 수수료 − 관세(판매가 × 관세율 × 환율). 미국은 $800 소액 면세가 끝났고, 이베이는 한국 → 미국 배송에 DDP(관세 선납)를 요구해요.</li>
+      <li><b>환율 손익분기</b> = 셀러가 원화로 내는 돈 ÷ (출금 뒤 남는 달러 − 관세 달러). 환율이 이 값 아래로 내려가면 순이익이 0 보다 작아져요.</li>
+    </ul>
+    <h2 style="margin-top:26px">계산에 넣지 않은 것</h2>
+    <ul>
+      <li>Payoneer 가 마켓에서 돈을 받을 때 수수료 — 공식 표에 「마켓마다 다름」이라고만 되어 있어 0 으로 뒀어요. 한국 은행 입금 수수료 · Payoneer 연회비($29.95, 12개월 수취 $6,000 미만일 때) 도 안 넣었어요.</li>
+      <li>월마트 · 쇼피파이 · 틱톡샵 — 월마트는 한국 개인 셀러가 입점할 수 없고, 쇼피파이는 Shopify Payments 가 한국을 지원하지 않아요. 틱톡샵 US 는 미국 사업자 기준이라 뺐어요.</li>
+      <li>아마존은 사업자 기준으로 계산했어요. 한국 개인(사업자 아님) 가입 가능 여부는 아마존에서 확인하세요.</li>
+      <li>반품 · 프로모션 할인 · 이베이 스토어 요율 · 셀러 등급이 낮을 때 가산 수수료 · 부가세(수출은 영세율 대상이에요 — 사업자 기준, 세부는 국세청 126).</li>
+      <li>결과는 예상치예요. 실제 정산은 각 마켓 정산서와 Payoneer 화면이 기준이에요.</li>
+    </ul>
+    <p class="src">수수료 확인 날짜 <b id="kpChecked"></b> (카테고리 표 <b id="kpFeesChecked"></b>) · 공식 페이지:
+      <a href="https://www.ebay.com/help/selling/fees-credits-invoices/selling-fees?id=4822" target="_blank" rel="nofollow noopener">이베이 수수료</a>
+      <a href="https://export.ebay.com/en/fees-regulations-policies/seller-fees/international-fees/" target="_blank" rel="nofollow noopener">이베이 해외 수수료</a>
+      <a href="https://export.ebay.com/jp/policies/shipping-policy-for-packages-from-japan-and-korea-to-the-united-states/" target="_blank" rel="nofollow noopener">이베이 DDP</a>
+      <a href="https://www.etsy.com/legal/fees/" target="_blank" rel="nofollow noopener">엣시 수수료</a>
+      <a href="https://www.etsy.com/legal/etsy-payments/" target="_blank" rel="nofollow noopener">엣시 결제 수수료</a>
+      <a href="https://sell.amazon.com/pricing" target="_blank" rel="nofollow noopener">아마존 수수료</a>
+      <a href="https://sell.amazon.com/programs/amazon-currency-converter" target="_blank" rel="nofollow noopener">아마존 환전</a>
+      <a href="https://www.payoneer.com/about/pricing/" target="_blank" rel="nofollow noopener">Payoneer 요금표</a>
+      <a href="https://www.federalregister.gov/documents/2026/07/28/2026-15274" target="_blank" rel="nofollow noopener">미국 관세</a>
+    </p>
+  </div>
+</section>
+
+<footer class="mk-ft">
+  <div class="wrap">
+    <div class="mk-ft-top">
+      <div class="mk-ft-brand">
+        <a href="/" class="mk-logo"><span class="mk-tile">M</span><span>미국주부<small>Mompreneur Diary</small></span></a>
+        <p>미국에서 1인 사업하는 한국 주부. 온라인 마케팅 · 드랍쉬핑 · 온라인 셀러 컨설팅.</p>
+      </div>
+      <div class="mk-ft-col">
+        <h5>둘러보기</h5>
+        <a href="/#youtube">영상</a>
+        <a href="/blog/">블로그</a>
+        <a href="/tools/">추천 프로그램</a>
+        <a href="/contact/">문의</a>
+      </div>
+      <div class="mk-ft-col">
+        <h5>커뮤니티 · 연결</h5>
+        <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener">유튜브 구독하기 →</a>
+        <a href="https://www.youtube.com/channel/UCssWRwTEAY-UY7X7lvFi80w/join" target="_blank" rel="noopener">유튜브 멤버십 가입 →</a>
+        <a href="https://discord.gg/HgDDT2C6rs" target="_blank" rel="noopener">Discord 커뮤니티 →</a>
+      </div>
+    </div>
+    <div class="mk-ft-bot">
+      <span>© 2026 미국주부 · Mompreneur Diary. All rights reserved.</span>
+      <span><a href="/privacy.html">개인정보처리방침</a> · <a href="/disclosure.html">제휴 공시</a> · <a href="/en/">English</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/calc-fees.js?v=20261005b"></script>
+<script src="/js/calc-krw.js?v=20261010" defer></script>
+<script src="/js/mk.js?v=20260924" defer></script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9b3d857e23354a79b458004691c28056"}'></script>
+</body>
+</html>
