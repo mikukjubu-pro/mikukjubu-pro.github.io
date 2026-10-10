@@ -145,4 +145,10 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/calc/marketplace-fees/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/calc/marketplace-fees/" />
   </url>
+  <url>
+    <loc>https://mikukjubu.com/calc/fair-draw/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/calc/fair-draw/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/calc/fair-draw/" />
+  </url>
 </urlset>

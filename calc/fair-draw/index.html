@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>공정한 추첨기 — 명단·댓글 붙여 넣고 보안 난수로 당첨자 뽑기 · 미국주부</title>
+<meta name="description" content="명단을 붙여 넣으면 브라우저 보안 난수로 당첨자를 뽑고, 추첨 전 명단 지문으로 공정성을 증명하는 무료 추첨기. 로그인·저장 없음." />
+
+<link rel="canonical" href="https://mikukjubu.com/calc/fair-draw/" />
+<link rel="alternate" hreflang="ko" href="https://mikukjubu.com/calc/fair-draw/" />
+<link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/calc/fair-draw/" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#FFF6E8" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="미국주부 · Mompreneur Diary" />
+<meta property="og:title" content="공정한 추첨기 — AI 말고 보안 난수로, 명단 지문으로 증명까지" />
+<meta property="og:description" content="댓글이나 명단을 붙여 넣으면 브라우저 보안 난수로 당첨자를 뽑고, 추첨 전 명단 지문으로 공정성을 증명하는 무료 추첨기." />
+<meta property="og:url" content="https://mikukjubu.com/calc/fair-draw/" />
+<meta property="og:image" content="https://mikukjubu.com/og-image.png" />
+<meta property="og:locale" content="ko_KR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://mikukjubu.com/og-image.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://mikukjubu.com/calc/fair-draw/#app",
+  "name": "공정한 추첨기",
+  "url": "https://mikukjubu.com/calc/fair-draw/",
+  "description": "명단이나 번호 범위를 넣으면 브라우저 보안 난수(crypto.getRandomValues)로 당첨자를 뽑고, 추첨 전 명단 지문(SHA-256)으로 공정성을 증명할 수 있는 무료 추첨기.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Person", "name": "미국주부" },
+  "isPartOf": { "@id": "https://mikukjubu.com/#website" }
+}
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Gaegu:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/mk.css?v=20260924" />
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  .page-head{background:var(--cream-2)}
+  .fd{display:grid;grid-template-columns:minmax(300px,440px) 1fr;gap:32px;align-items:start;padding-top:40px;padding-bottom:56px}
+  .fd-card{background:var(--white);border:var(--bd) solid var(--edge);border-radius:24px;box-shadow:7px 7px 0 var(--edge);padding:24px 22px}
+  .fd h2{font-family:var(--disp);font-weight:400;font-size:24px;margin-bottom:14px}
+  .fd-tabs{display:flex;gap:8px;margin-bottom:16px}
+  .fd-tab{flex:1;padding:11px 10px;border:var(--bd) solid var(--edge);border-radius:999px;font-weight:800;font-size:14.5px;background:var(--cream);color:var(--ink)}
+  .fd-tab.is-on{background:var(--plum);color:var(--cream);box-shadow:3px 3px 0 var(--edge)}
+  .fd-tab:focus-visible,.fd button:focus-visible{outline:3px solid var(--lime);outline-offset:2px}
+  .fd-f{display:block;margin-bottom:14px}
+  .fd-f span{display:block;font-size:13.5px;font-weight:800;margin-bottom:6px}
+  .fd-f small{display:block;font-size:12px;font-weight:600;color:var(--ink-soft);margin-top:5px;line-height:1.5}
+  .fd-f input,.fd-f textarea{width:100%;font:inherit;font-size:15px;font-weight:700;color:var(--ink);background:var(--cream);border:2px solid var(--edge);border-radius:12px;padding:10px 12px}
+  .fd-f textarea{font-family:var(--mono);font-size:13.5px;font-weight:400;min-height:200px;resize:vertical;line-height:1.5}
+  .fd-f input:focus,.fd-f textarea:focus{outline:3px solid var(--lime);outline-offset:1px}
+  .fd-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .fd-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:-6px 0 12px}
+  .fd-btn{padding:9px 14px;border:2px solid var(--edge);border-radius:999px;font-weight:800;font-size:13.5px;background:var(--white);box-shadow:3px 3px 0 var(--edge)}
+  .fd-btn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--edge)}
+  .fd-btn:disabled{opacity:.45;box-shadow:none;transform:none;cursor:not-allowed}
+  .fd-msg{font-size:12.5px;font-weight:700;color:var(--ink-soft);margin:-4px 0 12px;min-height:1em}
+  .fd-check{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;margin:0 0 12px;cursor:pointer}
+  .fd-check input{width:18px;height:18px;accent-color:var(--plum)}
+  .fd-more{border-top:2px dashed var(--edge);margin-top:4px;padding-top:12px;margin-bottom:12px}
+  .fd-more summary{font-weight:800;font-size:14px;cursor:pointer;margin-bottom:12px}
+  .fd-count{display:inline-block;background:var(--lime);border:2px solid var(--edge);border-radius:999px;padding:6px 14px;font-weight:800;font-size:14px;margin-bottom:16px}
+  .fd-fpbox{border-top:var(--bd) solid var(--edge);padding-top:16px;margin-top:4px}
+  .fd-fp{margin-top:12px;background:var(--cream-2);border:2px solid var(--edge);border-radius:14px;padding:12px 14px;transition:opacity .2s}
+  .fd-fp.is-stale{opacity:.4}
+  .fd-fp.is-stale .fd-fp-stale{display:block}
+  .fd-fp-stale{display:none;font-size:12.5px;font-weight:800;color:#C22E0C;margin-bottom:6px}
+  .fd-fp-short{font-family:var(--mono);font-size:clamp(20px,2.2vw,26px);font-weight:700;letter-spacing:.04em;word-break:break-all}
+  .fd-fp-full{font-family:var(--mono);font-size:12px;word-break:break-all;line-height:1.6;margin:8px 0}
+  .fd-fp details summary{font-size:12.5px;font-weight:800;cursor:pointer;margin-top:6px}
+  .fd-fp p{font-size:12.5px;font-weight:600;color:var(--ink-soft);line-height:1.55;margin-top:8px}
+  .fd-go{margin-top:18px}
+  .fd-go .pill{width:100%;justify-content:center;font-size:17px;padding:16px 22px}
+  .fd-go .pill:disabled{opacity:.45;box-shadow:none;transform:none;cursor:not-allowed}
+  .fd-err{font-size:13px;font-weight:800;color:#C22E0C;margin-top:10px;min-height:1em;line-height:1.5}
+  /* 결과 */
+  .fd-res{min-height:200px}
+  .fd-empty{border:2px dashed var(--edge);border-radius:24px;padding:40px 24px;text-align:center;color:var(--ink-soft);font-weight:700;line-height:1.7}
+  .fd-reshead{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ink-soft);margin-bottom:12px}
+  .fd-wins{display:grid;gap:14px}
+  .fd-win{display:flex;align-items:center;gap:18px;background:var(--lilac);border:var(--bd) solid var(--edge);border-radius:22px;box-shadow:7px 7px 0 var(--edge);padding:22px 26px}
+  .fd-rank{flex:none;font-family:var(--mono);font-weight:700;font-size:13px;background:var(--white);border:2px solid var(--edge);border-radius:999px;padding:5px 12px}
+  .fd-name{font-family:var(--disp);font-weight:400;font-size:clamp(28px,4vw,52px);line-height:1.15;letter-spacing:-.01em;word-break:break-all;overflow-wrap:anywhere}
+  .fd-win:first-child{background:var(--lime)}
+  @keyframes fdPop{from{opacity:0;transform:translateY(14px) scale(.96)}to{opacity:1;transform:none}}
+  .fd-pop{animation:fdPop .5s cubic-bezier(.2,.8,.2,1) both}
+  .fd-showall{margin-top:14px}
+  .fd-backs{list-style:none;display:grid;gap:8px;margin-top:10px}
+  .fd-backs li{display:flex;align-items:center;gap:12px;background:var(--white);border:2px solid var(--edge);border-radius:14px;padding:10px 14px}
+  .fd-bname{font-weight:800;font-size:17px;word-break:break-all;overflow-wrap:anywhere}
+  .fd-sub{font-family:var(--disp);font-weight:400;font-size:20px;margin-top:26px}
+  .fd-rec{width:100%;font-family:var(--mono);font-size:12.5px;line-height:1.6;color:var(--ink);background:var(--cream);border:2px solid var(--edge);border-radius:14px;padding:12px 14px;min-height:190px;resize:vertical;margin-top:10px}
+  .fd-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}
+  .fd-again.is-armed{background:#C22E0C;color:var(--white)}
+  .fd-note{font-size:12.5px;font-weight:700;color:#C22E0C;line-height:1.5;min-height:1em;margin-top:8px}
+  /* 아래 상자들 */
+  .fd-foot{border-top:var(--bd) solid var(--edge);background:var(--cream-2);padding:36px 0 44px;font-size:14.5px;line-height:1.8}
+  .fd-foot .wrap{display:grid;gap:18px}
+  .fd-box{background:var(--white);border:var(--bd) solid var(--edge);border-radius:20px;box-shadow:5px 5px 0 var(--edge);padding:20px 22px}
+  .fd-box h2,.fd-box summary{font-family:var(--disp);font-weight:400;font-size:21px;margin:0}
+  .fd-box summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .fd-box summary::-webkit-details-marker{display:none}
+  .fd-box summary::after{content:'+';font-family:var(--mono);font-size:22px}
+  .fd-box details[open] summary::after{content:'−'}
+  .fd-box details[open] summary{margin-bottom:12px}
+  .fd-box p,.fd-box li{margin-top:6px}
+  .fd-box ul{margin-left:20px}
+  .fd-box a{font-weight:800;border-bottom:2px solid var(--coral)}
+  .fd-box .fd-f textarea{min-height:120px}
+  .fd-vout{font-weight:800;margin-top:10px;min-height:1em;line-height:1.55}
+  .fd-vout.is-ok{color:#1E7D3A}.fd-vout.is-no{color:#C22E0C}
+  .fd-fairout{font-weight:800;margin-top:10px;background:var(--cream);border:2px solid var(--edge);border-radius:12px;padding:10px 14px;min-height:2.4em;line-height:1.55}
+  .fd-ai{background:var(--lilac)}
+  .fd-src{font-size:12.5px;color:var(--ink-soft);font-weight:600}
+  @media(max-width:900px){
+    .fd{grid-template-columns:1fr;gap:26px;padding-top:28px}
+    .fd-win{gap:12px;padding:18px 18px;box-shadow:5px 5px 0 var(--edge)}
+    .fd-name{font-size:clamp(26px,8vw,36px)}
+    .fd-go .pill{font-size:16px}
+  }
+  @media (prefers-reduced-motion: reduce){.fd-pop{animation:none}.fd-btn:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<header class="mk-nav">
+  <div class="wrap mk-nav-in">
+    <a href="/" class="mk-logo" aria-label="미국주부 홈">
+      <span class="mk-tile">M</span>
+      <span>미국주부<small>Mompreneur Diary</small></span>
+    </a>
+    <nav class="mk-menu" id="mkMenu">
+      <a href="/#youtube">영상</a>
+      <a href="/blog/">블로그</a>
+      <a href="/tools/">추천 프로그램</a>
+      <a href="/contact/">문의</a>
+      <a href="/en/" class="lang">EN ↗</a>
+    </nav>
+    <div class="mk-nav-right">
+      <a href="/contact/" class="pill pill-coral">1:1 컨설팅 <span class="ar">↗</span></a>
+      <button class="mk-burger" id="mkBurger" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="tag">무료 추첨기</span>
+    <h1>공정한 추첨기 —<br />AI 말고, 컴퓨터 난수로 뽑아요</h1>
+    <p class="lead">댓글이나 명단을 붙여 넣으면 브라우저의 보안용 난수로 당첨자를 뽑아 드려요. 추첨 전에 명단 「지문」을 먼저 공개해 두면, 나중에 명단을 바꾸지 않았다는 걸 누구나 확인할 수 있어요. 로그인도, 저장도, 이메일도 없어요.</p>
+  </div>
+</section>
+
+<main class="wrap fd">
+  <form class="fd-card" id="fdForm" novalidate>
+    <h2>참가자 넣기</h2>
+    <div class="fd-tabs" id="fdTabs" role="tablist" aria-label="추첨 방식">
+      <button type="button" class="fd-tab" id="fdTab-list" role="tab" aria-selected="true" aria-controls="fdPanel-list">명단으로 뽑기</button>
+      <button type="button" class="fd-tab" id="fdTab-range" role="tab" aria-selected="false" aria-controls="fdPanel-range" tabindex="-1">번호로 뽑기</button>
+    </div>
+
+    <div id="fdPanel-list" role="tabpanel" aria-labelledby="fdTab-list">
+      <label class="fd-f"><span>참가자 명단 — 한 줄에 한 명</span>
+        <textarea id="fdNames" rows="9" placeholder="@mikukjubu&#10;@mike_lee&#10;홍길동&#10;…&#10;&#10;유튜브·인스타 댓글을 통째로 붙여 넣고 아래 「@아이디만 골라내기」를 눌러도 돼요. 쉼표나 탭으로 나뉜 것도 받아요." spellcheck="false"></textarea>
+      </label>
+      <div class="fd-tools">
+        <button type="button" class="fd-btn" id="fdExtract">@아이디만 골라내기</button>
+        <label class="fd-check" style="margin:0"><input type="checkbox" id="fdDedupe" checked /> 중복 제거 (대소문자 무시)</label>
+      </div>
+      <p class="fd-msg" id="fdExtractMsg" aria-live="polite"></p>
+      <details class="fd-more">
+        <summary>제외 명단 (선택) — 지난 당첨자 등</summary>
+        <label class="fd-f"><span>이 명단에 있는 사람은 빼고 뽑아요</span>
+          <textarea id="fdExclude" rows="3" placeholder="@지난당첨자&#10;…" spellcheck="false"></textarea>
+        </label>
+      </details>
+    </div>
+
+    <div id="fdPanel-range" role="tabpanel" aria-labelledby="fdTab-range" hidden>
+      <div class="fd-row">
+        <label class="fd-f"><span>시작 번호</span><input id="fdStart" type="text" inputmode="numeric" value="1" /></label>
+        <label class="fd-f"><span>끝 번호</span><input id="fdEnd" type="text" inputmode="numeric" value="100" /></label>
+      </div>
+      <p class="fd-msg">정수만, 최대 1,000,000개까지. 응모 번호·주문 번호처럼 번호로 뽑을 때 쓰세요.</p>
+    </div>
+
+    <p class="fd-count" id="fdCount" aria-live="polite">참가자 0명</p>
+
+    <div class="fd-row">
+      <label class="fd-f"><span>당첨자 수</span><input id="fdWinners" type="text" inputmode="numeric" value="1" /></label>
+      <label class="fd-f"><span>예비 당첨자 수</span><input id="fdBackups" type="text" inputmode="numeric" value="0" /></label>
+    </div>
+
+    <div class="fd-fpbox">
+      <div class="fd-tools" style="margin:0">
+        <button type="button" class="fd-btn" id="fdFpBtn" disabled>추첨 전 지문 만들기</button>
+        <button type="button" class="fd-btn" id="fdListCopy">정리된 명단 복사</button>
+      </div>
+      <div class="fd-fp" id="fdFp" hidden>
+        <p class="fd-fp-stale">명단이 바뀌었어요 — 지문을 다시 만들어 주세요.</p>
+        <div class="fd-fp-short" id="fdFpShort" aria-label="명단 지문 앞 16자"></div>
+        <details>
+          <summary>전체 지문 64자 보기</summary>
+          <div class="fd-fp-full" id="fdFpFull"></div>
+          <button type="button" class="fd-btn" id="fdFpCopy">지문 복사</button>
+        </details>
+        <p>추첨 전에 이 지문을 댓글이나 커뮤니티에 먼저 올려 두면, 나중에 같은 명단을 넣었을 때 같은 지문이 나와서 명단을 바꾸지 않았다는 걸 누구나 확인할 수 있어요.</p>
+      </div>
+    </div>
+
+    <div class="fd-go">
+      <button type="button" class="pill pill-plum" id="fdDraw" disabled>추첨하기 <span class="ar">→</span></button>
+      <p class="fd-err" id="fdErr" aria-live="polite"></p>
+    </div>
+  </form>
+
+  <section class="fd-res" aria-live="polite" aria-label="추첨 결과">
+    <h2>추첨 결과</h2>
+    <div class="fd-empty" id="fdEmpty">참가자를 넣고 「추첨하기」를 누르면<br />여기에 당첨자가 한 명씩 나타나요.</div>
+    <div id="fdRes" hidden>
+      <p class="fd-reshead" id="fdResHead"></p>
+      <div class="fd-wins" id="fdWins"></div>
+      <button type="button" class="fd-btn fd-showall" id="fdShowAll" hidden>모두 바로 보기</button>
+      <div id="fdBackWrap" hidden>
+        <h3 class="fd-sub">예비 당첨자</h3>
+        <ul class="fd-backs" id="fdBacks"></ul>
+      </div>
+      <div id="fdRecWrap" hidden>
+        <h3 class="fd-sub">추첨 기록</h3>
+        <label for="fdRecord" class="fd-msg" style="margin:6px 0 0">그대로 복사해서 댓글·공지에 붙이세요. 시각은 이 기기 시간대와 UTC 둘 다 들어 있어요.</label>
+        <textarea class="fd-rec" id="fdRecord" readonly rows="8"></textarea>
+        <div class="fd-actions">
+          <button type="button" class="fd-btn" id="fdRecCopy">기록 복사</button>
+          <button type="button" class="fd-btn fd-again" id="fdAgain">다시 뽑기</button>
+        </div>
+        <p class="fd-note" id="fdAgainNote" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="fd-foot">
+  <div class="wrap">
+    <div class="fd-box fd-ai">
+      <h2>AI한테 뽑아 달라고 하면?</h2>
+      <p>제미나이에게 「1부터 100 중 당첨 번호 하나」를 새 대화에서 세 번 물었더니 <b>73, 47, 73</b>이 나왔어요 (2026-10-09 직접 실험). AI 6종에 7만 5,600번 시킨 연구에서도 1~100은 <b>37 · 47 · 73</b>에 몰렸어요. 연구진은 AI가 학습한 데이터에 있는 쏠림 때문에 비슷한 숫자를 계속 고른다고 봤어요. 그래서 추첨은 AI 말고 컴퓨터 난수로 하시는 게 좋습니다.</p>
+      <p class="fd-src">출처: Coronado-Blázquez, <a href="https://arxiv.org/abs/2502.19965" target="_blank" rel="noopener nofollow">arXiv 2502.19965</a> (2025)</p>
+    </div>
+
+    <div class="fd-box">
+      <details>
+        <summary>공정한지 직접 확인하기</summary>
+        <p>이 추첨기는 <code>crypto.getRandomValues</code>(브라우저 보안용 난수)에 거부 샘플링과 Fisher–Yates 섞기를 써요. 말로만 믿지 말고 직접 돌려 보세요 — 지금 넣은 참가자 수로 「1등」만 수만 번 반복해서 뽑고, 참가자마다 1등이 된 비율을 보여 줘요. 모두 이론값 근처면 공정한 거예요.</p>
+        <p class="fd-msg" id="fdFairN" style="margin:6px 0 0">참가자를 2명 이상 넣으면 돌릴 수 있어요.</p>
+        <div class="fd-actions" style="margin-top:10px"><button type="button" class="fd-btn" id="fdFairRun" disabled>시험 돌리기</button></div>
+        <div class="fd-fairout" id="fdFairOut" aria-live="polite"></div>
+      </details>
+    </div>
+
+    <div class="fd-box">
+      <details>
+        <summary>지문 확인하기 (참가자용)</summary>
+        <p>운영자가 추첨 전에 올린 지문과, 공개된 명단이 정말 같은지 확인하는 칸이에요. 명단을 넣고 지문 64자를 붙여 넣으세요. 번호 추첨이면 명단 칸에 <b>1-100</b>처럼 범위를 넣으면 돼요.</p>
+        <label class="fd-f"><span>명단 (또는 번호 범위)</span><textarea id="fdVList" rows="5" spellcheck="false" placeholder="운영자가 공개한 정리된 명단을 그대로 붙여 넣으세요"></textarea></label>
+        <label class="fd-check"><input type="checkbox" id="fdVDedupe" checked /> 중복 제거 (운영자 설정과 같게)</label>
+        <label class="fd-f"><span>지문 (SHA-256, 64자)</span><input id="fdVHash" type="text" spellcheck="false" autocomplete="off" placeholder="9f2c…" /></label>
+        <div class="fd-actions" style="margin-top:0"><button type="button" class="fd-btn" id="fdVBtn">확인하기</button></div>
+        <p class="fd-vout" id="fdVOut" aria-live="polite"></p>
+      </details>
+    </div>
+
+    <div class="fd-box">
+      <h2>개인정보 · 이벤트 운영 팁</h2>
+      <p>넣은 명단은 이 브라우저 안에서만 쓰이고 어디에도 저장·전송되지 않아요. 서버가 없고, 명단을 분석 스크립트에 실지도 않아요.</p>
+      <ul>
+        <li>규칙(기간 · 당첨자 수 · 발표 방법)을 이벤트를 시작할 때 미리 공지해 두세요.</li>
+        <li>추첨 화면을 녹화해 두고, 「추첨 기록」을 그대로 공개하세요.</li>
+        <li>추첨 전에 명단 지문을 먼저 공개하세요 — 명단을 바꾸지 않았다는 가장 쉬운 증명이에요.</li>
+      </ul>
+      <p class="fd-src">법률 자문이 아니에요. 플랫폼별 규칙은 <a href="https://support.google.com/youtube/answer/1620498" target="_blank" rel="noopener nofollow">유튜브 콘테스트 정책</a> · <a href="https://help.instagram.com/179379842258600" target="_blank" rel="noopener nofollow">인스타그램 프로모션 가이드</a>를 확인하세요.</p>
+      <p style="margin-top:14px"><a href="/tools/">제가 쓰는 도구 전부 보기 →</a> · <a href="/calc/marketplace-fees/">마켓 수수료 비교 계산기 →</a></p>
+    </div>
+  </div>
+</section>
+
+<footer class="mk-ft">
+  <div class="wrap">
+    <div class="mk-ft-top">
+      <div class="mk-ft-brand">
+        <a href="/" class="mk-logo"><span class="mk-tile">M</span><span>미국주부<small>Mompreneur Diary</small></span></a>
+        <p>미국에서 1인 사업하는 한국 주부. 온라인 마케팅 · 드랍쉬핑 · 온라인 셀러 컨설팅.</p>
+      </div>
+      <div class="mk-ft-col">
+        <h5>둘러보기</h5>
+        <a href="/#youtube">영상</a>
+        <a href="/blog/">블로그</a>
+        <a href="/tools/">추천 프로그램</a>
+        <a href="/contact/">문의</a>
+      </div>
+      <div class="mk-ft-col">
+        <h5>커뮤니티 · 연결</h5>
+        <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener">유튜브 구독하기 →</a>
+        <a href="https://www.youtube.com/channel/UCssWRwTEAY-UY7X7lvFi80w/join" target="_blank" rel="noopener">유튜브 멤버십 가입 →</a>
+        <a href="https://discord.gg/HgDDT2C6rs" target="_blank" rel="noopener">Discord 커뮤니티 →</a>
+      </div>
+    </div>
+    <div class="mk-ft-bot">
+      <span>© 2026 미국주부 · Mompreneur Diary. All rights reserved.</span>
+      <span><a href="/privacy.html">개인정보처리방침</a> · <a href="/disclosure.html">제휴 공시</a> · <a href="/en/">English</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/fair-draw.js?v=20261009" defer></script>
+<script src="/js/mk.js?v=20260924" defer></script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9b3d857e23354a79b458004691c28056"}'></script>
+</body>
+</html>
