@@ -50,6 +50,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/blog/" />
   </url>
   <url>
+    <loc>https://mikukjubu.com/blog/us-3pl-warehouse/</loc>
+    <lastmod>2026-10-14</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/blog/us-3pl-warehouse/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/blog/us-3pl-warehouse/" />
+  </url>
+  <url>
     <loc>https://mikukjubu.com/blog/claude-3d-website/</loc>
     <lastmod>2026-09-26</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/blog/claude-3d-website/" />
