@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>월 $99 사업 리서치, 클로드 프롬프트로 직접 뽑기 (무료) · 미국주부</title>
+<meta name="description" content="유료 사업 리서치 리포트를 클로드로 직접 뽑는 프롬프트 3개와 실제 예시(충전식 손난로 드롭쉬핑) PDF. 숫자는 원문 대조, 무료·이메일 입력 없음." />
+
+<link rel="canonical" href="https://mikukjubu.com/ai-business-report.html" />
+<link rel="alternate" hreflang="ko" href="https://mikukjubu.com/ai-business-report.html" />
+<link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/ai-business-report.html" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#FFF6E8" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Gaegu:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/mk.css?v=20260924" />
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  .page-head{background:var(--cream-2)}
+  .mk-article .hand{font-family:var(--hand);font-size:28px;color:var(--coral);margin:2px 0 22px}
+  .mk-article .updated{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.05em}
+  .mk-article .back{display:inline-block;margin-top:34px;font-weight:800;color:var(--coral);border-bottom:2px solid var(--coral)}
+
+  /* 🔴 mk.css 의 `.mk-article a:not(.pill):not(.pill-line)` (특정도 0,3,1) 를 카드가 이겨야 한다 */
+  .mk-article a.dl:not(.pill):not(.pill-line){color:var(--ink);border-bottom:var(--bd) solid var(--edge)}
+
+  .dl{display:block;background:var(--lime);border:var(--bd) solid var(--edge);border-radius:22px;
+      padding:26px 28px;margin:26px 0 10px;box-shadow:8px 8px 0 var(--edge);
+      transition:transform .15s ease, box-shadow .15s ease}
+  .dl:hover{transform:translate(-3px,-3px);box-shadow:11px 11px 0 var(--edge)}
+  .dl-in{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .dl-ic{flex:0 0 auto;width:62px;height:62px;border-radius:16px;background:var(--cream);
+         border:var(--bd) solid var(--edge);display:grid;place-items:center}
+  .dl-ic svg{width:30px;height:30px;fill:none;stroke:var(--ink);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+  .dl-tx{flex:1 1 220px;min-width:0}
+  .dl-tx b{display:block;font-family:var(--disp);font-size:clamp(21px,4.6vw,27px);color:var(--ink);line-height:1.25}
+  .dl-tx span{display:block;font-family:var(--mono);font-size:12px;color:var(--ink-soft);margin-top:6px;letter-spacing:.04em}
+  .dl-go{flex:0 0 auto;font-family:var(--disp);font-size:17px;color:var(--ink);
+         background:var(--coral);border:var(--bd) solid var(--edge);border-radius:999px;padding:11px 22px}
+  .free{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.05em;margin:0 0 26px}
+
+  /* 결과 숫자 3개 */
+  .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 8px}
+  .num{background:var(--cream);border:var(--bd) solid var(--edge);border-radius:18px;padding:16px;text-align:center;box-shadow:5px 5px 0 var(--edge)}
+  .num small{display:block;font-family:var(--mono);font-size:11px;color:var(--ink-soft);letter-spacing:.04em}
+  .num b{display:block;font-family:var(--disp);font-size:clamp(22px,5vw,30px);color:#C2361B;margin:4px 0}
+  @media(max-width:620px){.nums{grid-template-columns:1fr}}
+
+  /* 무엇이 들어있나 */
+  .pages{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0 8px}
+  .pg{background:var(--cream);border:var(--bd) solid var(--edge);border-radius:18px;padding:20px 22px;box-shadow:5px 5px 0 var(--edge)}
+  .pg h3{font-family:var(--disp);font-size:19px;color:var(--plum);margin:0 0 4px}
+  .pg .no{font-family:var(--mono);font-size:11px;color:var(--coral);letter-spacing:.1em;margin:0 0 10px}
+  .pg ul{margin:0;padding-left:18px}
+  .pg li{margin:7px 0;line-height:1.55}
+  @media(max-width:700px){.pages{grid-template-columns:1fr}}
+
+  /* 비교표 */
+  .cmp{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:15px}
+  .cmp th{background:var(--plum);color:#fff;text-align:left;padding:10px 12px;font-weight:700}
+  .cmp td{border-bottom:2px solid var(--edge);padding:10px 12px;vertical-align:top;background:#fff}
+  .cmp td:first-child{font-weight:800;white-space:nowrap}
+  .cmp-wrap{overflow-x:auto;border:var(--bd) solid var(--edge);border-radius:16px}
+  .cmp-wrap .cmp{margin:0}
+
+  /* 프롬프트 상자 */
+  .prompt{position:relative;background:var(--cream);border:var(--bd) solid var(--edge);border-radius:18px;margin:14px 0 8px;box-shadow:5px 5px 0 var(--edge)}
+  .prompt-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;border-bottom:2px solid var(--edge)}
+  .prompt-head b{font-family:var(--disp);font-size:17px;color:var(--plum)}
+  .copy{font-family:var(--disp);font-size:14px;color:var(--ink);background:var(--lime);border:2px solid var(--edge);border-radius:999px;padding:7px 16px;cursor:pointer}
+  .prompt pre{margin:0;padding:16px;white-space:pre-wrap;word-break:keep-all;font-family:Pretendard,sans-serif;font-size:14px;line-height:1.65;max-height:340px;overflow:auto}
+
+  .steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0 10px}
+  .st{background:var(--cream);border:var(--bd) solid var(--edge);border-radius:18px;padding:16px;box-shadow:5px 5px 0 var(--edge)}
+  .st b{display:block;font-family:var(--disp);font-size:18px;color:var(--plum);margin:8px 0 4px}
+  .st small{display:block;font-size:13px;color:var(--ink-soft);line-height:1.5}
+  .st-n{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--coral);border:2px solid var(--edge);font-family:var(--disp);color:var(--ink)}
+  @media(max-width:760px){.steps4{grid-template-columns:1fr 1fr}}
+  .stale{background:var(--cream);border:var(--bd) dashed var(--edge);border-radius:20px;
+         padding:22px 26px;margin:16px 0 6px}
+  .stale p{margin:0}
+  .stale p + p{margin-top:8px}
+  .yt{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:18px 0 6px}
+</style>
+<meta property="og:type" content="website" />
+<meta property="og:title" content="월 $99 사업 리서치, 클로드 프롬프트로 직접 뽑기 (무료) · 미국주부" />
+<meta property="og:description" content="프롬프트 3개 + 실제 예시 리포트 PDF(충전식 손난로 드롭쉬핑). 무료 · 이메일 입력 없음." />
+<meta property="og:url" content="https://mikukjubu.com/ai-business-report.html" />
+<meta property="og:image" content="https://mikukjubu.com/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://mikukjubu.com/og-image.png" />
+<!-- Microsoft Clarity (project yx5quzbfyr, via Bing Webmaster Tools 2026-10-13) -->
+<script>
+(function(c,l,a,r,i,t,y){
+c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "yx5quzbfyr");
+</script>
+</head>
+<body>
+
+<header class="mk-nav">
+  <div class="wrap mk-nav-in">
+    <a href="/" class="mk-logo" aria-label="미국주부 홈">
+      <span class="mk-tile">M</span>
+      <span>미국주부<small>Mompreneur Diary</small></span>
+    </a>
+    <nav class="mk-menu" id="mkMenu">
+      <a href="/#youtube">영상</a>
+      <a href="/blog/">블로그</a>
+      <a href="/tools/">추천 프로그램</a>
+      <a href="/contact/">문의</a>
+      <a href="/en/" class="lang">EN ↗</a>
+    </nav>
+    <div class="mk-nav-right">
+      <a href="/contact/" class="pill pill-coral">1:1 컨설팅 <span class="ar">↗</span></a>
+      <button class="mk-burger" id="mkBurger" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="tag" style="color:var(--coral)">무료 자료</span>
+    <h1>월 $99 사업 리서치,<br />프롬프트로 직접 뽑기</h1>
+  </div>
+</section>
+
+<main class="mk-article">
+<p class="hand">이 아이템, 팔면 돈이 남을까?</p>
+
+<p>"AI 시대에 뭘 해야 하나"를 골라 주는 유료 사업 리서치 서비스가 있습니다. 보통 <b>월 $59~99</b>입니다. 무료 샘플을 끝까지 읽어 보니 <b>틀은 좋은데 숫자가 하나도 없었습니다.</b> 그래서 그 틀을 가져와 <b>클로드 프롬프트</b>로 만들고, 실제 아이템 하나로 돌려 봤습니다.</p>
+
+<a class="dl" href="/files/ai-business-report-hand-warmer.pdf" target="_blank" rel="noopener">
+  <span class="dl-in">
+    <span class="dl-ic" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
+    </span>
+    <span class="dl-tx">
+      <b>예시 리포트 PDF 받기 — 14쪽</b>
+      <span>충전식 손난로 · 미국 드롭쉬핑 · 한국어</span>
+    </span>
+    <span class="dl-go">열기 ↗</span>
+  </span>
+</a>
+<p class="free">무료 · 이메일 입력 없음 · 바로 열립니다 · 프롬프트는 이 페이지 아래에 있습니다</p>
+
+<h2>예시: 충전식 손난로, 드롭쉬핑하면?</h2>
+<p>검색량은 5년 사이 약 4배로 늘었고, 10월에도 한 달에 1만 개 넘게 팔리는 상품이 있습니다. <b>그런데 결론은 "보류"였습니다.</b> 미국 창고 공급처 원가가 아마존 판매가와 거의 같아서, 2개 세트 하나를 팔 때마다 이렇게 됩니다.</p>
+<div class="nums">
+  <div class="num"><small>아마존</small><b>-$6.00</b><small>1건당</small></div>
+  <div class="num"><small>쇼피파이 + 메타 광고</small><b>-$35.20</b><small>1건당</small></div>
+  <div class="num"><small>틱톡샵 (크리에이터)</small><b>-$3.20</b><small>1건당</small></div>
+</div>
+<p>숫자만이 아닙니다. 리포트가 <b>올해 나온 리콜 2건</b>(그중 하나는 사망 1건 포함), <b>아마존에서 팔린 가짜 UL 인증 마크</b>, 그리고 <b>11월 2일부터 리튬 배터리 상품에 배상책임보험 $100만이 의무</b>가 된다는 아마존 공지까지 찾아냈습니다. 바로 결정에 쓸 수 있는 위험들입니다.</p>
+
+<h2>유료 샘플과 비교하면</h2>
+<div class="cmp-wrap">
+<table class="cmp">
+  <tr><th>항목</th><th>유료 샘플 2편</th><th>프롬프트로 뽑은 리포트</th></tr>
+  <tr><td>돈 숫자</td><td>0개 (0~10 점수만)</td><td>시장가 9개 · 원가 · 수수료 · 광고비 · 손익분기</td></tr>
+  <tr><td>근거</td><td>3개 · 5개</td><td>출처 32개, 날짜 표시</td></tr>
+  <tr><td>안전·법</td><td>규제가 있다는 것만</td><td>리콜 · 가짜 인증 · 플랫폼 금지 · 주(州) 법</td></tr>
+  <tr><td>다음 할 일</td><td>한 줄</td><td>주별 실행표 + 그만둘 조건(숫자)</td></tr>
+  <tr><td>비용</td><td>월 $59~99</td><td>클로드 구독 안에서, 한 편 5~10분</td></tr>
+</table>
+</div>
+<p>유료 서비스가 더 잘하는 것도 있습니다. <b>여러 아이템을 같은 기준으로 매주 순위 매기는 일</b>은 프롬프트 한 번으로는 못 합니다. 그래서 아래 <b>프롬프트 ①(후보 찾기)</b>로 후보를 먼저 고르고, <b>프롬프트 ②</b>로 하나를 깊게 보는 순서를 추천합니다.</p>
+
+<h2>PDF에 들어있는 것</h2>
+<div class="pages">
+  <div class="pg">
+    <p class="no">1~3쪽</p>
+    <h3>먼저 읽기 · 비교</h3>
+    <ul>
+      <li>어떤 순서로 만들었나 (샘플 분석 → 첫 프롬프트 → 고친 프롬프트)</li>
+      <li>유료 샘플과 항목별 비교</li>
+      <li>프롬프트 규칙 몇 줄을 고쳤더니 무엇이 달라졌나</li>
+    </ul>
+  </div>
+  <div class="pg">
+    <p class="no">4~14쪽</p>
+    <h3>리포트 전체 · 프롬프트</h3>
+    <ul>
+      <li>리콜·인증·채널 규정, 시장 가격표, 채널 3곳 돈 계산</li>
+      <li>그래도 한다면 주별 실행표, 그만둘 조건, 점수표</li>
+      <li>프롬프트 3개 전문 + 만드는 4단계 + AI가 틀리는 곳 확인하는 법 + 출처</li>
+    </ul>
+  </div>
+</div>
+
+<h2>이 PDF, 이렇게 만들었어요 — 4단계</h2>
+<p>프롬프트를 <b>복사 → 붙여넣기 → [내 정보]만 바꾸기</b>. 이게 전부입니다. 클로드에서 <b>웹 검색이 켜져 있는지</b>만 먼저 확인하세요.</p>
+<div class="steps4">
+  <div class="st"><span class="st-n">1</span><b>후보 찾기</b><small>뭘 팔지 모를 때만 · 프롬프트 ①</small></div>
+  <div class="st"><span class="st-n">2</span><b>리포트 뽑기</b><small>아이템 하나 깊게 · 프롬프트 ② · 5~10분</small></div>
+  <div class="st"><span class="st-n">3</span><b>숫자 확인</b><small>출처를 열어 대조 · 아래 체크리스트</small></div>
+  <div class="st"><span class="st-n">4</span><b>보기 좋게 정리</b><small>프롬프트 ③ → 인쇄 → PDF로 저장</small></div>
+</div>
+<p>세 프롬프트는 <b>충전식 손난로 · 반려견 쿨링 매트 · 아기 실리콘 턱받이</b> 세 가지로 실제로 돌려 보고, AI가 헷갈려 한 문장을 고친 최종본입니다. 세 번 모두 결론은 "보류"였고, 리콜·인증·채널 금지 같은 위험을 먼저 찾아냈습니다.</p>
+<p>예시 PDF에 들어간 <b>사진과 디자인은 미국주부가 따로 손봤습니다.</b> 프롬프트 ③만 써도 표와 색 상자가 들어간 깔끔한 문서는 나옵니다.</p>
+
+<h2>프롬프트 ① 사업 후보 찾기</h2>
+<p>아직 뭘 팔지 모를 때 먼저 씁니다. 통째로 붙여넣고, 맨 위 <b>[내 정보]</b> 다섯 줄만 내 것으로 바꾸세요.</p>
+<div class="prompt">
+  <div class="prompt-head"><b>① 후보 찾기</b><button class="copy" type="button" data-copy="p1">복사</button></div>
+<pre id="p1">[내 정보] ← 이 부분만 내 것으로 바꾸세요
+사는 곳: 미국 ○○주
+쓸 수 있는 돈: $2,000
+일주일에 쓸 수 있는 시간: 10시간
+할 줄 아는 것: 영어 보통, 캔바
+관심 있는 일: 드롭쉬핑
+
+[부탁]
+내 정보에 맞는 사업 후보를 찾아 줘. 웹 검색을 꼭 써.
+
+[순서]
+1. 오늘 기준 최근 1년 안에 바뀐 것 5개를 찾아 줘 (기술·법·가격·사람들 습관). 각각 출처 링크와 날짜.
+2. 그래서 "누구나 쉽게 하게 된 일"과 "아직 남이 쉽게 따라 하기 어려운 일"로 나눠 줘.
+3. 따라 하기 어려운 쪽(그래서 경쟁이 덜한 쪽)에서, 내가 할 수 있는 사업 후보 10개를 뽑아 줘. 7개 이상은 내 관심 분야 안에서.
+   후보마다: 누가 돈을 내나 · 지금 실제로 팔리는 비슷한 상품 가격 1개 이상(링크) · 잘 팔리는 시기(근거 없으면 "확인 필요") · 걸리는 규정(리콜·인증·판매 금지) · AI가 좋아지면 유리한지 불리한지
+4. AI가 그 일을 직접 대신하게 될 후보는 빼고, 남은 것 중 3개를 순위를 매겨 추천해 줘. 추천마다 이번 주에 할 일 1개.
+
+[지킬 것]
+- 표로 정리하고, 한국어로 써.
+- 모르는 숫자는 지어내지 말고 "확인 필요"라고 써.</pre>
+</div>
+
+<h2>프롬프트 ② 사업성 리포트</h2>
+<p>아이템이 정해졌을 때 씁니다. 맨 위 <b>[내 정보]</b>만 바꾸면 됩니다. 한 편에 5~10분 걸립니다.</p>
+<div class="prompt">
+  <div class="prompt-head"><b>② 사업성 리포트</b><button class="copy" type="button" data-copy="p2">복사</button></div>
+<pre id="p2">[내 정보] ← 이 부분만 내 것으로 바꾸세요
+아이템: 충전식 손난로
+파는 방법: 드롭쉬핑 (또는: 직접 만들어 팔기 / 있는 가게 사기)
+고객·시기: 미국 고객, 2026년 11월~2027년 2월
+사는 곳: 미국 ○○주
+쓸 수 있는 돈: $2,000
+일주일에 쓸 수 있는 시간: 10시간
+할 줄 아는 것: 영어 보통, 캔바
+
+[부탁]
+이 아이템이 돈이 되는지 검토해 줘. 응원하지 말고, 안 되는 이유부터 찾아 줘. 웹 검색을 꼭 써.
+
+[지킬 것]
+1. 모든 숫자에 출처 번호를 붙이고, 맨 끝 출처 목록에 링크와 날짜를 적어. 날짜를 못 찾으면 "날짜 미상".
+2. 출처 없는 숫자는 "추정"이라고 쓰고, 왜 그렇게 추정했는지 한 줄 적어. 지어내지 마. 출처 있는 숫자로 계산한 값은 "계산"이라고 표시해.
+3. 가격은 지금 실제로 팔리는 비슷한 상품 5개 이상에서 가져와.
+4. 원가·배송비는 공급처(AliExpress, CJ, Alibaba, 미국 창고 공급처 등)의 실제 상품 페이지에서 찾아. 상품 페이지가 안 열리면 검색 결과 화면의 가격을 쓰고 "검색 화면 기준"이라고 적어. 그것도 안 되면 "못 열림".
+5. 같은 소식을 여러 기사가 반복하면 증거 1개로 세.
+6. 근거가 내 아이템에 직접 해당하는지, 비슷한 다른 제품 이야기인지 구분해서 써.
+7. 내 파는 방법이 어떤 판매 채널 규정과 안 맞으면 그 채널은 "안 맞음"이라고 쓰고, 어떻게 바꾸면 되는지 한 줄 적어. 돈 계산표에는 그렇게 바꾼 방식으로 넣어.
+8. 어려운 용어는 처음 나올 때 괄호로 쉬운 말을 붙여.
+9. 같은 말 반복 금지, 숫자 없는 칭찬 금지. 한국어로 써.
+
+[이 순서로 써 줘]
+1. 한 줄 결론: 해 볼 만함 / 조건부 / 보류 + 이유 (숫자 포함)
+2. 최근 1년 사이 바뀐 것 (좋은 쪽·나쁜 쪽 둘 다)
+3. 안전·규정: 리콜 이력, 필요한 인증·시험서, 판매 채널(아마존·엣시·틱톡샵·쇼피파이)별 금지·제한, 판매자가 지는 책임
+4. 누가 사나, 왜 급한가, 팔 수 있는 기간 (시작·마감 날짜)
+5. 시장 가격표: 비슷한 상품 5개 이상 (상품명·판매처·가격·후기 수·링크)
+6. 돈 계산표: 판매 채널 2개 이상을 나란히
+   (판매가 · 원가 · 배송비 · 관세 · 수수료 · 판매 1건당 광고비 · 반품 · 1개당 남는 돈 · 월 고정비)
+   광고비는 채널마다 어떻게 계산했는지 한 줄씩 적어. 관세가 공급처 가격에 이미 들어 있는지 모르면 따로 넣고 "포함 여부 확인 필요"라고 적어.
+   + "손해 안 보려면 무엇이 얼마여야 하나" 한 줄
+7. 경쟁: 이미 파는 곳 5개 이상(링크), 대체품, 큰 회사 자체 브랜드
+8. 남은 빈자리: 있다면 정확히 어디, 내 방식으로 들어갈 수 있나
+9. AI가 훨씬 좋아지고 싸지면 이 사업은 강해지나 약해지나, 왜
+10. 해 본다면: 주별 할 일, 필요한 돈, 첫 매출까지 걸리는 기간
+11. 내 결론이 틀렸다면: 가장 센 반대 의견 3개
+12. 그만둘 조건 3~5개 (숫자로)
+13. 잘 될 때 / 보통 / 안 될 때: 월 순이익 범위와 그 가정
+14. 내가 직접 확인할 것 5개 (웹 검색으로 못 찾은 것) + 어디서 확인하나
+15. 점수표 0~10 (이유 한 줄씩): 수요 · 빈자리 · AI에 유리 · 시작 쉬움 · 수익성 · 위험도(10 = 매우 위험) · 근거 확신도
+16. 이번 주 할 일 3개 (각각 걸리는 시간)
+17. 출처 목록 (번호 · 링크 · 날짜 · 무엇을 뒷받침하는지)</pre>
+</div>
+<p>클로드로 테스트한 프롬프트입니다. 웹 검색이 되는 다른 AI에서도 쓸 수 있지만 결과는 다를 수 있습니다.</p>
+<h2>프롬프트 ③ 보기 좋게 정리하기</h2>
+<p>리포트가 나온 <b>같은 대화창</b>에 이어서 붙여넣으세요. 문서가 나오면 <b>인쇄(Ctrl+P) → "PDF로 저장"</b>을 고르면 됩니다.</p>
+<div class="prompt">
+  <div class="prompt-head"><b>③ 보기 좋게 정리</b><button class="copy" type="button" data-copy="p3">복사</button></div>
+<pre id="p3">방금 쓴 리포트를 보기 좋은 문서로 정리해 줘.
+
+[지킬 것]
+- 숫자, 출처 번호, 결론 문장은 한 글자도 바꾸지 마. 제목이나 짧은 안내 문구는 더해도 돼.
+- 맨 위: 한 줄 결론 + 판매 채널별 "1개당 남는 돈"을 큰 숫자로.
+- 표는 표로, 위험·리콜은 빨간 상자로, "추정"은 노란 표시로.
+- A4로 인쇄했을 때 깔끔하게 나오게 만들어 줘 (인쇄 → PDF로 저장할 거야).
+- 맨 끝에 출처 목록을 그대로 넣어.</pre>
+</div>
+
+
+<h2>3단계: AI가 틀리는 곳, 이렇게 확인하세요</h2>
+<ol>
+  <li><b>숫자는 원문을 열어서 확인하세요.</b> 이 예시도 원문과 대조하다가 광고비 숫자 하나가 틀린 걸 찾아 고쳤습니다.</li>
+  <li><b>출처 링크를 NotebookLM에 넣고</b> "리포트의 숫자가 출처에 실제로 있는지 표로 대조해 줘"라고 물어보세요.</li>
+  <li><b>공급처 가격은 주문 직전에 다시 보세요.</b> 같은 상품이 몇 시간 만에 $17.99에서 $8.55(1개 남은 한정가)로 바뀌었습니다.</li>
+  <li><b>검색량 숫자, 공급처 견적, 보험료, 플랫폼 정책</b>은 웹 검색으로 잘 안 나옵니다. 이건 직접 확인하세요.</li>
+</ol>
+
+<h2>영상 · 구독</h2>
+<div class="yt">
+  <a class="pill pill-white" href="https://www.youtube.com/@mikukjubu?sub_confirmation=1" target="_blank" rel="noopener">유튜브 구독 <span class="ar">↗</span></a>
+</div>
+<p>이런 자료를 계속 만들고 있습니다. 구독해 두시면 새로 올라올 때 보실 수 있습니다.</p>
+
+<h2>내용이 안 맞나요?</h2>
+<div class="stale">
+  <p><b>가격과 규정은 자주 바뀝니다.</b> 이 예시는 <b>2026년 10월 16일</b> 기준입니다. 법률·세무·투자 조언이 아니니, 결정하기 전에 원문과 전문가에게 꼭 확인하세요.</p>
+  <p>틀린 부분을 보셨으면 <a href="/contact/">알려주세요</a>. 확인해서 <b>파일을 갱신하고</b> 이 페이지에 그대로 올려 두겠습니다. 주소는 바뀌지 않습니다.</p>
+</div>
+<p class="updated">2026년 10월 16일 기준 · 핵심 숫자 원문 대조 완료</p>
+
+<a href="/" class="back">← 홈으로 돌아가기</a>
+</main>
+
+<footer class="mk-ft">
+  <div class="wrap">
+    <div class="mk-ft-top">
+      <div class="mk-ft-brand">
+        <a href="/" class="mk-logo"><span class="mk-tile">M</span><span>미국주부<small>Mompreneur Diary</small></span></a>
+        <p>미국에서 1인 사업하는 한국 주부. 온라인 마케팅 · 드랍쉬핑 · 온라인 셀러 컨설팅.</p>
+      </div>
+      <div class="mk-ft-col">
+        <h5>둘러보기</h5>
+        <a href="/#youtube">영상</a>
+        <a href="/blog/">블로그</a>
+        <a href="/tools/">추천 프로그램</a>
+        <a href="/contact/">문의</a>
+      </div>
+      <div class="mk-ft-col">
+        <h5>커뮤니티 · 연결</h5>
+        <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener">유튜브 구독하기 →</a>
+        <a href="https://www.youtube.com/channel/UCssWRwTEAY-UY7X7lvFi80w/join" target="_blank" rel="noopener">유튜브 멤버십 가입 →</a>
+        <a href="https://discord.gg/HgDDT2C6rs" target="_blank" rel="noopener">Discord 커뮤니티 →</a>
+      </div>
+    </div>
+    <div class="mk-ft-bot">
+      <span>© 2026 미국주부 · Mompreneur Diary. All rights reserved.</span>
+      <span><a href="/privacy.html">개인정보처리방침</a> · <a href="/disclosure.html">제휴 공시</a> · <a href="/en/">English</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=document.getElementById(b.dataset.copy).innerText;
+    (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='복사됨 ✓';setTimeout(function(){b.textContent='복사'},1800)},function(){
+      var r=document.createRange();r.selectNodeContents(document.getElementById(b.dataset.copy));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='선택됨 — Ctrl+C';});
+  });
+});
+</script>
+<script src="/js/mk.js?v=20260924" defer></script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9b3d857e23354a79b458004691c28056"}'></script>
+</body>
+</html>
