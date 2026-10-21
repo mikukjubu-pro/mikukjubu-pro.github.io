@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>클로드로 아마존 리스팅 만들기 — 상품 번호 하나로 리포트까지 · 미국주부</title>
+<meta name="description" content="클로드 스킬로 아마존 리스팅을 만드는 법. 키워드 조사부터 제목·불릿·백엔드 작성, 규칙 검사, PDF·엑셀 리포트까지 하고 올리기 전엔 꼭 승인을 받아요." />
+
+<link rel="canonical" href="https://mikukjubu.com/blog/claude-amazon-listing/" />
+<link rel="alternate" hreflang="ko" href="https://mikukjubu.com/blog/claude-amazon-listing/" />
+<link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/blog/claude-amazon-listing/" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#FFF6E8" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Gaegu:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/mk.css?v=20260924" />
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  .page-head{background:var(--cream-2)}
+  .mk-article .hand{font-family:var(--hand);font-size:28px;color:var(--coral);margin:2px 0 22px}
+  .mk-article .updated{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.05em}
+  .mk-article .back{display:inline-block;margin-top:34px;font-weight:800;color:var(--coral);border-bottom:2px solid var(--coral)}
+
+  /* 요약 박스 */
+  .tldr{background:var(--lime);border:var(--bd) solid var(--edge);border-radius:20px;padding:20px 24px;box-shadow:6px 6px 0 var(--edge);margin:6px 0 26px}
+  .tldr p{margin:0}
+  .tldr p + p{margin-top:8px}
+
+  
+
+  /* 3단계 */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0 8px}
+  .st{background:var(--cream);border:var(--bd) solid var(--edge);border-radius:18px;padding:18px 20px;box-shadow:5px 5px 0 var(--edge)}
+  .st .no{font-family:var(--mono);font-size:11px;color:var(--coral);letter-spacing:.1em;margin:0 0 6px}
+  .st .t{display:block;font-family:var(--disp);font-size:18px;color:var(--plum);margin-bottom:6px}
+  .st p{margin:0;line-height:1.55}
+  @media(max-width:760px){.steps{grid-template-columns:1fr}}
+
+  /* 테스트 표 */
+  .tbl{overflow-x:auto;margin:14px 0 8px}
+  .tbl table{border-collapse:collapse;width:100%;min-width:520px;background:var(--cream);border:var(--bd) solid var(--edge);border-radius:14px;overflow:hidden}
+  .tbl th,.tbl td{padding:10px 12px;border-bottom:2px solid var(--edge);text-align:left;font-size:14.5px}
+  .tbl th{background:var(--lilac);font-family:var(--mono);font-size:12px;letter-spacing:.04em}
+  .tbl tr:last-child td{border-bottom:0}
+  .bad{color:#B3261E;font-weight:800}
+  .ok{color:#1C7A45;font-weight:800}
+
+  .warn{background:var(--cream);border:var(--bd) dashed var(--edge);border-radius:20px;padding:20px 24px;margin:16px 0 6px}
+  .warn p{margin:0}
+  .warn p + p{margin-top:8px}
+
+  figure.shot{margin:18px 0 8px}
+  figure.shot img{display:block;width:100%;height:auto;border:var(--bd) solid var(--edge);border-radius:18px;box-shadow:6px 6px 0 var(--edge);background:#fff}
+  figure.shot figcaption{font-family:var(--mono);font-size:12px;color:var(--ink-soft);margin-top:12px;letter-spacing:.03em}
+
+  .yt{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:18px 0 6px}
+  .cols{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 4px}
+  .cols code{font-family:var(--mono);font-size:12.5px;background:var(--lilac);border:2px solid var(--edge);border-radius:999px;padding:5px 12px;color:var(--ink)}
+</style>
+<meta property="og:type" content="article" />
+<meta property="og:title" content="클로드로 아마존 리스팅 만들기 — 상품 번호 하나로 리포트까지" />
+<meta property="og:description" content="클로드 스킬로 아마존 리스팅을 만드는 법. 키워드 조사부터 제목·불릿·백엔드 작성, 규칙 검사, PDF·엑셀 리포트까지 하고 올리기 전엔 꼭 승인을 받아요." />
+<meta property="og:url" content="https://mikukjubu.com/blog/claude-amazon-listing/" />
+<meta property="og:image" content="https://mikukjubu.com/img/claude-amazon-listing-cover.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://mikukjubu.com/img/claude-amazon-listing-cover.png" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article",
+ "headline":"클로드로 아마존 리스팅 만들기 — 상품 번호 하나로 리포트까지",
+ "description":"클로드 스킬로 아마존 리스팅을 만드는 법. 키워드 조사부터 제목·불릿·백엔드 작성, 규칙 검사, PDF·엑셀 리포트까지 하고 올리기 전엔 꼭 승인을 받아요.",
+ "image":"https://mikukjubu.com/img/claude-amazon-listing-cover.png",
+ "datePublished":"2026-10-21","dateModified":"2026-10-21",
+ "inLanguage":"ko",
+ "author":{"@type":"Person","name":"미국주부","url":"https://mikukjubu.com/"},
+ "publisher":{"@type":"Person","name":"미국주부","url":"https://mikukjubu.com/"},
+ "mainEntityOfPage":"https://mikukjubu.com/blog/claude-amazon-listing/"}
+</script>
+<!-- Microsoft Clarity (project yx5quzbfyr, via Bing Webmaster Tools 2026-10-13) -->
+<script>
+(function(c,l,a,r,i,t,y){
+c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "yx5quzbfyr");
+</script>
+</head>
+<body>
+
+<header class="mk-nav">
+  <div class="wrap mk-nav-in">
+    <a href="/" class="mk-logo" aria-label="미국주부 홈">
+      <span class="mk-tile">M</span>
+      <span>미국주부<small>Mompreneur Diary</small></span>
+    </a>
+    <nav class="mk-menu" id="mkMenu">
+      <a href="/#youtube">영상</a>
+      <a href="/blog/">블로그</a>
+      <a href="/tools/">추천 프로그램</a>
+      <a href="/contact/">문의</a>
+      <a href="/en/" class="lang">EN ↗</a>
+    </nav>
+    <div class="mk-nav-right">
+      <a href="/contact/" class="pill pill-coral">1:1 컨설팅 <span class="ar">↗</span></a>
+      <button class="mk-burger" id="mkBurger" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="tag" style="color:var(--coral)">셀러 AI 활용</span>
+    <h1>클로드로<br />아마존 리스팅 만들기</h1>
+  </div>
+</section>
+
+<main class="mk-article">
+<p class="hand">미국주부가 직접 만든 클로드 스킬로 해 본 기록</p>
+
+<div class="tldr">
+  <p><b>한 줄 요약.</b> 클로드에 아마존 상품 번호를 주면, 클로드가 내 크롬을 직접 움직여서 키워드를 조사하고 제목·하이라이트·불릿·백엔드 검색어를 써 줘요. 아마존 규칙 검사까지 하고 <b>PDF·엑셀 리포트</b>로 먼저 보여 줘요.</p>
+  <p>셀러센트럴에 올리는 건 <b>리포트를 보고 "올려 줘"라고 해야만</b> 해요. 스킬 파일은 미국주부 멤버십 회원분들께 드려요.</p>
+</div>
+
+<h2>따라 하실 건 딱 세 단계</h2>
+<div class="steps">
+  <div class="st"><p class="no">STEP 1</p><span class="t">스킬 파일 올리기</span><p>claude.ai 설정의 스킬에서 업로드를 누르고 zip 파일 하나만 고르면 끝이에요. 처음 한 번만 해요.</p></div>
+  <div class="st"><p class="no">STEP 2</p><span class="t">한 줄 쓰기</span><p>채팅창 + 버튼에서 Claude in Chrome을 켜고 「상품 번호 + 리스팅 최적화해 줘」라고 써요.</p></div>
+  <div class="st"><p class="no">STEP 3</p><span class="t">리포트 보고 올려 줘</span><p>PDF·엑셀 리포트를 읽어 보고 괜찮으면 「올려 줘」. 고칠 곳이 있으면 말로 고쳐 달라고 해요.</p></div>
+</div>
+<figure class="shot"><img src="/img/claude-amazon-listing-skill.png" alt="claude.ai 스킬 화면에 올라간 아마존 리스팅 스킬" loading="lazy" /><figcaption>claude.ai › 스킬 — 처음 한 번만 올리면 돼요</figcaption></figure>
+
+<h2>준비물</h2>
+<div class="tbl">
+<table>
+  <thead><tr><th>항목</th><th>내용</th></tr></thead>
+  <tbody>
+    <tr><td>클로드 요금제</td><td>Pro 이상. 크롬 확장(Claude in Chrome)을 써야 해서 무료로는 안 돼요</td></tr>
+    <tr><td>크롬 + Claude in Chrome</td><td>크롬 웹 스토어에서 설치하고 클로드 계정으로 로그인</td></tr>
+    <tr><td>아마존 미국 셀러 계정</td><td>크롬에서 셀러센트럴에 로그인되어 있으면 돼요. 비밀번호는 클로드가 대신 넣지 않아요</td></tr>
+    <tr><td>모델</td><td>오퍼스(Opus), 생각 수준 보통(Medium)으로 충분했어요</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>키워드를 얼마나 정확하게 찾을까 — 계정 단계마다 달라요</h2>
+<p>키워드를 얼마나 정확하게 고르느냐는 <b>내 셀러 계정에서 어떤 데이터를 볼 수 있느냐</b>에 달려 있어요.</p>
+<figure class="shot"><img src="/img/claude-amazon-listing-levels.png" alt="개인 요금제, 프로페셔널, 브랜드 레지스트리 단계별로 볼 수 있는 키워드 데이터" loading="lazy" /></figure>
+<ul>
+  <li><b>프로페셔널 요금제</b>면 셀러센트럴 안의 <b>상품 기회 탐색기(Product Opportunity Explorer)</b>에서 아마존 실제 검색량을 볼 수 있어요(<a href="https://sell.amazon.com/tools/product-opportunity-explorer" target="_blank" rel="nofollow noopener">아마존 공식 소개</a>).</li>
+  <li><b>브랜드 레지스트리</b>까지 있으면 <b>브랜드 애널리틱스</b>에서 내 브랜드 상품이 어떤 검색어로 노출되고, 클릭되고, 팔렸는지까지 봐요.</li>
+  <li><b>개인 요금제</b>면 검색량 화면이 열리지 않아요. 그러면 아마존 검색창 추천어와 경쟁 상품만 보고 고르기 때문에 <b>키워드 찾기가 완벽하지 않을 수 있어요.</b></li>
+</ul>
+<p>그래서 리포트 맨 앞에 <b>내 계정이 어느 단계인지, 어떤 데이터까지 썼는지</b>를 먼저 적어 줘요.</p>
+
+<h2>키워드는 어디에 들어가나</h2>
+<div class="tbl">
+<table>
+  <thead><tr><th>칸</th><th>아마존 공식 기준</th><th>이번 예시에서 넣은 것</th></tr></thead>
+  <tbody>
+    <tr><td>제목</td><td>띄어쓰기 포함 <b>75자</b>를 넘으면 안 돼요</td><td>제일 중요한 검색어 3개 — garlic press · garlic mincer · garlic crusher</td></tr>
+    <tr><td>불릿</td><td>상품 종류마다 글자 한도가 달라요(편집 화면에서 읽어요)</td><td>경쟁 상품들이 비워 둔 smasher · masher</td></tr>
+    <tr><td>백엔드 검색어</td><td>손님에게 안 보이는 칸, <b>250바이트 미만</b></td><td>스페인어 검색어 · 철자 틀린 검색어 — 242바이트까지 채움</td></tr>
+  </tbody>
+</table>
+</div>
+<figure class="shot"><img src="/img/claude-amazon-listing-draft.png" alt="클로드가 쓴 마늘 다지기 리스팅 초안 — 제목, 하이라이트, 불릿, 백엔드 검색어" loading="lazy" /><figcaption>클로드가 쓴 리스팅 초안 · 규칙 검사 80개 항목 통과 · 셀러센트럴에는 올리지 않음</figcaption></figure>
+
+<h2>실제로 해 본 예시 — 마늘 다지기</h2>
+<p>제 상품 대신 아마존에서 리뷰가 1만 6천 개 넘는 <a href="https://www.amazon.com/dp/B098WNQ44M" target="_blank" rel="nofollow noopener">마늘 다지기</a>로 해 봤어요. 이 상품 제목은 <b>147자</b>였어요. 지금 아마존 공식 한도가 75자니까 두 배 정도 길어요(<a href="https://sellercentral.amazon.com/help/hub/reference/external/GYTR6SYGFA5E3EQC?locale=ko-KR" target="_blank" rel="nofollow noopener">셀러센트럴 도움말 「상품 이름 요건」</a>). 이런 것까지 리포트에서 짚어 줘요.</p>
+<p>제 상품이 아니라서 조사를 먼저 하고, 제가 판다고 치고 초안을 써 달라고 했어요. 내 상품이면 처음 한 줄로 조사부터 초안까지 한 번에 나와요. 이번에는 조사까지 30분 정도 걸렸어요.</p>
+
+<h2>올리기 전에 꼭 묻고, 올린 뒤엔 다시 확인해요</h2>
+<ul>
+  <li>리포트만 주고 바로 올리지 않아요. 내가 「올려 줘」라고 해야 셀러센트럴에 올려요.</li>
+  <li>내 브랜드가 아닌 상품이면 백엔드 검색어만 올려요.</li>
+  <li>올린 다음엔 약 30시간 뒤에 새 키워드로 검색이 잡히는지 다시 확인하도록 예약해 줘요.</li>
+  <li>가격·재고·사진·카테고리는 건드리지 않아요.</li>
+</ul>
+
+<h2>조심할 것</h2>
+<div class="warn">
+  <p><b>셀러센트럴 숫자는 내 계정에서만 볼 수 있는 정보예요.</b> 리포트를 블로그나 단톡방에 올리지 마세요.</p>
+  <p><b>리뷰를 부탁하거나 리뷰 대가를 약속하는 문구는 넣지 않아요.</b> 아마존 고객 리뷰 정책 위반이고, 판매 자격 영구 박탈이나 리스팅 영구 삭제까지 될 수 있어요(<a href="https://sellercentral.amazon.com/help/hub/reference/external/GYRKB5RU3FS5TURN?locale=ko-KR" target="_blank" rel="nofollow noopener">셀러센트럴 「고객 상품 리뷰 정책」</a>).</p>
+  <p><b>아마존은 올해 AI가 셀러센트럴에서 일할 때 지킬 규칙(Agent Policy)을 새로 만들었어요.</b> 쓰기 전에 한번 확인해 보세요(<a href="https://sellercentral.amazon.com/help/hub/reference/external/GS83KH2MA7HM69PH" target="_blank" rel="nofollow noopener">Agent Policy</a>).</p>
+  <p><b>아마존 규칙은 예고 없이 바뀌어요.</b> 이 스킬의 규칙은 2026년 10월 21일에 아마존 공식 페이지로 확인했어요. 그날부터 한 달이 넘으면 쓸 때마다 클로드가 공식 페이지를 다시 읽고 바뀐 걸 반영해요.</p>
+</div>
+
+<h2>스킬 파일 받기 (멤버십 전용)</h2>
+<p>스킬 파일(zip)과 자세한 설치·사용 안내는 <b>미국주부 멤버십 회원 전용 페이지</b>에 있어요. 비밀번호는 유튜브 멤버십 게시물에 올려 두었어요.</p>
+<div class="yt">
+  <a class="pill pill-plum" href="https://mikukjubu-report.github.io/2026-10-21.html" target="_blank" rel="noopener">멤버십 자료 페이지 열기 (비밀번호 필요)</a>
+  <a class="pill pill-white" href="https://www.youtube.com/channel/UCssWRwTEAY-UY7X7lvFi80w/join" target="_blank" rel="noopener">유튜브 멤버십 가입 <span class="ar">↗</span></a>
+</div>
+
+<h2>출처</h2>
+<p><a href="https://sellercentral.amazon.com/help/hub/reference/external/GYTR6SYGFA5E3EQC?locale=ko-KR" target="_blank" rel="nofollow noopener">셀러센트럴 「상품 이름 요건 및 가이드라인」</a> ·
+<a href="https://sellercentral.amazon.com/help/hub/reference/external/GNYWHX2TP7C8GXHK?locale=ko-KR" target="_blank" rel="nofollow noopener">셀러센트럴 「검색 최적화」</a> ·
+<a href="https://sellercentral.amazon.com/help/hub/reference/external/GYRKB5RU3FS5TURN?locale=ko-KR" target="_blank" rel="nofollow noopener">셀러센트럴 「고객 상품 리뷰 정책」</a> ·
+<a href="https://sellercentral.amazon.com/help/hub/reference/external/GS83KH2MA7HM69PH" target="_blank" rel="nofollow noopener">Agent Policy</a> ·
+<a href="https://sell.amazon.com/tools/product-opportunity-explorer" target="_blank" rel="nofollow noopener">아마존 상품 기회 탐색기 소개</a> ·
+<a href="https://claude.com/chrome" target="_blank" rel="nofollow noopener">Claude in Chrome</a> · 미국주부 직접 테스트(2026년 10월 20일)</p>
+<p class="updated">2026년 10월 21일 기준 · 요금·규칙은 바뀔 수 있어요 · 협찬 아님</p>
+
+<a href="/blog/" class="back">← 블로그 목록으로</a>
+</main>
+
+<footer class="mk-ft">
+  <div class="wrap">
+    <div class="mk-ft-top">
+      <div class="mk-ft-brand">
+        <a href="/" class="mk-logo"><span class="mk-tile">M</span><span>미국주부<small>Mompreneur Diary</small></span></a>
+        <p>미국에서 1인 사업하는 한국 주부. 온라인 마케팅 · 드랍쉬핑 · 온라인 셀러 컨설팅.</p>
+      </div>
+      <div class="mk-ft-col">
+        <h5>둘러보기</h5>
+        <a href="/#youtube">영상</a>
+        <a href="/blog/">블로그</a>
+        <a href="/tools/">추천 프로그램</a>
+        <a href="/contact/">문의</a>
+      </div>
+      <div class="mk-ft-col">
+        <h5>커뮤니티 · 연결</h5>
+        <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener">유튜브 구독하기 →</a>
+        <a href="https://www.youtube.com/channel/UCssWRwTEAY-UY7X7lvFi80w/join" target="_blank" rel="noopener">유튜브 멤버십 가입 →</a>
+        <a href="https://discord.gg/HgDDT2C6rs" target="_blank" rel="noopener">Discord 커뮤니티 →</a>
+      </div>
+    </div>
+    <div class="mk-ft-bot">
+      <span>© 2026 미국주부 · Mompreneur Diary. All rights reserved.</span>
+      <span><a href="/privacy.html">개인정보처리방침</a> · <a href="/disclosure.html">제휴 공시</a> · <a href="/en/">English</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/mk.js?v=20260924" defer></script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9b3d857e23354a79b458004691c28056"}'></script>
+</body>
+</html>
