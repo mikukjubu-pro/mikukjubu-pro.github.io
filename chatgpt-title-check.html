@@ -132,7 +132,7 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 <h2>어떤 걸 쓰면 되나요?</h2>
 <div class="rules" style="grid-template-columns:repeat(2,1fr)">
   <div class="rule"><p class="no">클로드를 쓰면</p><span class="t">A. 스킬 파일 올리기</span><p>파일 하나 받아서 한 번 올려 두면, 다음부터는 말만 하면 바로 시작합니다.</p></div>
-  <div class="rule"><p class="no">제미나이를 쓰면</p><span class="t">B. 글 복사해서 붙여넣기</span><p>아래 「스킬 글」을 복사해서 제미나이 새 채팅에 붙여넣기만 하면 됩니다. 로그인 안 해도 됩니다.</p></div>
+  <div class="rule"><p class="no">제미나이를 쓰면</p><span class="t">B. 스킬 파일 올리기 (또는 붙여넣기)</span><p>로그인했다면 클로드처럼 파일 하나를 한 번 올려 두면 됩니다. 로그인 안 했으면 「스킬 글」을 복사해 붙여넣으면 됩니다.</p></div>
 </div>
 
 <h2>A. 클로드에서 쓰기 (처음 한 번만 5분)</h2>
@@ -162,10 +162,34 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 <p>그러면 클로드가 <b>ChatGPT에 물어볼 질문 3개</b>를 줍니다. 그다음은 아래 <b>「C. ChatGPT에 물어보기」</b>로 가세요.</p>
 <p class="note" style="font-size:14px;color:var(--ink-soft)">Skills 메뉴가 안 보이면 B처럼 아래 「스킬 글」을 복사해 새 채팅 첫 메시지로 붙여넣어도 똑같이 됩니다.</p>
 
-<h2>B. 제미나이에서 쓰기 (복사·붙여넣기 2번)</h2>
+<h2>B. 제미나이에서 쓰기</h2>
+<p>제미나이에 <b>로그인했다면 「스킬 파일 올리기」</b>, 로그인 안 했다면 아래 <b>「스킬 글 붙여넣기」</b>로 하세요. 결과는 같습니다.</p>
 
-<h3>1번 — 스킬 글 복사하기</h3>
-<p>아래 상자 오른쪽 위 <b>복사</b> 버튼을 누릅니다. 글이 길어도 <b>통째로</b> 복사됩니다.</p>
+<h3>1번 — 스킬 파일 받기 (로그인했을 때)</h3>
+<p>아래 버튼을 누르면 <b>SKILL.md</b> 파일 하나가 <b>다운로드 폴더</b>에 저장됩니다. 제미나이는 zip을 못 받아서, 클로드용 zip이 아니라 이 파일을 올립니다.</p>
+<p><a class="pill pill-plum" href="/files/chatgpt-title-check/SKILL.md" download="SKILL.md">제미나이 스킬 받기 (SKILL.md) <span class="ar">↓</span></a></p>
+
+<h3>2번 — 제미나이에 올리기</h3>
+<ol>
+  <li><b>gemini.google.com</b>에 로그인합니다.</li>
+  <li>왼쪽 메뉴에서 <b>Customize</b>를 누릅니다.</li>
+  <li>화면 맨 위 탭에서 <b>Skills</b>를 누릅니다.</li>
+  <li>오른쪽 위 <b>Create ▾</b> → <b>Upload</b>를 누릅니다.</li>
+  <li>「Upload a skill」 창 가운데 <b>files</b> 글자를 누르고, 1번에서 받은 <b>SKILL.md</b>를 고릅니다. (끌어다 놓아도 됩니다.)</li>
+  <li>이름(chatgpt-title-check)·설명·지시문이 <b>저절로 채워진 화면</b>이 나오면, 오른쪽 위 <b>Create</b>를 누릅니다.</li>
+  <li>Skills 화면 <b>Active</b> 칸에 <b>chatgpt-title-check</b>가 보이면 끝입니다.</li>
+</ol>
+
+<h3>3번 — 이렇게 쓰고 보내기</h3>
+<p>제미나이 <b>새 채팅</b>에서 위 <b>A-3번의 첫 메시지</b>를 복사해, <span style="background:#FFE24B;padding:0 3px">[노란 칸]</span>만 바꿔 보냅니다. 스킬이 저절로 켜져서 <b>질문 3개</b>를 줍니다. 그다음은 <b>「C. ChatGPT에 물어보기」</b>로 가세요.</p>
+
+<h3>로그인 안 했다면 — 스킬 글 붙여넣기</h3>
+<ol>
+  <li>아래 상자 오른쪽 위 <b>복사</b> 버튼을 누릅니다. 글이 길어도 <b>통째로</b> 복사됩니다.</li>
+  <li><b>gemini.google.com</b>을 열고 왼쪽 위 <b>새 채팅</b>을 누릅니다.</li>
+  <li>입력칸을 누르고 <b>Ctrl + V</b>(맥은 <b>Cmd + V</b>)로 붙여넣은 뒤 <b>보내기</b>를 누릅니다.</li>
+  <li>제미나이가 "페이지 주소, 제목, 방문자가 쓰는 언어를 알려 주세요"처럼 물으면, <b>A-3번의 첫 메시지</b>를 노란 칸만 바꿔 보냅니다.</li>
+</ol>
 <div class="pr"><div class="pr-bar"><span>스킬 글 (제미나이에 붙여넣을 글 · 클로드도 가능)</span><button class="pill pill-white cp" type="button">복사</button></div>
 <pre style="max-height:300px;overflow:auto">너는 「ChatGPT 추천 제목 체크」 도우미다. 아래 순서를 그대로 따른다. 사용자가 처음 말을 걸면 1단계부터 시작한다.
 
@@ -248,17 +272,6 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 ---
 만든 곳: 미국주부 (mikukjubu.com) · 무료로 나눠 드려요.</pre></div>
 
-<h3>2번 — 제미나이 새 채팅에 붙여넣기</h3>
-<ol>
-  <li><b>gemini.google.com</b>을 엽니다. (로그인 안 해도 됩니다.)</li>
-  <li>왼쪽 위 <b>새 채팅</b>을 누릅니다.</li>
-  <li>아래 입력칸을 누르고 <b>Ctrl + V</b>(맥은 <b>Cmd + V</b>)로 붙여넣은 뒤 <b>보내기</b>를 누릅니다.</li>
-  <li>제미나이가 "페이지 주소, 제목, 방문자가 쓰는 언어를 알려 주세요"처럼 물어봅니다.</li>
-</ol>
-
-<h3>3번 — 이렇게 쓰고 보내기</h3>
-<p>위 <b>A-3번의 첫 메시지</b>를 복사해서, <span style="background:#FFE24B;padding:0 3px">[노란 칸]</span>만 바꿔 보냅니다. 제미나이가 <b>질문 3개</b>를 줍니다.</p>
-
 <h2>C. ChatGPT에 물어보기 (클로드·제미나이 똑같음)</h2>
 
 <h3>4번 — 질문 하나를 ChatGPT에 넣기</h3>
@@ -292,6 +305,7 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     <li><b>ChatGPT 답 아래 복사 버튼을 누르면 출처 링크까지 같이 복사됩니다.</b> 그래서 붙여넣기만으로 몇 번째인지 셀 수 있습니다.</li>
     <li>질문 <b>"free 2027 budget planner google sheets"</b>(로그아웃·임시 채팅)에 제 사이트의 <b>Free 2027 Budget Planner (Google Sheets)</b> 페이지가 1번으로 나왔습니다. 검색한 문장이 제목에 거의 그대로 들어 있습니다.</li>
     <li>클로드에 스킬 zip을 올리고 "ChatGPT 추천 제목 체크해 줘"라고 하니 스킬이 바로 켜져 같은 순서로 진행했습니다. 제목이 이미 잘 맞을 땐 크게 바꾸지 말라고 알려 줬습니다.</li>
+    <li>제미나이에 로그인해 Skills → Upload로 SKILL.md를 올리고 "ChatGPT 추천 제목 체크해 줘"라고 하니, 스킬 글을 붙여넣지 않아도 스킬이 저절로 켜져 질문 3개를 줬습니다(10월 28일).</li>
     <li>로그인 안 한 제미나이에 스킬 글을 넣고 처음 쓰는 사람처럼 써 보니 <b>질문 3개 → 결과 표 → 제목 추천 → 다음 할 일</b>까지 순서대로 나왔습니다.</li>
   </ul>
 </div>
@@ -307,7 +321,7 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 </div>
 
 <p>가게·블로그가 AI에 나오는지 더 넓게 보고 싶으면 <a href="/ai-visibility-check.html">내 사이트, AI에 나올까? 무료 점검 프롬프트</a>도 같이 쓰세요.</p>
-<p class="updated">2026년 10월 27일 기준 · 테스트: ChatGPT(로그아웃) · 제미나이(로그아웃) · 클로드(스킬 업로드)</p>
+<p class="updated">2026년 10월 28일 기준 · 테스트: ChatGPT(로그아웃) · 제미나이(스킬 업로드·로그아웃 붙여넣기) · 클로드(스킬 업로드)</p>
 
 <div class="yt">
   <a class="pill pill-white" href="https://www.youtube.com/shorts/cw7bcYwQLAs" target="_blank" rel="noopener">관련 영상 보기 <span class="ar">↗</span></a>
