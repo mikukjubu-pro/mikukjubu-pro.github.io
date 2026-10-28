@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>블로그 제목, ChatGPT 추천 받게 고치는 무료 스킬 (클로드·제미나이) · 미국주부</title>
+<meta name="description" content="ChatGPT에 물어볼 질문 3개를 만들어 주고, 붙여넣은 답으로 내 사이트가 나오는지 판정한 뒤 블로그 제목을 고쳐 주는 무료 스킬. 클로드·제미나이용." />
+
+<link rel="canonical" href="https://mikukjubu.com/chatgpt-title-check.html" />
+<link rel="alternate" hreflang="ko" href="https://mikukjubu.com/chatgpt-title-check.html" />
+<link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/chatgpt-title-check.html" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#FFF6E8" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Gaegu:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/mk.css?v=20260924" />
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  .page-head{background:var(--cream-2)}
+  .mk-article .hand{font-family:var(--hand);font-size:28px;color:var(--coral);margin:2px 0 22px}
+  .mk-article .updated{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.05em}
+  .mk-article .back{display:inline-block;margin-top:34px;font-weight:800;color:var(--coral);border-bottom:2px solid var(--coral)}
+
+  /* 규칙 3개 */
+  .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0 26px}
+  .rule{background:var(--lime);border:var(--bd) solid var(--edge);border-radius:18px;padding:18px 20px;box-shadow:5px 5px 0 var(--edge)}
+  .rule .no{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--ink);margin:0 0 6px}
+  .rule .t{display:block;font-family:var(--disp);font-size:19px;color:var(--ink);margin-bottom:6px}
+  .rule p{margin:0;line-height:1.55}
+  @media(max-width:760px){.rules{grid-template-columns:1fr}}
+
+  /* 테스트 결과 */
+  .found{background:var(--cream);border:var(--bd) dashed var(--edge);border-radius:20px;padding:20px 24px;margin:14px 0 8px}
+  .found ul{margin:0;padding-left:18px}
+  .found li{margin:8px 0;line-height:1.6}
+
+  /* 표 */
+  .tbl{overflow-x:auto;margin:14px 0 8px}
+  .tbl table{border-collapse:collapse;width:100%;min-width:560px;background:var(--cream);border:var(--bd) solid var(--edge)}
+  .tbl th,.tbl td{padding:10px 12px;border-bottom:2px solid var(--edge);text-align:left;font-size:14.5px;vertical-align:top;line-height:1.55}
+  .tbl th{background:var(--lilac);font-size:13px;font-weight:800}
+  .tbl tr:last-child td{border-bottom:0}
+
+  /* 복붙 프롬프트 */
+  .pr{background:var(--cream);border:var(--bd) solid var(--edge);border-radius:18px;box-shadow:5px 5px 0 var(--edge);margin:12px 0 18px;overflow:hidden}
+  .pr-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;border-bottom:var(--bd) solid var(--edge);background:var(--lilac)}
+  .pr-bar span{font-family:var(--disp);font-size:16px;color:var(--ink)}
+  .pr pre{margin:0;padding:16px 18px;white-space:pre-wrap;overflow-wrap:anywhere;font-family:inherit;font-size:15px;line-height:1.7;color:var(--ink)}
+  .pr pre .ph{background:#FFE24B;border-radius:4px;padding:0 3px}
+  .pr .note{margin:0;padding:0 18px 14px;font-size:14px;color:var(--ink-soft);line-height:1.55}
+  .pr-bar .cp{cursor:pointer;font-size:13px;padding:7px 14px;flex-shrink:0}
+  .pr-fun .pr-bar{background:var(--lime)}
+
+  details.more{background:var(--cream);border:var(--bd) solid var(--edge);border-radius:18px;padding:14px 18px;margin:14px 0}
+  details.more summary{cursor:pointer;font-family:var(--disp);font-size:18px;color:var(--plum)}
+  details.more[open] summary{margin-bottom:10px}
+
+  .warn{background:var(--cream);border:var(--bd) dashed var(--edge);border-radius:20px;padding:20px 24px;margin:14px 0 6px}
+  .warn ol{margin:0;padding-left:20px}
+  .warn li{margin:8px 0;line-height:1.6}
+</style>
+<meta property="og:type" content="article" />
+<meta property="og:title" content="블로그 제목, ChatGPT 추천 받게 고치는 무료 스킬 (클로드·제미나이)" />
+<meta property="og:description" content="ChatGPT에 물어볼 질문 3개를 만들어 주고, 붙여넣은 답으로 내 사이트가 나오는지 판정한 뒤 블로그 제목을 고쳐 주는 무료 스킬. 클로드·제미나이용." />
+<meta property="og:url" content="https://mikukjubu.com/chatgpt-title-check.html" />
+<meta property="og:image" content="https://mikukjubu.com/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://mikukjubu.com/og-image.png" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article",
+ "headline":"블로그 제목, ChatGPT 추천 받게 고치는 무료 스킬 (클로드·제미나이)",
+ "description":"ChatGPT에 물어볼 질문 3개를 만들어 주고, 붙여넣은 답으로 내 사이트가 나오는지 판정한 뒤 블로그 제목을 고쳐 주는 무료 스킬. 클로드·제미나이용.",
+ "image":"https://mikukjubu.com/og-image.png",
+ "datePublished":"2026-10-27","dateModified":"2026-10-27","inLanguage":"ko",
+ "author":{"@type":"Person","name":"미국주부","url":"https://mikukjubu.com/"},
+ "publisher":{"@type":"Person","name":"미국주부","url":"https://mikukjubu.com/"},
+ "mainEntityOfPage":"https://mikukjubu.com/chatgpt-title-check.html"}
+</script>
+<script>
+(function(c,l,a,r,i,t,y){
+c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "yx5quzbfyr");
+</script>
+</head>
+<body>
+
+<header class="mk-nav">
+  <div class="wrap mk-nav-in">
+    <a href="/" class="mk-logo" aria-label="미국주부 홈">
+      <span class="mk-tile">M</span>
+      <span>미국주부<small>Mompreneur Diary</small></span>
+    </a>
+    <nav class="mk-menu" id="mkMenu">
+      <a href="/#youtube">영상</a>
+      <a href="/blog/">블로그</a>
+      <a href="/tools/">추천 프로그램</a>
+      <a href="/contact/">문의</a>
+      <a href="/en/" class="lang">EN ↗</a>
+    </nav>
+    <div class="mk-nav-right">
+      <a href="/contact/" class="pill pill-coral">1:1 컨설팅 <span class="ar">↗</span></a>
+      <button class="mk-burger" id="mkBurger" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="tag" style="color:var(--coral)">무료 자료</span>
+    <h1>블로그 제목,<br />ChatGPT 추천 받게</h1>
+  </div>
+</section>
+
+<main class="mk-article">
+<p class="hand">질문 3개만 붙여넣으면 제목까지 고쳐 줘요</p>
+
+<p>ChatGPT는 구글 순위가 아니라 <b>손님이 묻는 질문 글자와 제목 글자가 얼마나 같은지</b>를 보고 사이트를 자주 고릅니다. 제가 운영하는 작은 디지털 상품 사이트도 이렇게 제목을 바꾼 뒤 ChatGPT 추천 1번으로 나왔습니다. 그 과정을 <b>클로드·제미나이가 대신 해 주는 무료 스킬</b>로 만들었습니다. 가입·결제·설치 없이 복사해서 쓰면 됩니다.</p>
+
+<h2>이 스킬이 하는 일</h2>
+<div class="rules">
+  <div class="rule"><p class="no">STEP 1</p><span class="t">질문 3개 만들기</span><p>내 페이지 제목과 손님(한국·미국)을 알려 주면, 손님이 ChatGPT에 <b>실제로 칠 질문</b> 3개를 만들어 줍니다.</p></div>
+  <div class="rule"><p class="no">STEP 2</p><span class="t">ChatGPT에 직접 묻기</span><p>질문을 ChatGPT <b>임시 채팅</b>에 붙여넣고, 답 아래 <b>복사 버튼</b>으로 답을 복사해 다시 붙여넣습니다.</p></div>
+  <div class="rule"><p class="no">STEP 3</p><span class="t">판정 + 제목 고치기</span><p>내 사이트가 몇 번째인지, 대신 어떤 사이트가 나왔는지 표로 보여 주고 <b>질문 글자에 맞춘 제목</b>을 추천합니다.</p></div>
+</div>
+
+<h2>클로드에서 쓰기</h2>
+<ol>
+  <li>아래 버튼으로 스킬 파일(zip)을 받습니다. 압축은 풀지 않습니다.</li>
+  <li>claude.ai → 왼쪽 아래 이름 → <b>설정</b> → <b>기능(Capabilities)</b> → <b>스킬</b>에서 zip 파일을 올립니다.</li>
+  <li>새 채팅에서 <b>"ChatGPT 추천 제목 체크해 줘"</b>라고 말하면 시작합니다.</li>
+</ol>
+<p><a class="pill pill-plum" href="/files/chatgpt-title-check-skill.zip" download>클로드 스킬 받기 (zip) <span class="ar">↓</span></a></p>
+<p>스킬 메뉴가 안 보이면 아래 <b>지시문을 복사해서 새 채팅 첫 메시지로</b> 붙여넣어도 똑같이 됩니다.</p>
+
+<h2>제미나이에서 쓰기</h2>
+<ol>
+  <li>gemini.google.com → 왼쪽 메뉴의 <b>젬(Gems)</b> → <b>새 젬 만들기</b>를 엽니다.</li>
+  <li>이름에 "ChatGPT 추천 제목 체크"를 쓰고, <b>지시문 칸</b>에 아래 내용을 통째로 붙여넣고 저장합니다.</li>
+  <li>그 젬에서 "안녕, 내 페이지 제목은 ○○야"라고 시작합니다.</li>
+</ol>
+
+<div class="pr"><div class="pr-bar"><span>지시문 (제미나이 젬 · 클로드 첫 메시지 공용)</span><button class="pill pill-white cp" type="button">복사</button></div>
+<pre style="max-height:420px;overflow:auto">너는 「ChatGPT 추천 제목 체크」 젬이다. 아래 순서를 그대로 따른다. 사용자가 처음 말을 걸면 1단계부터 시작한다.
+
+
+# ChatGPT 추천 제목 체크 (미국주부 무료 스킬)
+
+사용자는 블로그·온라인 가게를 하는 초보다. 쉬운 말로, 한 번에 한 단계씩 안내한다.
+사용자가 붙여넣은 ChatGPT 답이 없으면 지어내지 않는다. 판정은 붙여넣은 내용으로만 한다.
+
+## 왜 제목인가 (사용자가 물으면 설명)
+- ChatGPT는 질문을 검색 문장으로 바꿔 웹을 찾고, 그중 **질문 글자와 제목 글자가 많이 겹치는 페이지**를 자주 인용한다.
+  (AirOps 2026년 3월 연구, 질문 15,000개: 제목이 질문 단어를 절반 이상 같이 쓰면 인용률 20.1%, 10% 미만이면 9.3%.)
+- 구글·네이버 순위와 따로 논다. 만든 지 몇 달 안 된 작은 사이트도 1위로 추천된 실제 사례가 있다.
+- 순위는 물을 때마다 바뀐다. 한 번 결과로 판단하지 않는다.
+
+## 1단계 — 정보 받기
+사용자에게 아래 3가지만 묻는다. 이미 말했으면 다시 묻지 않는다.
+1. 페이지 주소 (없으면 &quot;아직 없음&quot;)
+2. 지금 제목
+3. 손님이 누구인가 — 한국 손님인가, 미국 등 영어권 손님인가
+
+## 2단계 — 질문 3개 만들기
+손님이 ChatGPT에 **실제로 칠 문장**을 3개 만든다.
+- 손님 언어로 쓴다. 영어권 손님이면 영어로.
+- 내 사이트 이름·브랜드는 넣지 않는다.
+- 무료 자료면 &quot;무료/free&quot;를 넣는다. &quot;free&quot;가 없으면 ChatGPT가 웹 검색을 아예 안 하고 혼자 답하는 경우가 많다.
+- 3개는 서로 다르게: ① 가장 흔한 말 ② 더 좁은 말(연도·용도·대상) ③ 형식이나 상황이 붙은 말.
+
+각 질문을 **따로따로 복사하기 쉬운 코드 상자**에 넣고, 아래 안내를 그대로 보여 준다.
+
+&gt; **ChatGPT에서 이렇게 해 주세요**
+&gt; 1. chatgpt.com 에서 **임시 채팅**을 엽니다. (로그인했다면 오른쪽 위에서 개인화도 끕니다 — 평소 대화 기억이 섞이지 않게)
+&gt; 2. 질문 하나를 붙여넣고 보냅니다. 답에 출처 링크가 없으면 **검색(지구본) 버튼을 켜고** 다시 보냅니다.
+&gt; 3. 답 아래 **복사 버튼**(네모 두 개 아이콘)을 누릅니다. 출처 링크까지 같이 복사됩니다. 화면 캡처를 붙여도 됩니다.
+&gt; 4. 여기에 붙여넣습니다. 질문마다 **새 임시 채팅**에서 반복합니다.
+
+## 3단계 — 판정
+답이 하나 들어올 때마다 **기다리지 말고 바로** 그 질문의 판정 표를 보여 주고, 다음 질문 답을 붙여 달라고 한다.
+사용자가 &quot;이게 다야&quot;, &quot;나머지는 못 했어&quot;라고 하면 받은 답만으로 4단계까지 간다.
+
+| 질문 | 내 사이트 나옴? | 몇 번째 | 대신 나온 곳 (상위 5) | 그곳들의 제목 모양 |
+|---|---|---|---|---|
+
+- &quot;몇 번째&quot;는 답에 나온 순서로 센다. 출처 목록만 있으면 출처 순서로 센다.
+- 출처 링크가 하나도 없으면 &quot;ChatGPT가 검색 안 함&quot;으로 적는다. 이건 나쁜 신호가 아니다 — **아직 전용 페이지를 가진 곳이 적다**는 뜻일 수 있다. 질문에 free·연도·형식을 넣어 한 번 더 시켜 본다.
+- 대신 나온 곳들의 제목에서 **공통 모양**을 찾는다. 예: `Free ___ Template (Google Sheets)` 가 여러 개면 그게 ChatGPT가 고르는 모양이다.
+- 같은 모양의 전용 페이지가 이미 10개 가까이 꽉 찼으면 솔직하게 말한다: &quot;제목만으로는 늦었을 수 있다 — 더 좁은 주제(연도·용도·대상)를 노리자.&quot;
+
+## 4단계 — 제목 고치기
+고친 제목 2~3개를 주고, 하나를 추천한다. 규칙:
+1. **질문 글자를 그대로** 제목 앞쪽에 넣는다. 띄어쓰기·단어 순서도 질문과 같게.
+2. 무료면 **Free/무료** + 물건 이름 + 형식(Google Sheets, PDF 등)을 다 넣는다. **유료 상품엔 Free를 넣지 않는다.**
+3. 브랜드 이름은 맨 뒤에 둔다.
+4. **한 물건 = 한 페이지.** 여러 상품을 한 페이지에 묶었으면 나누라고 말한다.
+5. 페이지 첫 문단에 답을 쓴다 — 무엇인지, 무료인지, 이메일 필요 여부, 형식.
+
+지금 제목이 이미 질문 단어를 거의 다 갖고 있으면 **억지로 바꾸지 않는다.** &quot;제목은 이미 잘 맞아요&quot;라고 말하고, 대신 이것부터 보라고 한다: 페이지가 공개돼 있나 · 새로 만든 지 며칠 안 됐나(검색에 들어가기까지 시간이 걸린다) · 아래 5단계 robots.txt · 첫 문단에 답이 있나.
+
+전·후를 표로 보여 준다.
+
+| | 제목 | 질문과 겹치는 단어 |
+|---|---|---|
+| 지금 | … | … / 질문 단어 수 |
+| 추천 | … | … / 질문 단어 수 |
+
+## 5단계 — 다음 할 일
+1. 사이트에서 제목을 바꾼다 (블로그 제목 + 검색 제목(SEO 제목) 둘 다).
+2. robots.txt 에서 **OAI-SearchBot 을 막지 않았는지** 확인한다. 막혀 있으면 ChatGPT 검색에 안 나온다.
+3. **1~2주 뒤** 같은 질문 3개로 2단계부터 다시 잰다. 결과는 아래 표에 날짜와 함께 적어 두라고 한다.
+
+| 날짜 | 질문 | 몇 번째 |
+|---|---|---|
+
+## 하지 말 것
+- 순위를 약속하지 않는다 (&quot;이렇게 하면 1위&quot;). 연구는 관계를 본 것이지 보장이 아니다.
+- 붙여넣지 않은 결과를 추측해서 채우지 않는다.
+- 구글 순위부터 올리라고 하지 않는다. ChatGPT 추천과 따로 논다.
+
+---
+만든 곳: 미국주부 (mikukjubu.com) · 무료로 나눠 드려요.</pre></div>
+
+<h2>직접 테스트해 보니 (2026년 10월 27일)</h2>
+<div class="found">
+  <ul>
+    <li><b>ChatGPT 답 아래 복사 버튼을 누르면 출처 링크까지 같이 복사됩니다.</b> 그래서 붙여넣기만으로 몇 번째인지 셀 수 있습니다.</li>
+    <li>질문 <b>"free 2027 budget planner google sheets"</b>(로그아웃·임시 채팅)에 제 사이트의 <b>Free 2027 Budget Planner (Google Sheets)</b> 페이지가 1번으로 나왔습니다. 질문 글자가 제목에 거의 그대로 있습니다.</li>
+    <li>로그인 안 한 제미나이에 지시문을 넣고 손님처럼 써 보니 <b>질문 3개 → 판정 표 → 제목 추천 → 다음 할 일</b>까지 순서대로 나왔습니다.</li>
+  </ul>
+</div>
+
+<h2>솔직한 주의사항</h2>
+<div class="warn">
+  <ol>
+    <li><b>순위는 물을 때마다 바뀝니다.</b> 같은 질문에 1번이었다가 9번으로 내려간 적도 있습니다. 1~2주 뒤 같은 질문으로 다시 재서 흐름을 보세요.</li>
+    <li><b>제목은 많은 이유 중 하나입니다.</b> 제목이 질문 단어를 절반 이상 같이 쓰면 인용률이 20.1%, 10% 미만이면 9.3%였다는 연구(AirOps, 2026년 3월)가 있지만 관계를 본 것이지 보장은 아닙니다.</li>
+    <li><b>무료 자료면 "Free·무료"를 꼭 넣으세요.</b> "free"가 없는 질문엔 ChatGPT가 웹 검색을 안 하고 혼자 답하는 경우가 많았습니다. 유료 상품엔 넣지 않습니다.</li>
+    <li><b>robots.txt에서 OAI-SearchBot을 막으면 ChatGPT 검색에 안 나옵니다</b>(OpenAI 공식 안내).</li>
+  </ol>
+</div>
+
+<p>가게·블로그가 AI에 나오는지 더 넓게 보고 싶으면 <a href="/ai-visibility-check.html">내 사이트, AI에 나올까? 무료 점검 프롬프트</a>도 같이 쓰세요.</p>
+<p class="updated">2026년 10월 27일 기준 · 테스트: ChatGPT(로그아웃) · 제미나이(로그아웃)</p>
+
+<div class="yt">
+  <a class="pill pill-white" href="https://www.youtube.com/shorts/cw7bcYwQLAs" target="_blank" rel="noopener">관련 영상 보기 <span class="ar">↗</span></a>
+  <a class="pill pill-white" href="https://www.youtube.com/@mikukjubu?sub_confirmation=1" target="_blank" rel="noopener">유튜브 구독 <span class="ar">↗</span></a>
+</div>
+<p>화면이 바뀌어서 안 맞는 부분을 보셨으면 <a href="/contact/">알려주세요</a>.</p>
+
+<a href="/" class="back">← 홈으로 돌아가기</a>
+</main>
+
+<footer class="mk-ft">
+  <div class="wrap">
+    <div class="mk-ft-top">
+      <div class="mk-ft-brand">
+        <a href="/" class="mk-logo"><span class="mk-tile">M</span><span>미국주부<small>Mompreneur Diary</small></span></a>
+        <p>미국에서 1인 사업하는 한국 주부. 온라인 마케팅 · 드랍쉬핑 · 온라인 셀러 컨설팅.</p>
+      </div>
+      <div class="mk-ft-col">
+        <h5>둘러보기</h5>
+        <a href="/#youtube">영상</a>
+        <a href="/blog/">블로그</a>
+        <a href="/tools/">추천 프로그램</a>
+        <a href="/contact/">문의</a>
+      </div>
+      <div class="mk-ft-col">
+        <h5>커뮤니티 · 연결</h5>
+        <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener">유튜브 구독하기 →</a>
+        <a href="https://www.youtube.com/channel/UCssWRwTEAY-UY7X7lvFi80w/join" target="_blank" rel="noopener">유튜브 멤버십 가입 →</a>
+        <a href="https://discord.gg/HgDDT2C6rs" target="_blank" rel="noopener">Discord 커뮤니티 →</a>
+      </div>
+    </div>
+    <div class="mk-ft-bot">
+      <span>© 2026 미국주부 · Mompreneur Diary. All rights reserved.</span>
+      <span><a href="/privacy.html">개인정보처리방침</a> · <a href="/disclosure.html">제휴 공시</a> · <a href="/en/">English</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.pr').forEach(function(box){
+  var b=box.querySelector('.cp'), t=box.querySelector('pre');
+  if(!b||!t) return;
+  b.addEventListener('click',function(){
+    var done=function(){ b.textContent='복사됨 ✓'; setTimeout(function(){ b.textContent='복사'; },1800); };
+    var fallback=function(){ var r=document.createRange(); r.selectNodeContents(t); var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); try{ document.execCommand('copy'); done(); }catch(e){ b.textContent='선택됨 — Ctrl+C'; } };
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t.innerText).then(done, fallback); } else { fallback(); }
+  });
+});
+</script>
+<script src="/js/mk.js?v=20260924" defer></script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9b3d857e23354a79b458004691c28056"}'></script>
+</body>
+</html>
