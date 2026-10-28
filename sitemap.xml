@@ -56,6 +56,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/chatgpt-title-check.html" />
   </url>
   <url>
+    <loc>https://mikukjubu.com/ai-business-report.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/ai-business-report.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/ai-business-report.html" />
+  </url>
+  <url>
     <loc>https://mikukjubu.com/blog/claude-amazon-listing/</loc>
     <lastmod>2026-10-21</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/blog/claude-amazon-listing/" />
@@ -66,6 +72,24 @@
     <lastmod>2026-10-14</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/blog/us-3pl-warehouse/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/blog/us-3pl-warehouse/" />
+  </url>
+  <url>
+    <loc>https://mikukjubu.com/calc/krw-payout/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/calc/krw-payout/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/calc/krw-payout/" />
+  </url>
+  <url>
+    <loc>https://mikukjubu.com/calc/fair-draw/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/calc/fair-draw/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/calc/fair-draw/" />
+  </url>
+  <url>
+    <loc>https://mikukjubu.com/calc/marketplace-fees/</loc>
+    <lastmod>2026-10-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/calc/marketplace-fees/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/calc/marketplace-fees/" />
   </url>
   <url>
     <loc>https://mikukjubu.com/blog/claude-3d-website/</loc>
@@ -85,6 +109,18 @@
     <lastmod>2026-09-26</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/blog/chatgpt-weekly-sales-summary/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/blog/chatgpt-weekly-sales-summary/" />
+  </url>
+  <url>
+    <loc>https://mikukjubu.com/ai-visibility-check.html</loc>
+    <lastmod>2026-09-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/ai-visibility-check.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/ai-visibility-check.html" />
+  </url>
+  <url>
+    <loc>https://mikukjubu.com/claude-code-usage.html</loc>
+    <lastmod>2026-09-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/claude-code-usage.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/claude-code-usage.html" />
   </url>
   <url>
     <loc>https://mikukjubu.com/blog/marketing-is-money/</loc>
@@ -140,45 +176,9 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/privacy.html" />
   </url>
   <url>
-    <loc>https://mikukjubu.com/claude-code-usage.html</loc>
-    <lastmod>2026-09-23</lastmod>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/claude-code-usage.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/claude-code-usage.html" />
-  </url>
-  <url>
-    <loc>https://mikukjubu.com/ai-visibility-check.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/ai-visibility-check.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/ai-visibility-check.html" />
-  </url>
-  <url>
-    <loc>https://mikukjubu.com/ai-business-report.html</loc>
-    <lastmod>2026-10-16</lastmod>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/ai-business-report.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/ai-business-report.html" />
-  </url>
-  <url>
     <loc>https://mikukjubu.com/3d/</loc>
     <lastmod>2026-09-26</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/3d/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/3d/" />
-  </url>
-  <url>
-    <loc>https://mikukjubu.com/calc/marketplace-fees/</loc>
-    <lastmod>2026-10-05</lastmod>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/calc/marketplace-fees/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/calc/marketplace-fees/" />
-  </url>
-  <url>
-    <loc>https://mikukjubu.com/calc/fair-draw/</loc>
-    <lastmod>2026-10-09</lastmod>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/calc/fair-draw/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/calc/fair-draw/" />
-  </url>
-  <url>
-    <loc>https://mikukjubu.com/calc/krw-payout/</loc>
-    <lastmod>2026-10-10</lastmod>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/calc/krw-payout/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/calc/krw-payout/" />
   </url>
 </urlset>
