@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI로 3D 게임 만들기, 코딩 1도 몰라도 될까? 제미나이 카본·클로드 페이블 게임 4판 직접 해 보기 · 미국주부</title>
+<meta name="description" content="영어 프롬프트 한 줄로 제미나이 카본과 클로드 페이블이 만든 3D 햄스터 게임 4판을 무료로 해 볼 수 있어요. AI·버전·걸린 시간·값·휴대폰 조작법까지 정리했어요." />
+<link rel="canonical" href="https://mikukjubu.com/blog/ai-3d-game/" />
+<link rel="alternate" hreflang="ko" href="https://mikukjubu.com/blog/ai-3d-game/" />
+<link rel="alternate" hreflang="en" href="https://mikukjubu.com/en/blog/ai-3d-game/" />
+<link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/blog/ai-3d-game/" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#FFF6E8" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Gaegu:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/css/mk.css?v=20260924" />
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  .page-head{background:var(--cream-2)}
+  .mk-article .hand{font-family:var(--hand);font-size:28px;color:var(--coral);margin:2px 0 22px}
+  .mk-article .updated{font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.05em}
+  .mk-article .back{display:inline-block;margin-top:34px;font-weight:800;color:var(--coral);border-bottom:2px solid var(--coral)}
+  .tldr{background:var(--lime);border:var(--bd) solid var(--edge);border-radius:20px;padding:20px 24px;box-shadow:6px 6px 0 var(--edge);margin:6px 0 26px}
+  .tldr p{margin:0}
+  .tldr p + p{margin-top:8px}
+  .mk-article .ytw{margin:18px 0 0;aspect-ratio:16/9;border:var(--bd) solid var(--edge);border-radius:22px;box-shadow:8px 8px 0 var(--edge);overflow:hidden;background:#000}
+  .mk-article .ytw iframe{width:100%;height:100%;border:0;display:block}
+  .mk-article .cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:26px 0 8px}
+  .mk-article .games{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:22px 0 10px}
+  .mk-article .gcard{background:var(--white);border:var(--bd) solid var(--edge);border-radius:20px;box-shadow:6px 6px 0 var(--edge);padding:20px 20px 18px;display:flex;flex-direction:column}
+  .mk-article .gcard h3{margin:0 0 8px;font-size:19px}
+  .mk-article .gbadge{display:inline-block;align-self:flex-start;font-size:13.5px;font-weight:800;padding:4px 12px;border:2px solid var(--edge);border-radius:999px;margin:0 0 12px;line-height:1.5}
+  .mk-article .gbadge.ok{background:var(--lime)}.mk-article .gbadge.warn{background:#FFE08A}.mk-article .gbadge.bad{background:var(--lilac)}
+  .mk-article .gcard dl{margin:0 0 12px;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:15px;line-height:1.6}
+  .mk-article .gcard dt{font-weight:800;white-space:nowrap}
+  .mk-article .gcard dd{margin:0}
+  .mk-article .gkeys{font-size:14.5px;line-height:1.6;background:var(--cream);border-radius:12px;padding:10px 12px;margin:0 0 14px}
+  .mk-article .gcard .pill{margin-top:auto;align-self:flex-start}
+  .mk-article .gnote{font-size:15px;background:var(--cream);border:2px dashed var(--edge);border-radius:14px;padding:12px 16px;margin:18px 0 8px}
+  .mk-article .fx{font-size:13px;color:var(--ink-soft);margin-top:10px}
+  @media(max-width:680px){.mk-article .games{grid-template-columns:1fr}}
+</style>
+<meta property="og:type" content="article" />
+<meta property="og:title" content="AI로 3D 게임 만들기, 코딩 1도 몰라도 될까? 제미나이 카본·클로드 페이블 게임 4판 직접 해 보기" />
+<meta property="og:description" content="영어 프롬프트 한 줄로 제미나이 카본과 클로드 페이블이 만든 3D 햄스터 게임 4판을 무료로 해 볼 수 있어요. AI·버전·걸린 시간·값·휴대폰 조작법까지 정리했어요." />
+<meta property="og:url" content="https://mikukjubu.com/blog/ai-3d-game/" />
+<meta property="og:image" content="https://mikukjubu.com/img/ai-3d-game-cover.png" />
+<meta property="og:locale" content="ko_KR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://mikukjubu.com/img/ai-3d-game-cover.png" />
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "AI로 3D 게임 만들기, 코딩 1도 몰라도 될까? 제미나이 카본·클로드 페이블 게임 4판 직접 해 보기", "description": "영어 프롬프트 한 줄로 제미나이 카본과 클로드 페이블이 만든 3D 햄스터 게임 4판을 무료로 해 볼 수 있어요. AI·버전·걸린 시간·값·휴대폰 조작법까지 정리했어요.", "image": "https://mikukjubu.com/img/ai-3d-game-cover.png", "datePublished": "2026-11-16", "dateModified": "2026-11-16", "inLanguage": "ko", "author": {"@type": "Person", "name": "미국주부", "url": "https://mikukjubu.com/"}, "publisher": {"@type": "Person", "name": "미국주부", "url": "https://mikukjubu.com/"}, "mainEntityOfPage": "https://mikukjubu.com/blog/ai-3d-game/", "video": {"@type": "VideoObject", "name": "AI로 3D 게임 만들기, 코딩 1도 몰라도 프롬프트 한 줄로 될까? | 제미나이 카본 600원 vs 클로드 페이블 3천 원", "description": "영어 프롬프트 한 줄로 제미나이 카본과 클로드 페이블이 만든 3D 햄스터 게임 4판을 무료로 해 볼 수 있어요. AI·버전·걸린 시간·값·휴대폰 조작법까지 정리했어요.", "thumbnailUrl": "https://i.ytimg.com/vi/oFT7Lkmwp7Y/hqdefault.jpg", "uploadDate": "2026-11-16", "embedUrl": "https://www.youtube.com/embed/oFT7Lkmwp7Y"}}
+</script>
+<!-- Microsoft Clarity (project yx5quzbfyr, via Bing Webmaster Tools 2026-10-13) -->
+<script>
+(function(c,l,a,r,i,t,y){
+c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "yx5quzbfyr");
+</script>
+</head>
+<body>
+
+<header class="mk-nav">
+  <div class="wrap mk-nav-in">
+    <a href="/" class="mk-logo" aria-label="미국주부 홈">
+      <span class="mk-tile">M</span>
+      <span>미국주부<small>Mompreneur Diary</small></span>
+    </a>
+    <nav class="mk-menu" id="mkMenu">
+      <a href="/#youtube">영상</a>
+      <a href="/blog/">블로그</a>
+      <a href="/blog/#game">게임</a>
+      <a href="/tools/">추천 프로그램</a>
+      <a href="/contact/">문의</a>
+      <a href="/en/blog/ai-3d-game/" class="lang">EN ↗</a>
+    </nav>
+    <div class="mk-nav-right">
+      <a href="/contact/" class="pill pill-coral">1:1 컨설팅 <span class="ar">↗</span></a>
+      <button class="mk-burger" id="mkBurger" aria-label="메뉴 열기" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="tag" style="color:var(--coral)">게임</span>
+    <h1>AI로 3D 게임 만들기,<br />코딩 1도 몰라도 될까?</h1>
+  </div>
+</section>
+
+<main class="mk-article">
+<p class="hand">설치 없이 브라우저에서 바로 돼요</p>
+
+<div class="tldr">
+  <p><b>짧은 답.</b> 네, 코딩을 몰라도 영어 프롬프트 한 줄로 <b>플레이할 수 있는 3D 게임</b>이 나왔어요. 다만 4판 중 바로 플레이된 건 <b>2판</b>(제미나이 카본 2차 · 클로드 페이블 사이트판)이에요.</p>
+  <p>4판 모두 같은 프롬프트를 딱 한 번 보내서 나온 코드를 <b>고치지 않고 그대로</b> 올렸어요. 아래 <b>해 보기</b>를 누르면 새 창에서 바로 열려요.</p>
+</div>
+
+<h2>영상으로 보기</h2>
+<p>같은 영어 프롬프트 한 줄로 두 AI에게 게임을 만들게 하고, 걸린 시간과 값을 비교한 영상이에요.</p>
+<div class="ytw"><iframe src="https://www.youtube-nocookie.com/embed/oFT7Lkmwp7Y" title="AI로 3D 게임 만들기, 코딩 1도 몰라도 될까? 제미나이 카본·클로드 페이블 게임 4판 직접 해 보기" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+<div class="cta"><a class="pill pill-white" href="https://youtu.be/oFT7Lkmwp7Y" target="_blank" rel="noopener">▶ 유튜브에서 보기</a></div>
+
+<h2 id="play">게임 4판 해 보기</h2>
+<p>PC에서는 키보드로, 휴대폰에서는 화면 버튼으로 해요. 휴대폰에서 PLAY를 누르면 왼쪽 아래에 이동 조이스틱, 오른쪽 아래에 JUMP·DASH 버튼이 나와요.</p>
+<p class="gnote">📱 휴대폰 버튼은 AI가 만든 게 아니라 미국주부가 나중에 붙였어요. 게임 코드는 AI가 만든 그대로예요.</p>
+<div class="games">
+  <div class="gcard">
+    <h3>제미나이 카본 · 2차</h3>
+    <span class="gbadge ok">✅ 바로 플레이돼요</span>
+    <dl><dt>AI</dt><dd>Gemini 4 Carbon (구글 AI 스튜디오 · API)</dd><dt>만든 때</dt><dd>2026년 11월 14일 오후 11:53 (미국 동부)</dd><dt>걸린 시간</dt><dd>5분 57.3초</dd><dt>값</dt><dd>44센트 (약 590원)</dd><dt>바꾼 설정</dt><dd>Output length 32768 → 65536 하나만</dd></dl>
+    <p class="gkeys"><b>조작</b> · WASD·방향키 이동 · Space 점프 · Shift 대시 · 거품은 자동 발사</p>
+    <a class="pill pill-plum" href="/games/ai-3d-hamster/carbon-2.html" target="_blank" rel="noopener">해 보기 <span class="ar">↗</span></a>
+  </div>
+  <div class="gcard">
+    <h3>클로드 페이블 · 사이트판</h3>
+    <span class="gbadge ok">✅ 바로 플레이돼요</span>
+    <dl><dt>AI</dt><dd>Claude Fable 5.2 (claude.ai · 울트라 요금제)</dd><dt>만든 때</dt><dd>2026년 11월 14일 오후 10:47 (미국 동부)</dd><dt>걸린 시간</dt><dd>약 12분 30초 (스스로 켜 보고 확인한 시간 포함)</dd><dt>값</dt><dd>요금제 안 (그 주 페이블 사용량 약 1%)</dd></dl>
+    <p class="gkeys"><b>조작</b> · WASD 이동 · Space 점프 · Shift 대시 · 마우스 끌기·Q·E 시점 · P 멈춤 · M 소리</p>
+    <a class="pill pill-plum" href="/games/ai-3d-hamster/fable-claude-site.html" target="_blank" rel="noopener">해 보기 <span class="ar">↗</span></a>
+  </div>
+  <div class="gcard">
+    <h3>클로드 페이블 · API판</h3>
+    <span class="gbadge warn">⚠️ 돌아가지만 주인공·거품이 안 보여요</span>
+    <dl><dt>AI</dt><dd>Claude Fable 5.2 (claude-fable-5-2 · API)</dd><dt>만든 때</dt><dd>2026년 11월 15일 오전 12:19 (미국 동부)</dd><dt>걸린 시간</dt><dd>9분 1초</dd><dt>값</dt><dd>2.28달러 (약 3,040원)</dd></dl>
+    <p class="gkeys"><b>조작</b> · WASD 이동 · Space 점프 · Shift 대시 · P 멈춤 · M 소리</p>
+    <a class="pill pill-plum" href="/games/ai-3d-hamster/fable-api.html" target="_blank" rel="noopener">해 보기 <span class="ar">↗</span></a>
+  </div>
+  <div class="gcard">
+    <h3>제미나이 카본 · 1차</h3>
+    <span class="gbadge bad">❌ 코드가 잘려서 시작이 안 돼요</span>
+    <dl><dt>AI</dt><dd>Gemini 4 Carbon (구글 AI 스튜디오 · API · 설정 기본값)</dd><dt>만든 때</dt><dd>2026년 11월 14일 오후 10:52 (미국 동부)</dd><dt>걸린 시간</dt><dd>5분 31.7초</dd><dt>값</dt><dd>33센트 (약 440원)</dd></dl>
+    <p class="gkeys"><b>조작</b> · 시작 화면만 뜨고 PLAY를 눌러도 반응이 없어요. 실패한 결과를 그대로 올렸어요.</p>
+    <a class="pill pill-plum" href="/games/ai-3d-hamster/carbon-1.html" target="_blank" rel="noopener">해 보기 <span class="ar">↗</span></a>
+  </div>
+</div>
+<p class="fx">원화는 한국은행 2026년 11월 13일 환율(1달러 1,332.4원)로 바꾼 값이에요.</p>
+
+<h2>더 자세히 알고 싶다면</h2>
+<p>두 AI에 똑같이 넣은 <b>영어 프롬프트 전문</b>은 <a href="https://youtu.be/oFT7Lkmwp7Y" target="_blank" rel="noopener">유튜브 영상 설명란</a>에 그대로 있어요.</p>
+<p>네 판의 <b>실험 기록</b>, 게임 하나 <b>값 계산표</b>, 카본 1차가 잘린 이유와 <b>고친 과정 전체</b>는 미국주부 유튜브 멤버십 <b>열정등급</b> 자료로 정리했어요.</p>
+<div class="cta"><a class="pill pill-plum" href="https://www.youtube.com/channel/UCssWRwTEAY-UY7X7lvFi80w/join" target="_blank" rel="noopener">유튜브 멤버십 가입하기 <span class="ar">↗</span></a></div>
+
+<p class="updated">2026년 11월 16일 기준</p>
+<a href="/blog/" class="back">← 블로그 목록으로</a>
+</main>
+
+<footer class="mk-ft">
+  <div class="wrap">
+    <div class="mk-ft-top">
+      <div class="mk-ft-brand">
+        <a href="/" class="mk-logo"><span class="mk-tile">M</span><span>미국주부<small>Mompreneur Diary</small></span></a>
+        <p>미국에서 1인 사업하는 한국 주부. 온라인 마케팅 · 드랍쉬핑 · 온라인 셀러 컨설팅.</p>
+      </div>
+      <div class="mk-ft-col">
+        <h5>둘러보기</h5>
+        <a href="/#youtube">영상</a>
+        <a href="/blog/">블로그</a>
+        <a href="/blog/#game">게임</a>
+        <a href="/tools/">추천 프로그램</a>
+        <a href="/contact/">문의</a>
+      </div>
+      <div class="mk-ft-col">
+        <h5>커뮤니티 · 연결</h5>
+        <a href="https://www.youtube.com/@mikukjubu" target="_blank" rel="noopener">유튜브 구독하기 →</a>
+        <a href="https://www.youtube.com/channel/UCssWRwTEAY-UY7X7lvFi80w/join" target="_blank" rel="noopener">유튜브 멤버십 가입 →</a>
+        <a href="https://discord.gg/HgDDT2C6rs" target="_blank" rel="noopener">Discord 커뮤니티 →</a>
+      </div>
+    </div>
+    <div class="mk-ft-bot">
+      <span>© 2026 미국주부 · Mompreneur Diary. All rights reserved.</span>
+      <span><a href="/privacy.html">개인정보처리방침</a> · <a href="/disclosure.html">제휴 공시</a> · <a href="/en/">English</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/mk.js?v=20260924" defer></script>
+<!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9b3d857e23354a79b458004691c28056"}'></script>
+</body>
+</html>

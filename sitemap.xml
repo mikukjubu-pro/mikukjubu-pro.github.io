@@ -50,6 +50,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/blog/" />
   </url>
   <url>
+    <loc>https://mikukjubu.com/blog/ai-3d-game/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/blog/ai-3d-game/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mikukjubu.com/en/blog/ai-3d-game/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/blog/ai-3d-game/" />
+  </url>
+  <url>
     <loc>https://mikukjubu.com/chatgpt-title-check.html</loc>
     <lastmod>2026-10-27</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/chatgpt-title-check.html" />
@@ -139,6 +146,13 @@
     <lastmod>2026-08-28</lastmod>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/blog/appsumo-hostinger/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/blog/appsumo-hostinger/" />
+  </url>
+  <url>
+    <loc>https://mikukjubu.com/en/blog/ai-3d-game/</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mikukjubu.com/blog/ai-3d-game/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://mikukjubu.com/en/blog/ai-3d-game/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mikukjubu.com/blog/ai-3d-game/" />
   </url>
   <url>
     <loc>https://mikukjubu.com/en/blog/claude-3d-website/</loc>
